@@ -9,8 +9,8 @@ Name: Georges Hanna
 Email: georges.hanna@mail.utoronto.ca
 
 Member 3:
-Name:
-Email:
+Name: Hassan Jammin Khan
+Email: hassanj.khan@mail.utoronto.ca
 
 Member 4:
 Name:
