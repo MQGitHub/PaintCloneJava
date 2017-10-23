@@ -5,8 +5,8 @@ Name: Radhika Lakhtakia
 Email: radhika.lakhtakia@mail.utoronto.ca 
 
 Member 2:
-Name:
-Email:
+Name: Georges Hanna
+Email: georges.hanna@mail.utoronto.ca
 
 Member 3:
 Name:
