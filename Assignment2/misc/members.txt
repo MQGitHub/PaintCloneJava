@@ -9,8 +9,13 @@ Name: Georges Hanna
 Email: georges.hanna@mail.utoronto.ca
 
 Member 3:
+<<<<<<< HEAD
 Name: Hassan Jammin Khan
 Email: hassanj.khan@mail.utoronto.ca
+=======
+Name:Me Mateen "Mateen Khan" Qureshi
+Email:mateen.qureshi@mail.utoronto.ca
+>>>>>>> refs/heads/addMemberMateenKhan
 
 Member 4:
 Name:
