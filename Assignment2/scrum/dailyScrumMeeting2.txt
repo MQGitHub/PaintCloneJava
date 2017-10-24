@@ -1,10 +1,10 @@
 # Fill in, commit and push each day.
-# Group Member: FILL THIS IN
+# Group Member: Georges Hanna
 
 Oct 23, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : N/A
+	Today     : read the assignment.
+	Obstacles : figure out how to setup branches correctly
 
 Oct 24, 2017
 	Yesterday :
