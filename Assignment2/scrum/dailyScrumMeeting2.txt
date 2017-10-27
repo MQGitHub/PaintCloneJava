@@ -1,25 +1,25 @@
 # Fill in, commit and push each day.
-# Group Member: FILL THIS IN
+# Group Member: Georges Hanna
 
 Oct 23, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
-
+	Yesterday : N/A
+	Today     : read the assignment.
+	Obstacles : figure out how to setup branches correctly
+	
 Oct 24, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : read assignment
+	Today     : break.
+	Obstacles : break.
 
 Oct 25, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : break.
+	Today     : break.
+	Obstacles : break.
 
 Oct 26, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : break.
+	Today     : Start working on sprint backlog.
+	Obstacles : Understand how dragging and creating an image works.
 
 Oct 27, 2017
 	Yesterday :
