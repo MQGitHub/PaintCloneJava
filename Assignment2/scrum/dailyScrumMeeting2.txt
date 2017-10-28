@@ -7,24 +7,24 @@ Oct 23, 2017
 	Obstacles : figure out how to setup branches correctly
 
 Oct 24, 2017
-	Yesterday :
-	Today     :
+	Yesterday :read the assignment
+	Today     :Break.
 	Obstacles :
 
 Oct 25, 2017
-	Yesterday :
-	Today     :
+	Yesterday : Break
+	Today     : Break
 	Obstacles :
 
 Oct 26, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Break.
+	Today     : Understand given code.
+	Obstacles : difficult time understanding graphics.
 
 Oct 27, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Understand given code.
+	Today     : work  on sprintBacklog.
+	Obstacles : How to get circle to show when dragging.
 
 Oct 28, 2017
 	Yesterday :
