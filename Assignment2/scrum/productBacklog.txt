@@ -5,32 +5,6 @@
 # 2 Implementation of selected color into the drawing stream.
 
 --------------------------------------------------------------------------
-TYPE     : USER STORY 1
-NAME     : Draw Circle
-OWNER    : 
-PRIORITY :
-ESTIMATE : 
-AS A     : user
-I WANT   : To click the center of the circle, drag, and release to specify
-           a circle to be drawn in the current style.
-SO THAT  : I can add circles to my canvas
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : USER STORY 2
-NAME     : Draw Circle Feedback
-OWNER    : 
-PRIORITY :
-ESTIMATE : 
-AS A     : user
-I WANT   : As a user is specifying a Circle, during the drag, a 'current'
-           circle should be on display. As the user drags, the 'current'
-           circle changes in real time so that a circle is drawn with
-           centre at users initial circle click, with radius out to
-           the current dragged mouse position.
-SO THAT  : I can see the circle I am about to build on release of the mouse
-           button.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : USER STORY 3
 NAME     : Draw Rectangle
 OWNER    : 
@@ -178,17 +152,54 @@ ISSUE    : Squiggles are connected to each other by a straight line. Each drag
            the issue is with the representation of the squiggles in the Model.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 6
-NAME     : Circle drawing is broken
+TYPE     : BUG 7
+NAME     : Circle drawing is broken when dragging up and left.
 OWNER    : 
 PRIORITY :
 ESTIMATE : 
+ISSUE    : approaching the zeroes of the border causes the circle to 
+reposition from it's center, need to find a way to remove left and top borders.
+--------------------------------------------------------------------------
+
+
+# COMPLETED USER STORIES/BUGS BELOW ###########################################
+--------------------------------------------------------------------------
+TYPE     : BUG 6
+NAME     : Circle drawing is broken
+OWNER    : Georges Hanna 
+PRIORITY : 3
+ESTIMATE : 2 hours
 ISSUE    : The first click should specify the center of the circle, with
            a drag for the radius. This is not the case in the current
            implementation.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 1
+NAME     : Draw Circle
+OWNER    : Georges Hanna
+PRIORITY : 2
+ESTIMATE : 8 hours.
+AS A     : user
+I WANT   : To click the center of the circle, drag, and release to specify
+           a circle to be drawn in the current style.
+SO THAT  : I can add circles to my canvas
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 2
+NAME     : Draw Circle Feedback
+OWNER    : Georges Hanna
+PRIORITY : 3
+ESTIMATE : 8 hours.
+AS A     : user
+I WANT   : As a user is specifying a Circle, during the drag, a 'current'
+           circle should be on display. As the user drags, the 'current'
+           circle changes in real time so that a circle is drawn with
+           centre at users initial circle click, with radius out to
+           the current dragged mouse position.
+SO THAT  : I can see the circle I am about to build on release of the mouse
+           button.
+--------------------------------------------------------------------------
 
-# COMPLETED USER STORIES/BUGS BELOW ###########################################
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 

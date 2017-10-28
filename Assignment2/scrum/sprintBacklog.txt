@@ -2,14 +2,28 @@
 # to the appropriate Sprint below, after the 
 # Sprint Planning Meeting.
 
+
+# Sprint 1 October 23, 2017
+# Sprint 1 Backlog UserStories go below
+
 # Sprint 1 October 29, 2017
 # Sprint 1 Backlog UserStories go below
 --------------------------------------------------------------------------
+TYPE     : BUG 6
+NAME     : Circle drawing is broken
+OWNER    : Georges Hanna 
+PRIORITY : 3
+ESTIMATE : 2 hours
+ISSUE    : The first click should specify the center of the circle, with
+           a drag for the radius. This is not the case in the current
+           implementation.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : USER STORY 1
 NAME     : Draw Circle
-OWNER    : Georges
-PRIORITY : 1
-ESTIMATE : 
+OWNER    : Georges Hanna
+PRIORITY : 2
+ESTIMATE : 8 hours.
 AS A     : user
 I WANT   : To click the center of the circle, drag, and release to specify
            a circle to be drawn in the current style.
@@ -18,9 +32,9 @@ SO THAT  : I can add circles to my canvas
 --------------------------------------------------------------------------
 TYPE     : USER STORY 2
 NAME     : Draw Circle Feedback
-OWNER    : 
-PRIORITY : 4
-ESTIMATE : 
+OWNER    : Georges Hanna
+PRIORITY : 3
+ESTIMATE : 8 hours.
 AS A     : user
 I WANT   : As a user is specifying a Circle, during the drag, a 'current'
            circle should be on display. As the user drags, the 'current'
@@ -29,25 +43,5 @@ I WANT   : As a user is specifying a Circle, during the drag, a 'current'
            the current dragged mouse position.
 SO THAT  : I can see the circle I am about to build on release of the mouse
            button.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : USER STORY 3
-NAME     : Draw Rectangle
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 
-AS A     : user
-I WANT   : To click on one corner of a rectangle, drag, and release to 
-		   specify two corners of a rectangle to be drawn in the current style.
-SO THAT  : I can add rectangles to my canvas
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : USER STORY 4
-NAME     : Draw Rectangle Feedback
-OWNER    : 
-PRIORITY : 3
-ESTIMATE : 
-AS A     : user
-I WANT   : Similarly to Draw Circle Feedback, display the rectangle in mid construction.
-SO THAT  : I can see the rectangle I am about to build on release of the mouse button.
+
 --------------------------------------------------------------------------
