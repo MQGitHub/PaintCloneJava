@@ -22,24 +22,24 @@ Oct 26, 2017
 	Obstacles : Understand how dragging and creating an image works.
 
 Oct 27, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Read graphics2d API.
+	Today     : Work on fixing circle.
+	Obstacles : Something wrong with circle, I can't understand.
 
 Oct 28, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Issue with circle.
+	Today     : More working on circle.
+	Obstacles : how to lock the center of circle in place.
 
 Oct 29, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Work on circle.
+	Today     : Break.
+	Obstacles : Break.
 
 Oct 30, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Break
+	Today     : Fix circle and start working on rectangle.
+	Obstacles : How to drag backwards with rectangles.
 
 Oct 31, 2017
 	Yesterday :
