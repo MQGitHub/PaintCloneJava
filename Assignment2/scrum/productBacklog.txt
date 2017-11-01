@@ -78,17 +78,6 @@ I WANT   : To be able to select the current line thickness, to be applied
 SO THAT  : 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 8
-NAME     : Draw Square
-OWNER    : Georges Hanna 
-PRIORITY : 1
-ESTIMATE : 2 hours
-AS A     : user
-I WANT   : To click the center of the square, drag, and release to specify
-           a square to be drawn in the current style.
-SO THAT  : I can add squares to my canvas.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : USER STORY 9
 NAME     : Draw Polyline
 OWNER    : Georges Hanna 
@@ -229,6 +218,17 @@ ESTIMATE : 1hour
 AS A     : user
 I WANT   : Similarly to Draw Circle Feedback, display the rectangle in mid construction.
 SO THAT  : I can see the rectangle I am about to build on release of the mouse button.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 8
+NAME     : Draw Square
+OWNER    : Georges Hanna 
+PRIORITY : 1
+ESTIMATE : 2 hours
+AS A     : user
+I WANT   : To click the center of the square, drag, and release to specify
+           a square to be drawn in the current style.
+SO THAT  : I can add squares to my canvas.
 --------------------------------------------------------------------------
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 
