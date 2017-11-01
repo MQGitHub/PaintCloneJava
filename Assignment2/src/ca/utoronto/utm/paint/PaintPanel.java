@@ -118,6 +118,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			this.rectangle.setCorner(new Point(min_X, min_Y));
 			this.rectangle.setWidth(max_X - min_X);
 			this.rectangle.setHeight(max_Y - min_Y);
+			this.model.addRectangle(this.rectangle);
 			
 		}
 	}
