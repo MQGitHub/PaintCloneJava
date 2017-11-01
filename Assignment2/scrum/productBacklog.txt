@@ -98,6 +98,16 @@ AS A     : user
 I WANT   : To be able to click and erase the shapes and lines on my canvas.
 SO THAT  : I can erase stuff from my canvas.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 10
+NAME     : Triangle
+OWNER    : Georges Hanna 
+PRIORITY : 1
+ESTIMATE : 2 hours
+AS A     : user
+I WANT   : to click and drag, to see a triangle formed.
+SO THAT  : I can add triangle to my canvas.
+--------------------------------------------------------------------------
 
 --------------------------------------------------------------------------
 TYPE     : BUG 1

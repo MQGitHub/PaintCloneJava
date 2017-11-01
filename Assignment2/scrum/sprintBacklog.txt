@@ -148,3 +148,14 @@ I WANT   : To click on a point, then click on another point to create a
 		   line in between, until the last point matches the beginning point
 SO THAT  : I can add polylines to my canvas.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 10
+NAME     : Triangle
+OWNER    : Georges Hanna 
+PRIORITY : 1
+ESTIMATE : 2 hours
+AS A     : user
+I WANT   : to click and drag, to see a triangle formed.
+SO THAT  : I can add triangle to my canvas.
+--------------------------------------------------------------------------
+

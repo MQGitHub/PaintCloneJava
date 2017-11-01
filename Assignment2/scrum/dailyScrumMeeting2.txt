@@ -42,14 +42,16 @@ Oct 30, 2017
 	Obstacles : How to drag backwards with rectangles.
 
 Oct 31, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Fix circle, got rectangle working and started working on square.
+	Today     : Got square to work properly.
+	Obstacles : Use same method as circle to get square from the center
+				in order to maintain equal width and height
 
 Nov 1, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Finished square shape
+	Today     : Finish triangle, add eraser, implement new
+				design pattern to shapes.
+	Obstacles : which design pattern would be best used here?
 	
 Nov 2, 2017
 	Yesterday :
