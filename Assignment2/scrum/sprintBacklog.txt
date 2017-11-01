@@ -81,7 +81,7 @@ SO THAT  : I can see the rectangle I am about to build on release of the mouse b
 TYPE     : USER STORY 5
 NAME     : Color selector
 OWNER    : 
-PRIORITY :
+PRIORITY : 1
 ESTIMATE : 
 AS A     : user
 I WANT   : To be able to select the current drawing color, to be applied
@@ -105,7 +105,7 @@ SO THAT  :
 TYPE     : USER STORY 7
 NAME     : Line thickness selector
 OWNER    : 
-PRIORITY :
+PRIORITY : 2
 ESTIMATE : 
 AS A     : user
 I WANT   : To be able to select the current line thickness, to be applied
@@ -141,7 +141,7 @@ SO THAT  : I can add squares to my canvas.
 TYPE     : USER STORY 9
 NAME     : Draw Polyline
 OWNER    : Georges Hanna 
-PRIORITY : 1
+PRIORITY : 3
 ESTIMATE : 4 hours
 AS A     : user
 I WANT   : To click on a point, then click on another point to create a 
@@ -152,10 +152,30 @@ SO THAT  : I can add polylines to my canvas.
 TYPE     : USER STORY 10
 NAME     : Triangle
 OWNER    : Georges Hanna 
-PRIORITY : 1
+PRIORITY : 6
 ESTIMATE : 2 hours
 AS A     : user
 I WANT   : to click and drag, to see a triangle formed.
 SO THAT  : I can add triangle to my canvas.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 12
+NAME     : Line
+OWNER    : Georges Hanna 
+PRIORITY : 5
+ESTIMATE : 1 hours
+AS A     : user
+I WANT   : to click and drag, to see a straight line formed.
+SO THAT  : I can add lines to my canvas.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 5
+NAME     : Squiggle is broken
+OWNER    : 
+PRIORITY : 4
+ESTIMATE : 
+ISSUE    : Squiggles are connected to each other by a straight line. Each drag
+		   of the mouse should be a separate squiggle. Possibly
+           the issue is with the representation of the squiggles in the Model.
 --------------------------------------------------------------------------
 

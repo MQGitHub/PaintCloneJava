@@ -89,7 +89,7 @@ I WANT   : To click on a point, then click on another point to create a
 SO THAT  : I can add polylines to my canvas.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 9
+TYPE     : USER STORY 11
 NAME     : Erase
 OWNER    : Georges Hanna 
 PRIORITY : 1
@@ -108,7 +108,16 @@ AS A     : user
 I WANT   : to click and drag, to see a triangle formed.
 SO THAT  : I can add triangle to my canvas.
 --------------------------------------------------------------------------
-
+--------------------------------------------------------------------------
+TYPE     : USER STORY 12
+NAME     : Line
+OWNER    : Georges Hanna 
+PRIORITY : 1
+ESTIMATE : 1 hours
+AS A     : user
+I WANT   : to click and drag, to see a straight line formed.
+SO THAT  : I can add lines to my canvas.
+--------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 1
 NAME     : Icons instead of text for drawing mode selection
