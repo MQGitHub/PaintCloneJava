@@ -22,6 +22,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private Point begin;
 	private Rectangle rectangle;
 	private Square square;
+	private Polyline polyline;
 	private Graphics g2d;
 	
 	public PaintPanel(PaintModel model, View view){
@@ -85,6 +86,13 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			int y = s.getCorner().getY();
 			int width = s.getWidth();
 			g2d.drawRect(x-(width/2), y-(width/2), width, width);
+		}
+		
+		ArrayList<Polyline> polylines = this.model.getPolylines();
+		for(Polyline p: this.model.getPolylines()) {
+			int[] x = p.getXPoints();
+			int[] y = p.getYPoints();
+			g2d.drawPolyline(x, y, p.getNumPoints());
 		}
 		
 		g2d.dispose();
@@ -163,6 +171,9 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 
 		}else if(this.mode=="Square") {
 			this.square = new Square(begin,0);
+		}else if(this.mode=="Polyline") {
+			Point[] first = {begin};
+			this.polyline = new Polyline(first);
 		}
 	}
 
@@ -172,6 +183,12 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			
 		} else if(this.mode=="Circle"){
 			if(this.circle!=null){
+			}
+		} else if(this.mode=="polyline") {
+			Point newP = new Point(e.getX(), e.getY());
+			this.polyline.addPoint(newP);
+			if(newP == begin) {
+				this.model.addPolyline(this.polyline);
 			}
 		}
 		
