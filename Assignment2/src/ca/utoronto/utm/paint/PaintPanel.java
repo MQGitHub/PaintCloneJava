@@ -16,7 +16,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private int i=0;
 	private PaintModel model; // slight departure from MVC, because of the way painting works
 	private View view; // So we can talk to our parent or other components of the view
-
+	private Point begin;
 	private String mode; // modifies how we interpret input (could be better?)
 	private Circle circle; // the circle we are building
 	private Rectangle rectangle; // the rectangle we are building
@@ -103,6 +103,10 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	}
 	@Override
 	public void mouseDragged(MouseEvent e) {
+		int min_X = Math.min(begin.getX(), e.getX());
+		int min_Y = Math.min(begin.getY(), e.getY());
+		int max_X = Math.max(begin.getX(), e.getX());
+		int max_Y = Math.max(begin.getY(), e.getY());
 		if(this.mode=="Squiggle"){
 			this.model.addPoint(new Point(e.getX(), e.getY()));
 		} else if(this.mode=="Circle"){
@@ -111,6 +115,9 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			this.circle.setRadius(radius);
 			this.model.addCircle(this.circle);
 		} else if(this.mode=="Rectangle") {
+			this.rectangle.setCorner(new Point(min_X, min_Y));
+			this.rectangle.setWidth(max_X - min_X);
+			this.rectangle.setHeight(max_Y - min_Y);
 			
 		}
 	}
@@ -133,7 +140,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			Point centre = new Point(e.getX(), e.getY());
 			this.circle=new Circle(centre, 0);
 		}else if(this.mode=="Rectangle") {
-			
+			begin = new Point(e.getX(), e.getY());
+			this.rectangle = new Rectangle(begin,0,0);
 		}
 	}
 
