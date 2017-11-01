@@ -16,11 +16,13 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private int i=0;
 	private PaintModel model; // slight departure from MVC, because of the way painting works
 	private View view; // So we can talk to our parent or other components of the view
-	private Point begin;
+	
 	private String mode; // modifies how we interpret input (could be better?)
 	private Circle circle; // the circle we are building
-	private Rectangle rectangle; // the rectangle we are building
+	private Point begin;
+	private Rectangle rectangle;
 	private Square square;
+	private Graphics g2d;
 	
 	public PaintPanel(PaintModel model, View view){
 		this.setBackground(Color.blue);
@@ -28,7 +30,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
 		
-		this.mode="Circle"; // bad code here?
+		this.mode="Rectangle"; // bad code here?
 		
 		this.model = model;
 		this.model.addObserver(this);
@@ -48,7 +50,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		// setBackground (Color.blue); 
 		// Origin is at the top left of the window 50 over, 75 down
 		g2d.setColor(Color.white);
-        g2d.drawString ("i="+i, 50, 75);
+        g2d.drawString ("i="+i, 25, 25);
 		i=i+1;
 
 		// Draw Lines
@@ -65,27 +67,26 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			int x = c.getCentre().getX();
 			int y = c.getCentre().getY();
 			int radius = c.getRadius();
-			g2d.drawOval(x - (radius/2), y - (radius/2), radius, radius);
+			g2d.drawOval(x-(radius/2),y-(radius/2), radius, radius);
 		}
 		
-		// Draw Rectangle
 		ArrayList<Rectangle> rectangles = this.model.getRectangles();
 		for(Rectangle r: this.model.getRectangles()) {
 			int x = r.getCorner().getX();
 			int y = r.getCorner().getY();
-			int width = r.getWidth();
 			int height = r.getHeight();
+			int width = r.getWidth();
 			g2d.drawRect(x, y, width, height);
-		}
+			}
 		
-		//Draw Square
 		ArrayList<Square> squares = this.model.getSquares();
 		for(Square s: this.model.getSquares()) {
 			int x = s.getCorner().getX();
 			int y = s.getCorner().getY();
 			int width = s.getWidth();
-			g2d.drawRect(x - (width/2), y - (width/2), width, width);
+			g2d.drawRect(x-(width/2), y-(width/2), width, width);
 		}
+		
 		g2d.dispose();
 	}
 
@@ -120,22 +121,25 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		if(this.mode=="Squiggle"){
 			this.model.addPoint(new Point(e.getX(), e.getY()));
 		} else if(this.mode=="Circle"){
-			int radius = (int)Math.sqrt(Math.pow(this.circle.getCentre().getX() - e.getX(),2) 
-					+ Math.pow(this.circle.getCentre().getY() - e.getY(), 2));
+			int x = begin.getX()-e.getX();
+			int y = begin.getY() - e.getY();
+			int radius = (int) Math.sqrt(Math.pow(x,2) + 
+					Math.pow(y, 2));
 			this.circle.setRadius(radius);
 			this.model.addCircle(this.circle);
-		} else if(this.mode=="Rectangle") {
+		}else if(this.mode == "Rectangle") {
 			this.rectangle.setCorner(new Point(min_X, min_Y));
 			this.rectangle.setWidth(max_X - min_X);
 			this.rectangle.setHeight(max_Y - min_Y);
 			this.model.addRectangle(this.rectangle);
-		}else if(this.mode=="Square") {
+		}else if(this.mode =="Square") {
 			int x = begin.getX() - e.getX();
 			int y = begin.getY() - e.getY();
 			int width = (int) Math.sqrt(Math.pow(x,2) +  Math.pow(y, 2));
 			this.square.setWidth(width);
 			this.model.addSquare(this.square);
 		}
+		repaint();
 	}
 
 	// MouseListener below
@@ -144,7 +148,6 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		if(this.mode=="Squiggle"){
 			
 		} else if(this.mode=="Circle"){
-			
 		}
 	}
 
@@ -154,9 +157,10 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		if(this.mode=="Squiggle"){
 			
 		} else if(this.mode=="Circle"){
-			this.circle=new Circle(begin, 0);
+			this.circle = new Circle(begin, 0);
 		}else if(this.mode=="Rectangle") {
 			this.rectangle = new Rectangle(begin,0,0);
+
 		}else if(this.mode=="Square") {
 			this.square = new Square(begin,0);
 		}
@@ -168,11 +172,6 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			
 		} else if(this.mode=="Circle"){
 			if(this.circle!=null){
-				// Problematic notion of radius and centre!!
-				int radius = Math.abs(this.circle.getCentre().getX()-e.getX());
-				this.circle.setRadius(radius);
-				this.model.addCircle(this.circle);
-				this.circle=null;
 			}
 		}
 		
