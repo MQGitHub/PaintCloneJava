@@ -84,7 +84,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			int x = s.getCorner().getX();
 			int y = s.getCorner().getY();
 			int width = s.getWidth();
-			g2d.drawRect(x, y, width, width);
+			g2d.drawRect(x - (width/2), y - (width/2), width, width);
 		}
 		g2d.dispose();
 	}
@@ -130,8 +130,11 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			this.rectangle.setHeight(max_Y - min_Y);
 			this.model.addRectangle(this.rectangle);
 		}else if(this.mode=="Square") {
-			
-			
+			int x = begin.getX() - e.getX();
+			int y = begin.getY() - e.getY();
+			int width = (int) Math.sqrt(Math.pow(x,2) +  Math.pow(y, 2));
+			this.square.setWidth(width);
+			this.model.addSquare(this.square);
 		}
 	}
 
