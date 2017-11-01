@@ -99,6 +99,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			int radius = (int)Math.sqrt(Math.pow(this.circle.getCentre().getX() - e.getX(),2) 
 					+ Math.pow(this.circle.getCentre().getY() - e.getY(), 2));
 			this.circle.setRadius(radius);
+			this.model.addCircle(this.circle);
 		}
 	}
 
