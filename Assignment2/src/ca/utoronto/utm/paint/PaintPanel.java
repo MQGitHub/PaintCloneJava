@@ -63,7 +63,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			int x = c.getCentre().getX();
 			int y = c.getCentre().getY();
 			int radius = c.getRadius();
-			g2d.drawOval(x, y, radius, radius);
+			g2d.drawOval(x - (radius/2), y - (radius/2), radius, radius);
 		}
 		
 		g2d.dispose();
@@ -96,7 +96,9 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		if(this.mode=="Squiggle"){
 			this.model.addPoint(new Point(e.getX(), e.getY()));
 		} else if(this.mode=="Circle"){
-			
+			int radius = (int)Math.sqrt(Math.pow(this.circle.getCentre().getX() - e.getX(),2) 
+					+ Math.pow(this.circle.getCentre().getY() - e.getY(), 2));
+			this.circle.setRadius(radius);
 		}
 	}
 
@@ -115,9 +117,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		if(this.mode=="Squiggle"){
 			
 		} else if(this.mode=="Circle"){
-			// Problematic notion of radius and centre!!
 			Point centre = new Point(e.getX(), e.getY());
-			int radius = 0;
 			this.circle=new Circle(centre, 0);
 		}
 	}
