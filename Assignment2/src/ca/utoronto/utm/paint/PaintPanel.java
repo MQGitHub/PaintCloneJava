@@ -19,6 +19,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 
 	private String mode; // modifies how we interpret input (could be better?)
 	private Circle circle; // the circle we are building
+	private Rectangle rectangle; // the rectangle we are building
 	
 	public PaintPanel(PaintModel model, View view){
 		this.setBackground(Color.blue);
@@ -66,6 +67,15 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			g2d.drawOval(x - (radius/2), y - (radius/2), radius, radius);
 		}
 		
+		// Draw Rectangle
+		ArrayList<Rectangle> rectangles = this.model.getRectangles();
+		for(Rectangle r: this.model.getRectangles()) {
+			int x = r.getCorner().getX();
+			int y = r.getCorner().getY();
+			int width = r.getWidth();
+			int height = r.getHeight();
+			g2d.drawRect(x, y, width, height);
+		}
 		g2d.dispose();
 	}
 
@@ -100,6 +110,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 					+ Math.pow(this.circle.getCentre().getY() - e.getY(), 2));
 			this.circle.setRadius(radius);
 			this.model.addCircle(this.circle);
+		} else if(this.mode=="Rectangle") {
+			
 		}
 	}
 
@@ -120,6 +132,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		} else if(this.mode=="Circle"){
 			Point centre = new Point(e.getX(), e.getY());
 			this.circle=new Circle(centre, 0);
+		}else if(this.mode=="Rectangle") {
+			
 		}
 	}
 
