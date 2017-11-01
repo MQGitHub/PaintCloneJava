@@ -19,9 +19,10 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	
 	private String mode; // modifies how we interpret input (could be better?)
 	private Circle circle; // the circle we are building
-	private Point begin;
+	private Point begin, end;
 	private Rectangle rectangle;
 	private Square square;
+	private Line line;
 	private Graphics g2d;
 	
 	public PaintPanel(PaintModel model, View view){
@@ -30,7 +31,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
 		
-		this.mode="Rectangle"; // bad code here?
+		//this.mode="Rectangle"; // bad code here?
 		
 		this.model = model;
 		this.model.addObserver(this);
@@ -87,6 +88,13 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			g2d.drawRect(x-(width/2), y-(width/2), width, width);
 		}
 		
+		ArrayList<Line> lines = this.model.getLines();
+		for(Line p: this.model.getLines()) {
+			Point p2 = p.getBeginPoint();
+			Point p1 = p.getEndPoint();
+			g2d.drawLine(p1.getX(), p1.getY(),p2.getX(), p2.getY());
+		}
+		
 		g2d.dispose();
 	}
 
@@ -138,6 +146,10 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			int width = (int) Math.sqrt(Math.pow(x,2) +  Math.pow(y, 2));
 			this.square.setWidth(width);
 			this.model.addSquare(this.square);
+		} else if(this.mode=="Line") {
+			end = new Point(e.getX(), e.getY());
+			this.line.setEndPoint(end);
+			this.model.addLine(this.line);
 		}
 		repaint();
 	}
@@ -163,6 +175,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 
 		}else if(this.mode=="Square") {
 			this.square = new Square(begin,0);
+		}else if(this.mode=="Line") {
+			this.line = new Line(begin,begin);
 		}
 	}
 
