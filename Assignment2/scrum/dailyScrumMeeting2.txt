@@ -51,7 +51,7 @@ Nov 1, 2017
 	Yesterday : Finished square shape
 	Today     : Finish triangle, add eraser, implement new
 				design pattern to shapes.
-	Obstacles : which design pattern would be best used here?
+	Obstacles : Ended up doing different task, added new shapes, fixed bug2
 	
 Nov 2, 2017
 	Yesterday :

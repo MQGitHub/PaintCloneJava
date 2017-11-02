@@ -119,6 +119,16 @@ I WANT   : to click and drag, to see a straight line formed.
 SO THAT  : I can add lines to my canvas.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : USER STORY 13
+NAME     : Oval
+OWNER    : Georges Hanna 
+PRIORITY : 1
+ESTIMATE : 1 hours
+AS A     : user
+I WANT   : to click and drag, to see an oval formed.
+SO THAT  : I can add ovals to my canvas.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 1
 NAME     : Icons instead of text for drawing mode selection
 OWNER    : 
@@ -248,6 +258,26 @@ AS A     : user
 I WANT   : To click the center of the square, drag, and release to specify
            a square to be drawn in the current style.
 SO THAT  : I can add squares to my canvas.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 12
+NAME     : Line
+OWNER    : Georges Hanna 
+PRIORITY : 1
+ESTIMATE : 1 hours
+AS A     : user
+I WANT   : to click and drag, to see a straight line formed.
+SO THAT  : I can add lines to my canvas.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 13
+NAME     : Oval
+OWNER    : Georges Hanna 
+PRIORITY : 1
+ESTIMATE : 1 hours
+AS A     : user
+I WANT   : to click and drag, to see an oval formed.
+SO THAT  : I can add ovals to my canvas.
 --------------------------------------------------------------------------
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 
