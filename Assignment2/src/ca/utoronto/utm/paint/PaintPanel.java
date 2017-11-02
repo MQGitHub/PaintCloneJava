@@ -23,6 +23,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private Rectangle rectangle;
 	private Square square;
 	private Line line;
+	private Oval oval;
 	private Graphics g2d;
 	
 	public PaintPanel(PaintModel model, View view){
@@ -65,9 +66,9 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		// Draw Circles
 		ArrayList<Circle> circles = this.model.getCircles();
 		for(Circle c: this.model.getCircles()){
-			int x = c.getCentre().getX();
-			int y = c.getCentre().getY();
-			int radius = c.getRadius();
+			int x = c.getCorner().getX();
+			int y = c.getCorner().getY();
+			int radius = c.getHeight();
 			g2d.drawOval(x-(radius/2),y-(radius/2), radius, radius);
 		}
 		
@@ -93,6 +94,15 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			Point p2 = p.getBeginPoint();
 			Point p1 = p.getEndPoint();
 			g2d.drawLine(p1.getX(), p1.getY(),p2.getX(), p2.getY());
+		}
+		
+		ArrayList<Oval> ovals = this.model.getOvals();
+		for(Oval o: this.model.getOvals()) {
+			int x = o.getCorner().getX();
+			int y = o.getCorner().getY();
+			int height = o.getHeight();
+			int width = o.getWidth();
+			g2d.drawOval(x, y, width, height);
 		}
 		
 		g2d.dispose();
@@ -146,10 +156,15 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			int width = (int) Math.sqrt(Math.pow(x,2) +  Math.pow(y, 2));
 			this.square.setWidth(width);
 			this.model.addSquare(this.square);
-		} else if(this.mode=="Line") {
+		}else if(this.mode=="Line") {
 			end = new Point(e.getX(), e.getY());
 			this.line.setEndPoint(end);
 			this.model.addLine(this.line);
+		}else if(this.mode=="Oval") {
+			this.oval.setCorner(new Point(min_X, min_Y));
+			this.oval.setWidth(max_X - min_X);
+			this.oval.setHeight(max_Y - min_Y);
+			this.model.addOval(this.oval);
 		}
 		repaint();
 	}
@@ -177,6 +192,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			this.square = new Square(begin,0);
 		}else if(this.mode=="Line") {
 			this.line = new Line(begin,begin);
+		}else if(this.mode=="Oval") {
+			this.oval = new Oval(begin,0,0);
 		}
 	}
 
