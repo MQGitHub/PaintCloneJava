@@ -1,6 +1,7 @@
 package ca.utoronto.utm.paint;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,10 +15,12 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 	public ShapeChooserPanel(View view) {	
 		this.view=view;
 		
-		String[] buttonLabels = { "Circle", "Rectangle", "Square", "Squiggle", "Polyline" };
+		String[] buttonLabels = { "Circle","Oval", "Rectangle", "Square", "Squiggle", "Polyline", "Line" };
+		ButtonGroup group =  new ButtonGroup();
 		this.setLayout(new GridLayout(buttonLabels.length, 1));
 		for (String label : buttonLabels) {
-			JButton button = new JButton(label);
+			JToggleButton button = new JToggleButton(label);
+			group.add(button);
 			this.add(button);
 			button.addActionListener(this);
 		}
@@ -29,8 +32,7 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		this.view.getPaintPanel().setMode(e.getActionCommand());
-		System.out.println(e.getActionCommand());
 	}
-
 	
 }
+
