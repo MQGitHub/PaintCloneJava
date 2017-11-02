@@ -58,7 +58,11 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		for(int i=0;i<points.size()-1; i++){
 			Point p1=points.get(i);
 			Point p2=points.get(i+1);
-			g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
+			if ((p1.getX() == -1 && p1.getY() == -1) || (p2.getX() == -1 && p2.getY() == -1)) {
+				i = i + 2;
+			}else {
+				g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
+			}
 		}
 		
 		// Draw Circles
@@ -169,7 +173,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		if(this.mode=="Squiggle"){
-			
+			this.model.addPoint(new Point(-1,-1));
 		} else if(this.mode=="Circle"){
 			if(this.circle!=null){
 			}
@@ -195,3 +199,4 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		}
 	}
 }
+
