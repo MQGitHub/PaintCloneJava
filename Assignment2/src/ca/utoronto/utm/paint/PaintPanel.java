@@ -15,8 +15,9 @@ import java.util.Observer;
 class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseListener  {
 	private int i=0;
 	private PaintModel model; // slight departure from MVC, because of the way painting works
-	private View view; // So we can talk to our parent or other components of the view
-
+	private View view; // So we can talk to our parent or other components of the view 
+	
+	private boolean end;
 	private String mode; // modifies how we interpret input (could be better?)
 	private Circle circle; // the circle we are building
 	
@@ -50,12 +51,17 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		i=i+1;
 
 		// Draw Lines
-		ArrayList<Point> points = this.model.getPoints();
-		for(int i=0;i<points.size()-1; i++){
-			Point p1=points.get(i);
-			Point p2=points.get(i+1);
-			g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
-		}
+			ArrayList<Point> pointss = this.model.getPoints();
+			for (int i = 0;i< pointss.size()-1; i ++) {
+				Point p1= pointss.get(i);
+				Point p2= pointss.get(i+1);
+				if ((p1.getX() == -1 && p1.getY() == -1) || (p2.getX() == -1 && p2.getY() == -1)) {
+					i = i + 2;
+				}else {
+					g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
+				}
+				
+			}
 		
 		// Draw Circles
 		ArrayList<Circle> circles = this.model.getCircles();
@@ -85,8 +91,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	// MouseMotionListener below
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		if(this.mode=="Squiggle"){
-			
+		if(this.mode=="Squiggle"){	
 		} else if(this.mode=="Circle"){
 			
 		}
@@ -113,7 +118,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	@Override
 	public void mousePressed(MouseEvent e) {
 		if(this.mode=="Squiggle"){
-			
+		
 		} else if(this.mode=="Circle"){
 			// Problematic notion of radius and centre!!
 			Point centre = new Point(e.getX(), e.getY());
@@ -125,7 +130,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		if(this.mode=="Squiggle"){
-			
+			//adds fake point, so the paintComponent can know when to skip a point
+			this.model.addPoint(new Point(-1,-1));
 		} else if(this.mode=="Circle"){
 			if(this.circle!=null){
 				// Problematic notion of radius and centre!!
