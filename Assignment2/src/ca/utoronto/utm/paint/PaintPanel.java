@@ -21,8 +21,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private String mode; // modifies how we interpret input (could be better?)
 	private Circle circle; // the circle we are building
 	private Color colour; // keeps track of the current color
-	private ArrayList<Color> ListColours; 
-	private ArrayList<Color> SecondListColour;
+	private ArrayList<Object> ListColours; 
 	
 	public PaintPanel(PaintModel model, View view){
 		this.setBackground(Color.blue);
@@ -30,6 +29,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		this.setPreferredSize(new Dimension(300,300));
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
+		this.ListColours = new ArrayList<Object>();
+		this.ListColours.add(Color.WHITE);
 		
 		this.mode="Circle"; // bad code here?
 		
@@ -53,16 +54,22 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		// setBackground (Color.blue); 
 		// Origin is at the top left of the window 50 over, 75 down
 		
-		g2d.setColor(Color.white);
+		g2d.setColor(this.colour);
 		
         g2d.drawString ("i="+i, 50, 75);
 		i=i+1;
+		System.out.println(i);
 			int check = 0;
 		// Draw Lines
 			ArrayList<Point> pointss = this.model.getPoints();
-			for (int i = 0;i< pointss.size()-1; i ++) {
+			this.ListColours.add(i);
+			for (int i = 0;i< pointss.size()-1; i++) {
 				Point p1= pointss.get(i);
 				Point p2= pointss.get(i+1);
+				if (this.ListColours.get(i) instanceof Color) {
+					this.colour = (Color) this.ListColours.get(i);
+					g2d.setColor(this.colour);
+				}
 				if ((p1.getX() == -1 && p1.getY() == -1) || (p2.getX() == -1 && p2.getY() == -1)) {
 					// if fake point (-1,-1) as made, skip that point. So you can draw separate scribbles.
 					i++;
@@ -75,7 +82,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 						// if fake point (-2,-2) was made, change the color, and skip that point
 						i++;
 						if(check < ListColours.size()-1) {
-						g2d.setColor(ListColours.get(check));
+						//g2d.setColor(ListColours.get(check));
 						check++;
 						}
 					
@@ -102,11 +109,12 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	}
 	
 	public void setColour(Color colour) {
-		//this.colour = colour;
-		ListColours.clear();
-		SecondListColour.add(colour);
-		ListColours = SecondListColour.clone();
-		model.addPoint(new Point(-2,-2));
+		this.colour = colour;
+		this.ListColours.set(i-1, colour);
+		//ListColours.clear();
+		//SecondListColour.add(colour);
+		//ListColours = SecondListColour.clone();
+		//model.addPoint(new Point(-2,-2));
 	}
 	
 	@Override
@@ -134,6 +142,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	public void mouseDragged(MouseEvent e) {
 		if(this.mode=="Squiggle"){
 			this.model.addPoint(new Point(e.getX(), e.getY()));
+			
 		} else if(this.mode=="Circle"){
 			
 		}
