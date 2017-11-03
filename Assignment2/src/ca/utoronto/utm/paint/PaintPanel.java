@@ -25,6 +25,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private Line line;
 	private Oval oval;
 	private Graphics g2d;
+	private int thickness;
 	
 	public PaintPanel(PaintModel model, View view){
 		this.setBackground(Color.blue);
@@ -52,6 +53,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		// setBackground (Color.blue); 
 		// Origin is at the top left of the window 50 over, 75 down
 		g2d.setColor(Color.white);
+		g2d.setStroke(new BasicStroke(thickness*2));
         g2d.drawString ("i="+i, 25, 25);
 		i=i+1;
 
@@ -123,6 +125,10 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	 */
 	public void setMode(String mode){
 		this.mode=mode;
+	}
+	
+	public void setThickness(int thickness) {
+		this.thickness = thickness;
 	}
 	
 	// MouseMotionListener below
