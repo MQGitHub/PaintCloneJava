@@ -105,7 +105,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		//this.colour = colour;
 		ListColours.clear();
 		SecondListColour.add(colour);
-		ListColours = SecondListColour;
+		ListColours = SecondListColour.clone();
 		model.addPoint(new Point(-2,-2));
 	}
 	
