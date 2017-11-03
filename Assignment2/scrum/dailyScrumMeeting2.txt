@@ -42,86 +42,16 @@ Oct 30, 2017
 	Obstacles : How to drag backwards with rectangles.
 
 Oct 31, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Fix circle, got rectangle working and started working on square.
+	Today     : Got square to work properly.
+	Obstacles : Use same method as circle to get square from the center
+				in order to maintain equal width and height
 
 Nov 1, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
-	
-Nov 2, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
-	
-Nov 3, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
-
-Nov 4, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
-
-Nov 5, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
-# Fill in, commit and push each day.
-# Group Member: Georges Hanna
-
-Oct 23, 2017
-	Yesterday : N/A
-	Today     : read the assignment.
-	Obstacles : figure out how to setup branches correctly
-
-Oct 24, 2017
-	Yesterday :read the assignment
-	Today     :Break.
-	Obstacles :
-
-Oct 25, 2017
-	Yesterday : Break
-	Today     : Break
-	Obstacles :
-
-Oct 26, 2017
-	Yesterday : Break.
-	Today     : Understand given code.
-	Obstacles : difficult time understanding graphics.
-
-Oct 27, 2017
-	Yesterday : Understand given code.
-	Today     : work  on sprintBacklog.
-	Obstacles : How to get circle to show when dragging.
-
-Oct 28, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
-
-Oct 29, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
-
-Oct 30, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
-
-Oct 31, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
-
-Nov 1, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Finished square shape
+	Today     : Finish triangle, add eraser, implement new
+				design pattern to shapes.
+	Obstacles : Ended up doing different task, added new shapes, fixed bug2
 	
 Nov 2, 2017
 	Yesterday :

@@ -25,3 +25,6 @@ public class Paint {
 		
 	}
 }
+
+// add something to stop the lines from connecting.  
+ 

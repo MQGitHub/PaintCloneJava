@@ -78,17 +78,6 @@ I WANT   : To be able to select the current line thickness, to be applied
 SO THAT  : User can draw shapes and squiggles of any thickness.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 8
-NAME     : Draw Square
-OWNER    : Georges Hanna 
-PRIORITY : 1
-ESTIMATE : 2 hours
-AS A     : user
-I WANT   : To click the center of the square, drag, and release to specify
-           a square to be drawn in the current style.
-SO THAT  : I can add squares to my canvas.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : USER STORY 9
 NAME     : Draw Polyline
 OWNER    : Georges Hanna 
@@ -100,7 +89,7 @@ I WANT   : To click on a point, then click on another point to create a
 SO THAT  : I can add polylines to my canvas.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 9
+TYPE     : USER STORY 11
 NAME     : Erase
 OWNER    : Georges Hanna 
 PRIORITY : 1
@@ -109,7 +98,36 @@ AS A     : user
 I WANT   : To be able to click and erase the shapes and lines on my canvas.
 SO THAT  : I can erase stuff from my canvas.
 --------------------------------------------------------------------------
-
+--------------------------------------------------------------------------
+TYPE     : USER STORY 10
+NAME     : Triangle
+OWNER    : Georges Hanna 
+PRIORITY : 1
+ESTIMATE : 2 hours
+AS A     : user
+I WANT   : to click and drag, to see a triangle formed.
+SO THAT  : I can add triangle to my canvas.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 12
+NAME     : Line
+OWNER    : Georges Hanna 
+PRIORITY : 1
+ESTIMATE : 1 hours
+AS A     : user
+I WANT   : to click and drag, to see a straight line formed.
+SO THAT  : I can add lines to my canvas.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 13
+NAME     : Oval
+OWNER    : Georges Hanna 
+PRIORITY : 1
+ESTIMATE : 1 hours
+AS A     : user
+I WANT   : to click and drag, to see an oval formed.
+SO THAT  : I can add ovals to my canvas.
+--------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 1
 NAME     : Icons instead of text for drawing mode selection
@@ -229,6 +247,37 @@ ESTIMATE : 1hour
 AS A     : user
 I WANT   : Similarly to Draw Circle Feedback, display the rectangle in mid construction.
 SO THAT  : I can see the rectangle I am about to build on release of the mouse button.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 8
+NAME     : Draw Square
+OWNER    : Georges Hanna 
+PRIORITY : 1
+ESTIMATE : 2 hours
+AS A     : user
+I WANT   : To click the center of the square, drag, and release to specify
+           a square to be drawn in the current style.
+SO THAT  : I can add squares to my canvas.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 12
+NAME     : Line
+OWNER    : Georges Hanna 
+PRIORITY : 1
+ESTIMATE : 1 hours
+AS A     : user
+I WANT   : to click and drag, to see a straight line formed.
+SO THAT  : I can add lines to my canvas.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 13
+NAME     : Oval
+OWNER    : Georges Hanna 
+PRIORITY : 1
+ESTIMATE : 1 hours
+AS A     : user
+I WANT   : to click and drag, to see an oval formed.
+SO THAT  : I can add ovals to my canvas.
 --------------------------------------------------------------------------
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 
