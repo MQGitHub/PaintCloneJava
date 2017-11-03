@@ -10,6 +10,7 @@ public class PaintModel extends Observable {
 	private ArrayList<Square> squares = new ArrayList<Square>();
 	private ArrayList<Line> lines = new ArrayList<Line>();
 	private ArrayList<Oval> ovals = new ArrayList<Oval>();
+	private ArrayList<Point> erase = new ArrayList<Point>();
 	
 	
 	public void addPoint(Point p){
@@ -64,6 +65,16 @@ public class PaintModel extends Observable {
 	}
 	public ArrayList<Oval> getOvals(){
 		return ovals;
+	}
+	
+	public void erase(Point l) {
+		this.erase.add(l);
+		this.setChanged();
+		this.notifyObservers();
+	}
+	
+	public ArrayList<Point> getEraser(){
+		return this.erase;
 	}
 }
 
