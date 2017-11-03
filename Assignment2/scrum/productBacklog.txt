@@ -91,7 +91,7 @@ SO THAT  : I can add polylines to my canvas.
 --------------------------------------------------------------------------
 TYPE     : USER STORY 11
 NAME     : Erase
-OWNER    : Georges Hanna 
+OWNER    : Radhika Lakhtakia
 PRIORITY : 1
 ESTIMATE : 4 hours
 AS A     : user
@@ -131,7 +131,7 @@ SO THAT  : I can add ovals to my canvas.
 --------------------------------------------------------------------------
 TYPE     : BUG 1
 NAME     : Icons instead of text for drawing mode selection
-OWNER    : 
+OWNER    : Radhika Lakhtakia
 PRIORITY :
 ESTIMATE : 
 ISSUE    : Would be nice to have icons instead of "Circle", "Rectangle", ...
@@ -139,7 +139,7 @@ ISSUE    : Would be nice to have icons instead of "Circle", "Rectangle", ...
 --------------------------------------------------------------------------
 TYPE     : BUG 2
 NAME     : Drawing selection mode not indicated
-OWNER    : 
+OWNER    : Radhika Lakhtakia
 PRIORITY :
 ESTIMATE : 
 ISSUE    : Currently ,you can't tell which mode "Circle", "Rectangle", ...

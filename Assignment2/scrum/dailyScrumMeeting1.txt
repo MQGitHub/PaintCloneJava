@@ -45,17 +45,17 @@ Oct 30, 2017
 Oct 31, 2017
 	Yesterday : Day off.
 	Today     : Work on buttons for colors and shapes.
-	Obstacles : 
+	Obstacles : None.
 
 Nov 1, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Worked on buttons for colors and shapes.
+	Today     : Day off due to STA256 midterm.
+	Obstacles : None.
 	
 Nov 2, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Day off.
+	Today     : Work on user story 6, and 11, as well as Bug 1 and 2.
+	Obstacles : None.
 	
 Nov 3, 2017
 	Yesterday :
