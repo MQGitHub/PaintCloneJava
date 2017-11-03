@@ -1,6 +1,8 @@
 package ca.utoronto.utm.paint;
 
-import javax.swing.*;  
+import javax.swing.*;
+import javax.swing.border.LineBorder;
+
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -19,9 +21,11 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 
 	private String mode; // modifies how we interpret input (could be better?)
 	private Circle circle; // the circle we are building
+	private Color colour;
 	
 	public PaintPanel(PaintModel model, View view){
 		this.setBackground(Color.blue);
+		this.colour = Color.white;
 		this.setPreferredSize(new Dimension(300,300));
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
@@ -40,12 +44,11 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	public void paintComponent(Graphics g) {
 		// Use g to draw on the JPanel, lookup java.awt.Graphics in
 		// the javadoc to see more of what this can do for you!!
-		
         super.paintComponent(g); //paint background
         Graphics2D g2d = (Graphics2D) g; // lets use the advanced api
 		// setBackground (Color.blue); 
 		// Origin is at the top left of the window 50 over, 75 down
-		g2d.setColor(Color.white);
+		g2d.setColor(this.colour);
         g2d.drawString ("i="+i, 50, 75);
 		i=i+1;
 
@@ -69,6 +72,9 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		g2d.dispose();
 	}
 
+	public void setColour(Color colour) {
+		this.colour = colour;
+	}
 	@Override
 	public void update(Observable o, Object arg) {
 		// Not exactly how MVC works, but similar.
@@ -119,6 +125,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			Point centre = new Point(e.getX(), e.getY());
 			int radius = 0;
 			this.circle=new Circle(centre, 0);
+		} else if(this.mode=="colour") {
+
 		}
 	}
 

@@ -53,10 +53,10 @@ SO THAT  : I can see the rectangle I am about to build on release of the mouse b
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 5
-NAME     : Color selector
-OWNER    : 
-PRIORITY :
-ESTIMATE : 
+NAME     : Colour selector
+OWNER    : Me Mateen "Mateen Khan" Qureshi
+PRIORITY : High
+ESTIMATE : 4 days  
 AS A     : user
 I WANT   : To be able to select the current drawing color, to be applied
            to subsequent shapes. Example: 
