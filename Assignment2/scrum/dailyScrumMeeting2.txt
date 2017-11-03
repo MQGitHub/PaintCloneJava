@@ -54,9 +54,9 @@ Nov 1, 2017
 	Obstacles : Ended up doing different task, added new shapes, fixed bug2
 	
 Nov 2, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Finished bug2, added line, worked on design patterns
+	Today     : work on design patterns.
+	Obstacles : which pattern to use?
 	
 Nov 3, 2017
 	Yesterday :
