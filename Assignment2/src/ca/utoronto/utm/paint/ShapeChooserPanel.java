@@ -25,6 +25,7 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 			button.addActionListener(this);
 		}
 		JRadioButton fill = new JRadioButton("Fill Shape");
+		fill.addActionListener(this);
 		this.add(fill);
 	}
 	
