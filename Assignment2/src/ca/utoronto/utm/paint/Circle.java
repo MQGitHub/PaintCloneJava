@@ -1,10 +1,12 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.Color;
+
 public class Circle extends Oval implements DrawShape{
 
 	
-	public Circle(Point centre, int radius){
-		super(centre,radius,radius);
+	public Circle(Color c, Point centre, int radius){
+		super(c, centre,radius,radius);
 	}
 	
 	public void setRadius(int radius) {

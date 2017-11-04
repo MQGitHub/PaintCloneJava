@@ -1,11 +1,13 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.Color;
+
 public class Rectangle extends Shape implements DrawShape {
 	private int width;
 	private int height;
 	
-	public Rectangle(Point corner, int width, int height){
-		super(corner);
+	public Rectangle(Color c, Point corner, int width, int height){
+		super(c, corner);
 		this.width = width;
 		this.height = height;
 	}

@@ -27,13 +27,16 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private Shape shape;
 	private Graphics g2d;
 	
+	private Color colour; // keeps track of the current color
+	
 	public PaintPanel(PaintModel model, View view){
 		this.setBackground(Color.blue);
+		this.colour = Color.white;
 		this.setPreferredSize(new Dimension(300,300));
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
 		
-		//this.mode="Rectangle"; // bad code here?
+		this.mode="Circle"; // bad code here?
 		
 		this.model = model;
 		this.model.addObserver(this);
@@ -73,29 +76,32 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 				int x = s.getCorner().getX();
 				int y = s.getCorner().getY();
 				int radius = ((Oval) s).getHeight();
+				g2d.setColor(s.getColor());
 				g2d.drawOval(x-radius,y-radius, radius*2, radius*2);
 			}else if(s instanceof Oval){
 				int x = s.getCorner().getX();
 				int y = s.getCorner().getY();
 				int height = ((Oval)s).getHeight();
 				int width = ((Oval)s).getWidth();
-				g2d.setColor(Color.GREEN);
-				g2d.fillOval(x, y, width, height);
+				g2d.setColor(s.getColor());
 				g2d.drawOval(x, y, width, height);
 			}else if(s instanceof Square) {
 				int x = s.getCorner().getX();
 				int y = s.getCorner().getY();
 				int width = ((Square)s).getWidth();
+				g2d.setColor(s.getColor());
 				g2d.drawRect(x-width, y-width, width*2, width*2);
 			}else if(s instanceof Rectangle){
 				int x = s.getCorner().getX();
 				int y = s.getCorner().getY();
 				int height = ((Rectangle)s).getHeight();
 				int width = ((Rectangle)s).getWidth();
+				g2d.setColor(s.getColor());
 				g2d.drawRect(x, y, width, height);
 			}else if(s instanceof Line) {
 				Point p2 = s.getCorner();
 				Point p1 = ((Line)s).getEndPoint();
+				g2d.setColor(s.getColor());
 				g2d.drawLine(p1.getX(), p1.getY(),p2.getX(), p2.getY());
 			}
 		}
@@ -179,16 +185,16 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		if(this.mode=="Squiggle"){
 			
 		} else if(this.mode=="Circle"){
-			this.circle = new Circle(begin, 0);
+			this.circle = new Circle(this.colour,begin, 0);
 		}else if(this.mode=="Rectangle") {
-			this.rectangle = new Rectangle(begin,0,0);
+			this.rectangle = new Rectangle(this.colour,begin,0,0);
 
 		}else if(this.mode=="Square") {
-			this.square = new Square(begin,0);
+			this.square = new Square(this.colour,begin,0);
 		}else if(this.mode=="Line") {
-			this.line = new Line(begin,begin);
+			this.line = new Line(this.colour,begin,begin);
 		}else if(this.mode=="Oval") {
-			this.oval = new Oval(begin,0,0);
+			this.oval = new Oval(this.colour, begin,0,0);
 		}
 	}
 
@@ -220,5 +226,10 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			
 		}
 	}
+	
+	public void setColour(Color colour) {
+		this.colour = colour;
+		
+	}
 }
-
+	

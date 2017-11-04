@@ -1,11 +1,13 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.Color;
+
 public class Line extends Shape implements DrawShape{
 	private Point begin;
 	private Point end;
 	
-	public Line(Point begin, Point end) {
-		super(begin);
+	public Line(Color c, Point begin, Point end) {
+		super(c, begin);
 		this.end = end;
 	}
 	
