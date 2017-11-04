@@ -5,6 +5,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
+import java.util.List;
 
 // https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html
 // https://docs.oracle.com/javase/tutorial/2d/
@@ -14,12 +16,17 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 	
 	public ShapeChooserPanel(View view) {	
 		this.view=view;
-		
-		String[] buttonLabels = { "Circle", "Oval", "Rectangle", "Square", "Squiggle", "Polyline", "Line", "Eraser" };
+		String[] buttonLabels = new String[]{ "Circle", "Oval", "Rectangle", "Square", "Squiggle", "Polyline", "Line", "Eraser" };
+		GetIcons i = new GetIcons(buttonLabels);
+		ImageIcon[] icon = i.icons();
 		ButtonGroup group =  new ButtonGroup();
-		this.setLayout(new GridLayout(buttonLabels.length + 1, 2));
+		this.setLayout(new GridLayout(buttonLabels.length + 2, 1));
+		int j = 0;
 		for (String label : buttonLabels) {
-			JToggleButton button = new JToggleButton(label);
+			JToggleButton button = new JToggleButton();
+			button.setIcon(icon[j]);
+			j++;
+			button.setToolTipText(label);
 			group.add(button);
 			this.add(button);
 			button.addActionListener(this);
@@ -43,7 +50,8 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 			JRadioButton x = (JRadioButton) e.getSource();
 			this.view.getPaintPanel().setFill(x.isSelected());
 		}else {
-			this.view.getPaintPanel().setMode(e.getActionCommand());
+			JToggleButton x = (JToggleButton) e.getSource();
+			this.view.getPaintPanel().setMode(x.getToolTipText());
 		}
 	}
 	
