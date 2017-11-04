@@ -22,9 +22,8 @@ public class Paint {
 
 		// View+Controller
 		this.view = new View(model);
-		
 	}
 }
 
-// add something to stop the lines from connecting.  
- 
+// add something to stop the lines from connecting.
+
