@@ -89,12 +89,15 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		}
 		
 		ArrayList<Polyline> polylines = this.model.getPolylines();
-		for(Polyline p: this.model.getPolylines()) {
-			int[] x = p.getXPoints();
-			int[] y = p.getYPoints();
-			g2d.drawPolyline(x, y, p.getNumPoints());
-		}
+	
+		// change arraylist into a int[] and draw polyline
 		
+		
+//			int[] x = this.polyline.getXPoints();
+//			int[] y = this.polyline.getYPoints();
+//			g2d.drawPolyline(x, y, this.polyline.getNumPoints());
+//		
+//		
 		g2d.dispose();
 	}
 
@@ -146,6 +149,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			int width = (int) Math.sqrt(Math.pow(x,2) +  Math.pow(y, 2));
 			this.square.setWidth(width);
 			this.model.addSquare(this.square);
+		}else if(this.mode=="Polyline") {
+			this.polyline.addEndPoint(new Point(e.getX(),e.getY()));
 		}
 		repaint();
 	}
@@ -172,8 +177,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		}else if(this.mode=="Square") {
 			this.square = new Square(begin,0);
 		}else if(this.mode=="Polyline") {
-			Point[] first = {begin};
-			this.polyline = new Polyline(first);
+			this.polyline = new Polyline(begin);
+
 		}
 	}
 
@@ -186,7 +191,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			}
 		} else if(this.mode=="polyline") {
 			Point newP = new Point(e.getX(), e.getY());
-			this.polyline.addPoint(newP);
+	//		this.polyline.addPoint(newP);
 			if(newP == begin) {
 				this.model.addPolyline(this.polyline);
 			}
