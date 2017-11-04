@@ -24,6 +24,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private Square square;
 	private Line line;
 	private Oval oval;
+	private Shape shape;
 	private Graphics g2d;
 	
 	public PaintPanel(PaintModel model, View view){
@@ -66,47 +67,37 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 				g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
 			}
 		}
-		
-		// Draw Circles
-		ArrayList<Circle> circles = this.model.getCircles();
-		for(Circle c: this.model.getCircles()){
-			int x = c.getCorner().getX();
-			int y = c.getCorner().getY();
-			int radius = c.getHeight();
-			g2d.drawOval(x-radius,y-radius, radius*2, radius*2);
-		}
-		
-		ArrayList<Rectangle> rectangles = this.model.getRectangles();
-		for(Rectangle r: this.model.getRectangles()) {
-			int x = r.getCorner().getX();
-			int y = r.getCorner().getY();
-			int height = r.getHeight();
-			int width = r.getWidth();
-			g2d.drawRect(x, y, width, height);
+		ArrayList<Shape> shapes = this.model.getShapes();
+		for(Shape s: this.model.getShapes()) {
+			if(s instanceof Circle) {
+				int x = s.getCorner().getX();
+				int y = s.getCorner().getY();
+				int radius = ((Oval) s).getHeight();
+				g2d.drawOval(x-radius,y-radius, radius*2, radius*2);
+			}else if(s instanceof Oval){
+				int x = s.getCorner().getX();
+				int y = s.getCorner().getY();
+				int height = ((Oval)s).getHeight();
+				int width = ((Oval)s).getWidth();
+				g2d.setColor(Color.GREEN);
+				g2d.fillOval(x, y, width, height);
+				g2d.drawOval(x, y, width, height);
+			}else if(s instanceof Square) {
+				int x = s.getCorner().getX();
+				int y = s.getCorner().getY();
+				int width = ((Square)s).getWidth();
+				g2d.drawRect(x-width, y-width, width*2, width*2);
+			}else if(s instanceof Rectangle){
+				int x = s.getCorner().getX();
+				int y = s.getCorner().getY();
+				int height = ((Rectangle)s).getHeight();
+				int width = ((Rectangle)s).getWidth();
+				g2d.drawRect(x, y, width, height);
+			}else if(s instanceof Line) {
+				Point p2 = s.getCorner();
+				Point p1 = ((Line)s).getEndPoint();
+				g2d.drawLine(p1.getX(), p1.getY(),p2.getX(), p2.getY());
 			}
-		
-		ArrayList<Square> squares = this.model.getSquares();
-		for(Square s: this.model.getSquares()) {
-			int x = s.getCorner().getX();
-			int y = s.getCorner().getY();
-			int width = s.getWidth();
-			g2d.drawRect(x-width, y-width, width*2, width*2);
-		}
-		
-		ArrayList<Line> lines = this.model.getLines();
-		for(Line p: this.model.getLines()) {
-			Point p2 = p.getBeginPoint();
-			Point p1 = p.getEndPoint();
-			g2d.drawLine(p1.getX(), p1.getY(),p2.getX(), p2.getY());
-		}
-		
-		ArrayList<Oval> ovals = this.model.getOvals();
-		for(Oval o: this.model.getOvals()) {
-			int x = o.getCorner().getX();
-			int y = o.getCorner().getY();
-			int height = o.getHeight();
-			int width = o.getWidth();
-			g2d.drawOval(x, y, width, height);
 		}
 		
 		g2d.dispose();
@@ -148,27 +139,27 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			int radius = (int) Math.sqrt(Math.pow(x,2) + 
 					Math.pow(y, 2));
 			this.circle.setRadius(radius);
-			this.model.addCircle(this.circle);
+			this.model.addShape(this.circle);
 		}else if(this.mode == "Rectangle") {
 			this.rectangle.setCorner(new Point(min_X, min_Y));
 			this.rectangle.setWidth(max_X - min_X);
 			this.rectangle.setHeight(max_Y - min_Y);
-			this.model.addRectangle(this.rectangle);
+			this.model.addShape(this.rectangle);
 		}else if(this.mode =="Square") {
 			int x = begin.getX() - e.getX();
 			int y = begin.getY() - e.getY();
 			int width = (int) Math.sqrt(Math.pow(x,2) +  Math.pow(y, 2));
 			this.square.setWidth(width);
-			this.model.addSquare(this.square);
+			this.model.addShape(this.square);
 		}else if(this.mode=="Line") {
 			end = new Point(e.getX(), e.getY());
 			this.line.setEndPoint(end);
-			this.model.addLine(this.line);
+			this.model.addShape(this.line);
 		}else if(this.mode=="Oval") {
 			this.oval.setCorner(new Point(min_X, min_Y));
 			this.oval.setWidth(max_X - min_X);
 			this.oval.setHeight(max_Y - min_Y);
-			this.model.addOval(this.oval);
+			this.model.addShape(this.oval);
 		}
 		repaint();
 	}

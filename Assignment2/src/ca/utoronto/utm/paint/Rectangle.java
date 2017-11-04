@@ -1,22 +1,13 @@
 package ca.utoronto.utm.paint;
 
-public class Rectangle {
-	private Point corner;
+public class Rectangle extends Shape implements DrawShape {
 	private int width;
 	private int height;
 	
 	public Rectangle(Point corner, int width, int height){
-		this.corner = corner;
+		super(corner);
 		this.width = width;
 		this.height = height;
-	}
-
-	public Point getCorner() {
-		return corner;
-	}
-
-	public void setCorner(Point corner) {
-		this.corner = corner;
 	}
 
 	public int getWidth() {
@@ -32,5 +23,11 @@ public class Rectangle {
 
 	public void setHeight(int height) {
 		this.height = height;
+	}
+
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub
+		//g2d.drawRect
 	}
 }
