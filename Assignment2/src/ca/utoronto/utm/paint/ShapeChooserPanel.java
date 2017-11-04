@@ -17,7 +17,7 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 		
 		String[] buttonLabels = { "Circle", "Oval", "Rectangle", "Square", "Squiggle", "Polyline", "Line" };
 		ButtonGroup group =  new ButtonGroup();
-		this.setLayout(new GridLayout(buttonLabels.length + 1, 2));
+		this.setLayout(new GridLayout(buttonLabels.length + 2,1));
 		for (String label : buttonLabels) {
 			JToggleButton button = new JToggleButton(label);
 			group.add(button);
@@ -27,6 +27,9 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 		JRadioButton fill = new JRadioButton("Fill Shape");
 		fill.addActionListener(this);
 		this.add(fill);
+		
+		LineThicknessChooser t = new LineThicknessChooser(this.view);
+		this.add(t.lineThicknessMenu());
 	}
 	
 	/**
