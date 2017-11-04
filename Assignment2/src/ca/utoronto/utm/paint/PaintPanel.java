@@ -89,6 +89,14 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		}
 		
 		ArrayList<Polyline> polylines = this.model.getPolylines();
+		for(Polyline s: polylines) {
+			ArrayList<Point> polylinePoints = s.getPoints();
+			for (int i = 0; i < polylinePoints.size()-1; i++) {
+				Point p1 = polylinePoints.get(i);
+				Point p2 = polylinePoints.get(i+1);
+				g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
+			}
+		}
 	
 		
 		g2d.dispose();
@@ -169,9 +177,12 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 
 		}else if(this.mode=="Square") {
 			this.square = new Square(begin,0);
-		//}else if(this.mode=="Polyline") {
-		//	this.polyline = new Polyline(begin);
-
+		}else if(this.mode=="Polyline") {
+			if (this.polyline != null) {
+				this.polyline.addPoint(begin);
+			} else {
+				this.polyline = new Polyline(begin);
+			}
 		}
 	}
 
@@ -182,11 +193,15 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		} else if(this.mode=="Circle"){
 			if(this.circle!=null){
 			}
-		} else if(this.mode=="polyline") {
+		} else if(this.mode=="Polyline") {
 			Point newP = new Point(e.getX(), e.getY());
-	//		this.polyline.addPoint(newP);
-			if(newP == begin) {
+			this.polyline.addPoint(newP);
+			System.out.println(begin.getX() + " " + begin.getY() + " " + newP.getX() + " " + newP.getY());
+			if(this.polyline.getFirstPoint().getX() == this.polyline.getLastPoint().getX() && this.polyline.getFirstPoint().getY() == this.polyline.getLastPoint().getY()) {
+				System.out.println("??????");
 				this.model.addPolyline(this.polyline);
+			} else { 
+				//add points to drawline 	
 			}
 		}
 		

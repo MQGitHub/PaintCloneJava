@@ -3,28 +3,35 @@ package ca.utoronto.utm.paint;
 import java.util.ArrayList;
 
 public class Polyline {
-	private Point[] points;
-	private int numPoints = 0;
+	private Point point;
+	private ArrayList<Point> points;
+	private int numPoints;
 	private ArrayList<Integer> xPoints = new ArrayList<Integer>();
 	private ArrayList<Integer> yPoints = new ArrayList<Integer>();
 	
-	
-
-	public Polyline(Point [] p, int numPoints) {
-		this.points = p;
-		this.numPoints = numPoints;
+	public Polyline(Point p) {
+		this.point = p;
+		this.points = new ArrayList<Point>();
+		this.points.add(this.point);
+		this.numPoints = 0;
 	}
 
 	public Point getFirstPoint() {
-		return points[0];
+		return points.get(0);
 	}
 
 	public Point getLastPoint() {
-		return points[points.length - 1];
+		return points.get(points.size() - 1);
 	}
 	
+	public void addPoint(Point P) {
+		points.add(P);
+		numPoints = 0;
+	}
 	
-	
+	public ArrayList<Point> getPoints() {
+		return this.points;
+	}
 	
 	
 }
