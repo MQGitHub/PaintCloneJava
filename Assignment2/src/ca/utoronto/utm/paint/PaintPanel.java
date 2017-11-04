@@ -26,7 +26,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private Oval oval;
 	private Graphics g2d;
 	private int thickness;
-	private Line erase;
+	private Rectangle erase;
 
 	public PaintPanel(PaintModel model, View view) {
 		this.setBackground(Color.blue);
@@ -53,10 +53,14 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		Graphics2D g2d = (Graphics2D) g; // lets use the advanced api
 		// setBackground (Color.blue);
 		// Origin is at the top left of the window 50 over, 75 down
-		g2d.setColor(Color.white);
+		g2d.setColor(Color.pink);
 		g2d.setStroke(new BasicStroke(thickness * 2));
 		g2d.drawString("i=" + i, 25, 25);
 		i = i + 1;
+		
+		float alpha = 0.75f;
+		int type = AlphaComposite.SRC_OVER; 
+		AlphaComposite composite = AlphaComposite.getInstance(type, alpha);
 
 		// Draw Lines
 		ArrayList<Point> points = this.model.getPoints();
@@ -66,24 +70,22 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			if ((p1.getX() == -1 && p1.getY() == -1) || (p2.getX() == -1 && p2.getY() == -1)) {
 				i = i + 2;
 			} else {
+				g2d.setComposite(composite);
 				g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
 			}
 		}
 
 		// Erase Lines
-		ArrayList<Point> erase = this.model.getEraser();
+		ArrayList<Rectangle> erase = this.model.getEraser();
 		Color color = g2d.getColor();
-		for (int i = 0; i < erase.size() - 1; i++) {
-			Point p1 = erase.get(i);
-			Point p2 = erase.get(i + 1);
-			if ((p1.getX() == -1 && p1.getY() == -1) || (p2.getX() == -1 && p2.getY() == -1)) {
-				i = i + 2;
-			} else {
-				g2d.setPaint(getBackground());
-				g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
-			}
-			g2d.setPaint(color);
+		for (Rectangle r : this.model.getEraser()) {
+			int x = r.getCorner().getX();
+			int y = r.getCorner().getY();
+			g2d.clearRect(x, y, 10, 10);
+			g2d.setColor(getBackground());
+			g2d.fillRect(x, y, 10, 10);
 		}
+		g2d.setColor(color);
 
 		// Draw Circles
 		ArrayList<Circle> circles = this.model.getCircles();
@@ -192,7 +194,10 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			this.oval.setHeight(max_Y - min_Y);
 			this.model.addOval(this.oval);
 		} else if (this.mode == "Eraser") {
-			this.model.erase(new Point(e.getX(), e.getY()));
+			this.erase.setCorner(new Point(min_X, min_Y));
+			this.erase.setWidth(10);
+			this.erase.setHeight(10);
+			this.model.erase(this.erase);
 		}
 		repaint();
 	}
@@ -222,6 +227,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			this.line = new Line(begin, begin);
 		} else if (this.mode == "Oval") {
 			this.oval = new Oval(begin, 0, 0);
+		} else if (this.mode == "Eraser") {
+			this.erase = new Rectangle(begin, 0, 0);
 		}
 	}
 
