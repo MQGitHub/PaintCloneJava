@@ -69,7 +69,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		
         g2d.drawString ("i="+i, 50, 75);
 		i=i+1;
-		System.out.println(i);
+		
 			int check = 0;
 		// Draw Lines
 			ArrayList<Point> pointss = this.model.getPoints();
