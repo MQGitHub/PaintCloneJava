@@ -32,7 +32,7 @@ SO THAT  :
 --------------------------------------------------------------------------
 TYPE     : USER STORY 6
 NAME     : Fill style selector
-OWNER    : Radhika Lakhtakia
+OWNER    : lakhtak1
 PRIORITY : High.
 ESTIMATE : 3-4 Hours.
 AS A     : user
@@ -56,7 +56,7 @@ SO THAT  : I can choose to draw filled in shapes or outlines of shapes.
 --------------------------------------------------------------------------
 TYPE     : USER STORY 7
 NAME     : Line thickness selector
-OWNER    : Radhika Lakhtakia
+OWNER    : lakhtak1
 PRIORITY : 1
 ESTIMATE : 
 AS A     : user
@@ -102,12 +102,12 @@ SO THAT  : I can add triangle to my canvas.
 --------------------------------------------------------------------------
 TYPE     : USER STORY 11
 NAME     : Erase
-OWNER    : Radhika Lakhtakia
+OWNER    : lakhtak1
 PRIORITY : 1
 ESTIMATE : 4 hours
 AS A     : user
 I WANT   : To be able to click and erase the shapes and lines on my canvas.
-SO THAT  : I can erase stuff from my canvas.
+SO THAT  : I can erase shapes from my canvas.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 3
@@ -245,7 +245,7 @@ SO THAT  : I can add ovals to my canvas.
 --------------------------------------------------------------------------
 TYPE     : BUG 2
 NAME     : Drawing selection mode not indicated
-OWNER    : Georges/Radhika
+OWNER    : Georges/lakhtak1
 PRIORITY : 4
 ESTIMATE : 1hour
 ISSUE    : Currently ,you can't tell which mode "Circle", "Rectangle", ...
@@ -255,7 +255,7 @@ ISSUE    : Currently ,you can't tell which mode "Circle", "Rectangle", ...
 --------------------------------------------------------------------------
 TYPE     : BUG 1
 NAME     : Icons instead of text for drawing mode selection
-OWNER    : Radhika
+OWNER    : lakhtak1
 PRIORITY : Low
 ESTIMATE : 1 Hour.
 ISSUE    : Would be nice to have icons instead of "Circle", "Rectangle", ...
