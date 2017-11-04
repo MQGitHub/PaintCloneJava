@@ -29,6 +29,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private boolean filled;
 	private Color colour; // keeps track of the current color
 	private int thickness;
+	private Point squiggleBegin;
 	
 	public PaintPanel(PaintModel model, View view){
 		this.setBackground(Color.blue);
@@ -65,6 +66,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		for(int i=0;i<points.size()-1; i++){
 			Point p1=points.get(i);
 			Point p2=points.get(i+1);
+			g2d.setColor(p1.getColor());
+			g2d.setStroke(new BasicStroke(p1.getThickness()));
 			if ((p1.getX() == -1 && p1.getY() == -1) || (p2.getX() == -1 && p2.getY() == -1)) {
 				i = i + 2;
 			}else {
@@ -170,10 +173,10 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		int max_X = Math.max(begin.getX(), e.getX());
 		int max_Y = Math.max(begin.getY(), e.getY());
 		if(this.mode=="Squiggle"){
-			this.model.addPoint(new Point(e.getX(), e.getY()));
+			this.model.addPoint(new Point(this.colour, thickness,e.getX(), e.getY()));
 		} else if(this.mode=="Circle"){
 			int x = begin.getX()-e.getX();
-			int y = begin.getY() - e.getY();
+			int y = begin.getY()-e.getY();
 			int radius = (int) Math.sqrt(Math.pow(x,2) + 
 					Math.pow(y, 2));
 			this.circle.setRadius(radius);
@@ -217,7 +220,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		begin = new Point(e.getX(), e.getY());
 
 		if(this.mode=="Squiggle"){
-			
+			squiggleBegin = new Point(this.colour, thickness, e.getX(), e.getY());
 		} else if(this.mode=="Circle"){
 			this.circle = new Circle(this.colour, thickness, filled, begin, 0);
 		}else if(this.mode=="Rectangle") {
