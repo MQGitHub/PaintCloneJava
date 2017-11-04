@@ -7,8 +7,8 @@ public class Oval extends Shape implements DrawShape{
 	private int width;
 	private int height;
 	
-	public Oval(Color c, Point corner, int width, int height){
-		super(c, corner);
+	public Oval(Color c, Boolean b, Point corner, int width, int height){
+		super(c, b, corner);
 		this.width = width;
 		this.height = height;
 	}

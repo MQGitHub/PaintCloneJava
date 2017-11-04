@@ -26,6 +26,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private Oval oval;
 	private Shape shape;
 	private Graphics g2d;
+	private Color penColor;
+	private boolean filled;
 	
 	private Color colour; // keeps track of the current color
 	
@@ -70,6 +72,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 				g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
 			}
 		}
+		
 		ArrayList<Shape> shapes = this.model.getShapes();
 		for(Shape s: this.model.getShapes()) {
 			if(s instanceof Circle) {
@@ -77,27 +80,43 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 				int y = s.getCorner().getY();
 				int radius = ((Oval) s).getHeight();
 				g2d.setColor(s.getColor());
-				g2d.drawOval(x-radius,y-radius, radius*2, radius*2);
+				if(s.isFilled()) {
+					g2d.fillOval(x-radius,y-radius, radius*2, radius*2);
+				}else {
+					g2d.drawOval(x-radius,y-radius, radius*2, radius*2);
+				}
 			}else if(s instanceof Oval){
 				int x = s.getCorner().getX();
 				int y = s.getCorner().getY();
 				int height = ((Oval)s).getHeight();
 				int width = ((Oval)s).getWidth();
 				g2d.setColor(s.getColor());
-				g2d.drawOval(x, y, width, height);
+				if(s.isFilled()) {
+					g2d.fillOval(x, y, width, height);
+				}else {
+					g2d.drawOval(x, y, width, height);
+				}
 			}else if(s instanceof Square) {
 				int x = s.getCorner().getX();
 				int y = s.getCorner().getY();
 				int width = ((Square)s).getWidth();
 				g2d.setColor(s.getColor());
-				g2d.drawRect(x-width, y-width, width*2, width*2);
+				if(s.isFilled()) {
+					g2d.fillRect(x-width, y-width, width*2, width*2);
+				}else {
+					g2d.drawRect(x-width, y-width, width*2, width*2);
+				}
 			}else if(s instanceof Rectangle){
 				int x = s.getCorner().getX();
 				int y = s.getCorner().getY();
 				int height = ((Rectangle)s).getHeight();
 				int width = ((Rectangle)s).getWidth();
 				g2d.setColor(s.getColor());
-				g2d.drawRect(x, y, width, height);
+				if(s.isFilled()) {
+					g2d.fillRect(x, y, width, height);
+				}else {
+					g2d.drawRect(x, y, width, height);
+				}
 			}else if(s instanceof Line) {
 				Point p2 = s.getCorner();
 				Point p1 = ((Line)s).getEndPoint();
@@ -105,7 +124,6 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 				g2d.drawLine(p1.getX(), p1.getY(),p2.getX(), p2.getY());
 			}
 		}
-		
 		g2d.dispose();
 	}
 
@@ -120,6 +138,10 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	 */
 	public void setMode(String mode){
 		this.mode=mode;
+	}
+	
+	public void setFill(boolean fill) {
+		this.filled = fill;
 	}
 	
 	// MouseMotionListener below
@@ -167,6 +189,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			this.oval.setHeight(max_Y - min_Y);
 			this.model.addShape(this.oval);
 		}
+		
 		repaint();
 	}
 
@@ -182,19 +205,20 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	@Override
 	public void mousePressed(MouseEvent e) {
 		begin = new Point(e.getX(), e.getY());
+
 		if(this.mode=="Squiggle"){
 			
 		} else if(this.mode=="Circle"){
-			this.circle = new Circle(this.colour,begin, 0);
+			this.circle = new Circle(this.colour, filled, begin, 0);
 		}else if(this.mode=="Rectangle") {
-			this.rectangle = new Rectangle(this.colour,begin,0,0);
 
+			this.rectangle = new Rectangle(this.colour, filled,begin,0,0);
 		}else if(this.mode=="Square") {
-			this.square = new Square(this.colour,begin,0);
+			this.square = new Square(this.colour, filled,begin,0);
 		}else if(this.mode=="Line") {
-			this.line = new Line(this.colour,begin,begin);
+			this.line = new Line(this.colour, filled, begin,begin);
 		}else if(this.mode=="Oval") {
-			this.oval = new Oval(this.colour, begin,0,0);
+			this.oval = new Oval(this.colour, filled, begin,0,0);
 		}
 	}
 

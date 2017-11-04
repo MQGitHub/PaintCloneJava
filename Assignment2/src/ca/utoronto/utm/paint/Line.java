@@ -6,8 +6,8 @@ public class Line extends Shape implements DrawShape{
 	private Point begin;
 	private Point end;
 	
-	public Line(Color c, Point begin, Point end) {
-		super(c, begin);
+	public Line(Color c,Boolean b, Point begin, Point end) {
+		super(c, b, begin);
 		this.end = end;
 	}
 	

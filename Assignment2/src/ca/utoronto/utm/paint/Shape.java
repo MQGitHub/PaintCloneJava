@@ -5,11 +5,13 @@ import java.awt.Color;
 public abstract class Shape {
 	private Point p;
 	private Color c;
+	private Boolean fill;
 
 	
-	public Shape(Color c, Point p) {
-		this.p=p;
+	public Shape(Color c, Boolean b, Point p) {
 		this.c = c;
+		this.fill = b;
+		this.p=p;
 	}
 	
 	public Point getCorner() {
@@ -26,5 +28,9 @@ public abstract class Shape {
 	
 	public Color getColor() {
 		return c;
+	}
+	
+	public Boolean isFilled() {
+		return fill;
 	}
 }
