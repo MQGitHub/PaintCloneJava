@@ -90,14 +90,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		
 		ArrayList<Polyline> polylines = this.model.getPolylines();
 	
-		// change arraylist into a int[] and draw polyline
 		
-		
-//			int[] x = this.polyline.getXPoints();
-//			int[] y = this.polyline.getYPoints();
-//			g2d.drawPolyline(x, y, this.polyline.getNumPoints());
-//		
-//		
 		g2d.dispose();
 	}
 
@@ -150,7 +143,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			this.square.setWidth(width);
 			this.model.addSquare(this.square);
 		}else if(this.mode=="Polyline") {
-			this.polyline.addEndPoint(new Point(e.getX(),e.getY()));
+			
 		}
 		repaint();
 	}
@@ -176,8 +169,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 
 		}else if(this.mode=="Square") {
 			this.square = new Square(begin,0);
-		}else if(this.mode=="Polyline") {
-			this.polyline = new Polyline(begin);
+		//}else if(this.mode=="Polyline") {
+		//	this.polyline = new Polyline(begin);
 
 		}
 	}
