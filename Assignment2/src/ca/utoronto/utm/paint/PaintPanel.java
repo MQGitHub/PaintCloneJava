@@ -169,15 +169,15 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 					g2d.drawPolygon(p);
 				}
 			}
+			Point end = this.polyline.getEndPoint();
+			Point start = this.polyline.getStartPoint();
+			if (start.getX() != end.getX() || start.getY() != end.getY()) {
+				g2d.setColor(end.getColor());
+				g2d.setStroke(new BasicStroke(end.getThickness()));
+				g2d.drawLine(start.getX(), start.getY(), end.getX(), end.getY());
+			}
 		}
 		
-		Point end = this.model.getEndPoint();
-		Point start = this.model.getStartPoint();
-		if (start.getX() != end.getX() || start.getY() != end.getY()) {
-			g2d.setColor(end.getColor());
-			g2d.setStroke(new BasicStroke(end.getThickness()));
-			g2d.drawLine(start.getX(), start.getY(), end.getX(), end.getY());
-		}
 
 	}
 
@@ -249,7 +249,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			this.model.addShape(this.square);
 		} else if(this.mode=="Polyline") {
 			Point newP = new Point(this.colour, thickness, e.getX(), e.getY());
-			this.model.setEndPoint(newP);
+			this.polyline.setEndPoint(newP);
 		} else if (this.mode == "Line") {
 			end = new Point(e.getX(), e.getY());
 			this.line.setEndPoint(end);
@@ -303,16 +303,17 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			this.eraser = new Eraser(background, er);
 		}	else if(this.mode=="Polyline") {
 			begin = new Point(this.colour, thickness, e.getX(), e.getY());
-			this.model.setStartPoint(begin);
 			if (this.polyline != null) {
 				this.polyline.addPoint(begin);
 			} else {
 				this.polyline = new Polyline(this.colour, thickness, false, begin);
 				this.polyline.addPoint(begin);
 			}
+			this.polyline.setStartPoint(begin);
 		} else if (this.mode == "Triangle") {
 			begin = new Point(this.colour, thickness, e.getX(), e.getY());
 			this.triangle = new Triangle(this.colour, thickness, filled, begin);
+
 		}
 	}
 
@@ -326,18 +327,15 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			}
 		} else if(this.mode=="Polyline") {
 			Point newP = new Point(this.colour, thickness, e.getX(), e.getY());
-			this.model.setEndPoint(newP);
-			this.model.setStartPoint(newP);
-			this.polyline.addPoint(this.model.getEndPoint());
+			this.polyline.setEndPoint(newP);
+			this.polyline.setStartPoint(newP);
+			this.polyline.addPoint(this.polyline.getEndPoint());
 			if (this.polyline.getNumPoints() == 2) {
 				this.model.addShape(polyline);
 				this.model.addShape(polyline);
-			} else if (this.polyline.getFirstPoint().getX() != this.polyline.getLastPoint().getX()
-					|| this.polyline.getFirstPoint().getY() != this.polyline.getLastPoint().getY()) {
-				this.model.addShape(this.polyline);
-			} else if(this.polyline.getFirstPoint().getX() == this.polyline.getLastPoint().getX()
-					&& this.polyline.getFirstPoint().getY() == this.polyline.getLastPoint().getY()
-					&& this.polyline.getNumPoints() > 2) {
+			} else if (!this.polyline.completedPolyline()) {
+				this.model.addShape(this.polyline);  
+			} else if (this.polyline.completedPolyline() && this.polyline.getNumPoints() > 2) {
 				this.model.addShape(this.polyline);
 				this.polyline = new Polyline(this.colour, thickness, false, begin);
 			} else {
