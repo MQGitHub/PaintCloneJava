@@ -3,12 +3,12 @@ package ca.utoronto.utm.paint;
 import java.awt.Color;
 import java.util.ArrayList;
 
-
 /**
  * Represents the lines for our paint application. Containing all the lines
  * color, thickness, and start and end points.
  *
  */
+
 public class Line extends Shape {
 
 	private Point begin;
@@ -24,7 +24,6 @@ public class Line extends Shape {
 	 * @param begin  a point that is the start point of the line.
 	 * @param end    a point that is end point of the line.
 	 * @see Shape
-	 * @see DrawShape
 	 */
 	public Line(Color c, int t, Boolean b, Point begin, Point end) {
 		super(c, t, b, begin);
