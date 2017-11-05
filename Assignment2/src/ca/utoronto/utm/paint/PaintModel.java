@@ -6,13 +6,7 @@ import java.util.Observable;
 
 public class PaintModel extends Observable {
 	
-	private ArrayList<Point> points=new ArrayList<Point>();
-	private ArrayList<Circle> circles=new ArrayList<Circle>();
-	private ArrayList<Rectangle> rectangles=new ArrayList<Rectangle>();
-	private ArrayList<Square> squares = new ArrayList<Square>();
 	private ArrayList<Polyline> polylines = new ArrayList<Polyline>();
-	private Point startPoint = new Point(-1, -1);
-	private Point endPoint = new Point(-1, -1);
 	private ArrayList<Shape> shapes = new ArrayList<Shape>();
 	
 	public void addShape(Shape p) {
@@ -38,21 +32,7 @@ public class PaintModel extends Observable {
 		return polylines;
 	}
 	
-	public void setStartPoint(Point p) {
-		this.startPoint = p;
-	}
 	
-	public Point getStartPoint() {
-		return this.startPoint;
-	}
-	
-	public void setEndPoint(Point p) {
-		this.endPoint = p;
-	}
-	
-	public Point getEndPoint() {
-		return this.endPoint;
-	}
 	
 }
 
