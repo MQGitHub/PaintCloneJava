@@ -68,7 +68,6 @@ class ColourChooserPanel extends JPanel implements ActionListener, ChangeListene
 	public void stateChanged(ChangeEvent e) {
 		Color currentColor = this.pcc.getColor();
 		this.updateButtonColor(currentColor);
-		this.view.getPaintPanel().setMode("Colour");
 		this.view.getPaintPanel().setColour(currentColor);
 	}
 

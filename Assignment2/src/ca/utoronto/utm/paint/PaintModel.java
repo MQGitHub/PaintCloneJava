@@ -47,7 +47,7 @@ public class PaintModel extends Observable {
 	
 
 	/**
-	 * add given Polyline to the polyline ArrayList. Then setchanged and 
+	 * Add given Polyline to the polyline ArrayList. Then setchanged and 
 	 * notify observers.
 	 * 
 	 * @param p a Polyline that will be drawn onto our Panel. 
