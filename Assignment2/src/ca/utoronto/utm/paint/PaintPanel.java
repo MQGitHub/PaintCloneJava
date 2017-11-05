@@ -67,6 +67,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		i++;
 
 		ArrayList<Shape> shapes = this.model.getShapes();
+		System.out.println(shapes);
 		for (Shape s : this.model.getShapes()) {
 			if (s instanceof Circle) {
 				int x = s.getCorner().getX();
@@ -154,7 +155,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		
 		Point end = this.model.getEndPoint();
 		Point start = this.model.getStartPoint();
-		if (start.getX() != end.getX() && start.getY() != end.getY()) {
+		if (start.getX() != end.getX() || start.getY() != end.getY()) {
 			g2d.setColor(end.getColor());
 			g2d.setStroke(new BasicStroke(end.getThickness()));
 			g2d.drawLine(start.getX(), start.getY(), end.getX(), end.getY());
@@ -300,8 +301,11 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			this.model.setEndPoint(newP);
 			this.model.setStartPoint(newP);
 			this.polyline.addPoint(this.model.getEndPoint());
-			if (this.polyline.getFirstPoint().getX() != this.polyline.getLastPoint().getX()
-					&& this.polyline.getFirstPoint().getY() != this.polyline.getLastPoint().getY()) {
+			if (this.polyline.getNumPoints() == 2) {
+				this.model.addShape(polyline);
+				this.model.addShape(polyline);
+			} else if (this.polyline.getFirstPoint().getX() != this.polyline.getLastPoint().getX()
+					|| this.polyline.getFirstPoint().getY() != this.polyline.getLastPoint().getY()) {
 				this.model.addShape(this.polyline);
 			} else if(this.polyline.getFirstPoint().getX() == this.polyline.getLastPoint().getX()
 					&& this.polyline.getFirstPoint().getY() == this.polyline.getLastPoint().getY()
