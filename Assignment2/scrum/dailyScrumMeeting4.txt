@@ -1,72 +1,72 @@
 # Fill in, commit and push each day.
-# Group Member: FILL THIS IN
+# Group Member: Mateen Qureshi, note I commited under the names "user" and "MQ's Virual World".
 
 Oct 23, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : N/A
+	Today     : Read the assignment.
+	Obstacles : Figure out new Git Options
 
 Oct 24, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Read assignment.
+	Today     : Figured out Git options.
+	Obstacles : Organize the branches
 
 Oct 25, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Figured out Git options.
+	Today     : Created and organized Branches.
+	Obstacles : Plan the assignment.
 
 Oct 26, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Off.
+	Today     : Off.
+	Obstacles : Off.
 
 Oct 27, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Off.
+	Today     : Off.
+	Obstacles : Off.
 
 Oct 28, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Off.
+	Today     : Off.
+	Obstacles : Off.
 
 Oct 29, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
-
+	Yesterday : Off.
+	Today     : Off.
+	Obstacles : Off.
+	
 Oct 30, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Off.
+	Today     : Planned the assignment.
+	Obstacles : Start working on assignment.
 
 Oct 31, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Planned the assignment.
+	Today     : Create a non-functioning colour choosing panel
+	Obstacles : Make the Color panel functioning
 
 Nov 1, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Created colour choosing panel
+	Today     : Colour panel now Colours but colours everything.
+	Obstacles : Properly implement Colour Panel.
 	
 Nov 2, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Colour panel now Colours but colours everything.
+	Today     :	Addressed and completed Bug 5
+	Obstacles : Properly implement Colour choosing
 	
 Nov 3, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Addressed and completed Bug 5
+	Today     : Fixed Colour choosing, colours correctly but several bugs to fix
+	Obstacles : Fix Colour Choosing
 
 Nov 4, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Fixed Colour choosing
+	Today     : Finished polyline 
+	Obstacles : Work on Color GUI
 
 Nov 5, 2017
-	Yesterday :
-	Today     :
+	Yesterday : Finished polyline
+	Today     : 
 	Obstacles :
