@@ -163,7 +163,6 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 				this.model.addPolyline(this.polyline);
 				this.polyline = new Polyline();
 			}
-			repaint();
 		}
 		repaint();
 	}
