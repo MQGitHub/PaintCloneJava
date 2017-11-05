@@ -16,17 +16,17 @@ public class Polyline extends Shape {
 	private Point endPoint;
 
 	/**
-	 * Construct a shape with the specified parameters and initialize the
-	 * parameters.
+	 * Constructs a shape of type Oval with a specific color, 
+	 * thickness, is filled, start.
 	 * 
 	 * @param c
-	 *            The color the shape is
+	 *            The color the polyline is
 	 * @param t
-	 *            The thickness the shape is
+	 *            The thickness the polyline is
 	 * @param b
-	 *            The fill of the shape
+	 *            The fill of the polyline
 	 * @param start
-	 *            The beginning point of the shape
+	 *            The beginning point of the polyline
 	 */
 
 	public Polyline(Color c, int t, Boolean b, Point start) {

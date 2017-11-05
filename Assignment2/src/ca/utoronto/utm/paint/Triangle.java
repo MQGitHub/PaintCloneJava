@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 /**
  * 
- * A Triangle is a Shape with a base and height value.
+ * A Triangle is a Shape which has a base and height value.
  *
  */
 public class Triangle extends Shape {
@@ -14,7 +14,8 @@ public class Triangle extends Shape {
 	private int base, height;
 	
 	/**
-	 * Construct a shape with the specified parameters	 
+	 * Constructs a shape of type Triangle with a specific color, 
+	 * thickness, is filled, corner.	 
 	 * 
 	 * @param c
 	 *            The color the shape is
