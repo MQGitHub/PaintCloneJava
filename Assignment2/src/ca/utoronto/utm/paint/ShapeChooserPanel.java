@@ -50,8 +50,8 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 			JRadioButton x = (JRadioButton) e.getSource();
 			this.view.getPaintPanel().setFill(x.isSelected());
 		}else {
-			JToggleButton x = (JToggleButton) e.getSource();
-			this.view.getPaintPanel().setMode(x.getToolTipText());
+			JToggleButton y = (JToggleButton) e.getSource();
+			this.view.getPaintPanel().setMode(y.getToolTipText());
 		}
 	}
 	
