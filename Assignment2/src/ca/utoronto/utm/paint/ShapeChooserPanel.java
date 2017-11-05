@@ -1,6 +1,7 @@
 package ca.utoronto.utm.paint;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,13 +15,21 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 	public ShapeChooserPanel(View view) {	
 		this.view=view;
 		
-		String[] buttonLabels = { "Circle", "Rectangle", "Square", "Squiggle", "Polyline" };
-		this.setLayout(new GridLayout(buttonLabels.length, 1));
+		String[] buttonLabels = { "Circle", "Oval", "Rectangle", "Square", "Squiggle", "Polyline", "Line" ,"Eraser"};
+		ButtonGroup group =  new ButtonGroup();
+		this.setLayout(new GridLayout(buttonLabels.length + 2,1));
 		for (String label : buttonLabels) {
-			JButton button = new JButton(label);
+			JToggleButton button = new JToggleButton(label);
+			group.add(button);
 			this.add(button);
 			button.addActionListener(this);
 		}
+		JRadioButton fill = new JRadioButton("Fill Shape");
+		fill.addActionListener(this);
+		this.add(fill);
+		
+		LineThicknessChooser t = new LineThicknessChooser(this.view);
+		this.add(t.lineThicknessMenu());
 	}
 	
 	/**
@@ -28,9 +37,13 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.view.getPaintPanel().setMode(e.getActionCommand());
-		System.out.println(e.getActionCommand());
+		if (e.getActionCommand() == "Fill Shape") {
+			JRadioButton x = (JRadioButton) e.getSource();
+			this.view.getPaintPanel().setFill(x.isSelected());
+		}else {
+			this.view.getPaintPanel().setMode(e.getActionCommand());
+		}
 	}
-
 	
 }
+

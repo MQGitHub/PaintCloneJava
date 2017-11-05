@@ -1,8 +1,8 @@
 package ca.utoronto.utm.paint;
 
-public class Triangle extends Polyline {
+public class Triangle{
 
-	public Triangle(Point p) {
+	public Triangle() {
 		
 	}
 

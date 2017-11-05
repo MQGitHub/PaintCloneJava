@@ -1,15 +1,17 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
-public class Polyline {
+public class Polyline extends Shape{
 	private Point point;
 	private ArrayList<Point> points;
 	private int numPoints;
 	private ArrayList<Integer> xPoints = new ArrayList<Integer>();
 	private ArrayList<Integer> yPoints = new ArrayList<Integer>();
 	
-	public Polyline() {
+	public Polyline(Color c, int t, Boolean b, Point start) {
+		super(c, t, b, start);
 		this.points = new ArrayList<Point>();
 		this.numPoints = 0;
 	}
