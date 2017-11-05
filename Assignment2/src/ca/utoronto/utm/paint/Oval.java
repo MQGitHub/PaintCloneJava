@@ -1,22 +1,16 @@
 package ca.utoronto.utm.paint;
 
-public class Oval {
-	private Point corner;
+import java.awt.Color;
+
+public class Oval extends Shape implements DrawShape{
+
 	private int width;
 	private int height;
 	
-	public Oval(Point corner, int width, int height){
-		this.corner = corner;
+	public Oval(Color c, int t, Boolean b,  Point corner, int width, int height){
+		super(c, t, b, corner);
 		this.width = width;
 		this.height = height;
-	}
-	
-	public Point getCorner() {
-		return corner;
-	}
-
-	public void setCorner(Point corner) {
-		this.corner = corner;
 	}
 
 	public int getWidth() {
@@ -32,6 +26,12 @@ public class Oval {
 
 	public void setHeight(int height) {
 		this.height = height;
+	}
+
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub
+		
 	}
 
 

@@ -1,9 +1,17 @@
 package ca.utoronto.utm.paint;
 
-public class Square extends Rectangle{
+import java.awt.Color;
 
-	public Square(Point center, int width) {
-		super(center, width, width);
+public class Square extends Rectangle implements DrawShape{
+
+	public Square(Color c, int t, Boolean b,  Point center, int width) {
+		super(c, t, b, center, width, width);
 	}
-
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub
+		//g2d.drawRect
+	}
 }
+
+
