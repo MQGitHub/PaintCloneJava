@@ -5,16 +5,6 @@
 # 2 Implementation of selected color into the drawing stream.
 
 --------------------------------------------------------------------------
-TYPE     : USER STORY 11: 1003539824
-NAME     : Color selector UI
-OWNER    : Mateen
-PRIORITY : 1
-ESTIMATE : 
-AS A     : user
-I WANT   : A GUI to select Colors
-SO THAT  : I can see what colors I want to select
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : USER STORY 5
 NAME     : Color selector implemented
 OWNER    : 
@@ -58,6 +48,26 @@ ESTIMATE : 2 hours
 AS A     : user
 I WANT   : to click and drag, to see a triangle formed.
 SO THAT  : I can add triangle to my canvas.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 11: 1003539824
+NAME     : Color selector UI
+OWNER    : Mateen
+PRIORITY : 1
+ESTIMATE : 
+AS A     : user
+I WANT   : A GUI to select Colors
+SO THAT  : I can see what colors I want to select
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 12: 1003539824
+NAME     : Color Selector hider
+OWNER    : Mateen
+PRIORITY : 1
+ESTIMATE : 
+AS A     : user
+I WANT   : To toggle the Color panel off and see current color
+SO THAT  : I can have more screen real estate to draw
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 3
