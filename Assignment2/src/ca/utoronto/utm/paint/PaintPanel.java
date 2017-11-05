@@ -34,6 +34,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private int thickness;
 	private Point squiggleBegin;
 	private Squiggle squiggle;
+	private Triangle triangle;
 
 	public PaintPanel(PaintModel model, View view) {
 		background = Color.white;
@@ -151,6 +152,22 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 					g2d.setStroke(new BasicStroke(p2.getThickness()));
 					g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
 				}
+			} else if (s instanceof Triangle) {
+				int x = s.getCorner().getX();
+				int y = s.getCorner().getY();
+				int height = ((Triangle) s).getHeight();
+				int base = ((Triangle) s).getBase();
+				g2d.setColor(s.getColor());
+				g2d.setStroke(new BasicStroke(s.getThickness()));
+				Polygon p = new Polygon();
+				p.addPoint(x, y);
+				p.addPoint(y, height);
+				p.addPoint(base, height);
+				if (s.isFilled()){
+					g2d.fillPolygon(p);
+				}else {
+					g2d.drawPolygon(p);
+				}
 			}
 		}
 		
@@ -245,6 +262,10 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		} else if (this.mode == "Eraser") {
 			this.eraser.addPoint(new Point(this.background, 15, e.getX(), e.getY()));
 			this.model.addShape(this.eraser);
+		} else if (this.mode == "Triangle") {
+			this.triangle.setBase(e.getX());
+			this.triangle.setHeight(e.getY());
+			this.model.addShape(triangle);
 		}
 
 		repaint();
@@ -289,6 +310,9 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 				this.polyline = new Polyline(this.colour, thickness, false, begin);
 				this.polyline.addPoint(begin);
 			}
+		} else if (this.mode == "Triangle") {
+			begin = new Point(this.colour, thickness, e.getX(), e.getY());
+			this.triangle = new Triangle(this.colour, thickness, filled, begin);
 		}
 	}
 

@@ -37,5 +37,5 @@ public class Polyline extends Shape{
 		return this.numPoints;
 	}
 	
-	
 }
+

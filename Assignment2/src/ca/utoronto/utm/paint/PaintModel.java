@@ -6,10 +6,6 @@ import java.util.Observable;
 
 public class PaintModel extends Observable {
 	
-	private ArrayList<Point> points=new ArrayList<Point>();
-	private ArrayList<Circle> circles=new ArrayList<Circle>();
-	private ArrayList<Rectangle> rectangles=new ArrayList<Rectangle>();
-	private ArrayList<Square> squares = new ArrayList<Square>();
 	private ArrayList<Polyline> polylines = new ArrayList<Polyline>();
 	private Point startPoint = new Point(-1, -1);
 	private Point endPoint = new Point(-1, -1);

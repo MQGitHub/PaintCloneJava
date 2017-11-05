@@ -33,3 +33,4 @@ public class Rectangle extends Shape implements DrawShape {
 		//g2d.drawRect
 	}
 }
+

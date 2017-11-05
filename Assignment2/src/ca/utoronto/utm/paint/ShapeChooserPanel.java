@@ -16,7 +16,7 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 
 	public ShapeChooserPanel(View view) {
 		this.view = view;
-		String[] buttonLabels = new String[] { "Circle", "Oval", "Rectangle", "Square", "Squiggle", "Polyline", "Line",
+		String[] buttonLabels = { "Circle", "Oval", "Rectangle", "Square", "Triangle", "Squiggle", "Polyline", "Line",
 				"Eraser" };
 		GetIcons i = new GetIcons(buttonLabels);
 		ImageIcon[] icon = i.icons();

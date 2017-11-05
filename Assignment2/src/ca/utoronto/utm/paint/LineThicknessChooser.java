@@ -46,4 +46,3 @@ public class LineThicknessChooser implements ChangeListener {
 	}
 	
 }
-
