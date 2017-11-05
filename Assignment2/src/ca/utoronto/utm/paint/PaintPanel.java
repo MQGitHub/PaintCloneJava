@@ -102,11 +102,13 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 					g2d.drawRect(x - width, y - width, width * 2, width * 2);
 				}
 			} else if (s instanceof Eraser) {
-				int x = s.getCorner().getX();
-				int y = s.getCorner().getY();
-				int width = ((Eraser) s).getWidth();
-				g2d.setColor(background);
-				g2d.fillRect(x, y, width, width);
+				ArrayList<Point> points = ((Eraser) s).getPoints();
+				for (int i = 0; i < points.size() - 1; i++) {
+					Point p1 = points.get(i);
+					g2d.setColor(background);
+					g2d.fillRect(p1.getX(), p1.getY(), 20, 20);
+				}
+
 			} else if (s instanceof Rectangle) {
 				int x = s.getCorner().getX();
 				int y = s.getCorner().getY();
@@ -125,7 +127,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 				g2d.setColor(s.getColor());
 				g2d.setStroke(new BasicStroke(s.getThickness()));
 				g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
-				
+
 			} else if (s instanceof Squiggle) {
 				ArrayList<Point> points = ((Squiggle) s).getPoints();
 				for (int i = 0; i < points.size() - 1; i++) {
@@ -140,7 +142,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 					}
 				}
 			}
-		}	
+		}
 		g2d.dispose();
 	}
 
@@ -212,6 +214,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			this.oval.setHeight(max_Y - min_Y);
 			this.model.addShape(this.oval);
 		} else if (this.mode == "Eraser") {
+			this.eraser.addPoint(new Point(this.background, 15, e.getX(), e.getY()));
 			this.model.addShape(this.eraser);
 		}
 
@@ -246,7 +249,9 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		} else if (this.mode == "Oval") {
 			this.oval = new Oval(this.colour, thickness, filled, begin, 0, 0);
 		} else if (this.mode == "Eraser") {
-			this.eraser = new Eraser(background, thickness, begin);
+			ArrayList<Point> er = new ArrayList<Point>();
+			er.add(new Point(this.background, 15, e.getX(), e.getY()));
+			this.eraser = new Eraser(background, er);
 		}
 	}
 

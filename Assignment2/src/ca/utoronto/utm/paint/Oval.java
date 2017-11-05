@@ -34,5 +34,4 @@ public class Oval extends Shape implements DrawShape{
 		
 	}
 
-
 }

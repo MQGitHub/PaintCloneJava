@@ -16,5 +16,7 @@ public class Circle extends Oval implements DrawShape{
 	public void draw() {
 		// TODO Auto-generated method stub
 		//g2d.drawRect
+
 	}
 }
+

@@ -13,3 +13,5 @@ public class Square extends Rectangle implements DrawShape{
 		//g2d.drawRect
 	}
 }
+
+
