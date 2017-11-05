@@ -1,28 +1,24 @@
 package ca.utoronto.utm.paint;
 
-public class Circle {
-	private Point centre;
-	private int radius;
+import java.awt.Color;
+
+public class Circle extends Oval implements DrawShape{
+
 	
-	public Circle(Point centre, int radius){
-		this.centre = centre;
-		this.radius = radius;
+	public Circle(Color c, int t,Boolean b,  Point center, int radius) {
+		super(c, t, b, center, radius, radius);
 	}
-
-	public Point getCentre() {
-		return centre;
-	}
-
-	public void setCentre(Point centre) {
-		this.centre = centre;
-	}
-
-	public int getRadius() {
-		return radius;
-	}
-
 	public void setRadius(int radius) {
-		this.radius = radius;
+		this.setHeight(radius);
+		this.setWidth(radius);
 	}
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub
+		//g2d.drawRect
 
+	}
 }
+
+
+
