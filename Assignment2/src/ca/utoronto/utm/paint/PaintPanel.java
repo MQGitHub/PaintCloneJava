@@ -17,6 +17,41 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private PaintModel model; // slight departure from MVC, because of the way painting works
 	private View view; // So we can talk to our parent or other components of the view 
 	
+package ca.utoronto.utm.paint;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
+
+// https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html
+// https://docs.oracle.com/javase/tutorial/2d/
+
+class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseListener {
+	private int i = 0;
+	private PaintModel model; // slight departure from MVC, because of the way painting works
+	private View view; // So we can talk to our parent or other components of the view
+
+	private String mode; // modifies how we interpret input (could be better?)
+	private Circle circle; // the circle we are building
+	private Point begin, end;
+	private Rectangle rectangle;
+	private Square square;
+	private Line line;
+	private Oval oval;
+	private Shape shape;
+	private Graphics g2d;
+	private boolean filled;
+	private Color colour;// keeps track of the current color
+	private Color background; // keeps track of the current color
+	private Eraser eraser;
+	private int thickness;
+	private Point squiggleBegin;
+	private Squiggle squiggle;
 
 	private Point begin, end;
 	private Rectangle rectangle;
@@ -102,6 +137,17 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 					//draw a line between the points given.
 					g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
 				
+			} else if (s instanceof Squiggle) {
+				ArrayList<Point> points = ((Squiggle) s).getPoints();
+				for (int i = 0; i < points.size() - 1; i++) {
+					Point p1 = points.get(i);
+					Point p2 = points.get(i + 1);
+					g2d.setColor(p1.getColor());
+					g2d.setStroke(new BasicStroke(p1.getThickness()));
+					if ((p1.getX() == -1 && p1.getY() == -1) || (p2.getX() == -1 && p2.getY() == -1)) {
+						i = i + 2;
+					} else {
+						g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
 					}
 				}
 		 		
@@ -189,11 +235,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 
 	public void setColour(Color colour) {
 		this.colour = colour;
-		this.ListColours.set(i-1, colour);
-		//ListColours.clear();
-		//SecondListColour.add(colour);
-		//ListColours = SecondListColour.clone();
-		//model.addPoint(new Point(-2,-2));
+
 	}
 	
 	@Override
@@ -321,6 +363,3 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 
 		} else if (this.mode == "Circle") {
 
-		}
-	}
-}

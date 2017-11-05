@@ -37,7 +37,6 @@ class ColourChooserPanel extends JPanel implements ChangeListener {
 		Color currentColor = this.pcc.getColor();
 		this.view.getPaintPanel().setMode("Colour");
 		this.view.getPaintPanel().setColour(currentColor);
-		System.out.println("Colour");
 	}
 
 	
