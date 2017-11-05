@@ -21,15 +21,5 @@ public class PaintModel extends Observable {
 		return shapes;
 	}
 	
-	public void addPoint(Point p){
-		this.points.add(p);
-		this.setChanged();
-		this.notifyObservers();
-	}
-	public ArrayList<Point> getPoints(){
-		return points;
-	}
-	
-	
 }
 

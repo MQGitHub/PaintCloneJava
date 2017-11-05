@@ -32,6 +32,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private Eraser eraser;
 	private int thickness;
 	private Point squiggleBegin;
+	private Squiggle squiggle;
 
 	public PaintPanel(PaintModel model, View view) {
 		background = Color.white;
@@ -66,9 +67,9 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 
 		ArrayList<Shape> shapes = this.model.getShapes();
 		for (Shape s : this.model.getShapes()) {
-			int x = s.getCorner().getX();
-			int y = s.getCorner().getY();
 			if (s instanceof Circle) {
+				int x = s.getCorner().getX();
+				int y = s.getCorner().getY();
 				int radius = ((Oval) s).getHeight();
 				g2d.setColor(s.getColor());
 				g2d.setStroke(new BasicStroke(s.getThickness()));
@@ -78,6 +79,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 					g2d.drawOval(x - radius, y - radius, radius * 2, radius * 2);
 				}
 			} else if (s instanceof Oval) {
+				int x = s.getCorner().getX();
+				int y = s.getCorner().getY();
 				int height = ((Oval) s).getHeight();
 				int width = ((Oval) s).getWidth();
 				g2d.setColor(s.getColor());
@@ -88,6 +91,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 					g2d.drawOval(x, y, width, height);
 				}
 			} else if (s instanceof Square) {
+				int x = s.getCorner().getX();
+				int y = s.getCorner().getY();
 				int width = ((Square) s).getWidth();
 				g2d.setColor(s.getColor());
 				g2d.setStroke(new BasicStroke(s.getThickness()));
@@ -97,10 +102,14 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 					g2d.drawRect(x - width, y - width, width * 2, width * 2);
 				}
 			} else if (s instanceof Eraser) {
+				int x = s.getCorner().getX();
+				int y = s.getCorner().getY();
 				int width = ((Eraser) s).getWidth();
 				g2d.setColor(background);
 				g2d.fillRect(x, y, width, width);
 			} else if (s instanceof Rectangle) {
+				int x = s.getCorner().getX();
+				int y = s.getCorner().getY();
 				int height = ((Rectangle) s).getHeight();
 				int width = ((Rectangle) s).getWidth();
 				g2d.setColor(s.getColor());
@@ -116,23 +125,22 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 				g2d.setColor(s.getColor());
 				g2d.setStroke(new BasicStroke(s.getThickness()));
 				g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
+				
+			} else if (s instanceof Squiggle) {
+				ArrayList<Point> points = ((Squiggle) s).getPoints();
+				for (int i = 0; i < points.size() - 1; i++) {
+					Point p1 = points.get(i);
+					Point p2 = points.get(i + 1);
+					g2d.setColor(p1.getColor());
+					g2d.setStroke(new BasicStroke(p1.getThickness()));
+					if ((p1.getX() == -1 && p1.getY() == -1) || (p2.getX() == -1 && p2.getY() == -1)) {
+						i = i + 2;
+					} else {
+						g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
+					}
+				}
 			}
-		}
-
-		// Draw Lines
-		ArrayList<Point> points = this.model.getPoints();
-		for (int i = 0; i < points.size() - 1; i++) {
-			Point p1 = points.get(i);
-			Point p2 = points.get(i + 1);
-			g2d.setColor(p1.getColor());
-			g2d.setStroke(new BasicStroke(p1.getThickness()));
-			if ((p1.getX() == -1 && p1.getY() == -1) || (p2.getX() == -1 && p2.getY() == -1)) {
-				i = i + 2;
-			} else {
-				g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
-			}
-		}
-		
+		}	
 		g2d.dispose();
 	}
 
@@ -175,7 +183,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		int max_X = Math.max(begin.getX(), e.getX());
 		int max_Y = Math.max(begin.getY(), e.getY());
 		if (this.mode == "Squiggle") {
-			this.model.addPoint(new Point(this.colour, thickness, e.getX(), e.getY()));
+			this.squiggle.addPoint(new Point(this.colour, thickness, e.getX(), e.getY()));
+			this.model.addShape(this.squiggle);
 		} else if (this.mode == "Circle") {
 			int x = begin.getX() - e.getX();
 			int y = begin.getY() - e.getY();
@@ -223,7 +232,9 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		begin = new Point(e.getX(), e.getY());
 
 		if (this.mode == "Squiggle") {
-			squiggleBegin = new Point(this.colour, thickness, e.getX(), e.getY());
+			ArrayList<Point> pts = new ArrayList<Point>();
+			pts.add(new Point(this.colour, thickness, e.getX(), e.getY()));
+			this.squiggle = new Squiggle(this.colour, thickness, pts);
 		} else if (this.mode == "Circle") {
 			this.circle = new Circle(this.colour, thickness, filled, begin, 0);
 		} else if (this.mode == "Rectangle") {
@@ -242,7 +253,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		if (this.mode == "Squiggle") {
-			this.model.addPoint(new Point(-1, -1));
+			this.squiggle.addPoint(new Point(-1, -1));
+			this.model.addShape(this.squiggle);
 		} else if (this.mode == "Circle") {
 			if (this.circle != null) {
 			}
