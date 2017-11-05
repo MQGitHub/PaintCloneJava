@@ -27,13 +27,16 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private Shape shape;
 	private Graphics g2d;
 	private boolean filled;
-	private Color colour; // keeps track of the current color
+	private Color colour;// keeps track of the current color
+	private Color background; // keeps track of the current color
+	private Eraser eraser;
 	private int thickness;
 	private Point squiggleBegin;
 	
 	public PaintPanel(PaintModel model, View view){
-		this.setBackground(Color.blue);
-		this.colour = Color.white;
+		background = Color.white;
+		this.setBackground(background);
+		this.colour = Color.black;
 		this.setPreferredSize(new Dimension(300,300));
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
@@ -77,9 +80,9 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		
 		ArrayList<Shape> shapes = this.model.getShapes();
 		for(Shape s: this.model.getShapes()) {
+			int x = s.getCorner().getX();
+			int y = s.getCorner().getY();
 			if(s instanceof Circle) {
-				int x = s.getCorner().getX();
-				int y = s.getCorner().getY();
 				int radius = ((Oval) s).getHeight();
 				g2d.setColor(s.getColor());
 				g2d.setStroke(new BasicStroke(s.getThickness()));
@@ -89,8 +92,6 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 					g2d.drawOval(x-radius,y-radius, radius*2, radius*2);
 				}
 			}else if(s instanceof Oval){
-				int x = s.getCorner().getX();
-				int y = s.getCorner().getY();
 				int height = ((Oval)s).getHeight();
 				int width = ((Oval)s).getWidth();
 				g2d.setColor(s.getColor());
@@ -101,8 +102,6 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 					g2d.drawOval(x, y, width, height);
 				}
 			}else if(s instanceof Square) {
-				int x = s.getCorner().getX();
-				int y = s.getCorner().getY();
 				int width = ((Square)s).getWidth();
 				g2d.setColor(s.getColor());
 				g2d.setStroke(new BasicStroke(s.getThickness()));
@@ -111,9 +110,11 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 				}else {
 					g2d.drawRect(x-width, y-width, width*2, width*2);
 				}
+			}else if(s instanceof Eraser) {
+				int width = ((Eraser) s).getWidth();
+				g2d.setColor(background);
+				g2d.fillRect(x, y, width, width);
 			}else if(s instanceof Rectangle){
-				int x = s.getCorner().getX();
-				int y = s.getCorner().getY();
 				int height = ((Rectangle)s).getHeight();
 				int width = ((Rectangle)s).getWidth();
 				g2d.setColor(s.getColor());
@@ -201,6 +202,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			this.oval.setWidth(max_X - min_X);
 			this.oval.setHeight(max_Y - min_Y);
 			this.model.addShape(this.oval);
+		}else if(this.mode=="Eraser") {
+			this.model.addShape(this.eraser);
 		}
 		
 		repaint();
@@ -231,6 +234,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			this.line = new Line(this.colour, thickness, false, begin,begin);
 		}else if(this.mode=="Oval") {
 			this.oval = new Oval(this.colour, thickness, filled, begin,0,0);
+		}else if(this.mode=="Eraser") {
+			this.eraser = new Eraser(background, thickness, begin);
 		}
 	}
 
