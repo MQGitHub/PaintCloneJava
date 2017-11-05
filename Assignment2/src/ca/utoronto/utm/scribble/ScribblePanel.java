@@ -33,6 +33,7 @@ class ScribblePanel extends JPanel implements MouseMotionListener {
 
 		// Draw bubbles
 		for(Pair p:this.drawingPoints){
+			g2d.drawOval(p.getX(), p.getY(), 4, 4);
 			g2d.drawOval(p.getX()-4, p.getY()-4, 4, 4);
 		}
 
