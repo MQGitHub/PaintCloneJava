@@ -72,4 +72,3 @@ public class PaintModel extends Observable {
 		
 }
 
-}
