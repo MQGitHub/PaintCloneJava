@@ -27,17 +27,17 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private Shape shape;
 	private Graphics g2d;
 	private boolean filled;
-	private Color colour; // keeps track of the current color
+	private Color colour;// keeps track of the current color
+	private Color background; // keeps track of the current color
+	private Eraser eraser;
 	private int thickness;
+	private Point squiggleBegin;
 	private Squiggle squiggle;
-	private ArrayList<Point> squigglePoints;
-	private Eraser erase;
-	private ArrayList<Shape> shapes;
-	private ArrayList<Point> erasePoints;
 
 	public PaintPanel(PaintModel model, View view) {
-		this.setBackground(Color.blue);
-		this.colour = Color.white;
+		background = Color.white;
+		this.setBackground(background);
+		this.colour = Color.black;
 		this.setPreferredSize(new Dimension(300, 300));
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
@@ -65,7 +65,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		g2d.drawString("i=" + i, 25, 25);
 		i = i + 1;
 
-		this.shapes = this.model.getShapes();
+		ArrayList<Shape> shapes = this.model.getShapes();
 		for (Shape s : this.model.getShapes()) {
 			if (s instanceof Circle) {
 				int x = s.getCorner().getX();
@@ -101,6 +101,13 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 				} else {
 					g2d.drawRect(x - width, y - width, width * 2, width * 2);
 				}
+			} else if (s instanceof Eraser) {
+				ArrayList<Point> points = ((Eraser) s).getPoints();
+				for (int i = 0; i < points.size() - 1; i++) {
+					Point p1 = points.get(i);
+					g2d.setColor(background);
+					g2d.fillRect(p1.getX(), p1.getY(), 20, 20);
+				}
 			} else if (s instanceof Rectangle) {
 				int x = s.getCorner().getX();
 				int y = s.getCorner().getY();
@@ -120,23 +127,13 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 				g2d.setStroke(new BasicStroke(s.getThickness()));
 				g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
 
-			} else if (s instanceof Eraser) {
-				ArrayList<Point> erase = this.erase.getPoints();
-				Color c = g2d.getColor();
-				for (int i = 0; i < erase.size() - 1; i++) {
-					Point p1 = erase.get(i);
-					Point p2 = erase.get(i + 1);
-					g2d.setColor(getBackground());
-					g2d.fillRect(p1.getX(), p1.getY(), 20, 20);
-				}
-				g2d.setColor(c);
 			} else if (s instanceof Squiggle) {
-				ArrayList<Point> points = this.squigglePoints;
+				ArrayList<Point> points = ((Squiggle) s).getPoints();
 				for (int i = 0; i < points.size() - 1; i++) {
 					Point p1 = points.get(i);
 					Point p2 = points.get(i + 1);
 					g2d.setColor(p1.getColor());
-					//g2d.setStroke(new BasicStroke(p1.getThickness()));
+					g2d.setStroke(new BasicStroke(p1.getThickness()));
 					if ((p1.getX() == -1 && p1.getY() == -1) || (p2.getX() == -1 && p2.getY() == -1)) {
 						i = i + 2;
 					} else {
@@ -145,7 +142,6 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 				}
 			}
 		}
-
 		g2d.dispose();
 	}
 
@@ -188,7 +184,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		int max_X = Math.max(begin.getX(), e.getX());
 		int max_Y = Math.max(begin.getY(), e.getY());
 		if (this.mode == "Squiggle") {
-			this.squiggle.addPoint(new Point(this.colour, this.thickness, e.getX(), e.getY()));
+			this.squiggle.addPoint(new Point(this.colour, thickness, e.getX(), e.getY()));
 			this.model.addShape(this.squiggle);
 		} else if (this.mode == "Circle") {
 			int x = begin.getX() - e.getX();
@@ -217,8 +213,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			this.oval.setHeight(max_Y - min_Y);
 			this.model.addShape(this.oval);
 		} else if (this.mode == "Eraser") {
-			this.erase.addPoint(new Point(this.getBackground(), 15, e.getX(), e.getY()));
-			this.model.addShape(this.erase);
+			this.eraser.addPoint(new Point(this.background, 15, e.getX(), e.getY()));
+			this.model.addShape(this.eraser);
 		}
 
 		repaint();
@@ -238,9 +234,9 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		begin = new Point(e.getX(), e.getY());
 
 		if (this.mode == "Squiggle") {
-			this.squigglePoints = new ArrayList<Point>();
-			this.squigglePoints.add(new Point(this.colour, thickness, e.getX(), e.getY()));
-			this.squiggle = new Squiggle(this.colour, thickness, this.squigglePoints);
+			ArrayList<Point> pts = new ArrayList<Point>();
+			pts.add(new Point(this.colour, thickness, e.getX(), e.getY()));
+			this.squiggle = new Squiggle(this.colour, thickness, pts);
 		} else if (this.mode == "Circle") {
 			this.circle = new Circle(this.colour, thickness, filled, begin, 0);
 		} else if (this.mode == "Rectangle") {
@@ -252,16 +248,17 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		} else if (this.mode == "Oval") {
 			this.oval = new Oval(this.colour, thickness, filled, begin, 0, 0);
 		} else if (this.mode == "Eraser") {
-			this.erasePoints = new ArrayList<Point>();
-			this.erasePoints.add(new Point(this.getBackground(), 15, e.getX(), e.getY()));
-			this.erase = new Eraser(this.getBackground(), this.erasePoints);
+			ArrayList<Point> er = new ArrayList<Point>();
+			er.add(new Point(this.background, 15, e.getX(), e.getY()));
+			this.eraser = new Eraser(background, er);
 		}
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		if (this.mode == "Squiggle") {
-			this.squiggle.addPoint(new Point(this.colour, thickness,-1, -1));
+			this.squiggle.addPoint(new Point(-1, -1));
+			this.model.addShape(this.squiggle);
 		} else if (this.mode == "Circle") {
 			if (this.circle != null) {
 			}
