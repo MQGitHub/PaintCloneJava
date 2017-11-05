@@ -15,7 +15,7 @@ public class GetIcons {
 		ImageIcon[] icons = new ImageIcon[shape.length];
 		int i = 0;
 		for (String s : this.shape){
-			ImageIcon x = new ImageIcon("shapes/"+s+".png");
+			ImageIcon x = new ImageIcon("shape/"+s+".png");
 			Image image = x.getImage();
 			Image newimg = image.getScaledInstance(20, 20,  java.awt.Image.SCALE_SMOOTH);
 			icons[i] = new ImageIcon(newimg);
