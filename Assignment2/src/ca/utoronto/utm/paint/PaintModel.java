@@ -21,25 +21,6 @@ public class PaintModel extends Observable {
 	public ArrayList<Shape> getShapes(){
 		return shapes;
 	}
-	
-	public void addPoint(Point p){
-		this.points.add(p);
-		this.setChanged();
-		this.notifyObservers();
-	}
-	public ArrayList<Point> getPoints(){
-		return points;
-	}
-	
-	public void addEraser(Point p){
-		this.eraser.add(p);
-		this.setChanged();
-		this.notifyObservers();
-	}
-	public ArrayList<Point> erase(){
-		return eraser;
-	}
-	
 }
 
 
