@@ -155,14 +155,14 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			} else if (s instanceof Triangle) {
 				int x = s.getCorner().getX();
 				int y = s.getCorner().getY();
-				Point height = ((Triangle) s).getHeight();
-				Point base = ((Triangle) s).getBase();
+				int height = ((Triangle) s).getHeight();
+				int base = ((Triangle) s).getBase();
 				g2d.setColor(s.getColor());
 				g2d.setStroke(new BasicStroke(s.getThickness()));
 				Polygon p = new Polygon();
-				p.addPoint(height.getX(), height.getY());
-				p.addPoint(base.getX(), base.getY());
 				p.addPoint(x, y);
+				p.addPoint(y, height);
+				p.addPoint(base, height);
 				if (s.isFilled()){
 					g2d.fillPolygon(p);
 				}else {
@@ -265,8 +265,9 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			this.eraser.addPoint(new Point(this.background, 15, e.getX(), e.getY()));
 			this.model.addShape(this.eraser);
 		} else if (this.mode == "Triangle") {
-			this.triangle.addPoint(new Point(this.colour, thickness, e.getX(), e.getY()));
-			this.model.addShape(this.triangle);
+			this.triangle.setBase(e.getX());
+			this.triangle.setHeight(e.getY());
+			this.model.addShape(triangle);
 		}
 
 		repaint();
@@ -313,11 +314,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			}
 		} else if (this.mode == "Triangle") {
 			begin = new Point(this.colour, thickness, e.getX(), e.getY());
-			if (this.triangle != null && ! this.triangle.hasAllPoints()) {
-				this.triangle.addPoint(begin);
-			} else {
-				this.triangle = new Triangle(this.colour, thickness, filled, begin);
-			}
+			this.triangle = new Triangle(this.colour, thickness, filled, begin);
 		}
 	}
 

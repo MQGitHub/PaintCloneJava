@@ -6,23 +6,18 @@ import java.util.ArrayList;
 
 public class Triangle extends Shape {
 
-	private Polyline p;
+	private int base, height;
 	
-	public Triangle(Color c, int thick, Boolean b, Point p) {
-		super(c, thick, b, p);
-		this.p.addPoint(p);
+	public Triangle(Color c, int thick, Boolean b, Point corner) {
+		super(c, thick, b, corner);
 	}
 	
-	public Point getBase() {
-		return this.p.getFirstPoint();
+	public int getBase() {
+		return base;
 	}
-	
-	public Point getHeight() {
-		return this.p.getLastPoint();
-	}
-	
-	public Point getCorner() {
-		return this.p.getPoints().get(2);
+
+	public void setBase(int base) {
+		this.base = base;
 	}
 	
 	public void draw() {
@@ -30,17 +25,13 @@ public class Triangle extends Shape {
 		//g2d.drawPolygon
 	}
 
-	public void addPoint(Point p2) {
-		this.p.addPoint(p2);
+	public void setHeight(int i) {
+		this.height = i;
 		
 	}
 	
-	public boolean hasAllPoints() {
-		if (this.p.getPoints().size() == 3) {
-			return true;
-		}
-		return false;
-		
+	public int getHeight() {
+		return this.height;
 	}
 
 }

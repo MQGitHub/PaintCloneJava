@@ -1,6 +1,7 @@
 package ca.utoronto.utm.paint;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,27 +11,32 @@ import java.awt.event.ActionListener;
 
 class ShapeChooserPanel extends JPanel implements ActionListener {
 	private View view; // So we can talk to our parent or other components of the view
-	
-	public ShapeChooserPanel(View view) {	
-		this.view=view;
-		
-		String[] buttonLabels = { "Circle", "Rectangle", "Square", "Triangle", "Squiggle", "Polyline" };
-		this.setLayout(new GridLayout(buttonLabels.length, 1));
+
+	public ShapeChooserPanel(View view) {
+		this.view = view;
+
+		String[] buttonLabels = { "Circle", "Oval", "Rectangle", "Square", "Triangle", "Squiggle", "Polyline", "Line",
+				"Eraser" };
+		ButtonGroup group = new ButtonGroup();
+		this.setLayout(new GridLayout(buttonLabels.length + 1, 1));
 		for (String label : buttonLabels) {
-			JButton button = new JButton(label);
+			JToggleButton button = new JToggleButton(label);
+			group.add(button);
 			this.add(button);
 			button.addActionListener(this);
 		}
+
+		LineThicknessChooser t = new LineThicknessChooser(this.view);
+		this.add(t.lineThicknessMenu());
+
 	}
-	
+
 	/**
 	 * Controller aspect of this
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		this.view.getPaintPanel().setMode(e.getActionCommand());
-		System.out.println(e.getActionCommand());
 	}
 
-	
 }
