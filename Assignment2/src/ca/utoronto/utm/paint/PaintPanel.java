@@ -67,7 +67,6 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		i++;
 
 		ArrayList<Shape> shapes = this.model.getShapes();
-		System.out.println(shapes);
 		for (Shape s : this.model.getShapes()) {
 			if (s instanceof Circle) {
 				int x = s.getCorner().getX();
