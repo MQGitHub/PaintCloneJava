@@ -20,11 +20,6 @@ public class Triangle extends Shape {
 		this.base = base;
 	}
 	
-	public void draw() {
-		// TODO Auto-generated method stub
-		//g2d.drawPolygon
-	}
-
 	public void setHeight(int i) {
 		this.height = i;
 		

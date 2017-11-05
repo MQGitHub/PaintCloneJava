@@ -2,7 +2,7 @@ package ca.utoronto.utm.paint;
 
 import java.awt.Color;
 
-public class Line extends Shape implements DrawShape{
+public class Line extends Shape{
 	private Point begin;
 	private Point end;
 	
@@ -17,11 +17,5 @@ public class Line extends Shape implements DrawShape{
 	
 	public Point getEndPoint() {
 		return this.end;
-	}
-
-	@Override
-	public void draw() {
-		// TODO Auto-generated method stub
-		
 	}
 }

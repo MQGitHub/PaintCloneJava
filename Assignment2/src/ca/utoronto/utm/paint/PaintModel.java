@@ -22,15 +22,6 @@ public class PaintModel extends Observable {
 		return shapes;
 	}
 	
-	public void addPolyline(Polyline p) {
-		this.polylines.add(p);
-		this.setChanged();
-		this.notifyObservers();
-	}
-	
-	public ArrayList<Polyline> getPolylines(){
-		return polylines;
-	}
 	
 	
 	
