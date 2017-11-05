@@ -45,6 +45,7 @@ public class PaintModel extends Observable {
 		return shapes;
 	}
 	
+
 	/**
 	 * add given Polyline to the polyline ArrayList. Then setchanged and 
 	 * notify observers.
@@ -67,5 +68,8 @@ public class PaintModel extends Observable {
 	public ArrayList<Polyline> getPolylines() {
 		return polylines;
 	}
+
+		
+}
 
 }

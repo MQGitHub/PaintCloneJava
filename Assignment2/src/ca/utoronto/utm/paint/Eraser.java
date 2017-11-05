@@ -13,7 +13,7 @@ public class Eraser extends Squiggle {
 	
 	
 	/**
-	 *  Constructor adds the points where the eraser is used
+	 *  Constructor adds the points where the eraser is used 
 	 *  and color. Sets the thickness to 20.
 	 *  
 	 *  @param c 	   The color of the eraser.

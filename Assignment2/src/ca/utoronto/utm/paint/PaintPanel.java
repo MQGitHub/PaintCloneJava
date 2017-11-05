@@ -19,21 +19,18 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 
 	private String mode; // modifies how we interpret input (could be better?)
 	private Circle circle; // the circle we are building
-	private Point begin, end;
-	private Rectangle rectangle;
-	private Square square;
+	private Point begin, end; //beginning and end of a point
+	private Rectangle rectangle; 
+	private Square square; 
 	private Polyline polyline;
 	private Line line;
 	private Oval oval;
-	private Shape shape;
-	private Graphics g2d;
 	private boolean filled;
 	private Color colour;// keeps track of the current color
-	private Color background; // keeps track of the current color
+	private Color background; // keeps track of background color
 	private Eraser eraser;
-	private int thickness;
-	private Point squiggleBegin;
-	private Squiggle squiggle;
+	private int thickness; //sets the thickness of the line
+	private Squiggle squiggle; 
 	private Triangle triangle;
 
 	public PaintPanel(PaintModel model, View view) {
@@ -161,8 +158,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 				g2d.setStroke(new BasicStroke(s.getThickness()));
 				Polygon p = new Polygon();
 				p.addPoint(x, y);
-				p.addPoint(x, height);
-				p.addPoint(base, y);
+				p.addPoint((base + height)/2, y);
+				p.addPoint(base, height);
 				if (s.isFilled()) {
 					g2d.fillPolygon(p);
 				} else {
@@ -192,11 +189,19 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	public void setMode(String mode) {
 		this.mode = mode;
 	}
-
+	
+	/**
+	 * Set shape should be filled or not
+	 * @param fill
+	 */
 	public void setFill(boolean fill) {
 		this.filled = fill;
 	}
-
+	
+	/**
+	 * Set thickness of shape border.
+	 * @param thickness
+	 */
 	public void setThickness(int thickness) {
 		this.thickness = thickness;
 

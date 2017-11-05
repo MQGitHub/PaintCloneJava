@@ -2,15 +2,22 @@ package ca.utoronto.utm.paint;
 
 import java.awt.Color;
 
-public class Square extends Rectangle implements DrawShape{
-
-	public Square(Color c, int t, Boolean b,  Point center, int width) {
-		super(c, t, b, center, width, width);
-	}
-	@Override
-	public void draw() {
-		// TODO Auto-generated method stub
-		//g2d.drawRect
+/**
+ * Inherits rectangle.
+ * Creates a shape of type Square
+ */
+public class Square extends Rectangle{
+	
+	/**
+	 * Constructs a shape of type Square, a subclass of rectangle.
+	 * @param c Color of square.
+	 * @param t Thickness of square.
+	 * @param b is shape filled.
+	 * @param center Center of shape.
+	 * @param width Width and height of the square.
+	 */
+	public Square(Color c, int t, Boolean f,  Point center, int width) {
+		super(c, t, f, center, width, width);
 	}
 }
 
