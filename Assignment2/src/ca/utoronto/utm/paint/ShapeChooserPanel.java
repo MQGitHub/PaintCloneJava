@@ -11,9 +11,20 @@ import java.util.List;
 // https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html
 // https://docs.oracle.com/javase/tutorial/2d/
 
+/**
+ * 
+ * A ShapeChooserPanel is a JPanel of buttons. Each button represents a Shape or
+ * Shape modifier which the user can choose to draw with.
+ *
+ */
 class ShapeChooserPanel extends JPanel implements ActionListener {
 	private View view; // So we can talk to our parent or other components of the view
 
+	/**
+	 * Create the ShapeChooserPanel and attach the view to the panel.
+	 * @param view
+	 * 			The view of the model.
+	 */
 	public ShapeChooserPanel(View view) {
 		this.view = view;
 		String[] buttonLabels = { "Circle", "Oval", "Rectangle", "Square", "Triangle", "Squiggle", "Polyline", "Line",

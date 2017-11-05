@@ -2,15 +2,14 @@ package ca.utoronto.utm.paint;
 
 import java.awt.Color;
 
-
 /**
  * Represents the lines for our paint application. Containing all the lines
  * color, thickness, and start and end points.
  *
  */
-public class Line extends Shape implements DrawShape {
 
-public class Line extends Shape{
+public class Line extends Shape {
+
 	private Point begin;
 	private Point end;
 

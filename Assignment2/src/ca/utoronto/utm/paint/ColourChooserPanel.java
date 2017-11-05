@@ -13,22 +13,36 @@ import java.awt.event.ActionListener;
 // https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html
 // https://docs.oracle.com/javase/tutorial/2d/
 
+/**
+ * 
+ * A ColourChooserPanel is a JPanel of multiple colors from which the user can
+ * choose one to draw with. A ColourChooserPanel has a stateChanged of the
+ * colour chosen.
+ * 
+ */
+
 class ColourChooserPanel extends JPanel implements ChangeListener {
 	private View view; // So we can talk to our parent or other components of the view
 	private JLabel label;
-	private JColorChooser pcc; //panel color chooser
-	public ColourChooserPanel(View view) {	
+	private JColorChooser pcc; // panel color chooser
+
+	/**
+	 * Create the ColourChooserPanel and attach the view to the panel.
+	 * @param view
+	 * 			The view of the Paint model.
+	 */
+	public ColourChooserPanel(View view) {
 		this.view = view;
 		pcc = new JColorChooser();
 		label = new JLabel(" Colours: ");
-		//label.setMinimumSize();
+		// label.setMinimumSize();
 		this.add(label);
-		//pcc.setBorder(BorderFactory.createTitledBorder("Colours"));
+		// pcc.setBorder(BorderFactory.createTitledBorder("Colours"));
 		this.pcc.setPreviewPanel(new JPanel());
 		this.pcc.getSelectionModel().addChangeListener(this);
 		this.add(pcc);
 	}
-	
+
 	/**
 	 * Controller aspect of this
 	 */
@@ -39,5 +53,4 @@ class ColourChooserPanel extends JPanel implements ChangeListener {
 		this.view.getPaintPanel().setColour(currentColor);
 	}
 
-	
 }
