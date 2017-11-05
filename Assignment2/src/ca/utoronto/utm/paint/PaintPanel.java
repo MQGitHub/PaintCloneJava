@@ -62,9 +62,9 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		Graphics2D g2d = (Graphics2D) g; // lets use the advanced api
 		// setBackground (Color.blue);
 		// Origin is at the top left of the window 50 over, 75 down
-		g2d.setColor(Color.white);
+		g2d.setColor(Color.black);
 		g2d.drawString("i=" + i, 25, 25);
-		i = i + 1;
+		i++;
 
 		ArrayList<Shape> shapes = this.model.getShapes();
 		for (Shape s : this.model.getShapes()) {
@@ -145,8 +145,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 				for (int i = 0; i < polylinePoints.size()-1; i++) {
 					Point p1 = polylinePoints.get(i);
 					Point p2 = polylinePoints.get(i+1);
-					g2d.setColor(p1.getColor());
-					g2d.setStroke(new BasicStroke(p1.getThickness()));
+					g2d.setColor(p2.getColor());
+					g2d.setStroke(new BasicStroke(p2.getThickness()));
 					g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
 				}
 			}
@@ -155,6 +155,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		Point end = this.model.getEndPoint();
 		Point start = this.model.getStartPoint();
 		if (start.getX() != end.getX() && start.getY() != end.getY()) {
+			g2d.setColor(end.getColor());
+			g2d.setStroke(new BasicStroke(end.getThickness()));
 			g2d.drawLine(start.getX(), start.getY(), end.getX(), end.getY());
 		}
 
@@ -186,7 +188,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		if (this.mode != "Polyline") {
-			this.polyline = new Polyline(this.colour, thickness, filled, begin);
+			this.polyline = new Polyline(this.colour, thickness, false, begin);
 		}
 		if(this.mode=="Squiggle"){
 			
@@ -225,11 +227,10 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			int y = begin.getY() - e.getY();
 			int width = (int) Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
 			this.square.setWidth(width);
-			this.model.addSquare(this.square);
-		} else if(this.mode=="Polyline") {
-			Point newP = new Point(e.getX(), e.getY());
-			this.model.setEndPoint(newP);
 			this.model.addShape(this.square);
+		} else if(this.mode=="Polyline") {
+			Point newP = new Point(this.colour, thickness, e.getX(), e.getY());
+			this.model.setEndPoint(newP);
 		} else if (this.mode == "Line") {
 			end = new Point(e.getX(), e.getY());
 			this.line.setEndPoint(end);
@@ -275,11 +276,12 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		} else if (this.mode == "Eraser") {
 			this.eraser = new Eraser(background, thickness, begin);
 		}	else if(this.mode=="Polyline") {
+			begin = new Point(this.colour, thickness, e.getX(), e.getY());
 			this.model.setStartPoint(begin);
 			if (this.polyline != null) {
 				this.polyline.addPoint(begin);
 			} else {
-				this.polyline = new Polyline(this.colour, thickness, filled, begin);
+				this.polyline = new Polyline(this.colour, thickness, false, begin);
 				this.polyline.addPoint(begin);
 			}
 		}
@@ -294,23 +296,20 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			if (this.circle != null) {
 			}
 		} else if(this.mode=="Polyline") {
-			Point newP = new Point(e.getX(), e.getY());
+			Point newP = new Point(this.colour, thickness, e.getX(), e.getY());
 			this.model.setEndPoint(newP);
 			this.model.setStartPoint(newP);
 			this.polyline.addPoint(this.model.getEndPoint());
-			this.model.setStartPoint(this.model.getEndPoint());
-			System.out.println(this.polyline.getNumPoints());
-			System.out.println(begin.getX() + " " + begin.getY() + " " + newP.getX() + " " + newP.getY());
 			if (this.polyline.getFirstPoint().getX() != this.polyline.getLastPoint().getX()
 					&& this.polyline.getFirstPoint().getY() != this.polyline.getLastPoint().getY()) {
-				this.model.addPolyline(this.polyline);
+				this.model.addShape(this.polyline);
 			} else if(this.polyline.getFirstPoint().getX() == this.polyline.getLastPoint().getX()
 					&& this.polyline.getFirstPoint().getY() == this.polyline.getLastPoint().getY()
 					&& this.polyline.getNumPoints() > 2) {
-				this.model.addPolyline(this.polyline);
-				this.polyline = new Polyline(this.colour, thickness, filled, begin);
+				this.model.addShape(this.polyline);
+				this.polyline = new Polyline(this.colour, thickness, false, begin);
 			} else {
-				this.polyline = new Polyline(this.colour, thickness, filled, begin);
+				this.polyline = new Polyline(this.colour, thickness, false, begin);
 			}
 		}
 
