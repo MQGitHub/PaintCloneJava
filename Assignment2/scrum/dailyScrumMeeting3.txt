@@ -3,57 +3,57 @@
 
 Oct 23, 2017
 	Yesterday : Break.
-	Today     :
-	Obstacles :
+	Today     : Break.
+	Obstacles : Break.
 
 Oct 24, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Break.
+	Today     : Break.
+	Obstacles : Break.
 
 Oct 25, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Break.
+	Today     : Read the assignment.
+	Obstacles : No obstacles. 
 
 Oct 26, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Break.
+	Today     : Break.
+	Obstacles : Break.
 
 Oct 27, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Break.
+	Today     : Break.
+	Obstacles : Break.
 
 Oct 28, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Break.
+	Today     : Break.
+	Obstacles : Break.
 
 Oct 29, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Break.
+	Today     : Break.
+	Obstacles : Break.
 
 Oct 30, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Break.
+	Today     : Break.
+	Obstacles : Break.
 
 Oct 31, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Break.
+	Today     : Worked on bug5 scribble.
+	Obstacles : Understanding how scribble works.
 
 Nov 1, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Figured out how to fix scribble, allowing it to draw separate scribbles. 
+	Today     : Working on how to actively change color. User story5
+	Obstacles : all previous drawings change color as we change the current color.
 	
 Nov 2, 2017
-	Yesterday :
-	Today     :
+	Yesterday : Added a color panel. 
+	Today     : Have 
 	Obstacles :
 	
 Nov 3, 2017

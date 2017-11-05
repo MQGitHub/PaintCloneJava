@@ -80,7 +80,7 @@ SO THAT  : I can see the rectangle I am about to build on release of the mouse b
 --------------------------------------------------------------------------
 TYPE     : USER STORY 5
 NAME     : Color selector
-OWNER    : 
+OWNER    : Mateen , George, and Hassan 
 PRIORITY : 1
 ESTIMATE : 
 AS A     : user
@@ -140,7 +140,7 @@ SO THAT  : I can add squares to my canvas.
 --------------------------------------------------------------------------
 TYPE     : USER STORY 9
 NAME     : Draw Polyline
-OWNER    : Georges Hanna 
+OWNER    : Georges Hanna and Mateen 
 PRIORITY : 3
 ESTIMATE : 4 hours
 AS A     : user
@@ -171,9 +171,9 @@ SO THAT  : I can add lines to my canvas.
 --------------------------------------------------------------------------
 TYPE     : BUG 5
 NAME     : Squiggle is broken
-OWNER    : 
+OWNER    : Hassan Khan and Mateen Khan
 PRIORITY : 4
-ESTIMATE : 
+ESTIMATE : 3 Hrs
 ISSUE    : Squiggles are connected to each other by a straight line. Each drag
 		   of the mouse should be a separate squiggle. Possibly
            the issue is with the representation of the squiggles in the Model.
@@ -211,9 +211,9 @@ ISSUE    : Currently ,you can't tell which mode "Circle", "Rectangle", ...
 --------------------------------------------------------------------------
 TYPE     : USER STORY 5
 NAME     : Color selector
-OWNER    : Mateen
-PRIORITY : 1
-ESTIMATE : 
+OWNER    : Mateen and Hassan
+PRIORITY : 3
+ESTIMATE : 2 hrs
 AS A     : user
 I WANT   : To be able to select the current drawing color, to be applied
            to subsequent shapes. Example: 
