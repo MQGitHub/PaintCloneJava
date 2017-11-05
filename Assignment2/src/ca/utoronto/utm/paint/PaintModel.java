@@ -9,6 +9,8 @@ public class PaintModel extends Observable {
 	private ArrayList<Rectangle> rectangles=new ArrayList<Rectangle>();
 	private ArrayList<Square> squares = new ArrayList<Square>();
 	private ArrayList<Polyline> polylines = new ArrayList<Polyline>();
+	private Point startPoint = new Point(-1, -1);
+	private Point endPoint = new Point(-1, -1);
 	
 	
 	public void addPoint(Point p){
@@ -55,4 +57,17 @@ public class PaintModel extends Observable {
 	public ArrayList<Polyline> getPolylines(){
 		return polylines;
 	}
+	public void setStartPoint(Point p) {
+		this.startPoint = p;
+	}
+	public Point getStartPoint() {
+		return this.startPoint;
+	}
+	public void setEndPoint(Point p) {
+		this.endPoint = p;
+	}
+	public Point getEndPoint() {
+		return this.endPoint;
+	}
+	
 }

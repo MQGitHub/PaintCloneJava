@@ -24,11 +24,15 @@ public class Polyline {
 	
 	public void addPoint(Point P) {
 		points.add(P);
-		numPoints = 0;
+		numPoints++;
 	}
 	
 	public ArrayList<Point> getPoints() {
 		return this.points;
+	}
+	
+	public int getNumPoints() {
+		return this.numPoints;
 	}
 	
 	

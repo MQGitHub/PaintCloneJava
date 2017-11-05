@@ -97,6 +97,13 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 				g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
 			}
 		}
+		
+		
+		Point end = this.model.getEndPoint();
+		Point start = this.model.getStartPoint();
+		if (start.getX() != end.getX() && start.getY() != end.getY()) {
+			g2d.drawLine(start.getX(), start.getY(), end.getX(), end.getY());
+		}
 	
 		
 		g2d.dispose();
@@ -155,14 +162,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			this.model.addSquare(this.square);
 		} else if(this.mode=="Polyline") {
 			Point newP = new Point(e.getX(), e.getY());
-			this.polyline.addPoint(newP);
-			System.out.println(begin.getX() + " " + begin.getY() + " " + newP.getX() + " " + newP.getY());
-			this.model.addPolyline(this.polyline);
-			if(this.polyline.getFirstPoint().getX() == this.polyline.getLastPoint().getX() && this.polyline.getFirstPoint().getY() == this.polyline.getLastPoint().getY()) {
-				System.out.println("??????");
-				this.model.addPolyline(this.polyline);
-				this.polyline = new Polyline();
-			}
+			this.model.setEndPoint(newP);
+			
 		}
 		repaint();
 	}
@@ -189,6 +190,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		}else if(this.mode=="Square") {
 			this.square = new Square(begin,0);
 		}else if(this.mode=="Polyline") {
+			this.model.setStartPoint(begin);
 			if (this.polyline != null) {
 				this.polyline.addPoint(begin);
 			} else {
@@ -207,15 +209,22 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			}
 		} else if(this.mode=="Polyline") {
 			Point newP = new Point(e.getX(), e.getY());
-			this.polyline.addPoint(newP);
+			this.model.setEndPoint(newP);
+			this.model.setStartPoint(newP);
+			this.polyline.addPoint(this.model.getEndPoint());
+			this.model.setStartPoint(this.model.getEndPoint());
+			System.out.println(this.polyline.getNumPoints());
 			System.out.println(begin.getX() + " " + begin.getY() + " " + newP.getX() + " " + newP.getY());
-			this.model.addPolyline(this.polyline);
-			if(this.polyline.getFirstPoint().getX() == this.polyline.getLastPoint().getX() && this.polyline.getFirstPoint().getY() == this.polyline.getLastPoint().getY()) {
-				System.out.println("??????");
+			if (this.polyline.getFirstPoint().getX() != this.polyline.getLastPoint().getX()
+					&& this.polyline.getFirstPoint().getY() != this.polyline.getLastPoint().getY()) {
+				this.model.addPolyline(this.polyline);
+			} else if(this.polyline.getFirstPoint().getX() == this.polyline.getLastPoint().getX()
+					&& this.polyline.getFirstPoint().getY() == this.polyline.getLastPoint().getY()
+					&& this.polyline.getNumPoints() > 2) {
 				this.model.addPolyline(this.polyline);
 				this.polyline = new Polyline();
-			} else { 
-				//add points to drawline 	
+			} else {
+				this.polyline = new Polyline();
 			}
 		}
 		
