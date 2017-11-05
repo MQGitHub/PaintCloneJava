@@ -6,6 +6,7 @@ import java.util.Observable;
 
 public class PaintModel extends Observable {
 	private ArrayList<Point> points=new ArrayList<Point>();
+	private ArrayList<Point> eraser=new ArrayList<Point>();
 	private ArrayList<Shape> shapes = new ArrayList<Shape>();
 	
 	public void addShape(Shape p) {
@@ -30,6 +31,14 @@ public class PaintModel extends Observable {
 		return points;
 	}
 	
+	public void addEraser(Point p){
+		this.eraser.add(p);
+		this.setChanged();
+		this.notifyObservers();
+	}
+	public ArrayList<Point> erase(){
+		return eraser;
+	}
 	
 }
 
