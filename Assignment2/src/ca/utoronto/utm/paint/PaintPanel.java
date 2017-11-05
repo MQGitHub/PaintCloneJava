@@ -118,10 +118,13 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	// MouseMotionListener below
 	@Override
 	public void mouseMoved(MouseEvent e) {
+		if (this.mode != "Polyline") {
+			this.polyline = new Polyline();
+		}
 		if(this.mode=="Squiggle"){
 			
 		} else if(this.mode=="Circle"){
-			
+		
 		}
 	}
 	@Override
@@ -150,8 +153,17 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			int width = (int) Math.sqrt(Math.pow(x,2) +  Math.pow(y, 2));
 			this.square.setWidth(width);
 			this.model.addSquare(this.square);
-		}else if(this.mode=="Polyline") {
-			
+		} else if(this.mode=="Polyline") {
+			Point newP = new Point(e.getX(), e.getY());
+			this.polyline.addPoint(newP);
+			System.out.println(begin.getX() + " " + begin.getY() + " " + newP.getX() + " " + newP.getY());
+			this.model.addPolyline(this.polyline);
+			if(this.polyline.getFirstPoint().getX() == this.polyline.getLastPoint().getX() && this.polyline.getFirstPoint().getY() == this.polyline.getLastPoint().getY()) {
+				System.out.println("??????");
+				this.model.addPolyline(this.polyline);
+				this.polyline = new Polyline();
+			}
+			repaint();
 		}
 		repaint();
 	}
@@ -181,7 +193,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			if (this.polyline != null) {
 				this.polyline.addPoint(begin);
 			} else {
-				this.polyline = new Polyline(begin);
+				this.polyline = new Polyline();
+				this.polyline.addPoint(begin);
 			}
 		}
 	}
@@ -197,9 +210,11 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			Point newP = new Point(e.getX(), e.getY());
 			this.polyline.addPoint(newP);
 			System.out.println(begin.getX() + " " + begin.getY() + " " + newP.getX() + " " + newP.getY());
+			this.model.addPolyline(this.polyline);
 			if(this.polyline.getFirstPoint().getX() == this.polyline.getLastPoint().getX() && this.polyline.getFirstPoint().getY() == this.polyline.getLastPoint().getY()) {
 				System.out.println("??????");
 				this.model.addPolyline(this.polyline);
+				this.polyline = new Polyline();
 			} else { 
 				//add points to drawline 	
 			}

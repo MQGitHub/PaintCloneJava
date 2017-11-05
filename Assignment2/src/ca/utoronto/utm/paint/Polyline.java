@@ -9,10 +9,8 @@ public class Polyline {
 	private ArrayList<Integer> xPoints = new ArrayList<Integer>();
 	private ArrayList<Integer> yPoints = new ArrayList<Integer>();
 	
-	public Polyline(Point p) {
-		this.point = p;
+	public Polyline() {
 		this.points = new ArrayList<Point>();
-		this.points.add(this.point);
 		this.numPoints = 0;
 	}
 
