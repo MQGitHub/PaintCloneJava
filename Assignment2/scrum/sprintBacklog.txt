@@ -68,7 +68,7 @@ SO THAT  : I can add rectangles to my canvas
 TYPE     : USER STORY 4
 NAME     : Draw Rectangle Feedback
 OWNER    : Georges
-PRIORITY : 2hour
+PRIORITY : 2
 ESTIMATE : 1hour
 AS A     : user
 I WANT   : Similarly to Draw Circle Feedback, display the rectangle in mid construction.
@@ -104,7 +104,7 @@ SO THAT  :
 --------------------------------------------------------------------------
 TYPE     : USER STORY 7
 NAME     : Line thickness selector
-OWNER    : lakhtak1
+OWNER    : 3
 PRIORITY : medium
 ESTIMATE : 2-3 hours
 AS A     : user
@@ -147,16 +147,6 @@ AS A     : user
 I WANT   : To click on a point, then click on another point to create a 
 		   line in between, until the last point matches the beginning point
 SO THAT  : I can add polylines to my canvas.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : USER STORY 10
-NAME     : Triangle
-OWNER    : lakhtak1
-PRIORITY : medium
-ESTIMATE : 2 hours
-AS A     : user
-I WANT   : to click and drag, to see a triangle formed.
-SO THAT  : I can add triangle to my canvas.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 12
@@ -236,7 +226,7 @@ SO THAT  :
 TYPE     : USER STORY 6
 NAME     : Fill style selector
 OWNER    : lakhtak1
-PRIORITY : High.
+PRIORITY : 1
 ESTIMATE : 3-4 Hours.
 AS A     : user
 I WANT   : To be able to select the current drawing style (filled or outline), to be applied
@@ -260,7 +250,7 @@ SO THAT  : I can choose to draw filled in shapes or outlines of shapes.
 TYPE     : USER STORY 7
 NAME     : Line thickness selector
 OWNER    : lakhtak1
-PRIORITY : medium
+PRIORITY : 3
 ESTIMATE : 2 hours
 AS A     : user
 I WANT   : To be able to select the current line thickness, to be applied
@@ -280,4 +270,14 @@ I WANT   : To be able to select the current line thickness, to be applied
            	results in two thinly outlined circles and a thinly outlined 
            	rectangle as well as two thickly outlined rectangles and a thick squiggle
 SO THAT  : I can make shapes and lines of different thickness.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 10
+NAME     : Triangle
+OWNER    : lakhtak1
+PRIORITY : 1
+ESTIMATE : 2 hours
+AS A     : user
+I WANT   : to click and drag, to see a triangle formed.
+SO THAT  : I can add triangle to my canvas.
 --------------------------------------------------------------------------

@@ -40,16 +40,6 @@ I WANT   : To click on a point, then click on another point to create a
 SO THAT  : I can add polylines to my canvas.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 10
-NAME     : Triangle
-OWNER    : lakhtak1
-PRIORITY : medium
-ESTIMATE : 2 hours
-AS A     : user
-I WANT   : to click and drag, to see a triangle formed.
-SO THAT  : I can add triangle to my canvas.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : USER STORY 11: 1003539824
 NAME     : Color selector UI
 OWNER    : Mateen
@@ -165,7 +155,7 @@ SO THAT  : I can add rectangles to my canvas
 TYPE     : USER STORY 4
 NAME     : Draw Rectangle Feedback
 OWNER    : Georges
-PRIORITY : 2hour
+PRIORITY : 2
 ESTIMATE : 1hour
 AS A     : user
 I WANT   : Similarly to Draw Circle Feedback, display the rectangle in mid construction.
@@ -206,7 +196,7 @@ SO THAT  : I can add ovals to my canvas.
 TYPE     : BUG 2
 NAME     : Drawing selection mode not indicated
 OWNER    : Georges/lakhtak1
-PRIORITY : 4
+PRIORITY : 3
 ESTIMATE : 1hour
 ISSUE    : Currently ,you can't tell which mode "Circle", "Rectangle", ...
            is currently selected. Is JButton correct, is there a way
@@ -216,7 +206,7 @@ ISSUE    : Currently ,you can't tell which mode "Circle", "Rectangle", ...
 TYPE     : BUG 1
 NAME     : Icons instead of text for drawing mode selection
 OWNER    : lakhtak1
-PRIORITY : Low
+PRIORITY : 1
 ESTIMATE : 1 Hour.
 ISSUE    : Would be nice to have icons instead of "Circle", "Rectangle", ...
 --------------------------------------------------------------------------
@@ -224,7 +214,7 @@ ISSUE    : Would be nice to have icons instead of "Circle", "Rectangle", ...
 TYPE     : USER STORY 11
 NAME     : Erase
 OWNER    : lakhtak1
-PRIORITY : 1
+PRIORITY : 2
 ESTIMATE : 4 hours
 AS A     : user
 I WANT   : To be able to click and erase the shapes and lines on my canvas.
@@ -234,7 +224,7 @@ SO THAT  : I can erase shapes from my canvas.
 TYPE     : USER STORY 6
 NAME     : Fill style selector
 OWNER    : lakhtak1
-PRIORITY : High.
+PRIORITY : 1
 ESTIMATE : 3-4 Hours.
 AS A     : user
 I WANT   : To be able to select the current drawing style (filled or outline), to be applied
@@ -258,7 +248,7 @@ SO THAT  : I can choose to draw filled in shapes or outlines of shapes.
 TYPE     : USER STORY 7
 NAME     : Line thickness selector
 OWNER    : lakhtak1
-PRIORITY : medium
+PRIORITY : 3
 ESTIMATE : 2 hours
 AS A     : user
 I WANT   : To be able to select the current line thickness, to be applied
@@ -278,6 +268,16 @@ I WANT   : To be able to select the current line thickness, to be applied
            	results in two thinly outlined circles and a thinly outlined 
            	rectangle as well as two thickly outlined rectangles and a thick squiggle
 SO THAT  : I can make shapes and lines of different thickness.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 10
+NAME     : Triangle
+OWNER    : lakhtak1
+PRIORITY : 1
+ESTIMATE : 2 hours
+AS A     : user
+I WANT   : to click and drag, to see a triangle formed.
+SO THAT  : I can add triangle to my canvas.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 11: 1003539824
