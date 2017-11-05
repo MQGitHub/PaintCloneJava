@@ -11,7 +11,6 @@ import java.awt.Color;
 public class Line extends Shape implements DrawShape {
 
 public class Line extends Shape{
->>>>>>> branch 'master' of https://mcsscm.utm.utoronto.ca/git/207/repo_a2_jawaBweanz.git
 	private Point begin;
 	private Point end;
 
@@ -25,7 +24,6 @@ public class Line extends Shape{
 	 * @param begin  a point that is the start point of the line.
 	 * @param end    a point that is end point of the line.
 	 * @see Shape
-	 * @see DrawShape
 	 */
 	public Line(Color c, int t, Boolean b, Point begin, Point end) {
 		super(c, t, b, begin);
@@ -49,13 +47,5 @@ public class Line extends Shape{
 	public Point getEndPoint() {
 		return this.end;
 	}
-
-
-	@Override
-	public void draw() {
-		// TODO Auto-generated method stub
-
-	}
-
 
 }
