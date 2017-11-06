@@ -19,9 +19,9 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 
 	private String mode; // modifies how we interpret input (could be better?)
 	private Circle circle; // the circle we are building
-	private Point begin, end; //beginning and end of a point
-	private Rectangle rectangle; 
-	private Square square; 
+	private Point begin, end; // beginning and end of a point
+	private Rectangle rectangle;
+	private Square square;
 	private Polyline polyline;
 	private Line line;
 	private Oval oval;
@@ -29,8 +29,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private Color colour;// keeps track of the current color
 	private Color background; // keeps track of background color
 	private Eraser eraser;
-	private int thickness; //sets the thickness of the line
-	private Squiggle squiggle; 
+	private int thickness; // sets the thickness of the line
+	private Squiggle squiggle;
 	private Triangle triangle;
 
 	public PaintPanel(PaintModel model, View view) {
@@ -52,6 +52,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	/**
 	 * View aspect of this
 	 */
+	@Override
 	public void paintComponent(Graphics g) {
 		// Use g to draw on the JPanel, lookup java.awt.Graphics in
 		// the javadoc to see more of what this can do for you!!
@@ -64,8 +65,10 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		g2d.drawString("i=" + i, 25, 25);
 		i++;
 
+		// Draw the shapes
 		ArrayList<Shape> shapes = this.model.getShapes();
 		for (Shape s : this.model.getShapes()) {
+			// Draw Circle
 			if (s instanceof Circle) {
 				int x = s.getCorner().getX();
 				int y = s.getCorner().getY();
@@ -77,7 +80,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 				} else {
 					g2d.drawOval(x - radius, y - radius, radius * 2, radius * 2);
 				}
-			} else if (s instanceof Oval) {
+			} // Draw Oval
+			else if (s instanceof Oval) {
 				int x = s.getCorner().getX();
 				int y = s.getCorner().getY();
 				int height = ((Oval) s).getHeight();
@@ -89,7 +93,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 				} else {
 					g2d.drawOval(x, y, width, height);
 				}
-			} else if (s instanceof Square) {
+			} // Draw Square
+			else if (s instanceof Square) {
 				int x = s.getCorner().getX();
 				int y = s.getCorner().getY();
 				int width = ((Square) s).getWidth();
@@ -100,7 +105,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 				} else {
 					g2d.drawRect(x - width, y - width, width * 2, width * 2);
 				}
-			} else if (s instanceof Eraser) {
+			} // Draw with Eraser
+			else if (s instanceof Eraser) {
 				ArrayList<Point> points = ((Eraser) s).getPoints();
 				for (int i = 0; i < points.size() - 1; i++) {
 					Point p1 = points.get(i);
@@ -110,7 +116,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 					g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
 				}
 
-			} else if (s instanceof Rectangle) {
+			} // Draw Rectangle
+			else if (s instanceof Rectangle) {
 				int x = s.getCorner().getX();
 				int y = s.getCorner().getY();
 				int height = ((Rectangle) s).getHeight();
@@ -122,14 +129,16 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 				} else {
 					g2d.drawRect(x, y, width, height);
 				}
-			} else if (s instanceof Line) {
+			} // Draw Line
+			else if (s instanceof Line) {
 				Point p2 = s.getCorner();
 				Point p1 = ((Line) s).getEndPoint();
 				g2d.setColor(s.getColor());
 				g2d.setStroke(new BasicStroke(s.getThickness()));
 				g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
 
-			} else if (s instanceof Squiggle) {
+			} // Draw Squiggles
+			else if (s instanceof Squiggle) {
 				ArrayList<Point> points = ((Squiggle) s).getPoints();
 				for (int i = 0; i < points.size() - 1; i++) {
 					Point p1 = points.get(i);
@@ -142,7 +151,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 						g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
 					}
 				}
-			} else if (s instanceof Polyline) {
+			} // Draw Polyline
+			else if (s instanceof Polyline) {
 				ArrayList<Point> polylinePoints = ((Polyline) s).getPoints();
 				for (int i = 0; i < polylinePoints.size() - 1; i++) {
 					Point p1 = polylinePoints.get(i);
@@ -151,7 +161,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 					g2d.setStroke(new BasicStroke(p2.getThickness()));
 					g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
 				}
-			} else if (s instanceof Triangle) {
+			} // Draw Triangle
+			else if (s instanceof Triangle) {
 				int x = s.getCorner().getX();
 				int y = s.getCorner().getY();
 				int height = ((Triangle) s).getHeight();
@@ -161,7 +172,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 				Polygon p = new Polygon();
 				p.addPoint(x, y);
 				p.addPoint(base, height);
-				p.addPoint((base + x)/2, (height + y)/3);
+				p.addPoint((base + x) / 2, (height + y) / 3);
 				if (s.isFilled()) {
 					g2d.fillPolygon(p);
 				} else {
@@ -191,17 +202,19 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	public void setMode(String mode) {
 		this.mode = mode;
 	}
-	
+
 	/**
 	 * Set shape should be filled or not
+	 * 
 	 * @param fill
 	 */
 	public void setFill(boolean fill) {
 		this.filled = fill;
 	}
-	
+
 	/**
 	 * Set thickness of shape border.
+	 * 
 	 * @param thickness
 	 */
 	public void setThickness(int thickness) {
@@ -233,41 +246,50 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		int min_Y = Math.min(begin.getY(), e.getY());
 		int max_X = Math.max(begin.getX(), e.getX());
 		int max_Y = Math.max(begin.getY(), e.getY());
+
 		if (this.mode == "Squiggle") {
 			this.squiggle.addPoint(new Point(this.colour, thickness, e.getX(), e.getY()));
 			this.model.addShape(this.squiggle);
+
 		} else if (this.mode == "Circle") {
 			int x = begin.getX() - e.getX();
 			int y = begin.getY() - e.getY();
 			int radius = (int) Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
 			this.circle.setRadius(radius);
 			this.model.addShape(this.circle);
+
 		} else if (this.mode == "Rectangle") {
 			this.rectangle.setCorner(new Point(min_X, min_Y));
 			this.rectangle.setWidth(max_X - min_X);
 			this.rectangle.setHeight(max_Y - min_Y);
 			this.model.addShape(this.rectangle);
+
 		} else if (this.mode == "Square") {
 			int x = begin.getX() - e.getX();
 			int y = begin.getY() - e.getY();
 			int width = (int) Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
 			this.square.setWidth(width);
 			this.model.addShape(this.square);
+
 		} else if (this.mode == "Polyline") {
 			Point newP = new Point(this.colour, thickness, e.getX(), e.getY());
 			this.polyline.setEndPoint(newP);
+
 		} else if (this.mode == "Line") {
 			end = new Point(e.getX(), e.getY());
 			this.line.setEndPoint(end);
 			this.model.addShape(this.line);
+
 		} else if (this.mode == "Oval") {
 			this.oval.setCorner(new Point(min_X, min_Y));
 			this.oval.setWidth(max_X - min_X);
 			this.oval.setHeight(max_Y - min_Y);
 			this.model.addShape(this.oval);
+
 		} else if (this.mode == "Eraser") {
 			this.eraser.addPoint(new Point(this.background, 15, e.getX(), e.getY()));
 			this.model.addShape(this.eraser);
+
 		} else if (this.mode == "Triangle") {
 			this.triangle.setBase(e.getX());
 			this.triangle.setHeight(e.getY());
@@ -293,20 +315,27 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			ArrayList<Point> pts = new ArrayList<Point>();
 			pts.add(new Point(this.colour, thickness, e.getX(), e.getY()));
 			this.squiggle = new Squiggle(this.colour, thickness, pts);
+
 		} else if (this.mode == "Circle") {
 			this.circle = new Circle(this.colour, thickness, filled, begin, 0);
+
 		} else if (this.mode == "Rectangle") {
 			this.rectangle = new Rectangle(this.colour, thickness, filled, begin, 0, 0);
+
 		} else if (this.mode == "Square") {
 			this.square = new Square(this.colour, thickness, filled, begin, 0);
+
 		} else if (this.mode == "Line") {
 			this.line = new Line(this.colour, thickness, false, begin, begin);
+
 		} else if (this.mode == "Oval") {
 			this.oval = new Oval(this.colour, thickness, filled, begin, 0, 0);
+
 		} else if (this.mode == "Eraser") {
 			ArrayList<Point> er = new ArrayList<Point>();
 			er.add(new Point(this.background, 15, e.getX(), e.getY()));
 			this.eraser = new Eraser(background, er);
+
 		} else if (this.mode == "Polyline") {
 			begin = new Point(this.colour, thickness, e.getX(), e.getY());
 			if (this.polyline != null) {
@@ -316,6 +345,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 				this.polyline.addPoint(begin);
 			}
 			this.polyline.setStartPoint(begin);
+
 		} else if (this.mode == "Triangle") {
 			begin = new Point(this.colour, thickness, e.getX(), e.getY());
 			this.triangle = new Triangle(this.colour, thickness, filled, begin);
@@ -328,9 +358,11 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		if (this.mode == "Squiggle") {
 			this.squiggle.addPoint(new Point(-1, -1));
 			this.model.addShape(this.squiggle);
+
 		} else if (this.mode == "Circle") {
 			if (this.circle != null) {
 			}
+
 		} else if (this.mode == "Polyline") {
 			Point newP = new Point(this.colour, thickness, e.getX(), e.getY());
 			this.polyline.setEndPoint(newP);
