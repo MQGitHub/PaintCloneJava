@@ -11,7 +11,7 @@
 --------------------------------------------------------------------------
 TYPE     : USER STORY 1
 NAME     : Draw Circle
-OWNER    : Georges Hanna
+OWNER    : hannage6
 PRIORITY : 2
 ESTIMATE : 8 hours.
 AS A     : user
@@ -22,7 +22,7 @@ SO THAT  : I can add circles to my canvas
 --------------------------------------------------------------------------
 TYPE     : USER STORY 2
 NAME     : Draw Circle Feedback
-OWNER    : Georges Hanna
+OWNER    : hannage6
 PRIORITY : 3
 ESTIMATE : 8 hours.
 AS A     : user
@@ -37,7 +37,7 @@ SO THAT  : I can see the circle I am about to build on release of the mouse
 --------------------------------------------------------------------------
 TYPE     : BUG 6
 NAME     : Circle drawing is broken
-OWNER    : Georges Hanna 
+OWNER    : hannage6 
 PRIORITY : 3
 ESTIMATE : 2 hours
 ISSUE    : The first click should specify the center of the circle, with
@@ -47,7 +47,7 @@ ISSUE    : The first click should specify the center of the circle, with
 --------------------------------------------------------------------------
 TYPE     : BUG 7
 NAME     : Circle drawing is broken when dragging up and left.
-OWNER    : Georges Hanna
+OWNER    : hannage6
 PRIORITY : 1
 ESTIMATE : 1 hour
 ISSUE    : approaching the zeroes of the border causes the circle to 
@@ -56,7 +56,7 @@ reposition from it's center, need to find a way to remove left and top borders.
 --------------------------------------------------------------------------
 TYPE     : USER STORY 3
 NAME     : Draw Rectangle
-OWNER    : Georges Hanna 
+OWNER    : hannage6 
 PRIORITY : 1
 ESTIMATE : 4 hours
 AS A     : user
@@ -129,7 +129,7 @@ SO THAT  : I can draw shapes with different thickness.
 --------------------------------------------------------------------------
 TYPE     : USER STORY 8
 NAME     : Draw Square
-OWNER    : Georges Hanna 
+OWNER    : hannage6 
 PRIORITY : 1
 ESTIMATE : 2 hours
 AS A     : user
@@ -140,7 +140,7 @@ SO THAT  : I can add squares to my canvas.
 --------------------------------------------------------------------------
 TYPE     : USER STORY 9
 NAME     : Draw Polyline
-OWNER    : Georges Hanna and Mateen 
+OWNER    : hannage6 and Mateen 
 PRIORITY : 3
 ESTIMATE : 4 hours
 AS A     : user
@@ -151,7 +151,7 @@ SO THAT  : I can add polylines to my canvas.
 --------------------------------------------------------------------------
 TYPE     : USER STORY 12
 NAME     : Line
-OWNER    : Georges Hanna 
+OWNER    : hannage6 
 PRIORITY : 5
 ESTIMATE : 1 hours
 AS A     : user
@@ -171,7 +171,7 @@ ISSUE    : Squiggles are connected to each other by a straight line. Each drag
 --------------------------------------------------------------------------
 TYPE     : USER STORY 12
 NAME     : Line
-OWNER    : Georges Hanna 
+OWNER    : hannage6 
 PRIORITY : 1
 ESTIMATE : 1 hours
 AS A     : user
@@ -181,7 +181,7 @@ SO THAT  : I can add lines to my canvas.
 --------------------------------------------------------------------------
 TYPE     : USER STORY 13
 NAME     : Oval
-OWNER    : Georges Hanna 
+OWNER    : hannage6 
 PRIORITY : 1
 ESTIMATE : 1 hours
 AS A     : user
