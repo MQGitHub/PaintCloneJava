@@ -160,8 +160,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 				g2d.setStroke(new BasicStroke(s.getThickness()));
 				Polygon p = new Polygon();
 				p.addPoint(x, y);
-				p.addPoint((base + height)/2, y);
 				p.addPoint(base, height);
+				p.addPoint((base + x)/2, (height + y)/3);
 				if (s.isFilled()) {
 					g2d.fillPolygon(p);
 				} else {
