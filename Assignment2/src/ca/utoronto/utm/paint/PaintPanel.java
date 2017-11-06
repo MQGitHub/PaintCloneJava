@@ -62,8 +62,6 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		// setBackground (Color.blue);
 		// Origin is at the top left of the window 50 over, 75 down
 		g2d.setColor(Color.black);
-		g2d.drawString("i=" + i, 25, 25);
-		i++;
 
 		// Draw the shapes
 		ArrayList<Shape> shapes = this.model.getShapes();
