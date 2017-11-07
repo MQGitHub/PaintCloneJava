@@ -79,5 +79,5 @@ Nov 6, 2017
 Nov 7, 2017
 	Yesterday : Slept
 	Today     : Fixed polyline design, set color of previously made shape
-	Obstacles : Design Patterns
+	Obstacles : Design Patterns and consistent use of "color" or "colour"
 
