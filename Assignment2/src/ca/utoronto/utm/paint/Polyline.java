@@ -1,6 +1,8 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 /**
@@ -133,6 +135,18 @@ public class Polyline extends Shape {
 	 */
 	public Point getEndPoint() {
 		return this.endPoint;
+	}
+
+	@Override
+	public void draw(Graphics2D g2d) {
+		ArrayList<Point> polylinePoints = this.getPoints();
+		for (int i = 0; i < polylinePoints.size() - 1; i++) {
+			Point p1 = polylinePoints.get(i);
+			Point p2 = polylinePoints.get(i + 1);
+			g2d.setColor(p2.getColor());
+			g2d.setStroke(new BasicStroke(p2.getThickness()));
+			g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
+		}
 	}
 
 }

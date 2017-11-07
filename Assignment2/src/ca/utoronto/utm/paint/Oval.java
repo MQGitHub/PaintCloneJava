@@ -1,6 +1,8 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Graphics2D;
 
 /**
  * Inherits Shape.
@@ -57,6 +59,21 @@ public class Oval extends Shape{
 	 */
 	public void setHeight(int height) {
 		this.height = height;
+	}
+
+	@Override
+	public void draw(Graphics2D g2d) {
+		int x = this.getCorner().getX();
+		int y = this.getCorner().getY();
+		int height = this.getHeight();
+		int width = this.getWidth();
+		g2d.setColor(this.getColor());
+		g2d.setStroke(new BasicStroke(this.getThickness()));
+		if (this.isFilled()) {
+			g2d.fillOval(x, y, width, height);
+		} else {
+			g2d.drawOval(x, y, width, height);
+		}
 	}
 
 }
