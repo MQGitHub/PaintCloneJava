@@ -66,14 +66,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		// Draw the shapes
 		ArrayList<Shape> shapes = this.model.getShapes();
 		for (Shape s : this.model.getShapes()) {
+			System.out.println(shapes);
 			s.draw(g2d);
-			}
-			Point end = this.polyline.getEndPoint();
-			Point start = this.polyline.getStartPoint();
-			if (start.getX() != end.getX() || start.getY() != end.getY()) {
-				g2d.setColor(end.getColor());
-				g2d.setStroke(new BasicStroke(end.getThickness()));
-				g2d.drawLine(start.getX(), start.getY(), end.getX(), end.getY());
 			}
 		}
 
