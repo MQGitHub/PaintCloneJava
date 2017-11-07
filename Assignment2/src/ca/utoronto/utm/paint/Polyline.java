@@ -13,6 +13,8 @@ import java.util.ArrayList;
  */
 public class Polyline extends Shape {
 	private ArrayList<Point> points;
+	private ArrayList<Integer> xPoints;
+	private ArrayList<Integer> yPoints;
 	private int numPoints;
 	private Point startPoint;
 	private Point endPoint;
@@ -34,9 +36,11 @@ public class Polyline extends Shape {
 	public Polyline(Color c, int t, Boolean b, Point start) {
 		super(c, t, b, start);
 		this.points = new ArrayList<Point>();
+		this.xPoints = new ArrayList<Integer>();
+		this.yPoints = new ArrayList<Integer>();
 		this.numPoints = 0;
-		this.startPoint = new Point(-1, -1);
-		this.endPoint = new Point(-1, -1);
+		//this.startPoint = new Point(-1, -1);
+		//this.endPoint = new Point(-1, -1);
 	}
 
 	/**
@@ -63,10 +67,15 @@ public class Polyline extends Shape {
 	 */
 	public void addPoint(Point P) {
 		points.add(P);
+		xPoints.add(P.getX());
+		yPoints.add(P.getY());
 		numPoints++;
 		if (this.points.size() == 2 && this.points.get(0).getX() == this.points.get(1).getX()
 				&& this.points.get(0).getY() == this.points.get(1).getY()) {
 			this.points = new ArrayList<Point>();
+			this.xPoints = new ArrayList<Integer>();
+			this.yPoints = new ArrayList<Integer>();
+			this.numPoints = 0;
 		}
 	}
 
@@ -139,13 +148,21 @@ public class Polyline extends Shape {
 
 	@Override
 	public void draw(Graphics2D g2d) {
-		ArrayList<Point> polylinePoints = this.getPoints();
-		for (int i = 0; i < polylinePoints.size() - 1; i++) {
-			Point p1 = polylinePoints.get(i);
-			Point p2 = polylinePoints.get(i + 1);
-			g2d.setColor(p2.getColor());
-			g2d.setStroke(new BasicStroke(p2.getThickness()));
+		Point p1 = this.getStartPoint();
+		Point p2 = this.getEndPoint();
+		if (p1.getX() != p2.getX() || p1.getY() == p2.getY()) {
+			g2d.setColor(this.getEndPoint().getColor());
+			g2d.setStroke(new BasicStroke(this.getEndPoint().getThickness()));
 			g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
+		}
+		if (this.points.size() > 0) {
+			g2d.setColor(this.points.get(this.points.size() - 1).getColor());
+			g2d.setStroke(new BasicStroke(this.points.get(this.points.size() - 1).getThickness()));
+			//Taken from https://stackoverflow.com/questions/960431/how-to-convert-listinteger-to-int-in-java
+			//Shortest way to convert arraylist of ints to array of ints
+			int arrXPoints [] = xPoints.stream().mapToInt(Integer::intValue).toArray();
+			int arrYPoints [] = yPoints.stream().mapToInt(Integer::intValue).toArray();
+			g2d.drawPolyline(arrXPoints, arrYPoints, numPoints);
 		}
 	}
 
