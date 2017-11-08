@@ -114,7 +114,7 @@ simply switching the PaintPanel's listeners as appropriate.
 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 5
+TYPE     : BUG 6
 NAME     : Squiggle is broken
 OWNER    : lakhtak1
 PRIORITY : 1
