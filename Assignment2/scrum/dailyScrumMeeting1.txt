@@ -70,3 +70,39 @@ Nov 5, 2017
 	Yesterday : Finished user story 11 as well as fixed bug 3.
 	Today     : Finish Triangle and submit assignment.
 	Obstacles : Making a triangle from polyline.
+	
+Nov 6, 2017
+	Yesterday : Finished Triangle and submitted assignment.
+	Today     : Read over A2P2 and discuss user stories.
+	Obstacles : Icons do not show up on school computers, needs to be fixed for this sprint.
+	
+Nov7 , 2017
+	Yesterday : 
+	Today     : 
+	Obstacles : 
+	
+Nov 8, 2017
+	Yesterday : 
+	Today     : 
+	Obstacles : 
+
+Nov 9, 2017
+	Yesterday : 
+	Today     : 
+	Obstacles : 
+
+Nov 10, 2017
+	Yesterday : 
+	Today     : 
+	Obstacles : 
+
+Nov 11, 2017
+	Yesterday : 
+	Today     : 
+	Obstacles : 
+	
+Nov 12, 2017
+	Yesterday : 
+	Today     : 
+	Obstacles : 
+	
