@@ -72,3 +72,13 @@ Nov 5, 2017
 	Yesterday : cleaned code
 	Today     : JavaDoc, and review all the content
 	Obstacles : Last minute fixing.
+
+Nov 6, 2017
+	Yesterday : Javadoc
+	Today     : Implemented factory design pattern for paintpanel.
+	Obstacles : No obstacles
+	
+Nov 7, 2017
+	Yesterday : Implemented factory design pattern
+	Today 	  : Break.
+	Obstacles : Break.
