@@ -1,72 +1,72 @@
 # Fill in, commit and push each day.
-# Group Member: FILL THIS IN
+# Group Member: Hassan Khan
 
 Oct 23, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Break.
+	Today     : Break.
+	Obstacles : Break.
 
 Oct 24, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Break.
+	Today     : Break.
+	Obstacles : Break.
 
 Oct 25, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Break.
+	Today     : Read the assignment.
+	Obstacles : No obstacles. 
 
 Oct 26, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Break.
+	Today     : Break.
+	Obstacles : Break.
 
 Oct 27, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Break.
+	Today     : Break.
+	Obstacles : Break.
 
 Oct 28, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Break.
+	Today     : Break.
+	Obstacles : Break.
 
 Oct 29, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Break.
+	Today     : Break.
+	Obstacles : Break.
 
 Oct 30, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Break.
+	Today     : Break.
+	Obstacles : Break.
 
 Oct 31, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Break.
+	Today     : Worked on bug5 scribble.
+	Obstacles : Understanding how scribble works.
 
 Nov 1, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Figured out how to fix scribble, allowing it to draw separate scribbles and Added a color panel. 
+	Today     : Working on how to actively change color. User story5
+	Obstacles : all previous drawings change color as we change the current color.
 	
 Nov 2, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Colors all previous drawings.
+	Today     : Attempt to update colors as drawing is happening.
+	Obstacles : Scribble and shapes are on a different arraylist.
 	
 Nov 3, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Color is still buggy but  
+	Today     : Fix color, not updating correctly.
+	Obstacles : For loop draws the scribbles over and over, so redrawing causes every moment causes problems.
 
 Nov 4, 2017
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : fixed the problem where the old color carried on to the next scribble for some of that scribble.
+	Today     : Start the work for polyline with mateen.
+	Obstacles : Having a polyline be created as the user is dragging.
 
 Nov 5, 2017
-	Yesterday :
-	Today     :
+	Yesterday : Polyline was completed with the help of George.
+	Today     : Working on javadocs
 	Obstacles :

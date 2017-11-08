@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<projectDescription>
-	<name>repo_a2_jawaBweanz</name>
+<projectDescription><name>repowaBweanz</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -13,5 +12,14 @@
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
+=======
+	<name>repo_khanha46_repo_a2_jawaBweanz</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+>>>>>>> branch 'master' of https://mcsscm.utm.utoronto.ca/git/207/repo_a2_jawaBweanz.git
 	</natures>
 </projectDescription>
