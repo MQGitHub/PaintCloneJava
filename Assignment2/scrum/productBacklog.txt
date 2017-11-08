@@ -122,6 +122,15 @@ ESTIMATE : 5 hours
 ISSUE    : Squiggles representation in the Model is not ideal. Fix the
 		   implementation of squiggle.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 8: 1003539824
+NAME     : Polyline is nearly impossible to close
+OWNER    : Mateen Qureshi
+PRIORITY : 1
+ESTIMATE : 5 hours
+ISSUE    : Polyline requires the user to aim at a single pixel on the 
+		   screen which is hard.
+--------------------------------------------------------------------------
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
 TYPE     : USER STORY 1

@@ -153,10 +153,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			begin = new Point(this.colour, thickness, e.getX(), e.getY());
 			if (this.polyline == null) {
 				this.polyline = new Polyline(this.colour, thickness, false, begin);
-				this.polyline.setStartPoint(begin);
 			}
 			this.polyline.setEndPoint(begin);
-
 		} else if (this.mode == "Triangle") {
 			begin = new Point(this.colour, thickness, e.getX(), e.getY());
 			this.triangle = new Triangle(this.colour, thickness, filled, begin);
@@ -241,8 +239,10 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 
 		} else if (this.mode == "Polyline") {
 			if (this.polyline.getStartPoint() != this.polyline.getEndPoint()) {
+				System.out.println(this.polyline);
 				Point newP = new Point(this.colour, thickness, e.getX(), e.getY());
 				this.polyline.setEndPoint(newP);
+				this.polyline.inRadius(newP);
 				this.polyline.addPoint(this.polyline.getStartPoint());
 				this.polyline.setStartPoint(newP);
 				this.polyline.addPoint(this.polyline.getEndPoint());
