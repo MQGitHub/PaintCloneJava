@@ -113,7 +113,15 @@ events forwarded through PaintPanel into the current strategy, or by
 simply switching the PaintPanel's listeners as appropriate.
 
 --------------------------------------------------------------------------
-
+--------------------------------------------------------------------------
+TYPE     : BUG 5
+NAME     : Squiggle is broken
+OWNER    : lakhtak1
+PRIORITY : 1
+ESTIMATE : 5 hours
+ISSUE    : Squiggles representation in the Model is not ideal. Fix the
+		   implementation of squiggle.
+--------------------------------------------------------------------------
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
 TYPE     : USER STORY 1

@@ -77,9 +77,9 @@ Nov 6, 2017
 	Obstacles : Icons do not show up on school computers, needs to be fixed for this sprint.
 	
 Nov7 , 2017
-	Yesterday : 
-	Today     : 
-	Obstacles : 
+	Yesterday : Read over A2P2.
+	Today     : Work on Bug 6 - fixing squiggle.
+	Obstacles : None.
 	
 Nov 8, 2017
 	Yesterday : 
