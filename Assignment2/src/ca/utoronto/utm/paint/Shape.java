@@ -1,6 +1,7 @@
 package ca.utoronto.utm.paint;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 /**
@@ -88,4 +89,6 @@ public abstract class Shape {
 	public int getThickness() {
 		return thickness;
 	}
+	
+	public abstract void draw(Graphics2D g2d);
 }

@@ -43,32 +43,6 @@ public class PaintModel extends Observable {
 	 */
 	public ArrayList<Shape> getShapes() {
 		return shapes;
-	}
-	
-
-	/**
-	 * Add given Polyline to the polyline ArrayList. Then setchanged and 
-	 * notify observers.
-	 * 
-	 * @param p a Polyline that will be drawn onto our Panel. 
-	 * @see     Observable 
-	 */
-	public void addPolyline(Polyline p) {
-		this.polylines.add(p);
-		this.setChanged();
-		this.notifyObservers();
-	}
-
-	/**
-	 * Returns an ArrayList containing all the Polylines so that they can
-	 * be drawn onto the panel.
-	 * 
-	 * @return shapes	ArrayList containing all the current Polylines.
-	 */
-	public ArrayList<Polyline> getPolylines() {
-		return polylines;
-	}
-
-		
+	}	
 }
 
