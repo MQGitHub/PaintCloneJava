@@ -79,7 +79,7 @@ Nov 6, 2017
 Nov 7 , 2017
 	Yesterday : Break. 
 	Today     : Break. Stats test.
-	Obstacles : Break.
+	Obstacles : Break..
 	
 Nov 8, 2017
 	Yesterday : 
