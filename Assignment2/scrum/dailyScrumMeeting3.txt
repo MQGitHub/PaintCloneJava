@@ -82,9 +82,9 @@ Nov 7 , 2017
 	Obstacles : Break.	
 	
 Nov 8, 2017
-	Yesterday : 
-	Today     : 
-	Obstacles : 
+	Yesterday : Break.
+	Today     : Worked on UserStory 15. Added option to have a closed polyline filled, once finished/closed.
+	Obstacles : Learning to use fillpolygone method.  
 
 Nov 9, 2017
 	Yesterday : 

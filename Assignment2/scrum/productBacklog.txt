@@ -407,6 +407,16 @@ ISSUE    : Having a list of different types of drawable things in the
            Consider some design patterns, or change of responsibility
            here.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 15
+NAME     : Fill polyline
+OWNER    : Hassan khan
+PRIORITY : 1
+ESTIMATE : 2 hours.
+AS A     : user
+I WANT   : To fill in a polyline when I close it.
+SO THAT  : I can add filled in polylines to my canvas.
+--------------------------------------------------------------------------
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 --------------------------------------------------------------------------
 TYPE     : BUG 3
