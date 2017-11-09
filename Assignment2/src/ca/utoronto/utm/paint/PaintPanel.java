@@ -152,7 +152,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		} else if (this.mode == "Polyline") {
 			begin = new Point(this.colour, thickness, e.getX(), e.getY());
 			if (this.polyline == null) {
-				this.polyline = new Polyline(this.colour, thickness, false, begin);
+				this.polyline = new Polyline(this.colour, thickness, filled, begin);
 			}
 			this.polyline.setEndPoint(begin);
 		} else if (this.mode == "Triangle") {

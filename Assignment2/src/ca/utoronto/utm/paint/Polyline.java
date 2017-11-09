@@ -20,7 +20,7 @@ public class Polyline extends Shape {
 	private Point startPoint;
 	private Point endPoint;
 	private Point firstPoint;
-
+	
 	/**
 	 * Constructs a shape of type Oval with a specific color, 
 	 * thickness, is filled, start.
@@ -42,8 +42,9 @@ public class Polyline extends Shape {
 		this.yPoints = new ArrayList<Integer>();
 		this.numPoints = 0;
 		this.startPoint = start;
-		this.radius = Math.sqrt(18);
+		this.radius = Math.sqrt(18); // increasing the radius to make it easier to finish the polyline.
 		this.firstPoint = start;
+		
 	}
 
 	/**
@@ -175,6 +176,11 @@ public class Polyline extends Shape {
 			int arrXPoints [] = xPoints.stream().mapToInt(Integer::intValue).toArray();
 			int arrYPoints [] = yPoints.stream().mapToInt(Integer::intValue).toArray();
 			g2d.drawPolyline(arrXPoints, arrYPoints, numPoints);
+			if(this.isFilled() && inRadius(p2)) { 
+				g2d.fillPolygon(arrXPoints,arrYPoints, numPoints);
+			}
+			
+	
 		}
 	}
 
