@@ -82,9 +82,9 @@ Nov7 , 2017
 	Obstacles : None.
 	
 Nov 8, 2017
-	Yesterday : 
-	Today     : 
-	Obstacles : 
+	Yesterday : Unsuccessful attempt at fixing squiggle.
+	Today     : Work on squiggle and UserStory16.
+	Obstacles : Fixing squiggle without a for loop.
 
 Nov 9, 2017
 	Yesterday : 

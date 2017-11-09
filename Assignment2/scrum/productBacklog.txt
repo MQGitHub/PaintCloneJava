@@ -114,13 +114,23 @@ simply switching the PaintPanel's listeners as appropriate.
 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 6
+TYPE     : BUG 9
 NAME     : Squiggle is broken
 OWNER    : lakhtak1
 PRIORITY : 1
 ESTIMATE : 5 hours
 ISSUE    : Squiggles representation in the Model is not ideal. Fix the
 		   implementation of squiggle.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 16
+NAME     : Draw Text
+OWNER    : lakhtak1
+PRIORITY : 2
+ESTIMATE : 8 hours.
+AS A     : user
+I WANT   : To click and write in a textbox on the canvas.
+SO THAT  : I can add text to my canvas
 --------------------------------------------------------------------------
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
