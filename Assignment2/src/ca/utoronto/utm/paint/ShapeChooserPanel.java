@@ -28,11 +28,11 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 	public ShapeChooserPanel(View view) {
 		this.view = view;
 		String[] buttonLabels = { "Circle", "Oval", "Rectangle", "Square", "Triangle", "Squiggle", "Polyline", "Line",
-				"Eraser" };
+				"Eraser", "Text" };
 		GetIcons i = new GetIcons(buttonLabels);
 		ImageIcon[] icon = i.icons();
 		ButtonGroup group = new ButtonGroup();
-		this.setLayout(new GridLayout(buttonLabels.length + 2, 1));
+		this.setLayout(new GridLayout(buttonLabels.length + 3, 1));
 		int j = 0;
 		for (String label : buttonLabels) {
 			JToggleButton button = new JToggleButton();
@@ -46,11 +46,13 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 
 		LineThicknessChooser t = new LineThicknessChooser(this.view);
 		this.add(t.lineThicknessMenu());
-
+		
 		JRadioButton fill = new JRadioButton("Fill Shape");
 		fill.addActionListener(this);
 		this.add(fill);
-
+		
+		TextPanel txt = new TextPanel(this.view);
+		this.add(txt.textBar());
 	}
 
 	/**
