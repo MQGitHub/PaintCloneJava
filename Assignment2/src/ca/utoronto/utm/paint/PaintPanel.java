@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.geom.Path2D;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
@@ -125,9 +126,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	public void mousePressed(MouseEvent e) {
 		begin = new Point(e.getX(), e.getY());
 		if (this.mode == "Squiggle") {
-			ArrayList<Point> pts = new ArrayList<Point>();
-			pts.add(new Point(this.colour, thickness, e.getX(), e.getY()));
-			this.squiggle = new Squiggle(this.colour, thickness, pts);
+			this.squiggle = new Squiggle(this.colour, thickness, false, begin);
+			this.squiggle.moveto(begin);
 
 		} else if (this.mode == "Circle") {
 			this.circle = new Circle(this.colour, thickness, filled, begin, 0);
@@ -146,8 +146,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 
 		} else if (this.mode == "Eraser") {
 			ArrayList<Point> er = new ArrayList<Point>();
-			er.add(new Point(this.background, 15, e.getX(), e.getY()));
-			this.eraser = new Eraser(background, er);
+			//er.add(new Point(this.background, 15, e.getX(), e.getY()));
+			//this.eraser = new Eraser(background, er);
 
 		} else if (this.mode == "Polyline") {
 			begin = new Point(this.colour, thickness, e.getX(), e.getY());
@@ -172,8 +172,10 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		int max_Y = Math.max(begin.getY(), e.getY());
 
 		if (this.mode == "Squiggle") {
-			this.squiggle.addPoint(new Point(this.colour, thickness, e.getX(), e.getY()));
-			this.model.addShape(this.squiggle);
+			Point newP = new Point(this.colour, thickness, e.getX(), e.getY());
+            this.squiggle.lineto(newP);
+            this.squiggle.moveto(newP);
+            this.model.addShape(this.squiggle);
 
 		} else if (this.mode == "Circle") {
 			int x = begin.getX() - e.getX();
@@ -212,8 +214,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			this.model.addShape(this.oval);
 
 		} else if (this.mode == "Eraser") {
-			this.eraser.addPoint(new Point(this.background, 15, e.getX(), e.getY()));
-			this.model.addShape(this.eraser);
+			//this.eraser.addPoint(new Point(this.background, 15, e.getX(), e.getY()));
+			//this.model.addShape(this.eraser);
 
 		} else if (this.mode == "Triangle") {
 			this.triangle.setBase(e.getX());
@@ -232,7 +234,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		if (this.mode == "Squiggle") {
-			this.squiggle.addPoint(new Point(-1, -1));
+			this.squiggle.endPath();
 			this.model.addShape(this.squiggle);
 
 		} else if (this.mode == "Circle") {

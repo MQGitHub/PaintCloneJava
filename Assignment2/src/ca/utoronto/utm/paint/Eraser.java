@@ -22,43 +22,17 @@ public class Eraser extends Squiggle {
 	 *  @param points  All of the points where eraser is used. 
 	 *  @see  		   Squiggle. 
 	 */
-	public Eraser(Color c, ArrayList<Point> points) {
-		super(c, 20, points);
+	public Eraser(Color c, Point start) {
+		super(c, 20, false, start);
 	}
 	
-	/**
-	 * Returns an ArrayList containing all the points where eraser
-	 * have been used.
-	 * 
-	 * @return 	ArrayList containing all the current points for eraser.
-	 * @see 	Squiggle
-	 */
-	public ArrayList<Point> getPoints() {
-		return super.getPoints();
-	}
-
-	/**
-	 * Adds to the ArrayList containing all the points for all the
-	 * times eraser was used.
-	 * 
-	 * @param p	 adds given point to pts ArrayList containing all previous
-	 * 		     points. The ArrayList is held in the parent class Squiggle.
-	 * @see   Squiggle.
-	 */
-	public void addPoint(Point p) {
-		super.addPoint(p);
-	}
 	
 	@Override
 	public void draw(Graphics2D g2d) {
-		ArrayList<Point> points = this.getPoints();
-		for (int i = 0; i < points.size() - 1; i++) {
-			Point p1 = points.get(i);
-			Point p2 = points.get(i + 1);
-			g2d.setStroke(new BasicStroke(this.getThickness()));
-			g2d.setColor(Color.white);
-			g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
-		}
+		g2d.setStroke(new BasicStroke(this.getThickness()));
+		g2d.setColor(Color.white);
+		//g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
+		
 	}
 
 }

@@ -31,18 +31,6 @@ public abstract class Shape {
 	}
 	
 	/**
-	 * Constructs a shape with specific color, thickness, and an array of points.
-	 * @param c
-	 * @param thick
-	 * @param p
-	 */
-	public Shape(Color c, int thick, ArrayList<Point> p) {
-		this.c = c;
-		this.thickness = thick;
-		this.pts = p;
-	}
-	
-	/**
 	 * 
 	 * @return the current point of the shape.
 	 */
