@@ -121,6 +121,15 @@ PRIORITY : 1
 ESTIMATE : 1hours
 ISSUE    : Icons for buttons not showing up on linux machines.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 10
+NAME     : Design squiggle to fit with current design pattern
+OWNER    : Mateen Qureshi
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : The current design for squiggle does not fit with the design pattern
+in place for other shapes.
+--------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
