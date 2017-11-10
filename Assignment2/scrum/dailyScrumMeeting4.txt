@@ -80,4 +80,21 @@ Nov 7, 2017
 	Yesterday : Slept
 	Today     : Fixed polyline design, set color of previously made shape
 	Obstacles : Design Patterns and consistent use of "color" or "colour"
+	
+Nov 8, 2017
+	Yesterday : Fixed polyline design
+	Today     : Attempted to create a color picker 
+	Obstacles : Get color picker working
+
+Nov 9, 2017
+	Yesterday : Attempted to create a color picker
+	Today     : Abandoned color picker
+	Obstacles : Fix squiggle and eraser
+	
+Nov 10, 2017
+	Yesterday : Abandoned color picker
+	Today     : Fixed squiggle and eraser design
+	Obstacles : Merge with master and fix the design of shapes array
+	
+	
 
