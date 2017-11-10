@@ -1,6 +1,8 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 /**
@@ -46,6 +48,15 @@ public class Line extends Shape {
 	 */
 	public Point getEndPoint() {
 		return this.end;
+	}
+
+	@Override
+	public void draw(Graphics2D g2d) {
+		Point p2 = this.getCorner();
+		Point p1 = this.getEndPoint();
+		g2d.setColor(this.getColor());
+		g2d.setStroke(new BasicStroke(this.getThickness()));
+		g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
 	}
 
 }

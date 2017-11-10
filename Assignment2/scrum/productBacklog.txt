@@ -434,7 +434,6 @@ ESTIMATE : 3 hours
 ISSUE    : The current design for squiggle does not fit with the design pattern
 in place for other shapes.
 --------------------------------------------------------------------------
-
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 --------------------------------------------------------------------------
 TYPE     : BUG 3
@@ -448,4 +447,3 @@ ISSUE    : Code is not modular and is difficult to expand. Need a better
            Refactor ShapeChooserPanel and PaintPanel to get rid of the
            'if' blocks in the PaintPanel mouse event code.
 --------------------------------------------------------------------------
-
