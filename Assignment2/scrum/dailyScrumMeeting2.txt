@@ -87,3 +87,14 @@ Nov 8, 2017
 	Yesterday : Break
 	Today     : Fix icons issue on linux.
 	Obstacles : What is causing the issue.
+	
+Nov 9, 2017
+	Yesterday : fixed icons.
+	Today     : Break, 236 problem set
+	Obstacles : Break
+	
+Nov 10, 2017
+	Yesterday : Break
+	Today     : see how to implement map how to draw shapes to the buttons.
+	Obstacles : How do u implement strategy and factory design patterns to do that.
+	
