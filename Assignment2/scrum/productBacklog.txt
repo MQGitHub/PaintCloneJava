@@ -65,6 +65,7 @@ simply switching the PaintPanel's listeners as appropriate.
 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+<<<<<<< HEAD
 TYPE     : BUG 10
 NAME     : Fix ArrayList shape
 OWNER    : 
@@ -75,6 +76,15 @@ ISSUE    : Multiple elements of the same shape being added as you draw,
 		   mouse listener
 --------------------------------------------------------------------------
 
+=======
+TYPE     : BUG 9
+NAME     : Fix icons for linux
+OWNER    : hannage6
+PRIORITY : 1
+ESTIMATE : 1hours
+ISSUE    : Icons for buttons not showing up on linux machines.
+--------------------------------------------------------------------------
+>>>>>>> refs/remotes/origin/bug9
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
@@ -430,5 +440,5 @@ ISSUE    : Code is not modular and is difficult to expand. Need a better
            architecture behind selecting a drawing mode, and handling
            the drawing events. Consider some design patterns here.
            Refactor ShapeChooserPanel and PaintPanel to get rid of the
-           'if' blocks in the PaintPanel mouse event code.
 --------------------------------------------------------------------------
+

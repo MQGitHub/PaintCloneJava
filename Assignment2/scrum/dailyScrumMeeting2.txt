@@ -1,3 +1,4 @@
+
 # Fill in, commit and push each day.
 # Group Member: Georges Hanna
 
@@ -97,4 +98,3 @@ Nov 10, 2017
 	Yesterday : Break
 	Today     : see how to implement map how to draw shapes to the buttons.
 	Obstacles : How do u implement strategy and factory design patterns to do that.
-	
