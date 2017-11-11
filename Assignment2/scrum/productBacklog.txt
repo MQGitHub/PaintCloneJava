@@ -434,6 +434,15 @@ ESTIMATE : 3 hours
 ISSUE    : The current design for squiggle does not fit with the design pattern
 in place for other shapes.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 11
+NAME     : Design eraser to fit with current design pattern
+OWNER    : Mateen Qureshi
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : The current design for eraser does not fit with the design pattern
+in place for other shapes.
+--------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 --------------------------------------------------------------------------
