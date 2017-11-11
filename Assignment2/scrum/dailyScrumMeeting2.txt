@@ -72,3 +72,18 @@ Nov 5, 2017
 	Yesterday : cleaned code
 	Today     : JavaDoc, and review all the content
 	Obstacles : Last minute fixing.
+
+Nov 6, 2017
+	Yesterday : cleaned code
+	Today 	  : implemented factory design pattern
+	Obstacles : None
+
+Nov 7, 2017
+	Yesterday : implement factory design pattern
+	Today     : Break.
+	Obstacles : Break.
+	
+Nov 8, 2017
+	Yesterday : Break
+	Today     : Fix icons issue on linux.
+	Obstacles : What is causing the issue.

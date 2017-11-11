@@ -70,3 +70,39 @@ Nov 5, 2017
 	Yesterday : Polyline was completed with the help of George.
 	Today     : Working on javadocs
 	Obstacles :
+	
+Nov 6, 2017
+	Yesterday : Break.  
+	Today     : Break.
+	Obstacles : Break.
+	
+Nov 7 , 2017
+	Yesterday : Break. 
+	Today     : Break. Stats test.
+	Obstacles : Break.
+	
+Nov 8, 2017
+	Yesterday : 
+	Today     : 
+	Obstacles : 
+
+Nov 9, 2017
+	Yesterday : 
+	Today     : 
+	Obstacles : 
+
+Nov 10, 2017
+	Yesterday : 
+	Today     : 
+	Obstacles : 
+
+Nov 11, 2017
+	Yesterday : 
+	Today     : 
+	Obstacles : 
+	
+Nov 12, 2017
+	Yesterday : 
+	Today     : 
+	Obstacles : 
+	
