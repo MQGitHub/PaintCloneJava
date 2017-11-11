@@ -82,23 +82,24 @@ Nov 7 , 2017
 	Obstacles : Break.
 	
 Nov 8, 2017
-	Yesterday : 
-	Today     : 
-	Obstacles : 
+	Yesterday : Break.
+	Today     : Worked on user story 15. If filled shape is true and a polyline closes then the 
+				polyline will be filled in with the current color.
+	Obstacles : Figuring out how to use the fill tool for polyline.
 
 Nov 9, 2017
-	Yesterday : 
-	Today     : 
-	Obstacles : 
+	Yesterday : Break.  
+	Today     : Break.
+	Obstacles : Break.
 
 Nov 10, 2017
-	Yesterday : 
-	Today     : 
-	Obstacles : 
+	Yesterday : Break.  
+	Today     : Break.
+	Obstacles : Break.
 
 Nov 11, 2017
-	Yesterday : 
-	Today     : 
+	Yesterday : Break.
+	Today     : Working on user story 16. Zooming in and out.
 	Obstacles : 
 	
 Nov 12, 2017

@@ -173,6 +173,16 @@ I WANT   : to click and drag, to see an oval formed.
 SO THAT  : I can add ovals to my canvas.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : USER STORY 15
+NAME     : Fill Polyline.
+OWNER    : khanha46
+PRIORITY : 1
+ESTIMATE : 2 hours
+AS A     : user
+I WANT   : to fill in a polyline when I close it
+SO THAT  : I can add filled in polylines to my canvas.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 2
 NAME     : Drawing selection mode not indicated
 OWNER    : Georges/lakhtak1
