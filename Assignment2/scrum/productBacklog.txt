@@ -74,6 +74,24 @@ ISSUE    : Multiple elements of the same shape being added as you draw,
 		   potential issue might be, because we have model.add inside the drag
 		   mouse listener
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 10
+NAME     : Design squiggle to fit with current design pattern
+OWNER    : Mateen Qureshi
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : The current design for squiggle does not fit with the design pattern
+in place for other shapes.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 11
+NAME     : Design eraser to fit with current design pattern
+OWNER    : Mateen Qureshi
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : The current design for eraser does not fit with the design pattern
+in place for other shapes.
+--------------------------------------------------------------------------
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
 TYPE     : USER STORY 1
@@ -381,6 +399,24 @@ ISSUE    : Having a list of different types of drawable things in the
            here.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : BUG 10
+NAME     : Design squiggle to fit with current design pattern
+OWNER    : Mateen Qureshi
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : The current design for squiggle does not fit with the design pattern
+in place for other shapes.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 11
+NAME     : Design eraser to fit with current design pattern
+OWNER    : Mateen Qureshi
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : The current design for eraser does not fit with the design pattern
+in place for other shapes.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 2.1 : UTORID
 NAME     : Architecture for drawing shapes can be improved
 OWNER    : Hannage6
@@ -388,6 +424,7 @@ PRIORITY : 1
 ESTIMATE : 1hour
 ISSUE    : The architecture can be improved if we implement the Command Design 
 Pattern to draw shapes as follows:
+>>>>>>> branch 'master' of https://mcsscm.utm.utoronto.ca/git/207/repo_a2_jawaBweanz.git
 
 The PaintModel should use the command design pattern. 
 That is, each shape knows how to draw itself, so there is a single list of 
