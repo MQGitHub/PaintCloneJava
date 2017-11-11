@@ -1,6 +1,8 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 /**
@@ -45,6 +47,18 @@ public class Eraser extends Squiggle {
 	 */
 	public void addPoint(Point p) {
 		super.addPoint(p);
+	}
+	
+	@Override
+	public void draw(Graphics2D g2d) {
+		ArrayList<Point> points = this.getPoints();
+		for (int i = 0; i < points.size() - 1; i++) {
+			Point p1 = points.get(i);
+			Point p2 = points.get(i + 1);
+			g2d.setStroke(new BasicStroke(this.getThickness()));
+			g2d.setColor(Color.white);
+			g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
+		}
 	}
 
 }

@@ -426,7 +426,6 @@ PRIORITY : 1
 ESTIMATE : 1hours
 ISSUE    : Icons for buttons not showing up on linux machines.
 --------------------------------------------------------------------------
-
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 --------------------------------------------------------------------------
 TYPE     : BUG 3
@@ -439,4 +438,5 @@ ISSUE    : Code is not modular and is difficult to expand. Need a better
            the drawing events. Consider some design patterns here.
            Refactor ShapeChooserPanel and PaintPanel to get rid of the
 --------------------------------------------------------------------------
+
 
