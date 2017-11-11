@@ -202,7 +202,7 @@ SO THAT  : I can add filled in polylines to my canvas.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 17
-NAME     : Zoom in and out
+NAME     : Zoom in and out.
 OWNER    : khanha46
 PRIORITY : 1
 ESTIMATE : 3 hours
