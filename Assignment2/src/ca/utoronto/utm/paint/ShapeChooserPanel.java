@@ -19,6 +19,7 @@ import java.util.List;
  */
 class ShapeChooserPanel extends JPanel implements ActionListener {
 	private View view; // So we can talk to our parent or other components of the view
+	private String c;
 
 	/**
 	 * Create the ShapeChooserPanel and attach the view to the panel.
@@ -28,9 +29,9 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 	public ShapeChooserPanel(View view) {
 		this.view = view;
 		String[] buttonLabels = { "circle", "oval", "rectangle", "square", "triangle", "squiggle", "polyline", "line",
-				"eraser" };
+				"eraser", "text" };
 		ButtonGroup group = new ButtonGroup();
-		this.setLayout(new GridLayout(buttonLabels.length + 2, 1));
+		this.setLayout(new GridLayout(buttonLabels.length + 3, 1));
 		for (String label : buttonLabels) {
 			ImageIcon x = new ImageIcon(getClass().getResource(label+".png"));
 			Image image = x.getImage();
@@ -41,14 +42,16 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 			this.add(button);
 			button.addActionListener(this);
 		}
-
+		
+		TextPanel txt = new TextPanel(this.view);
+		this.add(txt.textBar());
+		
 		LineThicknessChooser t = new LineThicknessChooser(this.view);
 		this.add(t.lineThicknessMenu());
-
+		
 		JRadioButton fill = new JRadioButton("Fill Shape");
 		fill.addActionListener(this);
 		this.add(fill);
-
 	}
 
 	/**
@@ -64,5 +67,4 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 			this.view.getPaintPanel().setMode(y.getToolTipText());
 		}
 	}
-
 }

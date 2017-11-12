@@ -1,6 +1,9 @@
 package ca.utoronto.utm.paint;
 
 import javax.swing.*;
+
+import ca.utoronto.utm.paint.Point;
+
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -32,6 +35,9 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private int thickness; // sets the thickness of the line
 	private Squiggle squiggle;
 	private Triangle triangle;
+	private String font = "Arial Narrow";
+	private int fontSize = 10;
+	private TextBox tBox;
 
 	public PaintPanel(PaintModel model, View view) {
 		background = Color.white;
@@ -66,11 +72,10 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		// Draw the shapes
 		ArrayList<Shape> shapes = this.model.getShapes();
 		for (Shape s : this.model.getShapes()) {
-			//System.out.println(shapes);
+			// System.out.println(shapes);
 			s.draw(g2d);
-			}
 		}
-
+	}
 
 	@Override
 	public void update(Observable o, Object arg) {
@@ -103,7 +108,24 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		this.thickness = thickness;
 
 	}
-	
+	/**
+	 * Set font of text
+	 * 
+	 * @param font
+	 */
+	public void setFont(String font) {
+		this.font = font;
+
+	}
+	/**
+	 * Set font size of text
+	 * 
+	 * @param size
+	 */
+	public void setFontSize(int size) {
+		this.fontSize = size;
+	}
+
 	/**
 	 * Set colour of shape.
 	 * 
@@ -122,7 +144,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		if (this.mode == "squiggle") {
 		}
 	}
-	
+
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		int min_X = Math.min(begin.getX(), e.getX());
@@ -133,8 +155,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		if (this.mode == "squiggle") {
 			this.squiggle.addPoint(new Point(this.colour, thickness, e.getX(), e.getY()));
 			this.model.addShape(this.squiggle);
-
-		} else if (this.mode == "circle") {
+			} else if (this.mode == "circle") {
 			int x = begin.getX() - e.getX();
 			int y = begin.getY() - e.getY();
 			int radius = (int) Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
@@ -186,10 +207,18 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	// MouseListener below
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if (this.mode == "squiggle") {
-
-		} else if (this.mode == "circle") {
+		if (this.mode == "text") {
+			this.model.addShape(new Square(this.colour, this.thickness, this.filled, new Point(-2,-2), 1));
+			begin = new Point(this.colour, thickness, e.getX(), e.getY());
+			String prompt = "Please add text to display";
+			String input = JOptionPane.showInputDialog(this, prompt);
+			if (input == null) {
+				input = " ";
+			}
+			this.tBox = new TextBox(this.colour, begin, this.fontSize, this.font, input);
+			this.model.addShape(tBox);
 		}
+		repaint();
 	}
 
 	@Override
@@ -268,21 +297,9 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		if (this.mode == "squiggle") {
-
-		} else if (this.mode == "circle") {
-
-		}
-
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		if (this.mode == "squiggle") {
-
-		} else if (this.mode == "circle") {
-
-		}
 	}
-	
 }
