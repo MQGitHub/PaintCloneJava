@@ -102,9 +102,9 @@ Nov 11, 2017
 	Obstacles : none.
 	
 Nov 12, 2017
-	Yesterday : 
-	Today     : 
-	Obstacles : 
+	Yesterday : Finished UserStory16 and 17 and Bug2.3
+	Today     : Work on more shapes.
+	Obstacles : None.
 	
 Nov 13, 2017
 	Yesterday : 

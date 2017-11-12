@@ -4,6 +4,16 @@
 # 1 Color chooser UI (which could be a USER STORY)
 # 2 Implementation of selected color into the drawing stream.
 --------------------------------------------------------------------------
+TYPE     : USER STORY 20 lakhtak1
+NAME     : Create a functioning clear
+OWNER    : Radhika L 
+PRIORITY : 1 
+ESTIMATE : 1 hour.
+AS A     : user
+I WANT   : As a user I want to clear the canvas
+SO THAT  : I can start drawing from scratch
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : USER STORY 18
 NAME     : Create a functioning undo
 OWNER    : Mateen Qureshi 
@@ -26,23 +36,6 @@ to the graphics context in a DrawingCommand. This way these changes can be
 added to the Bug 2.1 DrawingCommand list. That is, these new types of 
 DrawingCommands appear on PaintPanel's list right along side 
 the Shape type DrawingCommands.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 2.3 : lakhtak1
-NAME     : Architecture behind choosing drawing mode is poor
-OWNER    : Radhika L
-PRIORITY : 1
-ESTIMATE : 2 hours
-ISSUE    : A better architecture behind selecting a drawing mode can be created 
-by implementing the Factory Design Pattern as follows:
-
-The factory design pattern should be used by the paint buttons. 
-The factory is responsible for creating different ShapeManipulatorStrategy 
-instances (see BUG 2.4). That is, when a button is pressed, the appropriate 
-ShapeManipulatorStrategy is created and installed in the PaintPanel. 
-Note that you can associate text with a button, even if you 
-display an ImageIcon. The string attached to the button causes the right choice 
-of object creation.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 2.4 : UTORID
@@ -549,6 +542,23 @@ ESTIMATE : 30 minutes
 AS A     : user
 I WANT   : To be able to create right angled triangles on the canvas
 SO THAT  : I can add right angled triangles to my canvas
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 2.3 : lakhtak1
+NAME     : Architecture behind choosing drawing mode is poor
+OWNER    : Radhika L
+PRIORITY : 1
+ESTIMATE : 2 hours
+ISSUE    : A better architecture behind selecting a drawing mode can be created 
+by implementing the Factory Design Pattern as follows:
+
+The factory design pattern should be used by the paint buttons. 
+The factory is responsible for creating different ShapeManipulatorStrategy 
+instances (see BUG 2.4). That is, when a button is pressed, the appropriate 
+ShapeManipulatorStrategy is created and installed in the PaintPanel. 
+Note that you can associate text with a button, even if you 
+display an ImageIcon. The string attached to the button causes the right choice 
+of object creation.
 --------------------------------------------------------------------------
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 --------------------------------------------------------------------------
