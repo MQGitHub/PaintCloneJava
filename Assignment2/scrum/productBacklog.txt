@@ -3,7 +3,16 @@
 # For example, the color chooser user story involves: 
 # 1 Color chooser UI (which could be a USER STORY)
 # 2 Implementation of selected color into the drawing stream.
-
+--------------------------------------------------------------------------
+TYPE     : USER STORY 18
+NAME     : Create a functioning undo
+OWNER    : Mateen Qureshi 
+PRIORITY : 1 
+ESTIMATE : 1 hour.
+AS A     : user
+I WANT   : As a user I want to undo my last draw.
+SO THAT  : I can undo what I did if I don't want it.
+--------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 2.2 : UTORID
 NAME     : Architecture for handling shape modifiers can be improved 
@@ -19,11 +28,11 @@ DrawingCommands appear on PaintPanel's list right along side
 the Shape type DrawingCommands.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 2.3 : UTORID
+TYPE     : BUG 2.3 : lakhtak1
 NAME     : Architecture behind choosing drawing mode is poor
-OWNER    : 
-PRIORITY :
-ESTIMATE : 
+OWNER    : Radhika L
+PRIORITY : 1
+ESTIMATE : 2 hours
 ISSUE    : A better architecture behind selecting a drawing mode can be created 
 by implementing the Factory Design Pattern as follows:
 
@@ -65,7 +74,7 @@ simply switching the PaintPanel's listeners as appropriate.
 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 10
+TYPE     : BUG 9
 NAME     : Fix ArrayList shape
 OWNER    : 
 PRIORITY : 1
@@ -73,6 +82,24 @@ ESTIMATE :
 ISSUE    : Multiple elements of the same shape being added as you draw,
 		   potential issue might be, because we have model.add inside the drag
 		   mouse listener
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 10
+NAME     : Design squiggle to fit with current design pattern
+OWNER    : Mateen Qureshi
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : The current design for squiggle does not fit with the design pattern
+in place for other shapes.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 11
+NAME     : Design eraser to fit with current design pattern
+OWNER    : Mateen Qureshi
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : The current design for eraser does not fit with the design pattern
+in place for other shapes.
 --------------------------------------------------------------------------
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
@@ -171,6 +198,27 @@ ESTIMATE : 1 hours
 AS A     : user
 I WANT   : to click and drag, to see an oval formed.
 SO THAT  : I can add ovals to my canvas.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 15
+NAME     : Fill Polyline.
+OWNER    : khanha46
+PRIORITY : 1
+ESTIMATE : 2 hours
+AS A     : user
+I WANT   : to fill in a polyline when I close it
+SO THAT  : I can add filled in polylines to my canvas.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 17
+NAME     : Zoom in and out.
+OWNER    : khanha46
+PRIORITY : 1
+ESTIMATE : 3 hours
+AS A     : user
+I WANT   : to zoom in and out
+SO THAT  : I can be more precise with my drawing.
+
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 2
@@ -357,7 +405,68 @@ ISSUE    : Having a list of different types of drawable things in the
            Squiggle's not drawing properly. Need to re-architect the Model
            so that it is more flexible, and easier to work with.
            Consider some design patterns, or change of responsibility
+<<<<<<< HEAD
+=======
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 15
+NAME     : Fill polyline
+OWNER    : Hassan khan
+PRIORITY : 1
+ESTIMATE : 2 hours.
+AS A     : user
+I WANT   : To fill in a polyline when I close it.
+SO THAT  : I can add filled in polylines to my canvas.
            here.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 10
+NAME     : Design squiggle to fit with current design pattern
+OWNER    : Mateen Qureshi
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : The current design for squiggle does not fit with the design pattern
+in place for other shapes.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 11
+NAME     : Design eraser to fit with current design pattern
+OWNER    : Mateen Qureshi
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : The current design for eraser does not fit with the design pattern
+in place for other shapes.
+--------------------------------------------------------------------------
+>>>>>>> branch 'master' of https://mcsscm.utm.utoronto.ca/git/207/repo_a2_jawaBweanz.git
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 15
+NAME     : Fill polyline
+OWNER    : Hassan khan
+PRIORITY : 1
+ESTIMATE : 2 hours.
+AS A     : user
+I WANT   : To fill in a polyline when I close it.
+SO THAT  : I can add filled in polylines to my canvas.
+           here.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 10
+NAME     : Design squiggle to fit with current design pattern
+OWNER    : Mateen Qureshi
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : The current design for squiggle does not fit with the design pattern
+in place for other shapes.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 11
+NAME     : Design eraser to fit with current design pattern
+OWNER    : Mateen Qureshi
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : The current design for eraser does not fit with the design pattern
+in place for other shapes.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 2.1 : UTORID
@@ -367,6 +476,11 @@ PRIORITY : 1
 ESTIMATE : 1hour
 ISSUE    : The architecture can be improved if we implement the Command Design 
 Pattern to draw shapes as follows:
+<<<<<<< HEAD
+>>>>>>> branch 'master' of https://mcsscm.utm.utoronto.ca/git/207/repo_a2_jawaBweanz.git
+=======
+>>>>>>> branch 'master' of https://mcsscm.utm.utoronto.ca/git/207/repo_a2_jawaBweanz.git
+>>>>>>> branch 'master' of https://mcsscm.utm.utoronto.ca/git/207/repo_a2_jawaBweanz.git
 
 The PaintModel should use the command design pattern. 
 That is, each shape knows how to draw itself, so there is a single list of 
@@ -416,7 +530,26 @@ PRIORITY : 1
 ESTIMATE : 1hours
 ISSUE    : Icons for buttons not showing up on linux machines.
 --------------------------------------------------------------------------
-
+--------------------------------------------------------------------------
+TYPE     : USER STORY 16
+NAME     : Draw Text
+OWNER    : lakhtak1
+PRIORITY : 2
+ESTIMATE : 8 hours.
+AS A     : user
+I WANT   : To click and write text on the canvas.
+SO THAT  : I can add text to my canvas
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 17
+NAME     : Draw Right Angle Triangle
+OWNER    : lakhtak1
+PRIORITY : 3
+ESTIMATE : 30 minutes
+AS A     : user
+I WANT   : To be able to create right angled triangles on the canvas
+SO THAT  : I can add right angled triangles to my canvas
+--------------------------------------------------------------------------
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 --------------------------------------------------------------------------
 TYPE     : BUG 3
@@ -428,5 +561,4 @@ ISSUE    : Code is not modular and is difficult to expand. Need a better
            architecture behind selecting a drawing mode, and handling
            the drawing events. Consider some design patterns here.
            Refactor ShapeChooserPanel and PaintPanel to get rid of the
---------------------------------------------------------------------------
 
