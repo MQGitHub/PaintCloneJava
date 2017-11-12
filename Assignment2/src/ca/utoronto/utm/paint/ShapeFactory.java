@@ -6,32 +6,37 @@ public class ShapeFactory {
 		if (shapeType == null) {
 			return null;
 		}
-		if (shapeType.equalsIgnoreCase("CIRCLE")) {
+		switch (shapeType.toLowerCase()) {
+		
+		case "circle":
 			return new CircleManipulator();
 
-		} else if (shapeType.equalsIgnoreCase("RECTANGLE")) {
+		case "rectangle":
 			return new RectangleManipulator();
 
-		} else if (shapeType.equalsIgnoreCase("SQUARE")) {
+		case "square":
 			return new SquareManipulator();
 
-		} else if (shapeType.equalsIgnoreCase("TRIANGLE")) {
+		case "triangle":
 			return new TriangleManipulator();
 
-		} else if (shapeType.equalsIgnoreCase("OVAL")) {
+		case "oval":
 			return new OvalManipulator();
 
-		} else if (shapeType.equalsIgnoreCase("LINE")) {
+		case "line":
 			return new LineManipulator();
 
-		} else if (shapeType.equalsIgnoreCase("POLYLINE")) {
+		case "polyline":
 			return new PolylineManipulator();
 
-		} else if (shapeType.equalsIgnoreCase("SQUIGGLE")) {
+		case "squiggle":
 			return new SquiggleManipulator();
 
-		} else if (shapeType.equalsIgnoreCase("ERASER")) {
+		case "eraser":
 			return new EraserManipulator();
+
+		case "rightangletriangle":
+			return new RightATriangleManipulator();
 
 		}
 		return null;
