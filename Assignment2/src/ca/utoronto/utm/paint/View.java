@@ -124,7 +124,13 @@ public class View extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String x = e.getActionCommand();
 		if (x.equals("Exit")) {
-			System.exit(0);
+			Object[] options = { "YES", "NO" };
+			int pane = JOptionPane.showOptionDialog(null, "Do you want to exit the application?", "Confirm Exit",
+			JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,
+			null, options, options[0]);
+			if (pane == JOptionPane.YES_OPTION) {
+				System.exit(0);
+			}
 		}
 		System.out.println(e.getActionCommand());
 	}
