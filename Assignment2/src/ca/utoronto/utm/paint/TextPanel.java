@@ -2,81 +2,91 @@ package ca.utoronto.utm.paint;
 
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GraphicsEnvironment;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
-public class TextPanel extends JTextArea implements ActionListener{
+/**
+ * 
+ * A TextPanel has a TextBar from which the user can set the text font and text font size.
+ *
+ */
+public class TextPanel extends JTextArea implements ActionListener, ChangeListener {
 	private View view;
 	private JMenuBar c;
-	
+	private JMenu font;
+
+	/**
+	 * Initialize the view by connecting the view and TextPanel.
+	 * @param view
+	 * 			The view of Paint model.
+	 */
 	public TextPanel(View view) {
 		this.view = view;
 	}
-	
+
+	/**
+	 * Construct a JMenuBar with two sub-menus to choose the font and font size.
+	 * 
+	 * @return JMenuBar with two sub-menus.
+	 */
 	public JMenuBar textBar() {
 		this.c = new JMenuBar();
-		JMenu b = new JMenu("Text");
-        b.setLayout(new GridLayout(0,1));
-		
-		JMenu font = new JMenu("Font");
-		JButton x = new JButton("Times New Roman");
-		x.setFont(new Font("Times New Roman", 10, 10));
-		font.add(x);
-		
-		x = new JButton("Arial");
-		x.setFont(new Font("Arial", 10, 10));
-		font.add(x);
-		
-		x = new JButton("Comic Sans");
-		x.setFont(new Font("Comic Sans", 10, 10));
-		font.add(x);
-		
-		x = new JButton("Calibri");
-		x.setFont(new Font("Calibri", 10, 10));
-		font.add(x);
-		
+		JMenu b = new JMenu("Text Editor");
+		b.setLayout(new GridLayout(0, 1));
+
+		font = new JMenu("Font: Arial Narrow");
+		String fonts[] = 
+			      GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+		ButtonGroup group = new ButtonGroup();
+		for (String label : fonts) {
+			JCheckBoxMenuItem button;
+			if (label == "Arial Narrow") {
+				button = new JCheckBoxMenuItem(label, true);
+			}else {
+				button = new JCheckBoxMenuItem(label, false);
+			}
+			button.setFont(new Font(label, 12, 12));
+			button.addActionListener(this);
+			font.add(button);
+			group.add(button);
+		}
+		MenuScroller.setScrollerFor(font, 20);
 		b.add(font);
-		
+
 		JMenu size = new JMenu("Size");
-		size.add(new JTextField(2));
+		JSlider s = new JSlider(10, 70, 10);
+		s.setName("Font Size");
+		s.setMajorTickSpacing(10);
+		s.setMinorTickSpacing(2);
+		s.setPaintTicks(true);
+		s.setPaintLabels(true);
+		s.addChangeListener(this);
+		size.add(s);
 		b.add(size);
-		
-		JRadioButton bold = new JRadioButton("Bold");
-		b.add(bold);
-		
-		JRadioButton italics = new JRadioButton("Italicize");
-		b.add(italics);
-		
-		JRadioButton underscore = new JRadioButton("Underscore");
-		b.add(underscore);
-		
+
 		c.add(b);
 
 		return c;
 	}
 
+	/**
+	 * Controller aspect of this
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-//		if (e.getActionCommand() == "Bold"){
-//			JRadioButton x = (JRadioButton) e.getSource();
-//			this.view.getPaintPanel().isBold(x.isSelected());
-//		} else if (e.getActionCommand() == "Italicize"){
-//			JRadioButton x = (JRadioButton) e.getSource();
-//			this.view.getPaintPanel().isItalics(x.isSelected());
-//		}else if (e.getActionCommand() == "Underscore"){
-//			JRadioButton x = (JRadioButton) e.getSource();
-//			this.view.getPaintPanel().setUnderScore(x.isSelected());
-//		}else if (e.getSource() == JTextField) {
-//			JTextArea x = (JTextArea) e.getSource();
-//			this.view.getPaintPanel().setFontSize(parseInt(x.getText()));
-//		}else {
-//			this.view.getPaintPanel().setFont(e.getActionCommand());
-		
+		this.view.getPaintPanel().setFont(e.getActionCommand());
+		this.font.setText("Font: " + e.getActionCommand());
 	}
 	
-	
+	public void stateChanged(ChangeEvent e) {
+		JSlider x = (JSlider) e.getSource();
+		this.view.getPaintPanel().setFontSize(x.getValue());
+	}
 
 }
