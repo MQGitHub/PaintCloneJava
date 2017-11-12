@@ -38,6 +38,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private String font = "Arial Narrow";
 	private int fontSize = 10;
 	private TextBox tBox;
+	private RightAngleTriangle rightATriangle;
 
 	public PaintPanel(PaintModel model, View view) {
 		background = Color.white;
@@ -71,7 +72,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 
 		// Draw the shapes
 		ArrayList<Shape> shapes = this.model.getShapes();
-		for (Shape s : this.model.getShapes()) {
+		for (Shape s : shapes) {
 			// System.out.println(shapes);
 			s.draw(g2d);
 		}
@@ -199,8 +200,12 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			this.triangle.setBase(e.getX());
 			this.triangle.setHeight(e.getY());
 			this.model.addShape(triangle);
+			
+		}else if (this.mode == "rightAngleTriangle") {
+			this.rightATriangle.setBase(e.getX());
+			this.rightATriangle.setHeight(e.getY());
+			this.model.addShape(rightATriangle);
 		}
-
 		repaint();
 	}
 
@@ -262,6 +267,10 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		} else if (this.mode == "triangle") {
 			begin = new Point(this.colour, thickness, e.getX(), e.getY());
 			this.triangle = new Triangle(this.colour, thickness, filled, begin);
+		
+		} else if(this.mode == "rightAngleTriangle") {
+			begin = new Point(this.colour, thickness, e.getX(), e.getY());
+			this.rightATriangle = new RightAngleTriangle(this.colour, thickness, filled, begin);
 
 		}
 	}

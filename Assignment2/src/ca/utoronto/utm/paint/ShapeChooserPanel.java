@@ -23,32 +23,33 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 
 	/**
 	 * Create the ShapeChooserPanel and attach the view to the panel.
+	 * 
 	 * @param view
-	 * 			The view of the model.
+	 *            The view of the model.
 	 */
 	public ShapeChooserPanel(View view) {
 		this.view = view;
-		String[] buttonLabels = { "circle", "oval", "rectangle", "square", "triangle", "squiggle", "polyline", "line",
-				"eraser", "text" };
+		String[] buttonLabels = { "circle", "oval", "rectangle", "square", "triangle", "rightAngleTriangle", "squiggle",
+				"polyline", "line", "eraser", "text" };
 		ButtonGroup group = new ButtonGroup();
 		this.setLayout(new GridLayout(buttonLabels.length + 3, 1));
 		for (String label : buttonLabels) {
-			ImageIcon x = new ImageIcon(getClass().getResource(label+".png"));
+			ImageIcon x = new ImageIcon(getClass().getResource(label + ".png"));
 			Image image = x.getImage();
-			Image newImg = image.getScaledInstance(20, 20,  java.awt.Image.SCALE_SMOOTH);
+			Image newImg = image.getScaledInstance(20, 20, java.awt.Image.SCALE_SMOOTH);
 			JToggleButton button = new JToggleButton(new ImageIcon(newImg));
 			button.setToolTipText(label);
 			group.add(button);
 			this.add(button);
 			button.addActionListener(this);
 		}
-		
+
 		TextPanel txt = new TextPanel(this.view);
 		this.add(txt.textBar());
-		
+
 		LineThicknessChooser t = new LineThicknessChooser(this.view);
 		this.add(t.lineThicknessMenu());
-		
+
 		JRadioButton fill = new JRadioButton("Fill Shape");
 		fill.addActionListener(this);
 		this.add(fill);
