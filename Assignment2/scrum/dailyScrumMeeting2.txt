@@ -1,3 +1,4 @@
+
 # Fill in, commit and push each day.
 # Group Member: Georges Hanna
 
@@ -74,11 +75,26 @@ Nov 5, 2017
 	Obstacles : Last minute fixing.
 
 Nov 6, 2017
-	Yesterday : Javadoc
-	Today     : Implemented factory design pattern for paintpanel.
-	Obstacles : No obstacles
-	
+	Yesterday : cleaned code
+	Today 	  : implemented factory design pattern
+	Obstacles : None
+
 Nov 7, 2017
-	Yesterday : Implemented factory design pattern
-	Today 	  : Break.
+	Yesterday : implement factory design pattern
+	Today     : Break.
 	Obstacles : Break.
+	
+Nov 8, 2017
+	Yesterday : Break
+	Today     : Fix icons issue on linux.
+	Obstacles : What is causing the issue.
+	
+Nov 9, 2017
+	Yesterday : fixed icons.
+	Today     : Break, 236 problem set
+	Obstacles : Break
+	
+Nov 10, 2017
+	Yesterday : Break
+	Today     : see how to implement map how to draw shapes to the buttons.
+	Obstacles : How do u implement strategy and factory design patterns to do that.

@@ -27,17 +27,15 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 	 */
 	public ShapeChooserPanel(View view) {
 		this.view = view;
-		String[] buttonLabels = { "Circle", "Oval", "Rectangle", "Square", "Triangle", "Squiggle", "Polyline", "Line",
-				"Eraser" };
-		GetIcons i = new GetIcons(buttonLabels);
-		ImageIcon[] icon = i.icons();
+		String[] buttonLabels = { "circle", "oval", "rectangle", "square", "triangle", "squiggle", "polyline", "line",
+				"eraser" };
 		ButtonGroup group = new ButtonGroup();
 		this.setLayout(new GridLayout(buttonLabels.length + 2, 1));
-		int j = 0;
 		for (String label : buttonLabels) {
-			JToggleButton button = new JToggleButton();
-			button.setIcon(icon[j]);
-			j++;
+			ImageIcon x = new ImageIcon(getClass().getResource(label+".png"));
+			Image image = x.getImage();
+			Image newImg = image.getScaledInstance(20, 20,  java.awt.Image.SCALE_SMOOTH);
+			JToggleButton button = new JToggleButton(new ImageIcon(newImg));
 			button.setToolTipText(label);
 			group.add(button);
 			this.add(button);

@@ -5,55 +5,6 @@
 # 2 Implementation of selected color into the drawing stream.
 
 --------------------------------------------------------------------------
-TYPE     : BUG 2.1 : UTORID
-NAME     : Architecture for drawing shapes can be improved
-OWNER    : 
-PRIORITY :
-ESTIMATE : 
-ISSUE    : The architecture can be improved if we implement the Command Design 
-Pattern to draw shapes as follows:
-
-The PaintModel should use the command design pattern. 
-That is, each shape knows how to draw itself, so there is a single list of 
-DrawingCommands maintained by the PaintModel and used by the PaintPanel.
-paintComponent simply asks the PaintModel to ask command to execute(g2d).
-The simplest way to make this happen is to make each shape implement the 
-DrawingCommand interface which requires execute(g2d) to be implemented.
-Well sort of.
-
-NOTE: The PaintModel does know how to logically draw itself, so does
-know about strokes and pen colors etc. Depending on how much you want
-to split off the logical from the GUI, it may not have to know how to 
-draw on the screen. This is a subtle difference. For example, the
-following logically describes a scene, without actually knowing
-how to draw it on the screen (using j2d)...
-
-Color = green
-Fill = off
-Border = on
-BorderWidth = 10
-Circle radius 10 at 12,15
-Color = red
-Fill = on
-FillColor = black
-Border = on
-BorderWidth = 7
-Square width 20 at 100,200
-
-If you want to build a more 'logical' PaintModel, you can consider ...
-
-1) Create a mirror hierarchy for Shape, this mirror hirerachy 
-has things like DrawableCircle which has a Circle. The DrawableCircle
-knows how to draw the instance of Circle it holds. Each Shape will
-still need information about its color, and stroke, one way or another.
-
-OR
-
-2) Lookup and apply the Visitor design pattern to the more logical
-PaintModel.
-
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : BUG 2.2 : UTORID
 NAME     : Architecture for handling shape modifiers can be improved 
 OWNER    : 
@@ -131,6 +82,34 @@ ESTIMATE : 8 hours.
 AS A     : user
 I WANT   : To click and write in a textbox on the canvas.
 SO THAT  : I can add text to my canvas
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 10
+NAME     : Fix ArrayList shape
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 
+ISSUE    : Multiple elements of the same shape being added as you draw,
+		   potential issue might be, because we have model.add inside the drag
+		   mouse listener
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 10
+NAME     : Design squiggle to fit with current design pattern
+OWNER    : Mateen Qureshi
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : The current design for squiggle does not fit with the design pattern
+in place for other shapes.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 11
+NAME     : Design eraser to fit with current design pattern
+OWNER    : Mateen Qureshi
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : The current design for eraser does not fit with the design pattern
+in place for other shapes.
 --------------------------------------------------------------------------
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
@@ -229,6 +208,27 @@ ESTIMATE : 1 hours
 AS A     : user
 I WANT   : to click and drag, to see an oval formed.
 SO THAT  : I can add ovals to my canvas.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 15
+NAME     : Fill Polyline.
+OWNER    : khanha46
+PRIORITY : 1
+ESTIMATE : 2 hours
+AS A     : user
+I WANT   : to fill in a polyline when I close it
+SO THAT  : I can add filled in polylines to my canvas.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 17
+NAME     : Zoom in and out.
+OWNER    : khanha46
+PRIORITY : 1
+ESTIMATE : 3 hours
+AS A     : user
+I WANT   : to zoom in and out
+SO THAT  : I can be more precise with my drawing.
+
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 2
@@ -415,6 +415,7 @@ ISSUE    : Having a list of different types of drawable things in the
            Squiggle's not drawing properly. Need to re-architect the Model
            so that it is more flexible, and easier to work with.
            Consider some design patterns, or change of responsibility
+<<<<<<< HEAD
            here.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
@@ -426,6 +427,85 @@ ESTIMATE : 2 hours.
 AS A     : user
 I WANT   : To fill in a polyline when I close it.
 SO THAT  : I can add filled in polylines to my canvas.
+=======
+           here.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 10
+NAME     : Design squiggle to fit with current design pattern
+OWNER    : Mateen Qureshi
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : The current design for squiggle does not fit with the design pattern
+in place for other shapes.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 11
+NAME     : Design eraser to fit with current design pattern
+OWNER    : Mateen Qureshi
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : The current design for eraser does not fit with the design pattern
+in place for other shapes.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 2.1 : UTORID
+NAME     : Architecture for drawing shapes can be improved
+OWNER    : Hannage6
+PRIORITY : 1
+ESTIMATE : 1hour
+ISSUE    : The architecture can be improved if we implement the Command Design 
+Pattern to draw shapes as follows:
+>>>>>>> branch 'master' of https://mcsscm.utm.utoronto.ca/git/207/repo_a2_jawaBweanz.git
+
+The PaintModel should use the command design pattern. 
+That is, each shape knows how to draw itself, so there is a single list of 
+DrawingCommands maintained by the PaintModel and used by the PaintPanel.
+paintComponent simply asks the PaintModel to ask command to execute(g2d).
+The simplest way to make this happen is to make each shape implement the 
+DrawingCommand interface which requires execute(g2d) to be implemented.
+Well sort of.
+
+NOTE: The PaintModel does know how to logically draw itself, so does
+know about strokes and pen colors etc. Depending on how much you want
+to split off the logical from the GUI, it may not have to know how to 
+draw on the screen. This is a subtle difference. For example, the
+following logically describes a scene, without actually knowing
+how to draw it on the screen (using j2d)...
+
+Color = green
+Fill = off
+Border = on
+BorderWidth = 10
+Circle radius 10 at 12,15
+Color = red
+Fill = on
+FillColor = black
+Border = on
+BorderWidth = 7
+Square width 20 at 100,200
+
+If you want to build a more 'logical' PaintModel, you can consider ...
+
+1) Create a mirror hierarchy for Shape, this mirror hirerachy 
+has things like DrawableCircle which has a Circle. The DrawableCircle
+knows how to draw the instance of Circle it holds. Each Shape will
+still need information about its color, and stroke, one way or another.
+
+OR
+
+2) Lookup and apply the Visitor design pattern to the more logical
+PaintModel.
+
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 9
+NAME     : Fix icons for linux
+OWNER    : hannage6
+PRIORITY : 1
+ESTIMATE : 1hours
+ISSUE    : Icons for buttons not showing up on linux machines.
+>>>>>>> branch 'master' of https://mcsscm.utm.utoronto.ca/git/207/repo_a2_jawaBweanz.git
 --------------------------------------------------------------------------
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 --------------------------------------------------------------------------
@@ -438,6 +518,6 @@ ISSUE    : Code is not modular and is difficult to expand. Need a better
            architecture behind selecting a drawing mode, and handling
            the drawing events. Consider some design patterns here.
            Refactor ShapeChooserPanel and PaintPanel to get rid of the
-           'if' blocks in the PaintPanel mouse event code.
 --------------------------------------------------------------------------
+
 
