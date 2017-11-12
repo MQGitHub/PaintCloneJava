@@ -210,7 +210,7 @@ I WANT   : to fill in a polyline when I close it
 SO THAT  : I can add filled in polylines to my canvas.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 17
+TYPE     : USER STORY 19
 NAME     : Zoom in and out.
 OWNER    : khanha46
 PRIORITY : 1

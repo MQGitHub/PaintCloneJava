@@ -99,7 +99,7 @@ Nov 10, 2017
 
 Nov 11, 2017
 	Yesterday : Break.
-	Today     : Working on user story 17. Zooming in and out..
+	Today     : Working on user story 19. Zooming in and out.
 	Obstacles : 
 	
 Nov 12, 2017
