@@ -13,6 +13,7 @@ public class PaintModel extends Observable {
 
 	private ArrayList<Polyline> polylines = new ArrayList<Polyline>();
 	private ArrayList<Shape> shapes = new ArrayList<Shape>();
+	private ArrayList<Shape> removedShapes = new ArrayList<Shape>();
 
 	/**
 	 * if there are no shapes in the ArrayList shapes, then add a circle with
@@ -29,6 +30,19 @@ public class PaintModel extends Observable {
 		} else {
 
 			this.shapes.add(shapes.size() - 1, p);
+		}
+
+		this.setChanged();
+		this.notifyObservers();
+	}
+	
+	public void removeShape() {
+		if (shapes.size() == 0) {
+
+			this.shapes.add(new Circle(Color.WHITE, 0, false, new Point(-1, -1), 0));
+		} else {
+			this.removedShapes.add(this.shapes.get(this.shapes.size()-1));
+			this.shapes.remove(this.shapes.size()-1);
 		}
 
 		this.setChanged();

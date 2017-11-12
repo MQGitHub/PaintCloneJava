@@ -72,6 +72,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 
 		// Draw the shapes
 		ArrayList<Shape> shapes = this.model.getShapes();
+		System.out.println(shapes);
 		for (Shape s : shapes) {
 			// System.out.println(shapes);
 			s.draw(g2d);
@@ -135,7 +136,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	public void setColour(Color colour) {
 		this.colour = colour;
 	}
-
+	
 	// MouseMotionListener below
 	@Override
 	public void mouseMoved(MouseEvent e) {
