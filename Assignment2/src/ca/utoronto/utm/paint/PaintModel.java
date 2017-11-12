@@ -42,7 +42,7 @@ public class PaintModel extends Observable {
 			this.shapes.add(new Circle(Color.WHITE, 0, false, new Point(-1, -1), 0));
 		} else {
 			this.removedShapes.add(this.shapes.get(this.shapes.size()-1));
-			this.shapes.remove(this.shapes.size()-1);
+			this.shapes.remove(this.shapes.size()-2);
 		}
 
 		this.setChanged();

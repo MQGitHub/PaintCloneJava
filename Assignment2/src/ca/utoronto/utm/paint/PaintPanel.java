@@ -153,7 +153,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		int min_Y = Math.min(begin.getY(), e.getY());
 		int max_X = Math.max(begin.getX(), e.getX());
 		int max_Y = Math.max(begin.getY(), e.getY());
-
+		this.model.removeShape();
 		if (this.mode == "squiggle") {
 			this.squiggle.addPoint(new Point(this.colour, thickness, e.getX(), e.getY()));
 			this.model.addShape(this.squiggle);
