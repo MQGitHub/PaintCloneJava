@@ -8,7 +8,7 @@ import java.awt.Graphics2D;
  * Inherits rectangle.
  * Creates a shape of type Square
  */
-public class Square extends Rectangle implements drawShape{
+public class Square extends Rectangle {
 	
 	/**
 	 * Constructs a shape of type Square, a subclass of rectangle.

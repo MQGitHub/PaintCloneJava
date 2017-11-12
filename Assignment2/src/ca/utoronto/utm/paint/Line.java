@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  */
 
-public class Line extends Shape implements drawShape{
+public class Line extends Shape{
 
 	private Point begin;
 	private Point end;

@@ -35,6 +35,11 @@ public class PaintModel extends Observable {
 		this.notifyObservers();
 	}
 
+   public void removeShape(Shape p) {
+	   if (shapes.size() > 1) {
+	   this.shapes.remove(this.shapes.size() -1); 
+	   }
+	  }
 	/**
 	 * Returns an ArrayList containing all the shapes so that they can
 	 * be drawn onto the panel.

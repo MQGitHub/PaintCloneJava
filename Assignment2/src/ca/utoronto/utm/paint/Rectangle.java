@@ -9,7 +9,7 @@ import java.awt.Graphics2D;
  * HAS-A: getWidth, getHeight, setHeight, setWidth.
  *
  */
-public class Rectangle extends Shape implements drawShape{
+public class Rectangle extends Shape{
 	private int width;
 	private int height;
 	

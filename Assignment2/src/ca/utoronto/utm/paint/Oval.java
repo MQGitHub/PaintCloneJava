@@ -9,7 +9,7 @@ import java.awt.Graphics2D;
  * This class creates a shape of type Oval.
  * Has-A getWdith, getHeight, setWidth, setHeight.
  */
-public class Oval extends Shape implements drawShape{
+public class Oval extends Shape{
 	
 	private int width; //width of Oval
 	private int height; //height of Oval

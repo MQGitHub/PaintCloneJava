@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * arraylist of points to keep track of all the points in the polyline.
  *
  */
-public class Polyline extends Shape implements drawShape{
+public class Polyline extends Shape {
 	private ArrayList<Point> points;
 	private ArrayList<Integer> xPoints;
 	private ArrayList<Integer> yPoints;

@@ -65,8 +65,8 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 		} else {
 			JToggleButton y = (JToggleButton) e.getSource();
 			ShapeFactory s = new ShapeFactory();
-			s.getShape(y.getToolTipText());
-			this.view.getPaintPanel().setMode(y.getToolTipText());
+			this.view.getPaintPanel().setShape(s.getShape(this.view.getPaintPanel() ,y.getToolTipText()));
+			
 		}
 	}
 }
