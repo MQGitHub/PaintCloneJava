@@ -3,7 +3,16 @@
 # For example, the color chooser user story involves: 
 # 1 Color chooser UI (which could be a USER STORY)
 # 2 Implementation of selected color into the drawing stream.
-
+--------------------------------------------------------------------------
+TYPE     : USER STORY 18
+NAME     : Create a functioning undo
+OWNER    : Mateen Qureshi 
+PRIORITY : 1 
+ESTIMATE : 1 hour.
+AS A     : user
+I WANT   : As a user I want to undo my last draw.
+SO THAT  : I can undo what I did if I don't want it.
+--------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 2.2 : UTORID
 NAME     : Architecture for handling shape modifiers can be improved 
