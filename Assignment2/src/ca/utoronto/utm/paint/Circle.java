@@ -10,7 +10,7 @@ import java.awt.Graphics2D;
  * This class has same width and height in order to form a circle.
  * HAS-A setRadius.
  */
-public class Circle extends Oval {
+public class Circle extends Oval implements drawShape{
 
 	
 	/**

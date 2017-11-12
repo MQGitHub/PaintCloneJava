@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * the thickness and color. 
  *
  */
-public class Squiggle extends Shape {
+public class Squiggle extends Shape implements drawShape{
 	private ArrayList<Point> pts;
 
 	/**

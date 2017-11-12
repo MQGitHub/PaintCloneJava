@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * A Triangle is a Shape which has a base and height value.
  *
  */
-public class Triangle extends Shape {
+public class Triangle extends Shape implements drawShape{
 
 	private int base, height;
 	
