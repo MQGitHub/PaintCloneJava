@@ -77,31 +77,41 @@ Nov 6, 2017
 	Obstacles : Icons do not show up on school computers, needs to be fixed for this sprint.
 	
 Nov7 , 2017
-	Yesterday : 
-	Today     : 
-	Obstacles : 
+	Yesterday : Read over A2P2.
+	Today     : Work on Bug 6 - fixing squiggle.
+	Obstacles : None.
 	
 Nov 8, 2017
-	Yesterday : 
-	Today     : 
-	Obstacles : 
+	Yesterday : Unsuccessful attempt at fixing squiggle.
+	Today     : Work on squiggle and UserStory16.
+	Obstacles : Fixing squiggle without a for loop.
 
 Nov 9, 2017
-	Yesterday : 
-	Today     : 
-	Obstacles : 
+	Yesterday : Unsuccessful work on squiggle. Created branch for UserStory16.
+	Today     : Work on squiggle and UserStory16.
+	Obstacles : Fixing squiggle without a for loop.
 
 Nov 10, 2017
-	Yesterday : 
-	Today     : 
-	Obstacles : 
+	Yesterday : Unsuccessful work on squiggle. Added buttons for text in UserStory16
+	Today     : Day off.
+	Obstacles : None.
 
 Nov 11, 2017
+	Yesterday : Day off.
+	Today     : Finish UserStory16
+	Obstacles : none.
+	
+Nov 12, 2017
 	Yesterday : 
 	Today     : 
 	Obstacles : 
 	
-Nov 12, 2017
+Nov 13, 2017
+	Yesterday : 
+	Today     : 
+	Obstacles : 
+	
+Nov 14, 2017
 	Yesterday : 
 	Today     : 
 	Obstacles : 
