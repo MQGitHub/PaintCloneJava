@@ -98,7 +98,7 @@ Nov 10, 2017
 
 Nov 11, 2017
 	Yesterday : Day off.
-	Today     : Finish UserStory16
+	Today     : Finish UserStory16 and 17
 	Obstacles : none.
 	
 Nov 12, 2017
