@@ -111,6 +111,10 @@ public class View extends JFrame implements ActionListener {
 		menuItem = new JMenuItem("Redo");
 		menuItem.addActionListener(this);
 		menu.add(menuItem);
+		
+		menuItem = new JMenuItem("Clear All");
+		menuItem.addActionListener(this);
+		menu.add(menuItem);
 
 		menuBar.add(menu);
 
@@ -118,6 +122,10 @@ public class View extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		String x = e.getActionCommand();
+		if (x.equals("Exit")) {
+			System.exit(0);
+		}
 		System.out.println(e.getActionCommand());
 	}
 }
