@@ -281,7 +281,6 @@ AS A     : user
 I WANT   : to click and drag, to see a triangle formed.
 SO THAT  : I can add triangle to my canvas.
 --------------------------------------------------------------------------
-<<<<<<< HEAD
 # Sprint 2 November 12, 2017
 # Sprint 2 Backlog UserStories go below
 --------------------------------------------------------------------------
@@ -522,4 +521,14 @@ ESTIMATE :
 ISSUE    : Multiple elements of the same shape being added as you draw,
 		   potential issue might be, because we have model.add inside the drag
 		   mouse listener
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 16
+NAME     : Draw Text
+OWNER    : lakhtak1
+PRIORITY : 2
+ESTIMATE : 8 hours.
+AS A     : user
+I WANT   : To click and write text on the canvas.
+SO THAT  : I can add text to my canvas
 --------------------------------------------------------------------------

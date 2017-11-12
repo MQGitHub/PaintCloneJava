@@ -74,16 +74,6 @@ ISSUE    : Squiggles representation in the Model is not ideal. Fix the
 		   implementation of squiggle.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 16
-NAME     : Draw Text
-OWNER    : lakhtak1
-PRIORITY : 2
-ESTIMATE : 8 hours.
-AS A     : user
-I WANT   : To click and write in a textbox on the canvas.
-SO THAT  : I can add text to my canvas
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : BUG 10
 NAME     : Fix ArrayList shape
 OWNER    : 
@@ -415,8 +405,6 @@ ISSUE    : Having a list of different types of drawable things in the
            Squiggle's not drawing properly. Need to re-architect the Model
            so that it is more flexible, and easier to work with.
            Consider some design patterns, or change of responsibility
-<<<<<<< HEAD
-           here.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 15
@@ -427,7 +415,6 @@ ESTIMATE : 2 hours.
 AS A     : user
 I WANT   : To fill in a polyline when I close it.
 SO THAT  : I can add filled in polylines to my canvas.
-=======
            here.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
@@ -505,7 +492,16 @@ OWNER    : hannage6
 PRIORITY : 1
 ESTIMATE : 1hours
 ISSUE    : Icons for buttons not showing up on linux machines.
->>>>>>> branch 'master' of https://mcsscm.utm.utoronto.ca/git/207/repo_a2_jawaBweanz.git
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 16
+NAME     : Draw Text
+OWNER    : lakhtak1
+PRIORITY : 2
+ESTIMATE : 8 hours.
+AS A     : user
+I WANT   : To click and write text on the canvas.
+SO THAT  : I can add text to my canvas
 --------------------------------------------------------------------------
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 --------------------------------------------------------------------------
