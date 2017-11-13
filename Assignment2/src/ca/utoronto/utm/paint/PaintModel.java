@@ -29,6 +29,8 @@ public class PaintModel extends Observable {
 			this.shapes.add(p);
 		}
 		this.current = null;
+		this.removedShapes.clear();
+
 		this.setChanged();
 		this.notifyObservers();
 	}
