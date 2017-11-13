@@ -176,6 +176,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 
 		} else if (this.mode == "eraser") {
 			this.eraser = new Eraser(this.background, begin);
+			this.eraser.setUsed(true);
 			this.eraser.moveto(begin);
 			
 		} else if (this.mode == "polyline") {
@@ -306,16 +307,20 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			this.model.addShape(this.circle);
 
 		} else if (this.mode == "polyline") {
-			Point newP = new Point(this.colour, thickness, e.getX(), e.getY());
-			this.polyline.setEndPoint(newP);
-			this.polyline.addPoint(this.polyline.getStartPoint());
-			this.polyline.setStartPoint(newP);
-			this.polyline.addPoint(this.polyline.getEndPoint());
-			if (!this.polyline.completedPolyline()) {
-				this.model.addShape(this.polyline);
-			} else if (this.polyline.completedPolyline() && this.polyline.getNumPoints() > 2) {
-				this.model.addShape(this.polyline);
-				this.polyline = null;
+			if (this.polyline.getStartPoint() != this.polyline.getEndPoint()) {
+				Point newP = new Point(this.colour, thickness, e.getX(), e.getY());
+				this.polyline.setEndPoint(newP);
+				this.polyline.addPoint(this.polyline.getStartPoint());
+				this.polyline.setStartPoint(newP);
+				this.polyline.addPoint(this.polyline.getEndPoint());
+				if (!this.polyline.completedPolyline()) {
+					this.model.setDraw(this.polyline);
+				} else if (this.polyline.completedPolyline() && this.polyline.getNumPoints() > 2) {
+					this.model.addShape(this.polyline);
+					this.polyline = null;
+				} else {
+					this.polyline = null;
+				}
 			} else {
 				this.polyline = null;
 			}
