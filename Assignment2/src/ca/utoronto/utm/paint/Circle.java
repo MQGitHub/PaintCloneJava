@@ -42,7 +42,7 @@ public class Circle extends Oval {
 		int y = this.getCorner().getY();
 		int radius = this.getHeight();
 		g2d.setColor(this.getColor());
-		g2d.setStroke(new BasicStroke(this.getThickness()));
+		g2d.setStroke(this.getStroke());
 		if (this.isFilled()) {
 			g2d.fillOval(x - radius, y - radius, radius * 2, radius * 2);
 		} else {

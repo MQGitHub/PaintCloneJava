@@ -20,7 +20,7 @@ import java.awt.event.ActionListener;
 public class LineThicknessChooser implements ChangeListener, ActionListener {
 
 	private View view; // So we can talk to our parent or other components of the view
-	private JSlider thickness;
+	private int t = 0;
 	private String choice = "plain";
 	
 	/**
@@ -41,27 +41,44 @@ public class LineThicknessChooser implements ChangeListener, ActionListener {
 	public JMenuBar lineThicknessMenu() {
 		
 		JMenuBar b = new JMenuBar();
+		JMenu line = new JMenu("Line Modifiers");
 		
 		JMenu lt = new JMenu("Line Thickness");
-		thickness = new JSlider(0, 10, 0);
+		JSlider thickness = new JSlider(0, 10, 0);
 		thickness.setPaintLabels(true);
 		thickness.setMajorTickSpacing(2);
 		thickness.addChangeListener(this);
 		lt.add(thickness);
-		b.add(lt);
+		line.add(lt);
+		
+		Image[] img = new Image[2];
+		int j = 0;
+		for (String label : new String[]{"line", "dash"}) {
+			ImageIcon x = new ImageIcon(getClass().getResource(label + ".png"));
+			Image image = x.getImage();
+			img[j] = image.getScaledInstance(35, 30, java.awt.Image.SCALE_SMOOTH);
+			j++;
+		}
 		
 		ButtonGroup group = new ButtonGroup();		
 		JMenu l = new JMenu("Line Style");
-		JCheckBoxMenuItem item = new JCheckBoxMenuItem("Plain", true);
-		group.add(item);
-		item.addActionListener(this);
-		l.add(item);
-		item = new JCheckBoxMenuItem("Dashed");
+		JCheckBoxMenuItem item = new JCheckBoxMenuItem();
+		item.setIcon(new ImageIcon(img[0]));
+		item.setToolTipText("Plain");
+		item.setSelected(true);
 		group.add(item);
 		item.addActionListener(this);
 		l.add(item);
 		
-		b.add(l);
+		item = new JCheckBoxMenuItem();
+		group.add(item);
+		item.setIcon(new ImageIcon(img[1]));
+		item.setToolTipText("Dashed");
+		item.addActionListener(this);
+		l.add(item);
+		line.add(l);
+		
+		b.add(line);
 		return b;
 		}
 		
@@ -74,12 +91,13 @@ public class LineThicknessChooser implements ChangeListener, ActionListener {
 	public void stateChanged(ChangeEvent e) {
 		JSlider x = (JSlider) e.getSource();
 		this.view.getPaintPanel().setStroke(choice, x.getValue());
+		this.t = x.getValue();
 
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.view.getPaintPanel().setStroke(e.getActionCommand(), this.thickness.getValue());
+		this.view.getPaintPanel().setStroke(e.getActionCommand(), this.t);
 		this.choice = e.getActionCommand();
 	}
 	
