@@ -1,5 +1,6 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -7,16 +8,19 @@ import java.util.ArrayList;
 public class SquiggleManipulator extends ShapeManipulator{
 	private Squiggle squiggle;
 	
-	public SquiggleManipulator(PaintPanel pp) {
-		super(pp);
+	public SquiggleManipulator(View view) {
+		super(view);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void operationPressed(MouseEvent e) {
+		Color c = pp.getColor();
+		int thick = pp.getThickness();
+		boolean fill = pp.getFilled();
 		ArrayList<Point> pts = new ArrayList<Point>();
 		pts.add(new Point(this.color, thick, e.getX(), e.getY()));
-		this.squiggle = new Squiggle(this.color, thick, pts);
+		this.squiggle = new Squiggle(c, thick, pts);
 	}
 
 	@Override

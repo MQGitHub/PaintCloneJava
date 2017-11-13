@@ -1,5 +1,6 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 
@@ -7,15 +8,18 @@ public class SquareManipulator extends ShapeManipulator{
 
 	private Square square;
 	
-	public SquareManipulator(PaintPanel pp) {
-		super(pp);
+	public SquareManipulator(View view) {
+		super(view);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void operationPressed(MouseEvent e) {
+		Color c = pp.getColor();
+		int thick = pp.getThickness();
+		boolean fill = pp.getFilled();
 		begin = new Point(e.getX(), e.getY());
-		this.square = new Square(this.color, thick, fill, begin, 0);
+		this.square = new Square(c, thick, fill, begin, 0);
 		
 	}
 

@@ -1,5 +1,6 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 
@@ -7,13 +8,16 @@ public class LineManipulator extends ShapeManipulator {
 
 	private Line line;
 	
-	public LineManipulator(PaintPanel pp) {
-		super(pp);
+	public LineManipulator(View view) {
+		super(view);
 	}
 	@Override
 	public void operationPressed(MouseEvent e) {
+		Color c = pp.getColor();
+		int thick = pp.getThickness();
+		boolean fill = pp.getFilled();
 		begin = new Point(e.getX(), e.getY());
-		this.line = new Line(this.color, thick, false, begin, begin);	
+		this.line = new Line(c, thick, false, begin, begin);	
 	}
 
 	@Override

@@ -1,17 +1,20 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 
 public class RightATriangleManipulator extends ShapeManipulator{
 
-	public RightATriangleManipulator(PaintPanel pp) {
-		super(pp);
+	public RightATriangleManipulator(View view) {
+		super(view);
 	}
 
 	@Override
 	public void operationPressed(MouseEvent e) {
-		// TODO Auto-generated method stub
+		Color c = pp.getColor();
+		int thick = pp.getThickness();
+		boolean fill = pp.getFilled();
 		
 	}
 

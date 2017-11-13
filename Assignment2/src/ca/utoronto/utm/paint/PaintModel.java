@@ -37,7 +37,7 @@ public class PaintModel extends Observable {
 
    public void removeShape(Shape p) {
 	   if (shapes.size() > 1) {
-	   this.shapes.remove(this.shapes.size() -1); 
+		   this.shapes.remove(this.shapes.size() -1); 
 	   }
 	  }
 	/**

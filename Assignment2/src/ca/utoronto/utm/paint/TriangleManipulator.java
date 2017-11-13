@@ -1,5 +1,6 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 
@@ -7,15 +8,18 @@ public class TriangleManipulator extends ShapeManipulator{
 	
 	private Triangle triangle;
 	
-	public TriangleManipulator(PaintPanel pp) {
-		super(pp);
+	public TriangleManipulator(View view) {
+		super(view);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void operationPressed(MouseEvent e) {
-		begin = new Point(this.color, thick, e.getX(), e.getY());
-		this.triangle = new Triangle(this.color, thick, fill, begin);
+		Color c = pp.getColor();
+		int thick = pp.getThickness();
+		boolean fill = pp.getFilled();
+		begin = new Point(c, thick, e.getX(), e.getY());
+		this.triangle = new Triangle(c, thick, fill, begin);
 		
 	}
 

@@ -1,17 +1,22 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 
 public class OvalManipulator extends ShapeManipulator{
 	private Oval oval;
-	public OvalManipulator(PaintPanel pp) {
-		super(pp);
+	
+	public OvalManipulator(View view) {
+		super(view);
 	}
 	@Override
 	public void operationPressed(MouseEvent e) {
+		Color c = pp.getColor();
+		int thick = pp.getThickness();
+		boolean fill = pp.getFilled();
 		begin = new Point(e.getX(), e.getY());
-		this.oval = new Oval(this.color, thick, fill, begin, 0, 0);
+		this.oval = new Oval(c, thick, fill, begin, 0, 0);
 		
 	}
 

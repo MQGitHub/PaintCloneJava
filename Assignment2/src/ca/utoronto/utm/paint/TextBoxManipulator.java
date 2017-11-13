@@ -1,11 +1,20 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 
-public class TextBoxManipulator extends ShapeManipulator {
+import javax.swing.JOptionPane;
 
-	public TextBoxManipulator(PaintPanel pp) {
-		super(pp);
+public class TextBoxManipulator extends ShapeManipulator {
+	
+	private TextBox tBox;
+	private int fontSize;
+	private String font;
+	
+	public TextBoxManipulator(View view) {
+		super(view);
+		fontSize = pp.getFontSize();
+		font = pp.getTextFont();
 		// TODO Auto-generated constructor stub
 	}
 
@@ -23,7 +32,20 @@ public class TextBoxManipulator extends ShapeManipulator {
 
 	@Override
 	public void operationClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+		Color c = pp.getColor();
+		int thick = pp.getThickness();
+		boolean fill = pp.getFilled();
+		int fontSize = pp.getFontSize();
+		String font = pp.getTextFont();
+		this.model.addShape(new Square(c, thick, fill, new Point(-2,-2), 1));
+		begin = new Point(c, thick, e.getX(), e.getY());
+		String prompt = "Please add text to display";
+		String input = JOptionPane.showInputDialog(this, prompt);
+		if (input == null) {
+			input = " ";
+		}
+		this.tBox = new TextBox(c, begin, fontSize, font, input);
+		this.model.addShape(tBox);
 		
 	}
 

@@ -1,5 +1,6 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 
@@ -7,15 +8,18 @@ public class RectangleManipulator extends ShapeManipulator {
 	
 	private Rectangle rectangle;
 	
-	public RectangleManipulator(PaintPanel pp) {
-		super(pp);
+	public RectangleManipulator(View view) {
+		super(view);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void operationPressed(MouseEvent e) {
+		Color c = pp.getColor();
+		int thick = pp.getThickness();
+		boolean fill = pp.getFilled();
 		begin = new Point(e.getX(), e.getY());
-		this.rectangle = new Rectangle(this.color, thick, fill, begin, 0, 0);
+		this.rectangle = new Rectangle(c, thick, fill, begin, 0, 0);
 	}
 
 	@Override

@@ -7,19 +7,22 @@ import java.awt.event.MouseEvent;
 public class PolylineManipulator extends ShapeManipulator{
 	
 	private Polyline polyline;
-	private Color colour;
+	private Color c;
+	private int thick;
 
-	public PolylineManipulator(PaintPanel pp) {
-		super(pp);
+	public PolylineManipulator(View view) {
+		super(view);
 	}
 
 	@Override
 	public void operationPressed(MouseEvent e) {
-		begin = new Point(this.colour, thick, e.getX(), e.getY());
+		c = pp.getColor();
+		thick = pp.getThickness();
+		begin = new Point(c, thick, e.getX(), e.getY());
 		if (this.polyline != null) {
 			this.polyline.addPoint(begin);
 		} else {
-			this.polyline = new Polyline(this.colour, thick, false, begin);
+			this.polyline = new Polyline(c, thick, false, begin);
 			this.polyline.addPoint(begin);
 		}
 		this.polyline.setStartPoint(begin);
@@ -29,7 +32,7 @@ public class PolylineManipulator extends ShapeManipulator{
 
 	@Override
 	public void operationDragged(MouseEvent e) {
-		Point newP = new Point(this.colour, thick, e.getX(), e.getY());
+		Point newP = new Point(c, thick, e.getX(), e.getY());
 		this.polyline.setEndPoint(newP);
 		this.model.addShape(this.polyline);
 		this.model.removeShape(this.polyline);
@@ -43,7 +46,7 @@ public class PolylineManipulator extends ShapeManipulator{
 
 	@Override
 	public void operationReleased(MouseEvent e) {
-		Point newP = new Point(this.colour, thick, e.getX(), e.getY());
+		Point newP = new Point(c, thick, e.getX(), e.getY());
 		this.polyline.setEndPoint(newP);
 		this.polyline.setStartPoint(newP);
 		this.polyline.addPoint(this.polyline.getEndPoint());
@@ -54,7 +57,7 @@ public class PolylineManipulator extends ShapeManipulator{
 			this.model.addShape(this.polyline);
 		} else if (this.polyline.completedPolyline() && this.polyline.getNumPoints() > 2) {
 			this.model.addShape(this.polyline);
-			this.polyline = new Polyline(this.colour, thick, false, begin);
+			this.polyline = new Polyline(c, thick, false, begin);
 		} else {
 			this.polyline = null;	
 		}
@@ -63,7 +66,7 @@ public class PolylineManipulator extends ShapeManipulator{
 
 	@Override
 	public void operationMoved(MouseEvent e) {
-		this.polyline = new Polyline(this.colour, thick, false, begin);
+		this.polyline = new Polyline(c, thick, false, begin);
 		
 	}
 	

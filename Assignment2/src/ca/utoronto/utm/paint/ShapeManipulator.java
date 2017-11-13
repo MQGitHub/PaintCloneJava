@@ -11,7 +11,8 @@ public abstract class ShapeManipulator {
 	protected Point begin,end;
 	protected PaintModel model;
 	
-	public ShapeManipulator(PaintPanel pp) {
+	public ShapeManipulator(View view) {
+		pp = view.getPaintPanel();
 		color = pp.getColor();
 		thick = pp.getThickness();
 		fill = pp.getFilled();

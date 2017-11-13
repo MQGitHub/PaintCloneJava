@@ -8,22 +8,23 @@ import java.util.ArrayList;
 public class EraserManipulator extends ShapeManipulator{
 	
 	private Eraser eraser;
+	private Color c = pp.getBackground();
 	
-	public EraserManipulator(PaintPanel pp) {
-		super(pp);
+	public EraserManipulator(View view) {
+		super(view);
 	}
 
 	@Override
 	public void operationPressed(MouseEvent e) {
 		ArrayList<Point> er = new ArrayList<Point>();
-		er.add(new Point(color.white, 15, e.getX(), e.getY()));
-		this.eraser = new Eraser(color.WHITE, er);
+		er.add(new Point(c, 15, e.getX(), e.getY()));
+		this.eraser = new Eraser(c, er);
 		
 	}
 
 	@Override
 	public void operationDragged(MouseEvent e) {
-		this.eraser.addPoint(new Point(Color.WHITE, 15, e.getX(), e.getY()));
+		this.eraser.addPoint(new Point(c, 15, e.getX(), e.getY()));
 		this.model.addShape(this.eraser);
 	}
 

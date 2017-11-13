@@ -25,7 +25,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private Color colour;// keeps track of the current color
 	private Color background; // keeps track of background color
 	private int thickness; // sets the thickness of the line
-	private String font = "Arial Narrow";
+	private String textFont = "Arial Narrow";
 	private int fontSize = 10;
 	private TextBox tBox;
 	private ShapeManipulator shapeManipulator;
@@ -104,7 +104,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	 * @param font
 	 */
 	public void setFont(String font) {
-		this.font = font;
+		this.textFont = font;
 
 	}
 	/**
@@ -156,6 +156,14 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	public PaintModel getModel() {
 		return this.model;
 	}
+	
+	public int getFontSize() {
+		return this.fontSize;
+	}
+	
+	public String getTextFont() {
+		return this.textFont;
+	}
 	// MouseMotionListener below
 	@Override
 	public void mouseMoved(MouseEvent e) {
@@ -171,18 +179,6 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		this.shapeManipulator.operationClicked(e);
-		/**if (this.mode == "text") {
-			this.model.addShape(new Square(this.colour, this.thickness, this.filled, new Point(-2,-2), 1));
-			begin = new Point(this.colour, thickness, e.getX(), e.getY());
-			String prompt = "Please add text to display";
-			String input = JOptionPane.showInputDialog(this, prompt);
-			if (input == null) {
-				input = " ";
-			}
-			this.tBox = new TextBox(this.colour, begin, this.fontSize, this.font, input);
-			this.model.addShape(tBox);
-		}
-		**/
 		repaint();
 	}
 

@@ -1,19 +1,23 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 
 public class CircleManipulator extends ShapeManipulator {
 	private Circle circle;
 	
-	public CircleManipulator(PaintPanel pp) {
-		super(pp);
+	public CircleManipulator(View view) {
+		super(view);
 	}
 
 	@Override
 	public void operationPressed(MouseEvent e) {
+		Color c = pp.getColor();
+		int thick = pp.getThickness();
+		boolean fill = pp.getFilled();
 		begin = new Point(e.getX(), e.getY());
-		this.circle = new Circle(color, thick, fill, begin, 0);
+		this.circle = new Circle(c, thick, fill, begin, 0);
 		
 	}
 
