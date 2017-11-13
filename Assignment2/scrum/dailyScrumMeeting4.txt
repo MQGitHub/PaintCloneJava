@@ -85,6 +85,7 @@ Nov 8, 2017
 	Yesterday : Fixed polyline design
 	Today     : Attempted to create a color picker 
 	Obstacles : Get color picker working
+	Obstacles : Design Patterns and consistent use of "color" or "colour"
 
 Nov 9, 2017
 	Yesterday : Attempted to create a color picker
