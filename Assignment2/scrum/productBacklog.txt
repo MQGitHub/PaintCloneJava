@@ -3,6 +3,7 @@
 # For example, the color chooser user story involves: 
 # 1 Color chooser UI (which could be a USER STORY)
 # 2 Implementation of selected color into the drawing stream.
+<<<<<<< HEAD
 --------------------------------------------------------------------------
 <<<<<<< HEAD
 TYPE     : USER STORY 21 lakhtak1
@@ -14,6 +15,9 @@ AS A     : user
 I WANT   : As a user I want to draw a shape outline with dashed lines or dotted lines
 SO THAT  : I can draw shapes in different outline styles.
 --------------------------------------------------------------------------
+=======
+
+>>>>>>> branch 'master' of https://mcsscm.utm.utoronto.ca/git/207/repo_a2_jawaBweanz.git
 --------------------------------------------------------------------------
 TYPE     : USER STORY 18
 NAME     : Create a functioning undo
@@ -680,7 +684,21 @@ The concrete ShapeManipulatorStrategies are responsible for
 This strategy can be put in place either by having PaintPanel's mouse 
 events forwarded through PaintPanel into the current strategy, or by 
 simply switching the PaintPanel's listeners as appropriate.
+<<<<<<< HEAD
 
+=======
+
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 21 lakhtak1
+NAME     : Create different line styles
+OWNER    : Radhika L 
+PRIORITY : 2 
+ESTIMATE : 2 hours.
+AS A     : user
+I WANT   : As a user I want to draw a shape outline with dashed lines or dotted lines
+SO THAT  : I can draw shapes in different outline styles.
+>>>>>>> branch 'master' of https://mcsscm.utm.utoronto.ca/git/207/repo_a2_jawaBweanz.git
 --------------------------------------------------------------------------
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 --------------------------------------------------------------------------
