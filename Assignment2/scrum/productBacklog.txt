@@ -49,6 +49,17 @@ I WANT   : As a user I want to clear my screen.
 SO THAT  : I can start anew, unlike university.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : USER STORY 24
+NAME     : Airbrush / Spraycan
+OWNER    : Mateen Qureshi 
+PRIORITY : 1 
+ESTIMATE : 1 hour.
+AS A     : user
+I WANT   : As a user I want to have an airbrush.
+SO THAT  : I can pretend I am a graffiti artist and live in the mean streets
+of Lyari.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : USER STORY 18
 NAME     : Create a functioning undo
 OWNER    : Mateen Qureshi 
@@ -57,7 +68,6 @@ ESTIMATE : 1 hour.
 AS A     : user
 I WANT   : As a user I want to undo my last draw.
 SO THAT  : I can undo what I did if I don't want it.
->>>>>>> refs/heads/userStory23
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 2.2 : UTORID
@@ -558,7 +568,6 @@ ESTIMATE : 3 hours
 AS A     : user
 I WANT   : to zoom in and out
 SO THAT  : I can be more precise with my drawing.
-
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 2
@@ -1124,7 +1133,6 @@ PRIORITY : 1
 ESTIMATE : 3 hours
 ISSUE    : The current design for eraser does not fit with the design pattern
 in place for other shapes.
->>>>>>> refs/heads/userStory23
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 15
