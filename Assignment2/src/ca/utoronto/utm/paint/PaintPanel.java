@@ -110,6 +110,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		this.font = font;
 
 	}
+
 	/**
 	 * Set font size of text
 	 * 
@@ -127,28 +128,50 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	public void setColour(Color colour) {
 		this.colour = colour;
 	}
-	
+
 	/**
 	 * Set thickness and stroke style of shape border.
+	 * 
 	 * @param stroke
-	 * 			The stroke style
+	 *            The stroke style
 	 * @param thickness
-	 * 			The thickness
+	 *            The thickness
 	 */
 	public void setStroke(String stroke, int thickness) {
 		this.thickness = thickness;
-		float dash1[] = {10.0f};
+		float[] dash1;
+		
 		if (stroke.equalsIgnoreCase("plain")) {
 			this.stroke = new BasicStroke(this.thickness);
-		} else {
-			this.stroke = new BasicStroke(this.thickness,
-                    BasicStroke.CAP_BUTT,
-                    BasicStroke.JOIN_BEVEL,
-                    10.0f, dash1, this.thickness);
+
+		} else if (stroke.equalsIgnoreCase("dashed")) {
+			dash1 = new float[] { 10.0f, 10.0f };
+			this.stroke = new BasicStroke(this.thickness, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0f, dash1,
+					this.thickness);
+
+		} else if (stroke.equalsIgnoreCase("dashed & dotted")) {
+			dash1 = new float[] { 21.0f, 9.0f, 3.0f, 9.0f };
+			this.stroke = new BasicStroke(this.thickness, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0f, dash1,
+					this.thickness);
+
+		} else if (stroke.equalsIgnoreCase("dash dot dot")) {
+			dash1 = new float[] { 3.0f, 9.0f, 21.0f, 9.0f, 3.0f, 9.0f };
+			this.stroke = new BasicStroke(this.thickness, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0f, dash1,
+					this.thickness);
+
+		} else if (stroke.equalsIgnoreCase("lines")) {
+			dash1 = new float[] { 1.0f, 1.0f, 1.0f };
+			this.stroke = new BasicStroke(this.thickness, BasicStroke.CAP_BUTT, BasicStroke.JOIN_ROUND, 10.0f, dash1,
+					this.thickness);
+
+		} else if (stroke.equalsIgnoreCase("dotted")) {
+			dash1 = new float[] { 2.5f, thickness + 2, 2.5f, thickness + 2 };
+			this.stroke = new BasicStroke(this.thickness, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 10.0f, dash1,
+					this.thickness);
 		}
-		
+
 	}
-	
+
 	// MouseMotionListener below
 	@Override
 	public void mouseMoved(MouseEvent e) {
@@ -169,7 +192,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		if (this.mode == "squiggle") {
 			this.squiggle.addPoint(new Point(this.colour, thickness, e.getX(), e.getY()));
 			this.model.addShape(this.squiggle);
-			} else if (this.mode == "circle") {
+		} else if (this.mode == "circle") {
 			int x = begin.getX() - e.getX();
 			int y = begin.getY() - e.getY();
 			int radius = (int) Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
@@ -213,8 +236,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			this.triangle.setBase(e.getX());
 			this.triangle.setHeight(e.getY());
 			this.model.addShape(triangle);
-			
-		}else if (this.mode == "rightAngleTriangle") {
+
+		} else if (this.mode == "rightAngleTriangle") {
 			this.rightATriangle.setBase(e.getX());
 			this.rightATriangle.setHeight(e.getY());
 			this.model.addShape(rightATriangle);
@@ -226,7 +249,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if (this.mode == "text") {
-			this.model.addShape(new Square(this.colour, this.thickness, this.filled, new Point(-2,-2), 1, this.stroke));
+			this.model
+					.addShape(new Square(this.colour, this.thickness, this.filled, new Point(-2, -2), 1, this.stroke));
 			begin = new Point(this.colour, thickness, e.getX(), e.getY());
 			String prompt = "Please add text to display";
 			String input = JOptionPane.showInputDialog(this, prompt);
@@ -280,8 +304,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		} else if (this.mode == "triangle") {
 			begin = new Point(this.colour, thickness, e.getX(), e.getY());
 			this.triangle = new Triangle(this.colour, thickness, filled, begin, this.stroke);
-		
-		} else if(this.mode == "rightAngleTriangle") {
+
+		} else if (this.mode == "rightAngleTriangle") {
 			begin = new Point(this.colour, thickness, e.getX(), e.getY());
 			this.rightATriangle = new RightAngleTriangle(this.colour, thickness, filled, begin, this.stroke);
 
