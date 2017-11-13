@@ -83,6 +83,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			this.toDraw = this.model.getDraw();
 			this.toDraw.draw(g2d);
 		}
+		System.out.println(shapes + " " + toDraw);
 	}
 
 	@Override
@@ -146,19 +147,17 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	// MouseMotionListener below
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		if (this.mode != "Polyline") {
+		if (this.mode != "polyline") {
 			this.polyline = null;
 		}
 	}
 	
 	@Override
 	public void mousePressed(MouseEvent e) {
-		System.out.println(this.mode);
 		begin = new Point(e.getX(), e.getY());
 		if (this.mode == "squiggle") {
 			this.squiggle = new Squiggle(this.colour, thickness, false, begin);
 			this.squiggle.moveto(begin);
-			//this.model.setDraw(this.squiggle);
 
 		} else if (this.mode == "circle") {
 			this.circle = new Circle(this.colour, thickness, filled, begin, 0);
@@ -309,16 +308,14 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		} else if (this.mode == "polyline") {
 			Point newP = new Point(this.colour, thickness, e.getX(), e.getY());
 			this.polyline.setEndPoint(newP);
+			this.polyline.addPoint(this.polyline.getStartPoint());
 			this.polyline.setStartPoint(newP);
 			this.polyline.addPoint(this.polyline.getEndPoint());
-			if (this.polyline.getNumPoints() == 2) {
-				this.model.addShape(polyline);
-				this.model.addShape(polyline);
-			} else if (!this.polyline.completedPolyline()) {
+			if (!this.polyline.completedPolyline()) {
 				this.model.addShape(this.polyline);
 			} else if (this.polyline.completedPolyline() && this.polyline.getNumPoints() > 2) {
 				this.model.addShape(this.polyline);
-				this.polyline = new Polyline(this.colour, thickness, false, begin);
+				this.polyline = null;
 			} else {
 				this.polyline = null;
 			}

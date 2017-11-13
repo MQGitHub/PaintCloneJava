@@ -35,7 +35,7 @@ public class PaintModel extends Observable {
 	
 	public void removeShape() {
 		this.removedShapes.add(this.shapes.get(this.shapes.size()-1));
-		System.out.println(this.shapes.get(this.shapes.size()-1));
+		//System.out.println(this.shapes.get(this.shapes.size()-1));
 		this.shapes.remove(this.shapes.size()-1);
 		
 		this.setChanged();

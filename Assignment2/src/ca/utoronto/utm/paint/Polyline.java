@@ -39,8 +39,6 @@ public class Polyline extends Shape {
 		this.xPoints = new ArrayList<Integer>();
 		this.yPoints = new ArrayList<Integer>();
 		this.numPoints = 0;
-		//this.startPoint = new Point(-1, -1);
-		//this.endPoint = new Point(-1, -1);
 	}
 
 	/**
