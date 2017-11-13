@@ -41,6 +41,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private TextBox tBox;
 	private RightAngleTriangle rightATriangle;
 	private Shape toDraw;
+	private BasicStroke stroke = new BasicStroke(this.thickness);
+
 	
 	public PaintPanel(PaintModel model, View view) {
 		background = Color.white;
@@ -107,15 +109,6 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	}
 
 	/**
-	 * Set thickness of shape border.
-	 * 
-	 * @param thickness
-	 */
-	public void setThickness(int thickness) {
-		this.thickness = thickness;
-
-	}
-	/**
 	 * Set font of text
 	 * 
 	 * @param font
@@ -124,6 +117,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		this.font = font;
 
 	}
+
 	/**
 	 * Set font size of text
 	 * 
@@ -142,6 +136,49 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		this.colour = colour;
 	}
 	
+	/**
+	 * Set thickness and stroke style of shape border.
+	 * 
+	 * @param stroke
+	 *            The stroke style
+	 * @param thickness
+	 *            The thickness
+	 */
+	public void setStroke(String stroke, int thickness) {
+		this.thickness = thickness;
+		float[] dash1;
+		
+		if (stroke.equalsIgnoreCase("plain")) {
+			this.stroke = new BasicStroke(this.thickness);
+
+		} else if (stroke.equalsIgnoreCase("dashed")) {
+			dash1 = new float[] { 10.0f, 10.0f };
+			this.stroke = new BasicStroke(this.thickness, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0f, dash1,
+					this.thickness);
+
+		} else if (stroke.equalsIgnoreCase("dashed & dotted")) {
+			dash1 = new float[] { 21.0f, 9.0f, 3.0f, 9.0f };
+			this.stroke = new BasicStroke(this.thickness, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0f, dash1,
+					this.thickness);
+
+		} else if (stroke.equalsIgnoreCase("dash dot dot")) {
+			dash1 = new float[] { 3.0f, 9.0f, 21.0f, 9.0f, 3.0f, 9.0f };
+			this.stroke = new BasicStroke(this.thickness, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0f, dash1,
+					this.thickness);
+
+		} else if (stroke.equalsIgnoreCase("lines")) {
+			dash1 = new float[] { 1.0f, 1.0f, 1.0f };
+			this.stroke = new BasicStroke(this.thickness, BasicStroke.CAP_BUTT, BasicStroke.JOIN_ROUND, 10.0f, dash1,
+					this.thickness);
+
+		} else if (stroke.equalsIgnoreCase("dotted")) {
+			dash1 = new float[] { 2.5f, thickness + 2, 2.5f, thickness + 2 };
+			this.stroke = new BasicStroke(this.thickness, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 10.0f, dash1,
+					this.thickness);
+		}
+
+	}
+	
 	// MouseMotionListener below
 	@Override
 	public void mouseMoved(MouseEvent e) {
@@ -157,23 +194,23 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	public void mousePressed(MouseEvent e) {
 		begin = new Point(e.getX(), e.getY());
 		if (this.mode == "squiggle") {
-			this.squiggle = new Squiggle(this.colour, thickness, false, begin);
+			this.squiggle = new Squiggle(this.colour, thickness, false, begin, this.stroke);
 			this.squiggle.moveto(begin);
 
 		} else if (this.mode == "circle") {
-			this.circle = new Circle(this.colour, thickness, filled, begin, 0);
+			this.circle = new Circle(this.colour, thickness, filled, begin, 0, this.stroke);
 
 		} else if (this.mode == "rectangle") {
-			this.rectangle = new Rectangle(this.colour, thickness, filled, begin, 0, 0);
+			this.rectangle = new Rectangle(this.colour, thickness, filled, begin, 0, 0, this.stroke);
 
 		} else if (this.mode == "square") {
-			this.square = new Square(this.colour, thickness, filled, begin, 0);
+			this.square = new Square(this.colour, thickness, filled, begin, 0, this.stroke);
 
 		} else if (this.mode == "line") {
-			this.line = new Line(this.colour, thickness, false, begin, begin);
+			this.line = new Line(this.colour, thickness, false, begin, begin, this.stroke);
 
 		} else if (this.mode == "oval") {
-			this.oval = new Oval(this.colour, thickness, filled, begin, 0, 0);
+			this.oval = new Oval(this.colour, thickness, filled, begin, 0, 0, this.stroke);
 
 		} else if (this.mode == "eraser") {
 			this.eraser = new Eraser(this.background, begin);
@@ -183,18 +220,18 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		} else if (this.mode == "polyline") {
 			begin = new Point(this.colour, thickness, e.getX(), e.getY());
 			if (this.polyline == null) {
-				this.polyline = new Polyline(this.colour, thickness, false, begin);
+				this.polyline = new Polyline(this.colour, thickness, false, begin, this.stroke);
 				this.polyline.setStartPoint(begin);
 			}
 			this.polyline.setEndPoint(begin);
 
 		} else if (this.mode == "triangle") {
 			begin = new Point(this.colour, thickness, e.getX(), e.getY());
-			this.triangle = new Triangle(this.colour, thickness, filled, begin);
+			this.triangle = new Triangle(this.colour, thickness, filled, begin, this.stroke);
 			
 		} else if (this.mode == "rightAngleTriangle") {
 			begin = new Point(this.colour, thickness, e.getX(), e.getY());
-			this.rightATriangle = new RightAngleTriangle(this.colour, thickness, filled, begin);
+			this.rightATriangle = new RightAngleTriangle(this.colour, thickness, filled, begin, this.stroke);
 		}
 		
 		repaint();
@@ -283,7 +320,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if (this.mode == "text") {
-			this.model.setDraw(new Square(this.colour, this.thickness, this.filled, new Point(-2,-2), 1));
+			this.model.setDraw(new Square(this.colour, this.thickness, this.filled, new Point(-2,-2), 1, this.stroke));
 			begin = new Point(this.colour, thickness, e.getX(), e.getY());
 			String prompt = "Please add text to display";
 			String input = JOptionPane.showInputDialog(this, prompt);
@@ -326,6 +363,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 				} else {
 					this.polyline = null;
 				}
+
 			} else {
 				this.polyline = null;
 			}

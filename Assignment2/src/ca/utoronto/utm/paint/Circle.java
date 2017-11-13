@@ -21,9 +21,10 @@ public class Circle extends Oval {
 	 * @param b is Circle filled.
 	 * @param center  center of the circle
 	 * @param radius radius of the circle.
+	 * @param stroke 
 	 */
-	public Circle(Color c, int t,Boolean b,  Point center, int radius) {
-		super(c, t, b, center, radius, radius);
+	public Circle(Color c, int t,Boolean b,  Point center, int radius, BasicStroke stroke) {
+		super(c, t, b, center, radius, radius, stroke);
 	}
 	
 	/**
@@ -41,7 +42,7 @@ public class Circle extends Oval {
 		int y = this.getCorner().getY();
 		int radius = this.getHeight();
 		g2d.setColor(this.getColor());
-		g2d.setStroke(new BasicStroke(this.getThickness()));
+		g2d.setStroke(this.getStroke());
 		if (this.isFilled()) {
 			g2d.fillOval(x - radius, y - radius, radius * 2, radius * 2);
 		} else {

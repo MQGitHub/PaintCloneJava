@@ -25,10 +25,11 @@ public class Line extends Shape {
 	 * @param b      a boolean which indicates if the line should be filled.
 	 * @param begin  a point that is the start point of the line.
 	 * @param end    a point that is end point of the line.
+	 * @param stroke 
 	 * @see Shape
 	 */
-	public Line(Color c, int t, Boolean b, Point begin, Point end) {
-		super(c, t, b, begin);
+	public Line(Color c, int t, Boolean b, Point begin, Point end, BasicStroke stroke) {
+		super(c, t, b, begin, stroke);
 		this.end = end;
 	}
 
@@ -55,7 +56,7 @@ public class Line extends Shape {
 		Point p2 = this.getCorner();
 		Point p1 = this.getEndPoint();
 		g2d.setColor(this.getColor());
-		g2d.setStroke(new BasicStroke(this.getThickness()));
+		g2d.setStroke(this.getStroke());
 		g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
 	}
 

@@ -25,11 +25,12 @@ public class Triangle extends Shape {
 	 *            The thickness the shape is
 	 * @param b
 	 *            The fill of the shape
+	 * @param stroke 
 	 * @param start
 	 *            The beginning point of the shape
 	 */
-	public Triangle(Color c, int thick, Boolean b, Point corner) {
-		super(c, thick, b, corner);
+	public Triangle(Color c, int thick, Boolean b, Point corner, BasicStroke stroke) {
+		super(c, thick, b, corner, stroke);
 	}
 	
 	/**
@@ -76,7 +77,7 @@ public class Triangle extends Shape {
 		int height = this.getHeight();
 		int base = this.getBase();
 		g2d.setColor(this.getColor());
-		g2d.setStroke(new BasicStroke(this.getThickness()));
+		g2d.setStroke(this.getStroke());
 		Polygon p = new Polygon();
 		p.addPoint((x + base)/ 2, y);
 		p.addPoint(x, height);

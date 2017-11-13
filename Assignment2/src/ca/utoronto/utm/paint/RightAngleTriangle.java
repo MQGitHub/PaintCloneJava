@@ -7,8 +7,8 @@ import java.awt.Polygon;
 
 public class RightAngleTriangle extends Triangle{
 
-	public RightAngleTriangle(Color c, int thick, Boolean b, Point corner) {
-		super(c, thick, b, corner);
+	public RightAngleTriangle(Color c, int thick, Boolean b, Point corner, BasicStroke stroke) {
+		super(c, thick, b, corner, stroke);
 	}
 	
 	@Override
@@ -18,7 +18,7 @@ public class RightAngleTriangle extends Triangle{
 		int height = this.getHeight();
 		int base = this.getBase();
 		g2d.setColor(this.getColor());
-		g2d.setStroke(new BasicStroke(this.getThickness()));
+		g2d.setStroke(this.getStroke());
 		Polygon p = new Polygon();
 		p.addPoint(x, y);
 		p.addPoint(x, height);

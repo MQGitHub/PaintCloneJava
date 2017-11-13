@@ -23,7 +23,7 @@ public class Eraser extends Squiggle {
 	 *  @see  		   Squiggle. 
 	 */
 	public Eraser(Color c, Point start) {
-		super(c, 20, false, start);
+		super(c, 20, false, start, new BasicStroke());
 	}
 	
 	
@@ -32,7 +32,6 @@ public class Eraser extends Squiggle {
 		g2d.setColor(this.getColor());
 		g2d.setStroke(new BasicStroke(this.getThickness()));
 		g2d.draw(this.getPath());
-		
 	}
 
 }

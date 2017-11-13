@@ -1,5 +1,6 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Observable;
@@ -61,6 +62,7 @@ public class PaintModel extends Observable {
 		while (this.shapes.size() > 0) {
 			this.removedShapes.add(this.shapes.get(this.shapes.size()-1));
 			this.shapes.remove(this.shapes.size()-1);
+
 		}
 
 		this.setChanged();

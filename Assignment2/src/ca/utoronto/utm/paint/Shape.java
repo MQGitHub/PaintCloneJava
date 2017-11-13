@@ -1,5 +1,6 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
@@ -14,21 +15,24 @@ public abstract class Shape {
 	private Boolean fill = false;
 	private int thickness;
 	private boolean used;
+	private BasicStroke stroke;
 
 	
 	/**
-	 * Constructs a shape with specific color, thickness, filled, and a point.
+	 * Constructs a shape with specific color, thickness, filled, a point, and stroke type.
 	 * @param c
 	 * @param thick
 	 * @param b
 	 * @param p
+	 * @param stroke 
 	 */
-	public Shape(Color c, int thick, Boolean b, Point p) {
+	public Shape(Color c, int thick, Boolean b, Point p, BasicStroke stroke) {
 		this.c = c;
 		this.fill = b;
 		this.thickness = thick;
 		this.p = p;
 		this.used = false;
+		this.stroke = stroke;
 	}
 	
 	/**
@@ -85,6 +89,10 @@ public abstract class Shape {
 	
 	public boolean getUsed() {
 		return this.used;
+	}
+
+	public BasicStroke getStroke() {
+		return stroke;
 	}
 	
 	public abstract void draw(Graphics2D g2d);

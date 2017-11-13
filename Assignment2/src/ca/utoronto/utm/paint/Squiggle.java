@@ -25,8 +25,8 @@ public class Squiggle extends Shape {
 	 *  @param points  All of the points squiggled on. 
 	 *  @see  		   Shape. 
 	 */
-	public Squiggle(Color c, int thick, boolean fill, Point startP) {
-		super(c, thick, fill, startP);
+	public Squiggle(Color c, int thick, boolean fill, Point startP, BasicStroke stroke) {
+		super(c, thick, fill, startP, stroke);
 		this.path = new Path2D.Double();
 		this.setUsed(true);
 	}
@@ -65,7 +65,7 @@ public class Squiggle extends Shape {
 	@Override
 	public void draw(Graphics2D g2d) {
 		g2d.setColor(this.getColor());
-		g2d.setStroke(new BasicStroke(this.getThickness()));
+		g2d.setStroke(this.getStroke());
 		g2d.draw(path);
 	
 	}

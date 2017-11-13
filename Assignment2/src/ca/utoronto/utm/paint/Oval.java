@@ -23,9 +23,10 @@ public class Oval extends Shape{
 	 * @param corner top left corner of the Oval.
 	 * @param width Width of the Oval.
 	 * @param height Height of the Oval.
+	 * @param stroke 
 	 */
-	public Oval(Color c, int t, Boolean b,  Point corner, int width, int height){
-		super(c, t, b, corner);
+	public Oval(Color c, int t, Boolean b,  Point corner, int width, int height, BasicStroke stroke){
+		super(c, t, b, corner, stroke);
 		this.width = width;
 		this.height = height;
 	}
@@ -68,7 +69,7 @@ public class Oval extends Shape{
 		int height = this.getHeight();
 		int width = this.getWidth();
 		g2d.setColor(this.getColor());
-		g2d.setStroke(new BasicStroke(this.getThickness()));
+		g2d.setStroke(this.getStroke());
 		if (this.isFilled()) {
 			g2d.fillOval(x, y, width, height);
 		} else {
