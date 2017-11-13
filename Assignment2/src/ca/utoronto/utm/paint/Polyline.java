@@ -143,6 +143,12 @@ public class Polyline extends Shape {
 	public Point getEndPoint() {
 		return this.endPoint;
 	}
+	
+	public void Complete() {
+		if (this.points.size() > 2) {
+			this.addPoint(this.points.get(0));
+		}
+	}
 
 	@Override
 	public void draw(Graphics2D g2d) {

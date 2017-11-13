@@ -55,6 +55,14 @@ public class PaintModel extends Observable {
 		this.notifyObservers();
 	}
 	
+	public void Clear() {
+		this.shapes.clear();
+		this.removedShapes.clear();
+		
+		this.setChanged();
+		this.notifyObservers();
+	}
+	
 	public void setDraw(Shape object) {
 		this.current = object;
 	}

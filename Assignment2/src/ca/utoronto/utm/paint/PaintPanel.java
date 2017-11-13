@@ -147,7 +147,10 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		if (this.mode != "polyline") {
-			this.polyline = null;
+			if (this.polyline != null && !this.polyline.completedPolyline()) {
+				this.polyline.Complete();
+				this.model.addShape(this.polyline);
+			}
 		}
 	}
 	
@@ -189,6 +192,10 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		} else if (this.mode == "triangle") {
 			begin = new Point(this.colour, thickness, e.getX(), e.getY());
 			this.triangle = new Triangle(this.colour, thickness, filled, begin);
+			
+		} else if (this.mode == "rightAngleTriangle") {
+			begin = new Point(this.colour, thickness, e.getX(), e.getY());
+			this.rightATriangle = new RightAngleTriangle(this.colour, thickness, filled, begin);
 		}
 		
 		repaint();
@@ -337,10 +344,10 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			this.model.addShape(this.oval);
 
 		} else if (this.mode == "triangle") {
-			this.model.addShape(triangle);
+			this.model.addShape(this.triangle);
 			
 		} else if (this.mode == "rightAngleTriangle") {
-			this.model.addShape(rightATriangle);
+			this.model.addShape(this.rightATriangle);
 		}
 		
 		repaint();

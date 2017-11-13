@@ -111,6 +111,10 @@ public class View extends JFrame implements ActionListener {
 		menuItem = new JMenuItem("Redo");
 		menuItem.addActionListener(this);
 		menu.add(menuItem);
+		
+		menuItem = new JMenuItem("Clear");
+		menuItem.addActionListener(this);
+		menu.add(menuItem);
 
 		menuBar.add(menu);
 
@@ -122,6 +126,8 @@ public class View extends JFrame implements ActionListener {
 			this.model.Undo();
 		} else if (e.getActionCommand() == "Redo") {
 			this.model.Redo();
+		} else if (e.getActionCommand() == "Clear") {
+			this.model.Clear();
 		}
 	}
 }
