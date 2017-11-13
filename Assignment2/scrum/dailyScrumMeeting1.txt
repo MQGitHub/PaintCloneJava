@@ -106,5 +106,14 @@ Nov 12, 2017
 	Today     : Work on more shapes.
 	Obstacles : None.
 	
+Nov 13, 2017
+	Yesterday : Finished UserStory and 20 and started UserStory21
+	Today     : Finish UserStory21, fix code and merge user stories.
+	Obstacles : None.
+	
+Nov 14, 2017
+	Yesterday : Finished UserStory21 and organized productBacklog and SprintBacklog
+	Today     : Clean up code, fix any last minute errors and hand in assignment
+	Obstacles : None.	
 
 	

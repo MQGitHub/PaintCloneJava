@@ -258,14 +258,34 @@ I WANT   : to fill in a polyline when I close it
 SO THAT  : I can add filled in polylines to my canvas.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 16
+TYPE     : USER STORY 16.1
 NAME     : Draw Text
 OWNER    : lakhtak1
 PRIORITY : 2
-ESTIMATE : 8 hours.
+ESTIMATE : 6 hours.
 AS A     : user
 I WANT   : To click and write text on the canvas.
 SO THAT  : I can add text to my canvas
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 16.2
+NAME     : Add different fonts for text
+OWNER    : lakhtak1
+PRIORITY : 2
+ESTIMATE : 1 hours.
+AS A     : user
+I WANT   : To write text on my canvas in different fonts
+SO THAT  : I can write text on my canvas in different fonts
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 16.3
+NAME     : Add different size for text
+OWNER    : lakhtak1
+PRIORITY : 2
+ESTIMATE : 1 hours.
+AS A     : user
+I WANT   : To write text on my canvas in different sizes
+SO THAT  : I can write text on my canvas in different sizes
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 17
