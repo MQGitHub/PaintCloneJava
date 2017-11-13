@@ -13,9 +13,6 @@ public abstract class ShapeManipulator {
 	
 	public ShapeManipulator(View view) {
 		pp = view.getPaintPanel();
-		color = pp.getColor();
-		thick = pp.getThickness();
-		fill = pp.getFilled();
 		model = pp.getModel();
 		
 	}

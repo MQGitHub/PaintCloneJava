@@ -16,7 +16,6 @@ import java.util.Observer;
 // https://docs.oracle.com/javase/tutorial/2d/
 
 class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseListener {
-	private int i = 0;
 	private PaintModel model; // slight departure from MVC, because of the way painting works
 	private View view; // So we can talk to our parent or other components of the view
 
@@ -37,7 +36,6 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		this.setPreferredSize(new Dimension(300, 300));
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
-
 
 		this.model = model;
 		this.model.addObserver(this);
