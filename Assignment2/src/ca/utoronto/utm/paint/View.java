@@ -119,7 +119,9 @@ public class View extends JFrame implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand() == "Undo") {
-			this.model.removeShape();
+			this.model.Undo();
+		} else if (e.getActionCommand() == "Redo") {
+			this.model.Redo();
 		}
 	}
 }

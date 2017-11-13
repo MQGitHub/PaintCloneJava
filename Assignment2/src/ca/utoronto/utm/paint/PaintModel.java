@@ -33,15 +33,28 @@ public class PaintModel extends Observable {
 		this.notifyObservers();
 	}
 	
-	public void removeShape() {
-		this.removedShapes.add(this.shapes.get(this.shapes.size()-1));
-		//System.out.println(this.shapes.get(this.shapes.size()-1));
-		this.shapes.remove(this.shapes.size()-1);
+	public void Undo() {
+		
+		if (shapes.size() > 0) {
+			this.removedShapes.add(this.shapes.get(this.shapes.size()-1));
+			this.shapes.remove(this.shapes.size()-1);
+		}
 		
 		this.setChanged();
 		this.notifyObservers();
 	}
-
+	
+	public void Redo() {
+		
+		if (this.removedShapes.size() > 0) {
+			this.shapes.add(this.removedShapes.get(this.removedShapes.size()-1));
+			this.removedShapes.remove(this.removedShapes.size()-1);
+		}
+		
+		this.setChanged();
+		this.notifyObservers();
+	}
+	
 	public void setDraw(Shape object) {
 		this.current = object;
 	}
