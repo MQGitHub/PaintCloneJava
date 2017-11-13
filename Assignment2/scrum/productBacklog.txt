@@ -15,6 +15,26 @@ I WANT   : As a user I want to undo my last draw.
 SO THAT  : I can undo what I did if I don't want it.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : USER STORY 22
+NAME     : Create a functioning redo
+OWNER    : Mateen Qureshi 
+PRIORITY : 1 
+ESTIMATE : 1 hour.
+AS A     : user
+I WANT   : As a user I want to redo my last draw.
+SO THAT  : I can redo what I did if I want it back.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 23
+NAME     : Create a functioning clear
+OWNER    : Mateen Qureshi 
+PRIORITY : 1 
+ESTIMATE : 1 hour.
+AS A     : user
+I WANT   : As a user I want to clear my screen.
+SO THAT  : I can start anew, unlike university.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 2.2 : UTORID
 NAME     : Architecture for handling shape modifiers can be improved 
 OWNER    : 
@@ -528,6 +548,16 @@ ESTIMATE : 30 minutes.
 AS A     : user
 I WANT   : As a user I want to exit from the canvas
 SO THAT  : I can exit
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 22
+NAME     : Create a functioning redo
+OWNER    : Mateen Qureshi 
+PRIORITY : 1 
+ESTIMATE : 1 hour.
+AS A     : user
+I WANT   : As a user I want to redo my last draw.
+SO THAT  : I can redo what I did if I want it back.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 2.4 : UTORID
