@@ -47,6 +47,8 @@ public class LineThicknessChooser implements ChangeListener, ActionListener {
 		JSlider thickness = new JSlider(0, 10, 0);
 		thickness.setPaintLabels(true);
 		thickness.setMajorTickSpacing(2);
+		thickness.setMinorTickSpacing(1);
+		thickness.setPaintTicks(true);
 		thickness.addChangeListener(this);
 		lt.add(thickness);
 		line.add(lt);
@@ -90,15 +92,15 @@ public class LineThicknessChooser implements ChangeListener, ActionListener {
 	@Override
 	public void stateChanged(ChangeEvent e) {
 		JSlider x = (JSlider) e.getSource();
-		this.view.getPaintPanel().setStroke(choice, x.getValue());
 		this.t = x.getValue();
-
+		this.view.getPaintPanel().setStroke(this.choice, this.t);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.view.getPaintPanel().setStroke(e.getActionCommand(), this.t);
-		this.choice = e.getActionCommand();
+		JCheckBoxMenuItem x = (JCheckBoxMenuItem) e.getSource();
+		this.choice = x.getToolTipText();
+		this.view.getPaintPanel().setStroke(this.choice, this.t);
 	}
 	
 }

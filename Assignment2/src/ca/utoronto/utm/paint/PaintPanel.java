@@ -143,7 +143,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		} else {
 			this.stroke = new BasicStroke(this.thickness,
                     BasicStroke.CAP_BUTT,
-                    BasicStroke.JOIN_MITER,
+                    BasicStroke.JOIN_BEVEL,
                     10.0f, dash1, this.thickness);
 		}
 		
