@@ -125,6 +125,10 @@ public class View extends JFrame implements ActionListener {
 		menuItem = new JMenuItem("Redo");
 		menuItem.addActionListener(this);
 		menu.add(menuItem);
+		
+		menuItem = new JMenuItem("Clear");
+		menuItem.addActionListener(this);
+		menu.add(menuItem);
 
 		menuItem = new JMenuItem("Clear All");
 		menuItem.addActionListener(this);
@@ -136,15 +140,26 @@ public class View extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		String x = e.getActionCommand();
-		if (x.equals("Exit")) {
+		if (e.getActionCommand() == "Exit") {
 			Object[] options = { "YES", "NO" };
 			int pane = JOptionPane.showOptionDialog(null, "Do you want to exit the application?", "Confirm Exit",
 					JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 			if (pane == JOptionPane.YES_OPTION) {
 				System.exit(0);
 			}
+			
+		} else if (e.getActionCommand() == "Undo") {
+			this.model.Undo();
+			
+		} else if (e.getActionCommand() == "Redo") {
+			this.model.Redo();
+			
+		} else if (e.getActionCommand() == "Clear") {
+			this.model.Clear();
+			
+		} else if (e.getActionCommand() == "Clear All") {
+			this.model.clearAll();
 		}
-		System.out.println(e.getActionCommand());
+
 	}
 }

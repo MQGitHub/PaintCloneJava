@@ -1,6 +1,7 @@
 package ca.utoronto.utm.paint;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 /**
@@ -12,7 +13,7 @@ public abstract class Shape {
 	private Color c;
 	private Boolean fill = false;
 	private int thickness;
-	private ArrayList<Point> pts;
+	private boolean used;
 
 	
 	/**
@@ -26,19 +27,8 @@ public abstract class Shape {
 		this.c = c;
 		this.fill = b;
 		this.thickness = thick;
-		this.p=p;
-	}
-	
-	/**
-	 * Constructs a shape with specific color, thickness, and an array of points.
-	 * @param c
-	 * @param thick
-	 * @param p
-	 */
-	public Shape(Color c, int thick, ArrayList<Point> p) {
-		this.c = c;
-		this.thickness = thick;
-		this.pts = p;
+		this.p = p;
+		this.used = false;
 	}
 	
 	/**
@@ -88,4 +78,14 @@ public abstract class Shape {
 	public int getThickness() {
 		return thickness;
 	}
+	
+	public void setUsed(boolean b) {
+		this.used = b;
+	}
+	
+	public boolean getUsed() {
+		return this.used;
+	}
+	
+	public abstract void draw(Graphics2D g2d);
 }

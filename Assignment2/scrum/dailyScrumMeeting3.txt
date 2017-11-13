@@ -104,6 +104,6 @@ Nov 11, 2017
 	
 Nov 12, 2017
 	Yesterday : 
-	Today     : 
+	Today     : Working on user story 17. Zooming in and out.
 	Obstacles : 
 

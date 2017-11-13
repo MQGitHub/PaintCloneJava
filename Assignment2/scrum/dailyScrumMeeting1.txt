@@ -106,13 +106,5 @@ Nov 12, 2017
 	Today     : Work on more shapes.
 	Obstacles : None.
 	
-Nov 13, 2017
-	Yesterday : 
-	Today     : 
-	Obstacles : 
-	
-Nov 14, 2017
-	Yesterday : 
-	Today     : 
-	Obstacles : 
+
 	

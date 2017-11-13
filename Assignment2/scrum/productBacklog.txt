@@ -4,6 +4,7 @@
 # 1 Color chooser UI (which could be a USER STORY)
 # 2 Implementation of selected color into the drawing stream.
 --------------------------------------------------------------------------
+<<<<<<< HEAD
 TYPE     : USER STORY 21 lakhtak1
 NAME     : Create different line styles
 OWNER    : Radhika L 
@@ -44,6 +45,17 @@ I WANT   : As a user I want to clear my screen.
 SO THAT  : I can start anew, unlike university.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : USER STORY 18
+NAME     : Create a functioning undo
+OWNER    : Mateen Qureshi 
+PRIORITY : 1 
+ESTIMATE : 1 hour.
+AS A     : user
+I WANT   : As a user I want to undo my last draw.
+SO THAT  : I can undo what I did if I don't want it.
+>>>>>>> refs/heads/userStory23
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 2.2 : UTORID
 NAME     : Architecture for handling shape modifiers can be improved 
 OWNER    : 
@@ -56,6 +68,52 @@ to the graphics context in a DrawingCommand. This way these changes can be
 added to the Bug 2.1 DrawingCommand list. That is, these new types of 
 DrawingCommands appear on PaintPanel's list right along side 
 the Shape type DrawingCommands.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 2.3 : lakhtak1
+NAME     : Architecture behind choosing drawing mode is poor
+OWNER    : Radhika L
+PRIORITY : 1
+ESTIMATE : 2 hours
+ISSUE    : A better architecture behind selecting a drawing mode can be created 
+by implementing the Factory Design Pattern as follows:
+
+The factory design pattern should be used by the paint buttons. 
+The factory is responsible for creating different ShapeManipulatorStrategy 
+instances (see BUG 2.4). That is, when a button is pressed, the appropriate 
+ShapeManipulatorStrategy is created and installed in the PaintPanel. 
+Note that you can associate text with a button, even if you 
+display an ImageIcon. The string attached to the button causes the right choice 
+of object creation.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 2.4 : UTORID
+NAME     : Architecture behind creating shape instances is poor
+OWNER    : 
+PRIORITY :
+ESTIMATE : 
+ISSUE    : A better architecture for creating shape instances so that it is 
+more flexible, and easier to work with can be created using the Strategy Design 
+pattern as follows:
+
+Create class/abstract class/interface  ShapeManipulatorStrategy as well 
+as subclasses/implementators for each type of Shape. Call these the
+concrete ShapeNamipulatorStrategies
+
+The concrete ShapeManipulatorStrategies are responsible for 
+
+1. Creating instances of Shape and putting them on top of 
+   the PaintModel command stack.
+
+2. Understanding how mouse events modify the shape at the top of the 
+   PaintModel command stack.
+
+3. Calling the PaintPanel repaint at appropriate times.
+
+This strategy can be put in place either by having PaintPanel's mouse 
+events forwarded through PaintPanel into the current strategy, or by 
+simply switching the PaintPanel's listeners as appropriate.
+
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 9
@@ -194,7 +252,7 @@ I WANT   : to fill in a polyline when I close it
 SO THAT  : I can add filled in polylines to my canvas.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 19
+TYPE     : USER STORY 17
 NAME     : Zoom in and out.
 OWNER    : khanha46
 PRIORITY : 1
@@ -388,6 +446,19 @@ ISSUE    : Having a list of different types of drawable things in the
            Squiggle's not drawing properly. Need to re-architect the Model
            so that it is more flexible, and easier to work with.
            Consider some design patterns, or change of responsibility
+<<<<<<< HEAD
+=======
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 15
+NAME     : Fill polyline
+OWNER    : Hassan khan
+PRIORITY : 1
+ESTIMATE : 2 hours.
+AS A     : user
+I WANT   : To fill in a polyline when I close it.
+SO THAT  : I can add filled in polylines to my canvas.
+           here.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 15
@@ -419,6 +490,25 @@ ISSUE    : The current design for eraser does not fit with the design pattern
 in place for other shapes.
 --------------------------------------------------------------------------
 >>>>>>> branch 'master' of https://mcsscm.utm.utoronto.ca/git/207/repo_a2_jawaBweanz.git
+=======
+TYPE     : BUG 10
+NAME     : Design squiggle to fit with current design pattern
+OWNER    : Mateen Qureshi
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : The current design for squiggle does not fit with the design pattern
+in place for other shapes.
+<<<<<<< HEAD
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 11
+NAME     : Design eraser to fit with current design pattern
+OWNER    : Mateen Qureshi
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : The current design for eraser does not fit with the design pattern
+in place for other shapes.
+>>>>>>> refs/heads/userStory23
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 15
@@ -457,11 +547,6 @@ PRIORITY : 1
 ESTIMATE : 1hour
 ISSUE    : The architecture can be improved if we implement the Command Design 
 Pattern to draw shapes as follows:
-<<<<<<< HEAD
->>>>>>> branch 'master' of https://mcsscm.utm.utoronto.ca/git/207/repo_a2_jawaBweanz.git
-=======
->>>>>>> branch 'master' of https://mcsscm.utm.utoronto.ca/git/207/repo_a2_jawaBweanz.git
->>>>>>> branch 'master' of https://mcsscm.utm.utoronto.ca/git/207/repo_a2_jawaBweanz.git
 
 The PaintModel should use the command design pattern. 
 That is, each shape knows how to draw itself, so there is a single list of 
@@ -608,4 +693,6 @@ ISSUE    : Code is not modular and is difficult to expand. Need a better
            architecture behind selecting a drawing mode, and handling
            the drawing events. Consider some design patterns here.
            Refactor ShapeChooserPanel and PaintPanel to get rid of the
+           'if' blocks in the PaintPanel mouse event code.
+--------------------------------------------------------------------------
 

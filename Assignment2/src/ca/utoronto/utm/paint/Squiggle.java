@@ -1,6 +1,9 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.geom.Path2D;
 import java.util.ArrayList;
 
 /**
@@ -10,8 +13,8 @@ import java.util.ArrayList;
  *
  */
 public class Squiggle extends Shape {
-	private ArrayList<Point> pts;
-
+    private Path2D path;
+	
 	/**
 	 *  Constructor adds where the squiggle is drawn on 
 	 *  to pts and keeps track of the squiggles thickness
@@ -22,30 +25,49 @@ public class Squiggle extends Shape {
 	 *  @param points  All of the points squiggled on. 
 	 *  @see  		   Shape. 
 	 */
-	public Squiggle(Color c, int thick, ArrayList<Point> points) {
-		super(c, thick, points);
-		this.pts = points;
+	public Squiggle(Color c, int thick, boolean fill, Point startP) {
+		super(c, thick, fill, startP);
+		this.path = new Path2D.Double();
+		this.setUsed(true);
+	}
+	
+	/**
+	 * Sets the point p for the current position of the path
+	 * @param p point to set for path
+	 */
+	public void moveto(Point p) {
+		path.moveTo(p.getX(), p.getY());
 	}
 
 	/**
-	 * Returns an ArrayList containing all the points where squiggles
-	 * have been made so that they can be drawn onto the panel.
-	 * 
-	 * @return pts	ArrayList containing all the current points.
+	 * Creates a line from the point in moveTo to p
+	 * @param p point draw line to
 	 */
-	public ArrayList<Point> getPoints() {
-		return this.pts;
+	public void lineto(Point p) {
+		path.lineTo(p.getX(), p.getY());
 	}
-
+	
+	public Path2D getPath() {
+		return this.path;
+	}
+	
 	/**
-	 * Adds to pts ArrayList containing all the points for all the 
-	 * squiggles.
-	 * 
-	 * @param p	 adds given point to pts ArrayList containing all previous
-	 * 		     points.
+	 * Closes the path
 	 */
-	public void addPoint(Point p) {
-		this.pts.add(p);
+	public void endPath() {
+		try {
+            path.closePath();
+        } catch(Exception ingore) {
+        }
+ 
+	}
+	
+	@Override
+	public void draw(Graphics2D g2d) {
+		g2d.setColor(this.getColor());
+		g2d.setStroke(new BasicStroke(this.getThickness()));
+		g2d.draw(path);
+	
 	}
 
 }

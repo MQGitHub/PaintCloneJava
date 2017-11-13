@@ -101,7 +101,8 @@ Nov 11, 2017
 	Today     : Break
 	Obstacles : Finish undo, redo, clear
 	
-Nov 10, 2017
+Nov 12, 2017
 	Yesterday : Break
 	Today     : Fixed undo redo clear
 	Obstacles : Make ui nicer 
+
