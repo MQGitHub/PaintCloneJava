@@ -572,3 +572,13 @@ I WANT   : to zoom in and out
 SO THAT  : I can be more precise with my drawing.
 
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 21 lakhtak1
+NAME     : Create different line styles
+OWNER    : Radhika L 
+PRIORITY : 2 
+ESTIMATE : 2 hours.
+AS A     : user
+I WANT   : As a user I want to draw a shape outline with dashed lines or dotted lines
+SO THAT  : I can draw shapes in different outline styles.
+--------------------------------------------------------------------------

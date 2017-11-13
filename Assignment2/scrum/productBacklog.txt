@@ -3,16 +3,7 @@
 # For example, the color chooser user story involves: 
 # 1 Color chooser UI (which could be a USER STORY)
 # 2 Implementation of selected color into the drawing stream.
---------------------------------------------------------------------------
-TYPE     : USER STORY 21 lakhtak1
-NAME     : Create different line styles
-OWNER    : Radhika L 
-PRIORITY : 2 
-ESTIMATE : 2 hours.
-AS A     : user
-I WANT   : As a user I want to draw a shape outline with dashed lines or dotted lines
-SO THAT  : I can draw shapes in different outline styles.
---------------------------------------------------------------------------
+
 --------------------------------------------------------------------------
 TYPE     : USER STORY 18
 NAME     : Create a functioning undo
@@ -566,6 +557,16 @@ This strategy can be put in place either by having PaintPanel's mouse
 events forwarded through PaintPanel into the current strategy, or by 
 simply switching the PaintPanel's listeners as appropriate.
 
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 21 lakhtak1
+NAME     : Create different line styles
+OWNER    : Radhika L 
+PRIORITY : 2 
+ESTIMATE : 2 hours.
+AS A     : user
+I WANT   : As a user I want to draw a shape outline with dashed lines or dotted lines
+SO THAT  : I can draw shapes in different outline styles.
 --------------------------------------------------------------------------
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 --------------------------------------------------------------------------
