@@ -31,10 +31,11 @@ public class Polyline extends Shape {
 	 *            The fill of the polyline
 	 * @param start
 	 *            The beginning point of the polyline
+	 * @param stroke 
 	 */
 
-	public Polyline(Color c, int t, Boolean b, Point start) {
-		super(c, t, b, start);
+	public Polyline(Color c, int t, Boolean b, Point start, BasicStroke stroke) {
+		super(c, t, b, start, stroke);
 		this.points = new ArrayList<Point>();
 		this.xPoints = new ArrayList<Integer>();
 		this.yPoints = new ArrayList<Integer>();
@@ -152,12 +153,12 @@ public class Polyline extends Shape {
 		Point p2 = this.getEndPoint();
 		if (p1.getX() != p2.getX() || p1.getY() == p2.getY()) {
 			g2d.setColor(this.getEndPoint().getColor());
-			g2d.setStroke(new BasicStroke(this.getEndPoint().getThickness()));
+			g2d.setStroke(this.getStroke());
 			g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
 		}
 		if (this.points.size() > 0) {
 			g2d.setColor(this.points.get(this.points.size() - 1).getColor());
-			g2d.setStroke(new BasicStroke(this.points.get(this.points.size() - 1).getThickness()));
+			g2d.setStroke(this.getStroke());//new BasicStroke(this.points.get(this.points.size() - 1).getThickness()));
 			//Taken from https://stackoverflow.com/questions/960431/how-to-convert-listinteger-to-int-in-java
 			//Shortest way to convert arraylist of ints to array of ints
 			int arrXPoints [] = xPoints.stream().mapToInt(Integer::intValue).toArray();

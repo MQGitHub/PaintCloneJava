@@ -1,5 +1,6 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Observable;
@@ -24,8 +25,8 @@ public class PaintModel extends Observable {
 	 */
 	public void addShape(Shape p) {
 		if (shapes.size() == 0) {
-
-			this.shapes.add(new Circle(Color.WHITE, 0, false, new Point(-1, -1), 0));
+			BasicStroke stroke = new BasicStroke();
+			this.shapes.add(new Square(Color.WHITE, 0, false, new Point(-1, -1), 0, stroke));
 		} else {
 
 			this.shapes.add(shapes.size() - 1, p);

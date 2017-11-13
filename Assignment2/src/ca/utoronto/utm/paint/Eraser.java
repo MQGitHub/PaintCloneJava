@@ -22,8 +22,8 @@ public class Eraser extends Squiggle {
 	 *  @param points  All of the points where eraser is used. 
 	 *  @see  		   Squiggle. 
 	 */
-	public Eraser(Color c, ArrayList<Point> points) {
-		super(c, 20, points);
+	public Eraser(Color c, ArrayList<Point> points, BasicStroke stroke) {
+		super(c, 20, points, stroke);
 	}
 	
 	/**
@@ -56,7 +56,7 @@ public class Eraser extends Squiggle {
 			Point p1 = points.get(i);
 			Point p2 = points.get(i + 1);
 			g2d.setStroke(new BasicStroke(this.getThickness()));
-			g2d.setColor(Color.white);
+			g2d.setColor(this.getColor());
 			g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
 		}
 	}

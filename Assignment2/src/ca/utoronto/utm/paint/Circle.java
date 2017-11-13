@@ -21,9 +21,10 @@ public class Circle extends Oval {
 	 * @param b is Circle filled.
 	 * @param center  center of the circle
 	 * @param radius radius of the circle.
+	 * @param stroke 
 	 */
-	public Circle(Color c, int t,Boolean b,  Point center, int radius) {
-		super(c, t, b, center, radius, radius);
+	public Circle(Color c, int t,Boolean b,  Point center, int radius, BasicStroke stroke) {
+		super(c, t, b, center, radius, radius, stroke);
 	}
 	
 	/**

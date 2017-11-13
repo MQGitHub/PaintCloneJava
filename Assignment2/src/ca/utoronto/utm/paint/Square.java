@@ -17,9 +17,10 @@ public class Square extends Rectangle{
 	 * @param b is shape filled.
 	 * @param center Center of shape.
 	 * @param width Width and height of the square.
+	 * @param stroke 
 	 */
-	public Square(Color c, int t, Boolean f,  Point center, int width) {
-		super(c, t, f, center, width, width);
+	public Square(Color c, int t, Boolean f,  Point center, int width, BasicStroke stroke) {
+		super(c, t, f, center, width, width, stroke);
 	}
 	
 	@Override
@@ -28,7 +29,7 @@ public class Square extends Rectangle{
 		int y = this.getCorner().getY();
 		int width = this.getWidth();
 		g2d.setColor(this.getColor());
-		g2d.setStroke(new BasicStroke(this.getThickness()));
+		g2d.setStroke(this.getStroke());
 		if (this.isFilled()) {
 			g2d.fillRect(x - width, y - width, width * 2, width * 2);
 		} else {

@@ -24,8 +24,8 @@ public class Squiggle extends Shape {
 	 *  @param points  All of the points squiggled on. 
 	 *  @see  		   Shape. 
 	 */
-	public Squiggle(Color c, int thick, ArrayList<Point> points) {
-		super(c, thick, points);
+	public Squiggle(Color c, int thick, ArrayList<Point> points, BasicStroke stroke) {
+		super(c, thick, points, stroke);
 		this.pts = points;
 	}
 
@@ -57,7 +57,7 @@ public class Squiggle extends Shape {
 			Point p1 = points.get(i);
 			Point p2 = points.get(i + 1);
 			g2d.setColor(p1.getColor());
-			g2d.setStroke(new BasicStroke(p1.getThickness()));
+			g2d.setStroke(this.getStroke());
 			if ((p1.getX() == -1 && p1.getY() == -1) || (p2.getX() == -1 && p2.getY() == -1)) {
 				i = i + 2;
 			} else {

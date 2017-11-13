@@ -22,9 +22,10 @@ public class Rectangle extends Shape{
 	 * @param corner top left corner of the rectangle.
 	 * @param width Width of the rectangle.
 	 * @param height Height of the rectangle.
+	 * @param stroke 
 	 */
-	public Rectangle(Color c, int t, Boolean f, Point corner, int width, int height){
-		super(c, t, f, corner);
+	public Rectangle(Color c, int t, Boolean f, Point corner, int width, int height, BasicStroke stroke){
+		super(c, t, f, corner, stroke);
 		this.width = width;
 		this.height = height;
 	}
@@ -68,7 +69,7 @@ public class Rectangle extends Shape{
 		int height = this.getHeight();
 		int width = this.getWidth();
 		g2d.setColor(this.getColor());
-		g2d.setStroke(new BasicStroke(this.getThickness()));
+		g2d.setStroke(this.getStroke());
 		if (this.isFilled()) {
 			g2d.fillRect(x, y, width, height);
 		} else {

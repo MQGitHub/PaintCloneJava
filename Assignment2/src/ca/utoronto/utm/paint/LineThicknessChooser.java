@@ -17,9 +17,11 @@ import java.awt.event.ActionListener;
  *
  */
 
-public class LineThicknessChooser implements ChangeListener {
+public class LineThicknessChooser implements ChangeListener, ActionListener {
 
 	private View view; // So we can talk to our parent or other components of the view
+	private JSlider thickness;
+	private String choice = "plain";
 	
 	/**
 	 * Initialize the view by connecting the view and LineThicknessChooser.
@@ -39,14 +41,27 @@ public class LineThicknessChooser implements ChangeListener {
 	public JMenuBar lineThicknessMenu() {
 		
 		JMenuBar b = new JMenuBar();
-		JMenu line = new JMenu("Line Thickness");
 		
-		JSlider thickness = new JSlider(0, 10, 0);
+		JMenu lt = new JMenu("Line Thickness");
+		thickness = new JSlider(0, 10, 0);
 		thickness.setPaintLabels(true);
+		thickness.setMajorTickSpacing(2);
 		thickness.addChangeListener(this);
-		line.add(thickness);
-		b.add(line);
+		lt.add(thickness);
+		b.add(lt);
 		
+		ButtonGroup group = new ButtonGroup();		
+		JMenu l = new JMenu("Line Style");
+		JCheckBoxMenuItem item = new JCheckBoxMenuItem("Plain", true);
+		group.add(item);
+		item.addActionListener(this);
+		l.add(item);
+		item = new JCheckBoxMenuItem("Dashed");
+		group.add(item);
+		item.addActionListener(this);
+		l.add(item);
+		
+		b.add(l);
 		return b;
 		}
 		
@@ -58,8 +73,14 @@ public class LineThicknessChooser implements ChangeListener {
 	@Override
 	public void stateChanged(ChangeEvent e) {
 		JSlider x = (JSlider) e.getSource();
-		this.view.getPaintPanel().setThickness(x.getValue());
+		this.view.getPaintPanel().setStroke(choice, x.getValue());
 
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		this.view.getPaintPanel().setStroke(e.getActionCommand(), this.thickness.getValue());
+		this.choice = e.getActionCommand();
 	}
 	
 }
