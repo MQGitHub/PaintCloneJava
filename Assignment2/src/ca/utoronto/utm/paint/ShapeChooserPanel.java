@@ -41,6 +41,9 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 			group.add(button);
 			this.add(button);
 			button.addActionListener(this);
+			if(label == "squiggle") {
+				button.setSelected(true);
+			}
 		}
 		
 		TextPanel txt = new TextPanel(this.view);
