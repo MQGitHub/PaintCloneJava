@@ -454,9 +454,9 @@ ISSUE    : Icons for buttons not showing up on linux machines.
 --------------------------------------------------------------------------
 TYPE     : BUG 2.2 : UTORID
 NAME     : Architecture for handling shape modifiers can be improved 
-OWNER    : 
-PRIORITY :
-ESTIMATE : 
+OWNER    : hannage6
+PRIORITY : 3
+ESTIMATE : 1hr
 ISSUE    : The architecture can be improved if we implement the Command Design 
 Pattern to handle changes to the graphics contex such as changing drawing 
 color, stroke width etc. You can accomplished this by wrapping the changes
@@ -468,9 +468,9 @@ the Shape type DrawingCommands.
 --------------------------------------------------------------------------
 TYPE     : BUG 2.4 : UTORID
 NAME     : Architecture behind creating shape instances is poor
-OWNER    : 
-PRIORITY :
-ESTIMATE : 
+OWNER    : hannage6
+PRIORITY : 1
+ESTIMATE : 8 hours.
 ISSUE    : A better architecture for creating shape instances so that it is 
 more flexible, and easier to work with can be created using the Strategy Design 
 pattern as follows:

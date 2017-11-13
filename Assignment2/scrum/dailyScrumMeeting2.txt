@@ -98,3 +98,13 @@ Nov 10, 2017
 	Yesterday : Break
 	Today     : see how to implement map how to draw shapes to the buttons.
 	Obstacles : How do u implement strategy and factory design patterns to do that.
+
+Nov 11, 2017
+	Yesterday : Tried to implement Strategy design pattern
+	Today     : Implement Factory/Strategy design pattern
+	Obstacles : How to get the info into the strategy classes
+
+Nov 12, 2017
+	Yesterday : Worked on design patterns.
+	Today 	  : Finish Strategy pattern.
+	Obstacles : Alot of strategy to modify,
