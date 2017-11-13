@@ -451,7 +451,6 @@ PRIORITY : 1
 ESTIMATE : 1hours
 ISSUE    : Icons for buttons not showing up on linux machines.
 --------------------------------------------------------------------------
-
 --------------------------------------------------------------------------
 TYPE     : BUG 2.2 : UTORID
 NAME     : Architecture for handling shape modifiers can be improved 
@@ -465,23 +464,6 @@ to the graphics context in a DrawingCommand. This way these changes can be
 added to the Bug 2.1 DrawingCommand list. That is, these new types of 
 DrawingCommands appear on PaintPanel's list right along side 
 the Shape type DrawingCommands.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 2.3 : UTORID
-NAME     : Architecture behind choosing drawing mode is poor
-OWNER    : 
-PRIORITY :
-ESTIMATE : 
-ISSUE    : A better architecture behind selecting a drawing mode can be created 
-by implementing the Factory Design Pattern as follows:
-
-The factory design pattern should be used by the paint buttons. 
-The factory is responsible for creating different ShapeManipulatorStrategy 
-instances (see BUG 2.4). That is, when a button is pressed, the appropriate 
-ShapeManipulatorStrategy is created and installed in the PaintPanel. 
-Note that you can associate text with a button, even if you 
-display an ImageIcon. The string attached to the button causes the right choice 
-of object creation.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 2.4 : UTORID
@@ -531,4 +513,62 @@ ESTIMATE : 8 hours.
 AS A     : user
 I WANT   : To click and write text on the canvas.
 SO THAT  : I can add text to my canvas
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 17
+NAME     : Draw Right Angle Triangle
+OWNER    : lakhtak1
+PRIORITY : 3
+ESTIMATE : 30 minutes
+AS A     : user
+I WANT   : To be able to create right angled triangles on the canvas
+SO THAT  : I can add right angled triangles to my canvas
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 2.3 : lakhtak1
+NAME     : Architecture behind choosing drawing mode is poor
+OWNER    : Radhika L
+PRIORITY : 1
+ESTIMATE : 2 hours
+ISSUE    : A better architecture behind selecting a drawing mode can be created 
+by implementing the Factory Design Pattern as follows:
+
+The factory design pattern should be used by the paint buttons. 
+The factory is responsible for creating different ShapeManipulatorStrategy 
+instances (see BUG 2.4). That is, when a button is pressed, the appropriate 
+ShapeManipulatorStrategy is created and installed in the PaintPanel. 
+Note that you can associate text with a button, even if you 
+display an ImageIcon. The string attached to the button causes the right choice 
+of object creation.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 20 lakhtak1
+NAME     : Create a functioning exit
+OWNER    : Radhika L 
+PRIORITY : 1 
+ESTIMATE : 30 minutes.
+AS A     : user
+I WANT   : As a user I want to exit from the canvas
+SO THAT  : I can exit
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 15
+NAME     : Fill Polyline.
+OWNER    : khanha46
+PRIORITY : 1
+ESTIMATE : 2 hours
+AS A     : user
+I WANT   : to fill in a polyline when I close it
+SO THAT  : I can add filled in polylines to my canvas.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 19
+NAME     : Zoom in and out.
+OWNER    : khanha46
+PRIORITY : 1
+ESTIMATE : 3 hours
+AS A     : user
+I WANT   : to zoom in and out
+SO THAT  : I can be more precise with my drawing.
+
 --------------------------------------------------------------------------

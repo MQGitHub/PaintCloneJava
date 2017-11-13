@@ -4,14 +4,14 @@
 # 1 Color chooser UI (which could be a USER STORY)
 # 2 Implementation of selected color into the drawing stream.
 --------------------------------------------------------------------------
-TYPE     : USER STORY 20 lakhtak1
-NAME     : Create a functioning clear
+TYPE     : USER STORY 21 lakhtak1
+NAME     : Create different line styles
 OWNER    : Radhika L 
-PRIORITY : 1 
-ESTIMATE : 1 hour.
+PRIORITY : 2 
+ESTIMATE : 2 hours.
 AS A     : user
-I WANT   : As a user I want to clear the canvas
-SO THAT  : I can start drawing from scratch
+I WANT   : As a user I want to draw a shape outline with dashed lines or dotted lines
+SO THAT  : I can draw shapes in different outline styles.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 18
@@ -331,7 +331,6 @@ ISSUE    : Squiggles are connected to each other by a straight line. Each drag
 		   of the mouse should be a separate squiggle. Possibly
            the issue is with the representation of the squiggles in the Model.
 --------------------------------------------------------------------------
-
 --------------------------------------------------------------------------
 TYPE     : USER STORY 5
 NAME     : Color selector implemented
@@ -398,8 +397,6 @@ ISSUE    : Having a list of different types of drawable things in the
            Squiggle's not drawing properly. Need to re-architect the Model
            so that it is more flexible, and easier to work with.
            Consider some design patterns, or change of responsibility
-<<<<<<< HEAD
-=======
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 15
@@ -559,6 +556,16 @@ ShapeManipulatorStrategy is created and installed in the PaintPanel.
 Note that you can associate text with a button, even if you 
 display an ImageIcon. The string attached to the button causes the right choice 
 of object creation.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 20 lakhtak1
+NAME     : Create a functioning exit
+OWNER    : Radhika L 
+PRIORITY : 1 
+ESTIMATE : 30 minutes.
+AS A     : user
+I WANT   : As a user I want to exit from the canvas
+SO THAT  : I can exit
 --------------------------------------------------------------------------
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 --------------------------------------------------------------------------
