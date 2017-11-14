@@ -15,7 +15,7 @@ public class PaintModel extends Observable {
 	private ArrayList<Shape> shapes = new ArrayList<Shape>();
 	private ArrayList<Shape> removedShapes = new ArrayList<Shape>();
 	private Shape current;
-	private boolean redoAll;
+	private boolean undoAll;
 
 	/**
 	 * if there are no shapes in the ArrayList shapes, then add a circle with
@@ -29,7 +29,7 @@ public class PaintModel extends Observable {
 		this.shapes.add(p);
 		this.current = null;
 		this.removedShapes.clear();
-		redoAll = false;
+		undoAll = false;
 		
 		this.setChanged();
 		this.notifyObservers();
@@ -40,24 +40,24 @@ public class PaintModel extends Observable {
 		if (shapes.size() > 0) {
 			this.removedShapes.add(this.shapes.get(this.shapes.size()-1));
 			this.shapes.remove(this.shapes.size()-1);
+		}else {
+			if(undoAll) {
+				while(this.removedShapes.size() > 0) {
+						this.shapes.add(this.removedShapes.get(this.removedShapes.size()-1));
+						this.removedShapes.remove(this.removedShapes.size()-1);
+				}
+			}
 		}
+		undoAll = false;
 		this.setChanged();
 		this.notifyObservers();
 	}
 	
 	public void Redo() {
 		if (this.removedShapes.size() > 0) {
-			if(!redoAll) {
 			this.shapes.add(this.removedShapes.get(this.removedShapes.size()-1));
 			this.removedShapes.remove(this.removedShapes.size()-1);
-			}else {
-				while(this.removedShapes.size() > 0) {
-					this.shapes.add(this.removedShapes.get(this.removedShapes.size()-1));
-					this.removedShapes.remove(this.removedShapes.size()-1);
-				}
-			}
 		}
-		redoAll = false;
 		this.setChanged();
 		this.notifyObservers();
 	}
@@ -68,7 +68,7 @@ public class PaintModel extends Observable {
 			this.shapes.remove(this.shapes.size()-1);
 
 		}
-		redoAll = true;
+		undoAll = true;
 		this.setChanged();
 		this.notifyObservers();
 	}
