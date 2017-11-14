@@ -19,13 +19,14 @@ public class RightATriangleManipulator extends ShapeManipulator{
 		fill = pp.getFilled();
 		stroke = pp.getStroke();
 		begin = new Point(color, thick, e.getX(), e.getY());
-		rightATriangle = new RightAngleTriangle(color, thick, fill, begin, this.stroke);
+		rightATriangle = new RightAngleTriangle(color, thick, fill, begin, stroke);
 	}
 
 	@Override
 	public void operationDragged(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		this.rightATriangle.setBase(e.getX());
+		this.rightATriangle.setHeight(e.getY());
+		this.model.setDraw(this.rightATriangle);
 	}
 
 	@Override
@@ -36,8 +37,8 @@ public class RightATriangleManipulator extends ShapeManipulator{
 
 	@Override
 	public void operationReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		this.model.addShape(this.rightATriangle);
+
 	}
 
 	@Override
