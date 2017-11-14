@@ -18,6 +18,7 @@ public class Polyline extends Shape {
 	private int numPoints;
 	private Point startPoint;
 	private Point endPoint;
+	private double radius;
 
 	/**
 	 * Constructs a shape of type Oval with a specific color, 
@@ -40,6 +41,7 @@ public class Polyline extends Shape {
 		this.xPoints = new ArrayList<Integer>();
 		this.yPoints = new ArrayList<Integer>();
 		this.numPoints = 0;
+		this.radius = Math.sqrt(18) + (stroke.getLineWidth()/2);
 	}
 
 	/**
@@ -85,6 +87,9 @@ public class Polyline extends Shape {
 	public boolean completedPolyline() {
 		if (this.points.size() > 2 && this.points.get(0).getX() == this.points.get(this.points.size() - 1).getX()
 				&& this.points.get(0).getY() == this.points.get(this.points.size() - 1).getY()) {
+			return true;
+		} else if (this.points.size() > 2 && this.inRadius(this.points.get(this.points.size() - 1))) {
+			this.Complete();
 			return true;
 		} else {
 			return false;
@@ -146,11 +151,16 @@ public class Polyline extends Shape {
 	}
 	
 	public void Complete() {
-		if (this.points.size() > 2 && !this.completedPolyline()) {
+		if (this.points.size() > 2) {
 			this.addPoint(this.points.get(0));
 		}
 	}
 	
+	public boolean inRadius(Point p) {
+		double distance = Math.abs(Math.sqrt(Math.pow((this.points.get(0).getX() - p.getX()), 2) 
+				+ Math.pow((this.points.get(0).getY() - p.getY()), 2)));
+		return distance < radius;
+	}
 
 	@Override
 	public void draw(Graphics2D g2d) {
