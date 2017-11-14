@@ -18,7 +18,8 @@ public class OvalManipulator extends ShapeManipulator{
 		stroke = pp.getStroke();
 		begin = new Point(e.getX(), e.getY());
 		this.oval = new Oval(c, thick, fill, begin, 0, 0, stroke);
-		
+		this.model.setDraw(this.oval);
+	
 	}
 
 	@Override
@@ -30,7 +31,6 @@ public class OvalManipulator extends ShapeManipulator{
 		this.oval.setCorner(new Point(min_X, min_Y));
 		this.oval.setWidth(max_X - min_X);
 		this.oval.setHeight(max_Y - min_Y);
-		this.model.setDraw(this.oval);
 		
 	}
 

@@ -21,7 +21,7 @@ public class SquareManipulator extends ShapeManipulator{
 		stroke = pp.getStroke();
 		begin = new Point(e.getX(), e.getY());
 		this.square = new Square(color, thick, fill, begin, 0, stroke);
-		
+		this.model.setDraw(this.square);
 	}
 
 	@Override

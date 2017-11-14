@@ -146,7 +146,7 @@ public class Polyline extends Shape {
 	}
 	
 	public void Complete() {
-		if (this.points.size() > 2) {
+		if (this.points.size() > 2 && !this.completedPolyline()) {
 			this.addPoint(this.points.get(0));
 		}
 	}

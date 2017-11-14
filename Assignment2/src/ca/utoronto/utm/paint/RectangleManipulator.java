@@ -21,6 +21,7 @@ public class RectangleManipulator extends ShapeManipulator {
 		stroke = pp.getStroke();
 		begin = new Point(e.getX(), e.getY());
 		this.rectangle = new Rectangle(color, thick, fill, begin, 0, 0, stroke);
+		this.model.setDraw(this.rectangle);
 	}
 
 	@Override
@@ -32,7 +33,6 @@ public class RectangleManipulator extends ShapeManipulator {
 		this.rectangle.setCorner(new Point(min_X, min_Y));
 		this.rectangle.setWidth(max_X - min_X);
 		this.rectangle.setHeight(max_Y - min_Y);
-		this.model.setDraw(this.rectangle);
 	}
 
 	@Override

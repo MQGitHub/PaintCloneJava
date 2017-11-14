@@ -66,8 +66,8 @@ public class PaintModel extends Observable {
 		while (this.shapes.size() > 0) {
 			this.removedShapes.add(this.shapes.get(this.shapes.size()-1));
 			this.shapes.remove(this.shapes.size()-1);
-
 		}
+		
 		undoAll = true;
 		this.setChanged();
 		this.notifyObservers();
@@ -82,6 +82,9 @@ public class PaintModel extends Observable {
 	}
 	
 	public void setDraw(Shape object) {
+		if (this.current != null && this.current != object && !this.shapes.contains(this.current)) {
+			this.shapes.add(this.current);
+		}
 		this.current = object;
 	}
 	

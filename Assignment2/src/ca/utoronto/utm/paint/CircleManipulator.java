@@ -19,7 +19,7 @@ public class CircleManipulator extends ShapeManipulator {
 		stroke = pp.getStroke();
 		begin = new Point(e.getX(), e.getY());
 		this.circle = new Circle(color, thick, fill, begin, 0, stroke);
-		
+		this.model.setDraw(this.circle);
 	}
 
 	@Override
@@ -28,7 +28,7 @@ public class CircleManipulator extends ShapeManipulator {
 		int y = begin.getY() - e.getY();
 		int radius = (int) Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
 		this.circle.setRadius(radius);
-		this.model.setDraw(this.circle);
+		
 	}
 
 	@Override

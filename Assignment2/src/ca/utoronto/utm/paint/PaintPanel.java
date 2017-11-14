@@ -63,6 +63,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 
 		// Draw the shapes
 		ArrayList<Shape> shapes = this.model.getShapes();
+		System.out.println(shapes);
 		for (Shape s : shapes) {
 			s.draw(g2d);
 		}
@@ -71,6 +72,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 			this.toDraw = this.model.getDraw();
 			this.toDraw.draw(g2d);
 		}
+		System.out.println(shapes + " " + toDraw);
 	}
 
 	@Override
@@ -188,6 +190,9 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	
 	@Override
 	public void mousePressed(MouseEvent e) {
+		if (!(this.shapeManipulator instanceof PolylineManipulator)) {
+			((PolylineManipulator) shapeManipulator).isDone();
+		}
 		this.shapeManipulator.operationPressed(e);
 		repaint();
 	}

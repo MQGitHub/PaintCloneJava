@@ -7,7 +7,6 @@ import java.awt.event.MouseEvent;
 public class PolylineManipulator extends ShapeManipulator{
 	
 	private Polyline polyline;
-
 	public PolylineManipulator(View view) {
 		super(view);
 	}
@@ -18,24 +17,14 @@ public class PolylineManipulator extends ShapeManipulator{
 		thick = pp.getThickness();
 		begin = new Point(color, thick, e.getX(), e.getY());
 		stroke = pp.getStroke();
-		if (this.polyline.getStartPoint() != this.polyline.getEndPoint()) {
-			Point newP = new Point(color, thick, e.getX(), e.getY());
-			this.polyline.setEndPoint(newP);
-			this.polyline.addPoint(this.polyline.getStartPoint());
-			this.polyline.setStartPoint(newP);
-			this.polyline.addPoint(this.polyline.getEndPoint());
-			if (!this.polyline.completedPolyline()) {
-				this.model.setDraw(this.polyline);
-			} else if (this.polyline.completedPolyline() && this.polyline.getNumPoints() > 2) {
-				this.model.addShape(this.polyline);
-				this.polyline = null;
-			} else {
-				this.polyline = null;
+		if (this.polyline == null) {
+			if (this.polyline == null) {
+				this.polyline = new Polyline(this.color, thick, true, begin, stroke);
+				this.polyline.setStartPoint(begin);
 			}
-
-		} else {
-			this.polyline = null;
 		}
+		this.polyline.setEndPoint(begin);
+		this.model.setDraw(this.polyline);
 	
 		
 	}
@@ -44,7 +33,7 @@ public class PolylineManipulator extends ShapeManipulator{
 	public void operationDragged(MouseEvent e) {
 		Point newP = new Point(color, thick, e.getX(), e.getY());
 		this.polyline.setEndPoint(newP);
-		this.model.setDraw(this.polyline);
+		
 	}
 
 	@Override
@@ -65,23 +54,28 @@ public class PolylineManipulator extends ShapeManipulator{
 				this.model.setDraw(this.polyline);
 			} else if (this.polyline.completedPolyline() && this.polyline.getNumPoints() > 2) {
 				this.model.addShape(this.polyline);
-				this.polyline = null;
+				//this.polyline = null;
 			} else {
-				this.polyline = null;
+				//this.polyline = null;
 			}
 
 		} else {
-			this.polyline = null;
+			//this.polyline = null;
 		}
 	}
 
 	@Override
 	public void operationMoved(MouseEvent e) {
+
+		
+	}
+	
+	public void isDone() {
 		if (this.polyline != null && !this.polyline.completedPolyline()) {
+			System.out.println("????");
 			this.polyline.Complete();
 			this.model.addShape(this.polyline);
 		}
-		
 	}
 	
 }

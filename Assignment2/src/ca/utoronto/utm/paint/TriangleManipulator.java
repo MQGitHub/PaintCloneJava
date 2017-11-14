@@ -20,15 +20,17 @@ public class TriangleManipulator extends ShapeManipulator{
 		fill = pp.getFilled();
 		stroke = pp.getStroke();
 		begin = new Point(color, thick, e.getX(), e.getY());
+		System.out.println(e.getX() +" " + e.getY());
 		this.triangle = new Triangle(color, thick, fill, begin, stroke);
-		
+		this.triangle.setBase(e.getX());
+		this.triangle.setHeight(e.getY());
+		this.model.setDraw(this.triangle);
 	}
 
 	@Override
 	public void operationDragged(MouseEvent e) {
 		this.triangle.setBase(e.getX());
 		this.triangle.setHeight(e.getY());
-		this.model.setDraw(this.triangle);
 	}
 
 	@Override

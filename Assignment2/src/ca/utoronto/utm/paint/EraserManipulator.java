@@ -21,6 +21,7 @@ public class EraserManipulator extends ShapeManipulator{
 		begin = new Point(e.getX(), e.getY());
 		this.eraser = new Eraser(color, begin);
 		this.eraser.moveto(begin);
+		this.model.setDraw(this.eraser);
 	}
 
 	@Override
@@ -28,7 +29,6 @@ public class EraserManipulator extends ShapeManipulator{
 		Point newP = new Point(color, thick, e.getX(), e.getY());
         this.eraser.lineto(newP);
         this.eraser.moveto(newP);
-        this.model.setDraw(this.eraser);
 	}
 
 	@Override

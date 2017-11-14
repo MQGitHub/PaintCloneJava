@@ -19,13 +19,13 @@ public class LineManipulator extends ShapeManipulator {
 		stroke = pp.getStroke();
 		begin = new Point(e.getX(), e.getY());
 		this.line = new Line(color, thick, false, begin, begin, stroke);	
+		this.model.setDraw(this.line);
 	}
 
 	@Override
 	public void operationDragged(MouseEvent e) {
 		end = new Point(e.getX(), e.getY());
-		this.line.setEndPoint(end);
-		this.model.setDraw(this.line);
+		this.line.setEndPoint(end);	
 	}
 
 	@Override

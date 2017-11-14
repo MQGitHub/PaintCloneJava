@@ -20,13 +20,15 @@ public class RightATriangleManipulator extends ShapeManipulator{
 		stroke = pp.getStroke();
 		begin = new Point(color, thick, e.getX(), e.getY());
 		rightATriangle = new RightAngleTriangle(color, thick, fill, begin, stroke);
+		this.rightATriangle.setBase(e.getX());
+		this.rightATriangle.setHeight(e.getY());
+		this.model.setDraw(this.rightATriangle);
 	}
 
 	@Override
 	public void operationDragged(MouseEvent e) {
 		this.rightATriangle.setBase(e.getX());
 		this.rightATriangle.setHeight(e.getY());
-		this.model.setDraw(this.rightATriangle);
 	}
 
 	@Override

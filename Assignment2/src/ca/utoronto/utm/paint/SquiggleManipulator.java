@@ -22,6 +22,7 @@ public class SquiggleManipulator extends ShapeManipulator{
 		begin = new Point(e.getX(), e.getY());
 		this.squiggle = new Squiggle(color, thick, false, begin, stroke);
 		this.squiggle.moveto(begin);
+		this.model.setDraw(this.squiggle);	
 	}
 
 	@Override
@@ -29,7 +30,8 @@ public class SquiggleManipulator extends ShapeManipulator{
 		Point newP = new Point(color, thick, e.getX(), e.getY());
         this.squiggle.lineto(newP);
         this.squiggle.moveto(newP);
-        this.model.setDraw(this.squiggle);	}
+        this.model.setDraw(this.squiggle);	
+    }
 
 	@Override
 	public void operationClicked(MouseEvent e) {
