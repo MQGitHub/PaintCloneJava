@@ -8,7 +8,7 @@ public abstract class ShapeManipulator {
 	protected PaintPanel pp;
 	protected Color color;
 	protected int thick;
-	protected boolean fill;
+	protected int fill;
 	protected Point begin,end;
 	protected PaintModel model;
 	protected BasicStroke stroke;

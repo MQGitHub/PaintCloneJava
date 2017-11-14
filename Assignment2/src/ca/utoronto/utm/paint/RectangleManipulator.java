@@ -17,7 +17,7 @@ public class RectangleManipulator extends ShapeManipulator {
 	public void operationPressed(MouseEvent e) {
 		color = pp.getColor();
 		thick = pp.getThickness();
-		fill = pp.getFilled();
+		fill = pp.getOpacity();
 		stroke = pp.getStroke();
 		begin = new Point(e.getX(), e.getY());
 		this.rectangle = new Rectangle(color, thick, fill, begin, 0, 0, stroke);

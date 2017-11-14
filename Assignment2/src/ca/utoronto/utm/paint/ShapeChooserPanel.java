@@ -29,8 +29,8 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 	 */
 	public ShapeChooserPanel(View view) {
 		this.view = view;
-		String[] buttonLabels = {"squiggle", "line", "circle", "oval", "rectangle", "square", "triangle", "rightAngleTriangle",
-				"polyline", "eraser", "text" };
+		String[] buttonLabels = { "squiggle", "line", "circle", "oval", "rectangle", "square", "triangle",
+				"rightAngleTriangle", "polyline", "eraser", "text" };
 		ButtonGroup group = new ButtonGroup();
 		this.setLayout(new FlowLayout());
 		for (String label : buttonLabels) {
@@ -43,7 +43,7 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 			group.add(button);
 			this.add(button);
 			button.addActionListener(this);
-			if(label == "squiggle") {
+			if (label == "squiggle") {
 				button.setSelected(true);
 			}
 		}
@@ -54,12 +54,9 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 		LineThicknessChooser t = new LineThicknessChooser(this.view);
 		this.add(t.lineThicknessMenu());
 
-		JRadioButton fill = new JRadioButton("Fill Shape");
-		fill.setFocusable(false);
-		fill.addActionListener(this);
-		this.add(fill);
-		
-		
+		FillChooser fill = new FillChooser(this.view);
+		this.add(fill.fillSelector());
+
 	}
 
 	/**
@@ -67,16 +64,10 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getActionCommand() == "Fill Shape") {
-			JRadioButton x = (JRadioButton) e.getSource();
-			this.view.getPaintPanel().setFill(x.isSelected());
-		} else {
-			JToggleButton y = (JToggleButton) e.getSource();
-			ShapeFactory s = new ShapeFactory();
-			if(s.getShape(this.view, y.getToolTipText()) != null){
-			this.view.getPaintPanel().setShape(s.getShape(this.view ,y.getToolTipText()));
-			}
-			
+		JToggleButton y = (JToggleButton) e.getSource();
+		ShapeFactory s = new ShapeFactory();
+		if (s.getShape(this.view, y.getToolTipText()) != null) {
+			this.view.getPaintPanel().setShape(s.getShape(this.view, y.getToolTipText())); 
 		}
 	}
 }

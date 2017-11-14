@@ -1,5 +1,6 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -7,8 +8,8 @@ import java.awt.Polygon;
 
 public class RightAngleTriangle extends Triangle{
 
-	public RightAngleTriangle(Color c, int thick, Boolean b, Point corner, BasicStroke stroke) {
-		super(c, thick, b, corner, stroke);
+	public RightAngleTriangle(Color c, int thick, int fill, Point corner, BasicStroke stroke) {
+		super(c, thick, fill, corner, stroke);
 	}
 	
 	@Override
@@ -17,13 +18,15 @@ public class RightAngleTriangle extends Triangle{
 		int y = this.getCorner().getY();
 		int height = this.getHeight();
 		int base = this.getBase();
+		int i = this.fillAmt();
 		g2d.setColor(this.getColor());
 		g2d.setStroke(this.getStroke());
 		Polygon p = new Polygon();
 		p.addPoint(x, y);
 		p.addPoint(x, height);
 		p.addPoint(base, height);
-		if (this.isFilled()) {
+		if (i > 0) {
+			g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, i* 0.1f));
 			g2d.fillPolygon(p);
 		} else {
 			g2d.drawPolygon(p);

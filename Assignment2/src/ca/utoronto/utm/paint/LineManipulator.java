@@ -15,10 +15,9 @@ public class LineManipulator extends ShapeManipulator {
 	public void operationPressed(MouseEvent e) {
 		color = pp.getColor();
 		thick = pp.getThickness();
-		fill = pp.getFilled();
 		stroke = pp.getStroke();
 		begin = new Point(e.getX(), e.getY());
-		this.line = new Line(color, thick, false, begin, begin, stroke);	
+		this.line = new Line(color, thick, 0, begin, begin, stroke);	
 		this.model.setDraw(this.line);
 	}
 

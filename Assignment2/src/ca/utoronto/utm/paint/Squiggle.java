@@ -26,7 +26,7 @@ public class Squiggle extends Shape {
 	 *  @param points  All of the points squiggled on. 
 	 *  @see  		   Shape. 
 	 */
-	public Squiggle(Color c, int thick, boolean fill, Point startP, BasicStroke stroke) {
+	public Squiggle(Color c, int thick, int fill, Point startP, BasicStroke stroke) {
 		super(c, thick, fill, startP, stroke);
 		this.path = new Path2D.Double();
 	}

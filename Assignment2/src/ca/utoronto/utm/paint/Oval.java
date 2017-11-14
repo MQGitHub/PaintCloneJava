@@ -1,5 +1,6 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -25,7 +26,7 @@ public class Oval extends Shape{
 	 * @param height Height of the Oval.
 	 * @param stroke 
 	 */
-	public Oval(Color c, int t, Boolean b,  Point corner, int width, int height, BasicStroke stroke){
+	public Oval(Color c, int t, int b,  Point corner, int width, int height, BasicStroke stroke){
 		super(c, t, b, corner, stroke);
 		this.width = width;
 		this.height = height;
@@ -68,9 +69,11 @@ public class Oval extends Shape{
 		int y = this.getCorner().getY();
 		int height = this.getHeight();
 		int width = this.getWidth();
+		int i = this.fillAmt();
 		g2d.setColor(this.getColor());
 		g2d.setStroke(this.getStroke());
-		if (this.isFilled()) {
+		if (i > 0) {
+			g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, i* 0.1f));
 			g2d.fillOval(x, y, width, height);
 		} else {
 			g2d.drawOval(x, y, width, height);

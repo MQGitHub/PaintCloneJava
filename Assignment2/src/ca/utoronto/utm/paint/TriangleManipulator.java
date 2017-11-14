@@ -17,7 +17,7 @@ public class TriangleManipulator extends ShapeManipulator{
 	public void operationPressed(MouseEvent e) {
 		color = pp.getColor();
 		thick = pp.getThickness();
-		fill = pp.getFilled();
+		fill = pp.getOpacity();
 		stroke = pp.getStroke();
 		begin = new Point(color, thick, e.getX(), e.getY());
 		System.out.println(e.getX() +" " + e.getY());

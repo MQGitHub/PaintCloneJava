@@ -28,7 +28,7 @@ public class Line extends Shape{
 	 * @param stroke 
 	 * @see Shape
 	 */
-	public Line(Color c, int t, Boolean b, Point begin, Point end, BasicStroke stroke) {
+	public Line(Color c, int t, int b, Point begin, Point end, BasicStroke stroke) {
 		super(c, t, b, begin, stroke);
 		this.end = end;
 	}

@@ -1,5 +1,6 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -23,14 +24,14 @@ public class Triangle extends Shape{
 	 *            The color the shape is
 	 * @param t
 	 *            The thickness the shape is
-	 * @param b
+	 * @param fill
 	 *            The fill of the shape
 	 * @param stroke 
 	 * @param start
 	 *            The beginning point of the shape
 	 */
-	public Triangle(Color c, int thick, Boolean b, Point corner, BasicStroke stroke) {
-		super(c, thick, b, corner, stroke);
+	public Triangle(Color c, int thick, int fill, Point corner, BasicStroke stroke) {
+		super(c, thick, fill, corner, stroke);
 	}
 	
 	/**
@@ -78,11 +79,13 @@ public class Triangle extends Shape{
 		int base = this.getBase();
 		g2d.setColor(this.getColor());
 		g2d.setStroke(this.getStroke());
+		int i = this.fillAmt();
 		Polygon p = new Polygon();
 		p.addPoint((x + base)/ 2, y);
 		p.addPoint(x, height);
 		p.addPoint(base, height);
-		if (this.isFilled()) {
+		if ( i > 0) {
+			g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, i* 0.1f));
 			g2d.fillPolygon(p);
 		} else {
 			g2d.drawPolygon(p);

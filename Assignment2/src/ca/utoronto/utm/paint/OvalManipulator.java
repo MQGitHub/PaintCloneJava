@@ -14,7 +14,7 @@ public class OvalManipulator extends ShapeManipulator{
 	public void operationPressed(MouseEvent e) {
 		Color c = pp.getColor();
 		thick = pp.getThickness();
-		fill = pp.getFilled();
+		fill = pp.getOpacity();
 		stroke = pp.getStroke();
 		begin = new Point(e.getX(), e.getY());
 		this.oval = new Oval(c, thick, fill, begin, 0, 0, stroke);

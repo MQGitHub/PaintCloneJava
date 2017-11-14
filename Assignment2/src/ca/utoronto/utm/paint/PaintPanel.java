@@ -21,7 +21,6 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private View view; // So we can talk to our parent or other components of the view
 
 
-	private boolean filled;
 	private Color colour;// keeps track of the current color
 	private Color background; // keeps track of background color
 	private int thickness; // sets the thickness of the line
@@ -31,6 +30,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private Shape toDraw;
 	private BasicStroke stroke;
 	private ShapeManipulator shapeManipulator;
+	private int opacity;
 
 	
 	public PaintPanel(PaintModel model, View view) {
@@ -88,15 +88,6 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	}
 
 	/**
-	 * Set shape should be filled or not
-	 * 
-	 * @param fill
-	 */
-	public void setFill(boolean fill) {
-		this.filled = fill;
-	}
-
-	/**
 	 * Set font of text
 	 * 
 	 * @param font
@@ -124,6 +115,15 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		this.colour = colour;
 	}
 	/**
+	 * Set opacity of shape.
+	 * 
+	 * @param colour
+	 */
+	public void setOpacity(int value) {
+		this.opacity = value;
+	}
+	
+	/**
 	 * Set thickness and stroke style of shape border.
 	 * 
 	 * @param stroke
@@ -146,18 +146,18 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	
 	/**
 	 * 
-	 * @return chosen thickness
+	 * @return chosen opacity
 	 */
-	public int getThickness() {
-		return this.thickness;
+	public int getOpacity() {
+		return this.opacity;
 	}
 	
 	/**
 	 * 
-	 * @return if shape should be filled
+	 * @return chosen thickness
 	 */
-	public boolean getFilled() {
-		return this.filled;
+	public int getThickness() {
+		return this.thickness;
 	}
 
 
@@ -218,4 +218,5 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	@Override
 	public void mouseExited(MouseEvent e) {
 	}
+	
 }
