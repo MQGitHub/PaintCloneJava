@@ -467,6 +467,14 @@ ISSUE    : The current design for eraser does not fit with the design pattern
 in place for other shapes.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : BUG 12 lakhtak1
+NAME     : Stroke Design to implement Factory Design Pattern
+OWNER    : Radhika Lakhtakia
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : The current design for stroke can be implemented better
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 2.1 : UTORID
 NAME     : Architecture for drawing shapes can be improved
 OWNER    : Hannage6
