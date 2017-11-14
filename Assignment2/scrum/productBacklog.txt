@@ -4,14 +4,7 @@
 # 1 Color chooser UI (which could be a USER STORY)
 # 2 Implementation of selected color into the drawing stream.
 
---------------------------------------------------------------------------
-TYPE     : BUG 12 lakhtak1
-NAME     : Stroke Design to implement Factory Design Pattern
-OWNER    : Radhika Lakhtakia
-PRIORITY : 1
-ESTIMATE : 3 hours
-ISSUE    : The current design for stroke can be implemented better
---------------------------------------------------------------------------
+
 --------------------------------------------------------------------------
 TYPE     : USER STORY 24
 NAME     : Airbrush / Spraycan
@@ -22,20 +15,6 @@ AS A     : user
 I WANT   : As a user I want to have an airbrush.
 SO THAT  : I can pretend I am a graffiti artist and live in the mean streets
 		   of Lyari
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 2.2 : UTORID
-NAME     : Architecture for handling shape modifiers can be improved 
-OWNER    : 
-PRIORITY :
-ESTIMATE : 
-ISSUE    : The architecture can be improved if we implement the Command Design 
-Pattern to handle changes to the graphics contex such as changing drawing 
-color, stroke width etc. You can accomplished this by wrapping the changes
-to the graphics context in a DrawingCommand. This way these changes can be
-added to the Bug 2.1 DrawingCommand list. That is, these new types of 
-DrawingCommands appear on PaintPanel's list right along side 
-the Shape type DrawingCommands.
 --------------------------------------------------------------------------
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
@@ -489,6 +468,14 @@ ISSUE    : The current design for eraser does not fit with the design pattern
 in place for other shapes.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : BUG 12 lakhtak1
+NAME     : Stroke Design to implement Factory Design Pattern
+OWNER    : Radhika Lakhtakia
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : The current design for stroke can be implemented better
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 2.1 : UTORID
 NAME     : Architecture for drawing shapes can be improved
 OWNER    : Hannage6
@@ -550,6 +537,23 @@ to the graphics context in a DrawingCommand. This way these changes can be
 added to the Bug 2.1 DrawingCommand list. That is, these new types of 
 DrawingCommands appear on PaintPanel's list right along side 
 the Shape type DrawingCommands.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 2.3 : lakhtak1
+NAME     : Architecture behind choosing drawing mode is poor
+OWNER    : Radhika L
+PRIORITY : 1
+ESTIMATE : 2 hours
+ISSUE    : A better architecture behind selecting a drawing mode can be created 
+by implementing the Factory Design Pattern as follows:
+
+The factory design pattern should be used by the paint buttons. 
+The factory is responsible for creating different ShapeManipulatorStrategy 
+instances (see BUG 2.4). That is, when a button is pressed, the appropriate 
+ShapeManipulatorStrategy is created and installed in the PaintPanel. 
+Note that you can associate text with a button, even if you 
+display an ImageIcon. The string attached to the button causes the right choice 
+of object creation.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 2.4 : UTORID
