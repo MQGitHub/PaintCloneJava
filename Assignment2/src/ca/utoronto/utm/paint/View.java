@@ -35,7 +35,7 @@ public class View extends JFrame implements ActionListener {
 				int pane = JOptionPane.showOptionDialog(null, "Do you want to exit the application?", "Confirm Exit",
 						JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 				if (pane == JOptionPane.YES_OPTION) {
-					System.exit(0);
+					dispose();
 				}
 			}
 		});
@@ -171,7 +171,7 @@ public class View extends JFrame implements ActionListener {
 			int pane = JOptionPane.showOptionDialog(null, "Do you want to exit the application?", "Confirm Exit",
 					JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 			if (pane == JOptionPane.YES_OPTION) {
-				System.exit(0);
+				this.dispose();
 			}
 		}else if (e.getActionCommand() == "New") {
 			new Paint();
