@@ -27,6 +27,17 @@ I WANT   : As a user I want to have a polygon drawer and want polyline to be a p
 SO THAT  : I can pretend I'm Picasso and do some Cubism and 
 have a polyline that does not close automatically.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 29 lakhtak1
+NAME     : Text Rotator
+OWNER    : Radhika Lakhtakia 
+PRIORITY : 1 
+ESTIMATE : 1 hour.
+AS A     : user
+I WANT   : As a user I want to be able to write text in different directions.
+SO THAT  : I can draw text in different directions.
+>>>>>>> branch 'master' of https://mcsscm.utm.utoronto.ca/git/207/repo_a2_jawaBweanz.git
+--------------------------------------------------------------------------
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
 TYPE     : USER STORY 1
