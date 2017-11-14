@@ -54,14 +54,17 @@ public class PolylineManipulator extends ShapeManipulator{
 				this.model.setDraw(this.polyline);
 			} else if (this.polyline.completedPolyline() && this.polyline.getNumPoints() > 2) {
 				this.model.addShape(this.polyline);
+				//this.polyline = null;
+			} else {
+				//this.polyline = null;
 			}
 
+		} else {
+			//this.polyline = null;
 		}
 	}
 
 	@Override
 	public void operationMoved(MouseEvent e) {
-
-		
 	}
 }

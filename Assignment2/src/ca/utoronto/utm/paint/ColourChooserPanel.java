@@ -36,8 +36,10 @@ class ColourChooserPanel extends JPanel implements ActionListener, ChangeListene
 		this.panelHider = new JToggleButton("Colour Panel");
 		this.pcc.setPreviewPanel(new JPanel());
 		this.pcc.getSelectionModel().addChangeListener(this);
-		this.pcc.setVisible(true);
+		this.pcc.setVisible(false);
 		this.panelHider.addActionListener(this);
+		this.pcc.setFocusable(false);
+		this.panelHider.setFocusable(false);
 		this.add(this.panelHider);
 		this.add(this.pcc);
 	}
@@ -48,9 +50,9 @@ class ColourChooserPanel extends JPanel implements ActionListener, ChangeListene
 	public void actionPerformed(ActionEvent e) {
 		JToggleButton btn = (JToggleButton)e.getSource();
 		if (btn.isSelected()) {
-			this.pcc.setVisible(false);
+			this.pcc.setVisible(true);
          } else {
-        	 this.pcc.setVisible(true);
+        	 this.pcc.setVisible(false);
          }
 	}
 

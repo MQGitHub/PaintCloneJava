@@ -16,17 +16,6 @@ I WANT   : As a user I want to have an airbrush.
 SO THAT  : I can pretend I am a graffiti artist and live in the mean streets
 		   of Lyari
 --------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : USER STORY 25
-NAME     : KeyBindings.
-OWNER    : hannage6
-PRIORITY : 10
-ESTIMATE : 4 hour.
-AS A     : user
-I WANT   : As a user i want to be able to press specific keys to activate commands 
-		   from the JMenu
-SO THAT  : I can run commands without scrolling to the JMenu and clicking the action I want.
---------------------------------------------------------------------------
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
 TYPE     : USER STORY 1
@@ -594,6 +583,17 @@ This strategy can be put in place either by having PaintPanel's mouse
 events forwarded through PaintPanel into the current strategy, or by 
 simply switching the PaintPanel's listeners as appropriate.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 25
+NAME     : KeyBindings.
+OWNER    : hannage6
+PRIORITY : 10
+ESTIMATE : 4 hour.
+AS A     : user
+I WANT   : As a user i want to be able to press specific keys to activate commands 
+		   from the JMenu
+SO THAT  : I can run commands without scrolling to the JMenu and clicking the action i want.
+--------------------------------------------------------------------------
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 --------------------------------------------------------------------------
 TYPE     : BUG 3
@@ -609,7 +609,7 @@ ISSUE    : Code is not modular and is difficult to expand. Need a better
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 14
-NAME     : Color Picker
+NAME     : BackGround Picker
 OWNER    : 
 PRIORITY : 
 ESTIMATE : 

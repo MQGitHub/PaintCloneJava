@@ -39,7 +39,6 @@ public class View extends JFrame implements ActionListener {
 				}
 			}
 		});
-		
 		this.setJMenuBar(createMenuBar());
 
 		Container c = this.getContentPane();
@@ -56,7 +55,6 @@ public class View extends JFrame implements ActionListener {
 		this.paintPanel = new PaintPanel(model, this);
 		this.paintPanel.setShape(new SquiggleManipulator(this));
 		c.add(this.paintPanel, BorderLayout.CENTER);
-
 		this.pack();
 		// this.setSize(200,200);
 		this.setVisible(true);
@@ -83,55 +81,82 @@ public class View extends JFrame implements ActionListener {
 
 		// a group of JMenuItems
 		menuItem = new JMenuItem("New");
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(
+		        KeyEvent.VK_N, ActionEvent.CTRL_MASK));
 		menuItem.addActionListener(this);
 		menu.add(menuItem);
 
 		menuItem = new JMenuItem("Open");
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(
+		        KeyEvent.VK_O, ActionEvent.CTRL_MASK));
 		menuItem.addActionListener(this);
 		menu.add(menuItem);
 
 		menuItem = new JMenuItem("Save");
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(
+		        KeyEvent.VK_S, ActionEvent.CTRL_MASK));
 		menuItem.addActionListener(this);
 		menu.add(menuItem);
 
 		menu.addSeparator();// -------------
 
 		menuItem = new JMenuItem("Exit");
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(
+		        KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
 		menuItem.addActionListener(this);
 		menu.add(menuItem);
 
 		menuBar.add(menu);
 
 		menu = new JMenu("Edit");
+		
 
 		// a group of JMenuItems
 		menuItem = new JMenuItem("Cut");
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(
+		        KeyEvent.VK_X, ActionEvent.CTRL_MASK));
 		menuItem.addActionListener(this);
 		menu.add(menuItem);
 
 		menuItem = new JMenuItem("Copy");
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(
+		        KeyEvent.VK_C, ActionEvent.CTRL_MASK));
 		menuItem.addActionListener(this);
 		menu.add(menuItem);
 
 		menuItem = new JMenuItem("Paste");
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(
+		        KeyEvent.VK_V, ActionEvent.CTRL_MASK));
 		menuItem.addActionListener(this);
 		menu.add(menuItem);
 
 		menu.addSeparator();// -------------
 
 		menuItem = new JMenuItem("Undo");
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(
+		        KeyEvent.VK_Z, ActionEvent.CTRL_MASK));
+		menuItem.setActionCommand("Undo");
 		menuItem.addActionListener(this);
 		menu.add(menuItem);
 
 		menuItem = new JMenuItem("Redo");
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(
+		        KeyEvent.VK_Y, ActionEvent.CTRL_MASK));
+		menuItem.setActionCommand("Redo");
 		menuItem.addActionListener(this);
 		menu.add(menuItem);
 		
 		menuItem = new JMenuItem("Clear");
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(
+		        KeyEvent.VK_E, ActionEvent.CTRL_MASK));
+		menuItem.setActionCommand("Clear");
 		menuItem.addActionListener(this);
 		menu.add(menuItem);
 
-		menuItem = new JMenuItem("Clear All");
+		menuItem = new JMenuItem("Reset");
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(
+		        KeyEvent.VK_R, ActionEvent.CTRL_MASK));
+		menuItem.setActionCommand("Reset");
 		menuItem.addActionListener(this);
 		menu.add(menuItem);
 
@@ -148,7 +173,8 @@ public class View extends JFrame implements ActionListener {
 			if (pane == JOptionPane.YES_OPTION) {
 				System.exit(0);
 			}
-			
+		}else if (e.getActionCommand() == "New") {
+			new Paint();
 		} else if (e.getActionCommand() == "Undo") {
 			this.model.Undo();
 			
@@ -158,8 +184,13 @@ public class View extends JFrame implements ActionListener {
 		} else if (e.getActionCommand() == "Clear") {
 			this.model.Clear();
 			
-		} else if (e.getActionCommand() == "Clear All") {
-			this.model.clearAll();
+		} else if (e.getActionCommand() == "Reset") {
+			Object[] options = { "YES", "NO" };
+			int pane = JOptionPane.showOptionDialog(null, "Do you want to reset your canvas? \n this can not be undone.", "Confirm Exit",
+					JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+			if (pane == JOptionPane.YES_OPTION) {
+				this.model.clearAll();
+			}
 		}
 
 	}

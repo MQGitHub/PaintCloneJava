@@ -583,3 +583,14 @@ events forwarded through PaintPanel into the current strategy, or by
 simply switching the PaintPanel's listeners as appropriate.
 
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 25
+NAME     : KeyBindings.
+OWNER    : hannage6
+PRIORITY : 10
+ESTIMATE : 4 hour.
+AS A     : user
+I WANT   : As a user i want to be able to press specific keys to activate commands 
+		   from the JMenu
+SO THAT  : I can run commands without scrolling to the JMenu and clicking the action i want.
+--------------------------------------------------------------------------
