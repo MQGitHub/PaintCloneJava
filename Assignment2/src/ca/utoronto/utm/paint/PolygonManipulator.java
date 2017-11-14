@@ -26,7 +26,7 @@ public class PolygonManipulator extends ShapeManipulator{
         }
 		if (this.polygon == null) {
 			if (this.polygon == null) {
-				this.polygon = new Polygon(this.color, thick, false, begin, stroke);
+				this.polygon = new Polygon(this.color, thick, true, begin, stroke);
 				this.polygon.setStartPoint(begin);
 			}
 		}
