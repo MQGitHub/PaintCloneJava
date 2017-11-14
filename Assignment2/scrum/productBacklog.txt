@@ -4,6 +4,7 @@
 # 1 Color chooser UI (which could be a USER STORY)
 # 2 Implementation of selected color into the drawing stream.
 
+
 --------------------------------------------------------------------------
 TYPE     : USER STORY 24
 NAME     : Airbrush / Spraycan
@@ -475,6 +476,14 @@ ESTIMATE : 3 hours
 ISSUE    : The current design for stroke can be implemented better
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : BUG 13 qures304
+NAME     : Polyline does not work well with new strategy
+OWNER    : Mateen Qureshi
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : The current polyline does not close or work with new design pattern
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 2.1 : UTORID
 NAME     : Architecture for drawing shapes can be improved
 OWNER    : Hannage6
@@ -592,16 +601,6 @@ AS A     : user
 I WANT   : As a user i want to be able to press specific keys to activate commands 
 		   from the JMenu
 SO THAT  : I can run commands without scrolling to the JMenu and clicking the action i want.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : USER STORY 27
-NAME     : Fill different opacity levels
-OWNER    : Radhika Lakhtakia 
-PRIORITY : 1 
-ESTIMATE : 1 hour.
-AS A     : user
-I WANT   : As a user I want to have a semi-transparent shape.
-SO THAT  : I can draw shapes of different opacity levels
 --------------------------------------------------------------------------
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 --------------------------------------------------------------------------
