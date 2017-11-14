@@ -20,7 +20,6 @@ public class TriangleManipulator extends ShapeManipulator{
 		fill = pp.getOpacity();
 		stroke = pp.getStroke();
 		begin = new Point(color, thick, e.getX(), e.getY());
-		System.out.println(e.getX() +" " + e.getY());
 		this.triangle = new Triangle(color, thick, fill, begin, stroke);
 		this.triangle.setBase(e.getX());
 		this.triangle.setHeight(e.getY());

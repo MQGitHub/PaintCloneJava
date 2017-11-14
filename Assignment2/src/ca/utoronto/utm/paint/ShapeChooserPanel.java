@@ -19,8 +19,7 @@ import java.util.List;
  */
 class ShapeChooserPanel extends JPanel implements ActionListener {
 	private View view; // So we can talk to our parent or other components of the view
-	private String c;
-
+	private ColourChooserPanel colourChooserPanel;
 	/**
 	 * Create the ShapeChooserPanel and attach the view to the panel.
 	 * 
@@ -56,6 +55,9 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 
 		FillChooser fill = new FillChooser(this.view);
 		this.add(fill.fillSelector());
+		
+		this.colourChooserPanel = new ColourChooserPanel(view);
+		this.add(colourChooserPanel);
 
 	}
 

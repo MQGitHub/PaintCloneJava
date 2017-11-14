@@ -48,7 +48,6 @@ public class View extends JFrame implements ActionListener {
 		this.shapeChooserPanel = new ShapeChooserPanel(this);
 		this.colourChooserPanel = new ColourChooserPanel(this);
 		c.add(this.shapeChooserPanel, BorderLayout.NORTH);
-		c.add(this.colourChooserPanel, BorderLayout.SOUTH);
 
 		this.model = model;
 
@@ -57,6 +56,7 @@ public class View extends JFrame implements ActionListener {
 		c.add(this.paintPanel, BorderLayout.CENTER);
 		this.pack();
 		// this.setSize(200,200);
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 		this.setVisible(true);
 	}
 
