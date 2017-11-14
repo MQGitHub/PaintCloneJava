@@ -16,6 +16,16 @@ I WANT   : As a user I want to have an airbrush.
 SO THAT  : I can pretend I am a graffiti artist and live in the mean streets
 		   of Lyari
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 28
+NAME     : Polygon
+OWNER    : Mateen Qureshi 
+PRIORITY : 1 
+ESTIMATE : 1 hour.
+AS A     : user
+I WANT   : As a user I want to have a polygon drawer.
+SO THAT  : I can pretend I'm Picasso and do some Cubism.
+--------------------------------------------------------------------------
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
 TYPE     : USER STORY 1
