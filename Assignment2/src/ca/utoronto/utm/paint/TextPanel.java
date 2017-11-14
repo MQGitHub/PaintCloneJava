@@ -1,5 +1,6 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
@@ -18,7 +19,7 @@ import javax.swing.event.ChangeListener;
  */
 public class TextPanel extends JTextArea implements ActionListener, ChangeListener {
 	private View view;
-	private JMenuBar c;
+	private JMenuBar menuBar;
 	private JMenu font;
 
 	/**
@@ -36,10 +37,9 @@ public class TextPanel extends JTextArea implements ActionListener, ChangeListen
 	 * @return JMenuBar with two sub-menus.
 	 */
 	public JMenuBar textBar() {
-		this.c = new JMenuBar();
+		this.menuBar = new JMenuBar();
 		JMenu b = new JMenu("Text Editor");
-		b.setLayout(new GridLayout(0, 1));
-
+		b.setOpaque(true);
 		font = new JMenu("Font: Arial Narrow");
 		String fonts[] = 
 			      GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
@@ -70,9 +70,9 @@ public class TextPanel extends JTextArea implements ActionListener, ChangeListen
 		size.add(s);
 		b.add(size);
 
-		c.add(b);
+		menuBar.add(b);
 
-		return c;
+		return menuBar;
 	}
 
 	/**

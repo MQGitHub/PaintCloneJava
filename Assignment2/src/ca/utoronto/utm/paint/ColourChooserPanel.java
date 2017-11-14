@@ -36,6 +36,7 @@ class ColourChooserPanel extends JPanel implements ActionListener, ChangeListene
 		this.panelHider = new JToggleButton("Colour Panel");
 		this.pcc.setPreviewPanel(new JPanel());
 		this.pcc.getSelectionModel().addChangeListener(this);
+		this.pcc.setVisible(true);
 		this.panelHider.addActionListener(this);
 		this.add(this.panelHider);
 		this.add(this.pcc);
@@ -58,6 +59,8 @@ class ColourChooserPanel extends JPanel implements ActionListener, ChangeListene
 	 * @param colour color to set text
 	 */
 	public void updateButtonColor(Color colour) {
+		this.panelHider.setOpaque(true);
+		this.panelHider.setBackground(colour);
 		this.panelHider.setForeground(colour);
 	}
 
