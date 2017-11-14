@@ -40,8 +40,8 @@ public class TextBoxManipulator extends ShapeManipulator {
 		stroke = pp.getStroke();
 		this.model.addShape(new Square(c, thick, fill, new Point(-2,-2), 1, stroke));
 		begin = new Point(c, thick, e.getX(), e.getY());
-		String prompt = "Please add text to display";
-		String input = JOptionPane.showInputDialog(this, prompt);
+		String prompt = "Please add text to display.";
+		String input = JOptionPane.showInputDialog(prompt);
 		if (input == null) {
 			input = " ";
 		}

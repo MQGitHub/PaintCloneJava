@@ -44,6 +44,7 @@ public class LineThicknessChooser implements ChangeListener, ActionListener {
 
 		JMenuBar b = new JMenuBar();
 		JMenu line = new JMenu("Line Modifiers");
+		line.setOpaque(true);
 
 		JMenu lt = new JMenu("Line Thickness");
 		JSlider thickness = new JSlider(0, 10, 0);

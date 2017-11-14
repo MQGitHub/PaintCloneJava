@@ -29,10 +29,10 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 	 */
 	public ShapeChooserPanel(View view) {
 		this.view = view;
-		String[] buttonLabels = { "circle", "oval", "rectangle", "square", "triangle", "rightAngleTriangle", "squiggle",
-				"polyline", "line", "eraser", "text" };
+		String[] buttonLabels = {"squiggle", "line", "circle", "oval", "rectangle", "square", "triangle", "rightAngleTriangle",
+				"polyline", "eraser", "text" };
 		ButtonGroup group = new ButtonGroup();
-		this.setLayout(new GridLayout(buttonLabels.length + 3, 1));
+		this.setLayout(new FlowLayout());
 		for (String label : buttonLabels) {
 			ImageIcon x = new ImageIcon(getClass().getResource(label + ".png"));
 			Image image = x.getImage();
@@ -56,6 +56,8 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 		JRadioButton fill = new JRadioButton("Fill Shape");
 		fill.addActionListener(this);
 		this.add(fill);
+		
+		
 	}
 
 	/**
