@@ -1,5 +1,6 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -16,9 +17,11 @@ public class Polyline extends Shape {
 	private ArrayList<Integer> xPoints;
 	private ArrayList<Integer> yPoints;
 	private int numPoints;
+	private double radius;
 	private Point startPoint;
 	private Point endPoint;
-
+	private Point firstPoint;
+	
 	/**
 	 * Constructs a shape of type Oval with a specific color, 
 	 * thickness, is filled, start.
@@ -40,6 +43,10 @@ public class Polyline extends Shape {
 		this.xPoints = new ArrayList<Integer>();
 		this.yPoints = new ArrayList<Integer>();
 		this.numPoints = 0;
+		this.startPoint = start;
+		this.radius = Math.sqrt(18); // increasing the radius to make it easier to finish the polyline.
+		this.firstPoint = start;
+//		
 	}
 
 	/**
@@ -85,6 +92,9 @@ public class Polyline extends Shape {
 	public boolean completedPolyline() {
 		if (this.points.size() > 2 && this.points.get(0).getX() == this.points.get(this.points.size() - 1).getX()
 				&& this.points.get(0).getY() == this.points.get(this.points.size() - 1).getY()) {
+			return true;
+		} else if (this.inRadius(this.points.get(this.points.size() - 1))) {
+			this.points.set(this.points.size()-1, this.points.get(0));
 			return true;
 		} else {
 			return false;
@@ -145,10 +155,18 @@ public class Polyline extends Shape {
 		return this.endPoint;
 	}
 	
+//<<<<<<< HEAD
 	public void Complete() {
 		if (this.points.size() > 2 && !this.completedPolyline()) {
 			this.addPoint(this.points.get(0));
 		}
+	}
+//=======
+	public boolean inRadius(Point p) {
+		double distance = Math.abs(Math.sqrt(Math.pow((this.firstPoint.getX() - p.getX()), 2) 
+				+ Math.pow((this.firstPoint.getY()- p.getY()), 2)));
+		return distance < radius;
+//>>>>>>> refs/heads/UserStory15
 	}
 
 	@Override
@@ -168,6 +186,12 @@ public class Polyline extends Shape {
 			int arrXPoints [] = xPoints.stream().mapToInt(Integer::intValue).toArray();
 			int arrYPoints [] = yPoints.stream().mapToInt(Integer::intValue).toArray();
 			g2d.drawPolyline(arrXPoints, arrYPoints, numPoints);
+			if(this.fillAmt() > 0 && inRadius(p2)) { 
+				g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, this.fillAmt()* 0.1f));
+				g2d.fillPolygon(arrXPoints,arrYPoints, numPoints);
+			}
+			
+	
 		}
 	}
 
