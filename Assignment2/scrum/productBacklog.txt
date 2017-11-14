@@ -291,13 +291,36 @@ SO THAT  : I can undo what I did if I don't want it.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 19
-NAME     : Zoom in and out.
+NAME     : Select and Paste.
 OWNER    : khanha46
 PRIORITY : 1
-ESTIMATE : 3 hours
+ESTIMATE : 1 hours
 AS A     : user
-I WANT   : to zoom in and out
-SO THAT  : I can be more precise with my drawing.
+I WANT   : to select shapes
+SO THAT  : I can later move them.
+*Note that USER STORY 19 previously was copy and paste, and before that
+was zoom in and out. This was changed for reasons found on 
+dailyScrumMeeting3.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 19.1
+NAME     : Select and Paste.
+OWNER    : khanha46
+PRIORITY : 1
+ESTIMATE : 1 hours
+AS A     : user
+I WANT   : See what I am selecting with a rectangle.
+SO THAT  : I can know what shapes are and are not selected.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 19.2
+NAME     : Select and Paste.
+OWNER    : khanha46
+PRIORITY : 1
+ESTIMATE : 1 hours
+AS A     : user
+I WANT   : paste or move the selected shapes 
+SO THAT  : move my drawings around.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 20.1 lakhtak1
@@ -492,6 +515,16 @@ OWNER    : Mateen Qureshi
 PRIORITY : 1
 ESTIMATE : 3 hours
 ISSUE    : The current polyline does not close or work with new design pattern
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 14 khanha46
+NAME     : Selected shapes are moved too far.
+OWNER    : khanha46
+PRIORITY : 1
+ESTIMATE : 2 hours
+AS A     : user
+ISSUE    : When shapes are pasted, they are pasted further to the bottom
+		   right then the current location of the mouse. 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 2.1 : UTORID

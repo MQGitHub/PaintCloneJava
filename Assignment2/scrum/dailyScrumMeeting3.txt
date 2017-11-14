@@ -99,11 +99,26 @@ Nov 10, 2017
 
 Nov 11, 2017
 	Yesterday : Break.
-	Today     : Working on user story 19. Zooming in and out.
-	Obstacles : 
+	Today     : Working on user story 19. Zooming in and out. (Userstory 19 was renamed later.)
+	Obstacles : Zooming could be completed. Attempt (1) used scale method which zoomed in to the top left corner. Instead of location of mouse
+				Attempt (2) Tried to redraw the shapes bigger or smaller depending on the amount scrolled in or out.
+				This did not work because some shape could not be drawn to scale easily. A method is given in swing to draw shapes to a specific 
+				scale but that did not work because out shapes have their own class unrelated to the shape class used in swing.
 	
 Nov 12, 2017
-	Yesterday : 
-	Today     : Working on user story 17. Zooming in and out.
-	Obstacles : 
+	Yesterday : Stopped working on UserStory19 Zooming in and out.
+	Today     : Working on user story 19. (Currently named Copy and Paste.)
+	Obstacles : Copying the shapes was not possible. Any attempt at copying created a pointer to the original shape. Full copies could not be created
+				because all attributes of said shape can not be obtained from an abstract shape.
+	
+Nov 13, 2017
+	Yesterday : Started working on select and move 
+	Today     : Finish UserStory 19.1, UserStory 19.2  
+	Obstacles :
+			  *Note that the late commit of User Story 19 was caused by the change of it's purpose two times.
+Nov 14, 2017
+	Yesterday : Finished UserStory19.1, 19.2, 19.3
+	Today     : Do Bug 14 
+	Obstacles : None.	
 
+	
