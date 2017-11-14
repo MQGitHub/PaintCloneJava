@@ -42,6 +42,9 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 			group.add(button);
 			this.add(button);
 			button.addActionListener(this);
+			if(label == "squiggle") {
+				button.setSelected(true);
+			}
 		}
 
 		TextPanel txt = new TextPanel(this.view);
@@ -65,7 +68,11 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 			this.view.getPaintPanel().setFill(x.isSelected());
 		} else {
 			JToggleButton y = (JToggleButton) e.getSource();
-			this.view.getPaintPanel().setMode(y.getToolTipText());
+			ShapeFactory s = new ShapeFactory();
+			if(s.getShape(this.view, y.getToolTipText()) != null){
+			this.view.getPaintPanel().setShape(s.getShape(this.view ,y.getToolTipText()));
+			}
+			
 		}
 	}
 }

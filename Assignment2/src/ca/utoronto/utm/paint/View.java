@@ -54,6 +54,7 @@ public class View extends JFrame implements ActionListener {
 		this.model = model;
 
 		this.paintPanel = new PaintPanel(model, this);
+		this.paintPanel.setShape(new SquiggleManipulator(this));
 		c.add(this.paintPanel, BorderLayout.CENTER);
 
 		this.pack();

@@ -26,7 +26,6 @@ public class Eraser extends Squiggle {
 		super(c, 20, false, start, new BasicStroke());
 	}
 	
-	
 	@Override
 	public void draw(Graphics2D g2d) {
 		g2d.setColor(this.getColor());

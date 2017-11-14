@@ -17,31 +17,20 @@ import java.util.Observer;
 // https://docs.oracle.com/javase/tutorial/2d/
 
 class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseListener {
-	private int i = 0;
 	private PaintModel model; // slight departure from MVC, because of the way painting works
 	private View view; // So we can talk to our parent or other components of the view
 
-	private String mode; // modifies how we interpret input (could be better?)
-	private Circle circle; // the circle we are building
-	private Point begin, end; // beginning and end of a point
-	private Rectangle rectangle;
-	private Square square;
-	private Polyline polyline;
-	private Line line;
-	private Oval oval;
+
 	private boolean filled;
 	private Color colour;// keeps track of the current color
 	private Color background; // keeps track of background color
-	private Eraser eraser;
 	private int thickness; // sets the thickness of the line
-	private Squiggle squiggle;
-	private Triangle triangle;
-	private String font = "Arial Narrow";
+	private String textFont = "Arial Narrow";
 	private int fontSize = 10;
 	private TextBox tBox;
-	private RightAngleTriangle rightATriangle;
 	private Shape toDraw;
-	private BasicStroke stroke = new BasicStroke(this.thickness);
+	private BasicStroke stroke;
+	private ShapeManipulator shapeManipulator;
 
 	
 	public PaintPanel(PaintModel model, View view) {
@@ -51,9 +40,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		this.setPreferredSize(new Dimension(300, 300));
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
-
-		this.mode = "circle"; // bad code here?
-
+		this.stroke = new BasicStroke(this.thickness);
 		this.model = model;
 		this.model.addObserver(this);
 
@@ -95,8 +82,8 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	/**
 	 * Controller aspect of this
 	 */
-	public void setMode(String mode) {
-		this.mode = mode;
+	public void setShape(ShapeManipulator mode) {
+		this.shapeManipulator = mode;
 	}
 
 	/**
@@ -114,7 +101,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	 * @param font
 	 */
 	public void setFont(String font) {
-		this.font = font;
+		this.textFont = font;
 
 	}
 
@@ -137,6 +124,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	}
 	
 	/**
+<<<<<<< HEAD
 	 * Set thickness and stroke style of shape border.
 	 * 
 	 * @param stroke
@@ -150,7 +138,6 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		
 		if (stroke.equalsIgnoreCase("plain")) {
 			this.stroke = new BasicStroke(this.thickness);
-
 		} else if (stroke.equalsIgnoreCase("dashed")) {
 			dash1 = new float[] { 10.0f, 10.0f };
 			this.stroke = new BasicStroke(this.thickness, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0f, dash1,
@@ -178,216 +165,78 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		}
 
 	}
+	/*
+	 * 
+	 * @return chosen colour
+	 */
+	public Color getColor() {
+		return this.colour;
+	}
 	
-	// MouseMotionListener below
+	/**
+	 * 
+	 * @return chosen thickness
+	 */
+	public int getThickness() {
+		return this.thickness;
+	}
+	
+	/**
+	 * 
+	 * @return if shape should be filled
+	 */
+	public boolean getFilled() {
+		return this.filled;
+	}
+
+
+	/**
+	 * 
+	 * @return current model
+	 */
+	public PaintModel getModel() {
+		return this.model;
+	}
+	
+	public int getFontSize() {
+		return this.fontSize;
+	}
+	
+	public String getTextFont() {
+		return this.textFont;
+	}
+	
+	public BasicStroke getStroke() {
+		return this.stroke;
+	}
+	
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		if (this.mode != "polyline") {
-			if (this.polyline != null && !this.polyline.completedPolyline()) {
-				this.polyline.Complete();
-				this.model.addShape(this.polyline);
-			}
-		}
+		shapeManipulator.operationMoved(e);
 	}
 	
 	@Override
 	public void mousePressed(MouseEvent e) {
-		begin = new Point(e.getX(), e.getY());
-		if (this.mode == "squiggle") {
-			this.squiggle = new Squiggle(this.colour, thickness, false, begin, this.stroke);
-			this.squiggle.moveto(begin);
-
-		} else if (this.mode == "circle") {
-			this.circle = new Circle(this.colour, thickness, filled, begin, 0, this.stroke);
-
-		} else if (this.mode == "rectangle") {
-			this.rectangle = new Rectangle(this.colour, thickness, filled, begin, 0, 0, this.stroke);
-
-		} else if (this.mode == "square") {
-			this.square = new Square(this.colour, thickness, filled, begin, 0, this.stroke);
-
-		} else if (this.mode == "line") {
-			this.line = new Line(this.colour, thickness, false, begin, begin, this.stroke);
-
-		} else if (this.mode == "oval") {
-			this.oval = new Oval(this.colour, thickness, filled, begin, 0, 0, this.stroke);
-
-		} else if (this.mode == "eraser") {
-			this.eraser = new Eraser(this.background, begin);
-			this.eraser.setUsed(true);
-			this.eraser.moveto(begin);
-			
-		} else if (this.mode == "polyline") {
-			begin = new Point(this.colour, thickness, e.getX(), e.getY());
-			if (this.polyline == null) {
-				this.polyline = new Polyline(this.colour, thickness, false, begin, this.stroke);
-				this.polyline.setStartPoint(begin);
-			}
-			this.polyline.setEndPoint(begin);
-
-		} else if (this.mode == "triangle") {
-			begin = new Point(this.colour, thickness, e.getX(), e.getY());
-			this.triangle = new Triangle(this.colour, thickness, filled, begin, this.stroke);
-			
-		} else if (this.mode == "rightAngleTriangle") {
-			begin = new Point(this.colour, thickness, e.getX(), e.getY());
-			this.rightATriangle = new RightAngleTriangle(this.colour, thickness, filled, begin, this.stroke);
-		}
-		
+		this.shapeManipulator.operationPressed(e);
 		repaint();
 	}
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
-		int min_X = Math.min(begin.getX(), e.getX());
-		int min_Y = Math.min(begin.getY(), e.getY());
-		int max_X = Math.max(begin.getX(), e.getX());
-		int max_Y = Math.max(begin.getY(), e.getY());
-		
-		if (this.mode == "squiggle") {
-			this.squiggle.setUsed(true);
-			Point newP = new Point(this.colour, thickness, e.getX(), e.getY());
-            this.squiggle.lineto(newP);
-            this.squiggle.moveto(newP);
-            this.model.setDraw(this.squiggle);
-
-		} else if (this.mode == "circle") {
-			this.circle.setUsed(true);
-			int x = begin.getX() - e.getX();
-			int y = begin.getY() - e.getY();
-			int radius = (int) Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
-			this.circle.setRadius(radius);
-			this.model.setDraw(this.circle);
-
-		} else if (this.mode == "rectangle") {
-			this.rectangle.setUsed(true);
-			this.rectangle.setCorner(new Point(min_X, min_Y));
-			this.rectangle.setWidth(max_X - min_X);
-			this.rectangle.setHeight(max_Y - min_Y);
-			this.model.setDraw(this.rectangle);
-
-		} else if (this.mode == "square") {
-			this.square.setUsed(true);
-			int x = begin.getX() - e.getX();
-			int y = begin.getY() - e.getY();
-			int width = (int) Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
-			this.square.setWidth(width);
-			this.model.setDraw(this.square);
-
-		} else if (this.mode == "polyline") {
-			this.polyline.setUsed(true);
-			Point newP = new Point(this.colour, thickness, e.getX(), e.getY());
-			this.polyline.setEndPoint(newP);
-			this.model.setDraw(this.polyline);
-
-		} else if (this.mode == "line") {
-			this.line.setUsed(true);
-			end = new Point(e.getX(), e.getY());
-			this.line.setEndPoint(end);
-			this.model.setDraw(this.line);
-
-		} else if (this.mode == "oval") {
-			this.oval.setUsed(true);
-			this.oval.setCorner(new Point(min_X, min_Y));
-			this.oval.setWidth(max_X - min_X);
-			this.oval.setHeight(max_Y - min_Y);
-			this.model.setDraw(this.oval);
-			
-		} else if (this.mode == "eraser") {
-			this.eraser.setUsed(true);
-			Point newP = new Point(this.background, thickness, e.getX(), e.getY());
-            this.eraser.lineto(newP);
-            this.eraser.moveto(newP);
-            this.model.setDraw(this.eraser);
-            
-		} else if (this.mode == "triangle") {
-			this.triangle.setUsed(true);
-			this.triangle.setBase(e.getX());
-			this.triangle.setHeight(e.getY());
-			this.model.setDraw(triangle);
-			
-		}else if (this.mode == "rightAngleTriangle") {
-			this.rightATriangle.setUsed(true);
-			this.rightATriangle.setBase(e.getX());
-			this.rightATriangle.setHeight(e.getY());
-			this.model.setDraw(this.rightATriangle);
-		}
-		
+		this.shapeManipulator.operationDragged(e);
 		repaint();
 	}
 
 	// MouseListener below
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if (this.mode == "text") {
-			this.model.setDraw(new Square(this.colour, this.thickness, this.filled, new Point(-2,-2), 1, this.stroke));
-			begin = new Point(this.colour, thickness, e.getX(), e.getY());
-			String prompt = "Please add text to display";
-			String input = JOptionPane.showInputDialog(this, prompt);
-			if (input == null) {
-				input = " ";
-			}
-			this.tBox = new TextBox(this.colour, begin, this.fontSize, this.font, input);
-			this.model.setDraw(tBox);
-		}
+		this.shapeManipulator.operationClicked(e);
 		repaint();
 	}
 
-	
 	@Override
 	public void mouseReleased(MouseEvent e) {
-
-		if (this.mode == "squiggle") {
-			this.squiggle.endPath();
-			this.model.addShape(this.squiggle);
-
-		} else if (this.mode == "eraser") {
-			this.eraser.endPath();
-			this.model.addShape(this.eraser);
-
-		} else if (this.mode == "circle") {
-			this.model.addShape(this.circle);
-
-		} else if (this.mode == "polyline") {
-			if (this.polyline.getStartPoint() != this.polyline.getEndPoint()) {
-				Point newP = new Point(this.colour, thickness, e.getX(), e.getY());
-				this.polyline.setEndPoint(newP);
-				this.polyline.addPoint(this.polyline.getStartPoint());
-				this.polyline.setStartPoint(newP);
-				this.polyline.addPoint(this.polyline.getEndPoint());
-				if (!this.polyline.completedPolyline()) {
-					this.model.setDraw(this.polyline);
-				} else if (this.polyline.completedPolyline() && this.polyline.getNumPoints() > 2) {
-					this.model.addShape(this.polyline);
-					this.polyline = null;
-				} else {
-					this.polyline = null;
-				}
-
-			} else {
-				this.polyline = null;
-			}
-
-		} else if (this.mode == "rectangle") {
-			this.model.addShape(this.rectangle);
-
-		} else if (this.mode == "square") {
-			this.model.addShape(this.square);
-
-		} else if (this.mode == "line") {
-			this.model.addShape(this.line);
-
-		} else if (this.mode == "oval") {
-			this.model.addShape(this.oval);
-
-		} else if (this.mode == "triangle") {
-			this.model.addShape(this.triangle);
-			
-		} else if (this.mode == "rightAngleTriangle") {
-			this.model.addShape(this.rightATriangle);
-		}
-		
-		repaint();
+		this.shapeManipulator.operationReleased(e);
 
 	}
 

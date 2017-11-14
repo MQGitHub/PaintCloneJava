@@ -14,7 +14,6 @@ public abstract class Shape {
 	private Color c;
 	private Boolean fill = false;
 	private int thickness;
-	private boolean used;
 	private BasicStroke stroke;
 
 	
@@ -31,7 +30,6 @@ public abstract class Shape {
 		this.fill = b;
 		this.thickness = thick;
 		this.p = p;
-		this.used = false;
 		this.stroke = stroke;
 	}
 	
@@ -83,13 +81,6 @@ public abstract class Shape {
 		return thickness;
 	}
 	
-	public void setUsed(boolean b) {
-		this.used = b;
-	}
-	
-	public boolean getUsed() {
-		return this.used;
-	}
 
 	public BasicStroke getStroke() {
 		return stroke;

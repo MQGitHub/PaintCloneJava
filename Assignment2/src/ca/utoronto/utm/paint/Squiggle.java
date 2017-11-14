@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * the thickness and color. 
  *
  */
+
 public class Squiggle extends Shape {
     private Path2D path;
 	
@@ -28,7 +29,6 @@ public class Squiggle extends Shape {
 	public Squiggle(Color c, int thick, boolean fill, Point startP, BasicStroke stroke) {
 		super(c, thick, fill, startP, stroke);
 		this.path = new Path2D.Double();
-		this.setUsed(true);
 	}
 	
 	/**
