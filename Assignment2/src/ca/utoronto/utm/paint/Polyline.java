@@ -150,6 +150,7 @@ public class Polyline extends Shape {
 			this.addPoint(this.points.get(0));
 		}
 	}
+	
 
 	@Override
 	public void draw(Graphics2D g2d) {
@@ -162,7 +163,7 @@ public class Polyline extends Shape {
 		}
 		if (this.points.size() > 0) {
 			g2d.setColor(this.points.get(this.points.size() - 1).getColor());
-			g2d.setStroke(this.getStroke());//new BasicStroke(this.points.get(this.points.size() - 1).getThickness()));
+			g2d.setStroke(this.getStroke());
 			//Taken from https://stackoverflow.com/questions/960431/how-to-convert-listinteger-to-int-in-java
 			//Shortest way to convert arraylist of ints to array of ints
 			int arrXPoints [] = xPoints.stream().mapToInt(Integer::intValue).toArray();

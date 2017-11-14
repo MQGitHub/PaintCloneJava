@@ -63,17 +63,14 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 
 		// Draw the shapes
 		ArrayList<Shape> shapes = this.model.getShapes();
-		System.out.println(shapes);
 		for (Shape s : shapes) {
 			s.draw(g2d);
 		}
-			
 		
 		if (this.model.getDraw() != null) {
 			this.toDraw = this.model.getDraw();
 			this.toDraw.draw(g2d);
 		}
-		System.out.println(shapes + " " + toDraw);
 	}
 
 	@Override
