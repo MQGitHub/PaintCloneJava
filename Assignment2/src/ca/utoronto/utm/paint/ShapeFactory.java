@@ -28,6 +28,9 @@ public class ShapeFactory {
 
 		case "polyline":
 			return new PolylineManipulator(view);
+		
+		case "polygon":
+			return new PolygonManipulator(view);
 
 		case "squiggle":
 			return new SquiggleManipulator(view);

@@ -85,7 +85,10 @@ public class PaintModel extends Observable {
 	
 	public void setDraw(Shape object) {
 		if (this.current != null && this.current != object && !this.shapes.contains(this.current)) {
-			((Polyline) this.current).Complete();
+			try {
+				((Polygon) this.current).Complete();
+			} catch (ClassCastException e1){
+			}
 			this.shapes.add(this.current);
 		}
 		this.current = object;

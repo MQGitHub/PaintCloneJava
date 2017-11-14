@@ -39,8 +39,10 @@ public class PolylineManipulator extends ShapeManipulator{
 	@Override
 	public void operationDragged(MouseEvent e) {
 		Point newP = new Point(color, thick, e.getX(), e.getY());
-		this.polyline.setEndPoint(newP);
-		
+		if (this.polyline != null) {
+			this.polyline.setEndPoint(newP);
+		}
+
 	}
 
 	@Override
