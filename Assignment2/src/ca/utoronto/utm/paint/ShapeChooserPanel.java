@@ -39,6 +39,7 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 			Image newImg = image.getScaledInstance(20, 20, java.awt.Image.SCALE_SMOOTH);
 			JToggleButton button = new JToggleButton(new ImageIcon(newImg));
 			button.setToolTipText(label);
+			button.setFocusable(false);
 			group.add(button);
 			this.add(button);
 			button.addActionListener(this);
@@ -54,6 +55,7 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 		this.add(t.lineThicknessMenu());
 
 		JRadioButton fill = new JRadioButton("Fill Shape");
+		fill.setFocusable(false);
 		fill.addActionListener(this);
 		this.add(fill);
 		
