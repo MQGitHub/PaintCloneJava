@@ -54,10 +54,13 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 		LineThicknessChooser t = new LineThicknessChooser(this.view);
 		this.add(t.lineThicknessMenu());
 
-		JRadioButton fill = new JRadioButton("Fill Shape");
-		fill.setFocusable(false);
-		fill.addActionListener(this);
-		this.add(fill);
+//		JRadioButton fill = new JRadioButton("Fill Shape");
+//		fill.setFocusable(false);
+//		fill.addActionListener(this);
+//		this.add(fill);
+		
+		FillChooser fill = new FillChooser(this.view);
+		this.add(fill.fillSelector());
 		
 		
 	}

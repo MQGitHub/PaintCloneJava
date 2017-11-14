@@ -1,5 +1,6 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -23,12 +24,13 @@ public class Eraser extends Squiggle {
 	 *  @see  		   Squiggle. 
 	 */
 	public Eraser(Color c, Point start) {
-		super(c, 20, false, start, new BasicStroke());
+		super(c, 20, 0, start, new BasicStroke());
 	}
 	
 	@Override
 	public void draw(Graphics2D g2d) {
 		g2d.setColor(this.getColor());
+		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));	
 		g2d.setStroke(new BasicStroke(this.getThickness()));
 		g2d.draw(this.getPath());
 	}

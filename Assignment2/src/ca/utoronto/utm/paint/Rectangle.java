@@ -1,5 +1,6 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -24,7 +25,7 @@ public class Rectangle extends Shape{
 	 * @param height Height of the rectangle.
 	 * @param stroke 
 	 */
-	public Rectangle(Color c, int t, Boolean f, Point corner, int width, int height, BasicStroke stroke){
+	public Rectangle(Color c, int t, int f, Point corner, int width, int height, BasicStroke stroke){
 		super(c, t, f, corner, stroke);
 		this.width = width;
 		this.height = height;
@@ -68,9 +69,11 @@ public class Rectangle extends Shape{
 		int y = this.getCorner().getY();
 		int height = this.getHeight();
 		int width = this.getWidth();
+		int i = this.fillAmt();
 		g2d.setColor(this.getColor());
 		g2d.setStroke(this.getStroke());
-		if (this.isFilled()) {
+		if (i > 0) {
+			g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, i* 0.1f));
 			g2d.fillRect(x, y, width, height);
 		} else {
 			g2d.drawRect(x, y, width, height);

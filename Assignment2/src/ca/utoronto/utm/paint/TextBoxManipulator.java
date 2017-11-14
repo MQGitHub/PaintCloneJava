@@ -34,7 +34,7 @@ public class TextBoxManipulator extends ShapeManipulator {
 	public void operationClicked(MouseEvent e) {
 		Color c = pp.getColor();
 		thick = pp.getThickness();
-		fill = pp.getFilled();
+		fill = pp.getOpacity();
 		fontSize = pp.getFontSize();
 		font = pp.getTextFont();
 		stroke = pp.getStroke();

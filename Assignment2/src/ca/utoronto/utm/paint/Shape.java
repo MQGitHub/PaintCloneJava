@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public abstract class Shape {
 	private Point p;
 	private Color c;
-	private Boolean fill = false;
+	private int fill = 0;
 	private int thickness;
 	private BasicStroke stroke;
 
@@ -21,13 +21,13 @@ public abstract class Shape {
 	 * Constructs a shape with specific color, thickness, filled, a point, and stroke type.
 	 * @param c
 	 * @param thick
-	 * @param b
+	 * @param f
 	 * @param p
 	 * @param stroke 
 	 */
-	public Shape(Color c, int thick, Boolean b, Point p, BasicStroke stroke) {
+	public Shape(Color c, int thick, int f, Point p, BasicStroke stroke) {
 		this.c = c;
-		this.fill = b;
+		this.fill = f;
 		this.thickness = thick;
 		this.p = p;
 		this.stroke = stroke;
@@ -69,7 +69,7 @@ public abstract class Shape {
 	 * 
 	 * @return Boolean value of fill.
 	 */
-	public Boolean isFilled() {
+	public int fillAmt() {
 		return fill;
 	}
 	

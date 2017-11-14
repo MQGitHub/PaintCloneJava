@@ -34,7 +34,7 @@ public class Polyline extends Shape {
 	 * @param stroke 
 	 */
 
-	public Polyline(Color c, int t, Boolean b, Point start, BasicStroke stroke) {
+	public Polyline(Color c, int t, int b, Point start, BasicStroke stroke) {
 		super(c, t, b, start, stroke);
 		this.points = new ArrayList<Point>();
 		this.xPoints = new ArrayList<Integer>();

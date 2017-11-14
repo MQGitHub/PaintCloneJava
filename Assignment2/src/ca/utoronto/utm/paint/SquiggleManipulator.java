@@ -17,10 +17,10 @@ public class SquiggleManipulator extends ShapeManipulator{
 	public void operationPressed(MouseEvent e) {
 		color = pp.getColor();
 		thick = pp.getThickness();
-		fill = pp.getFilled();
+		fill = pp.getOpacity();
 		stroke = pp.getStroke();
 		begin = new Point(e.getX(), e.getY());
-		this.squiggle = new Squiggle(color, thick, false, begin, stroke);
+		this.squiggle = new Squiggle(color, thick, fill, begin, stroke);
 		this.squiggle.moveto(begin);
 		this.model.setDraw(this.squiggle);	
 	}

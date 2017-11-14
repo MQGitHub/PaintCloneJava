@@ -37,7 +37,7 @@ public class TextBox extends Shape {
 	 *            The string being painted
 	 */
 	public TextBox(Color colour, ca.utoronto.utm.paint.Point corner, int fontSize, String font, String input) {
-		super(colour, 1, false, corner, new BasicStroke());
+		super(colour, 1, 0, corner, new BasicStroke());
 		this.font = font;
 		this.fontSize = fontSize;
 		this.input = input;

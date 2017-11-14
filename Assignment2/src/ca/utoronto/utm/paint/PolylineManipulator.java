@@ -16,10 +16,11 @@ public class PolylineManipulator extends ShapeManipulator{
 		color = pp.getColor();
 		thick = pp.getThickness();
 		begin = new Point(color, thick, e.getX(), e.getY());
+		fill = pp.getOpacity();
 		stroke = pp.getStroke();
 		if (this.polyline == null) {
 			if (this.polyline == null) {
-				this.polyline = new Polyline(this.color, thick, true, begin, stroke);
+				this.polyline = new Polyline(this.color, thick, fill, begin, stroke);
 				this.polyline.setStartPoint(begin);
 			}
 		}
