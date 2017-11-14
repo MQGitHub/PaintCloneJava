@@ -190,9 +190,6 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if (!(this.shapeManipulator instanceof PolylineManipulator)) {
-			((PolylineManipulator) shapeManipulator).isDone();
-		}
 		this.shapeManipulator.operationPressed(e);
 		repaint();
 	}
