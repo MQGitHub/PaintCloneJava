@@ -26,7 +26,9 @@ public class PaintModel extends Observable {
 	 * @see     Observable 
 	 */
 	public void addShape(Shape p) {
-		this.shapes.add(p);
+		if(p != null) {
+			this.shapes.add(p);
+		}
 		this.current = null;
 		this.removedShapes.clear();
 		undoAll = false;

@@ -55,8 +55,6 @@ public class View extends JFrame implements ActionListener {
 		this.paintPanel = new PaintPanel(model, this);
 		this.paintPanel.setShape(new SquiggleManipulator(this));
 		c.add(this.paintPanel, BorderLayout.CENTER);
-		this.setFocusable(true);
-		paintPanel.requestFocus();
 		this.pack();
 		// this.setSize(200,200);
 		this.setVisible(true);
@@ -174,7 +172,9 @@ public class View extends JFrame implements ActionListener {
 					JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 			if (pane == JOptionPane.YES_OPTION) {
 				System.exit(0);
-			}	
+			}
+		}else if (e.getActionCommand() == "New") {
+			new Paint();
 		} else if (e.getActionCommand() == "Undo") {
 			this.model.Undo();
 			
