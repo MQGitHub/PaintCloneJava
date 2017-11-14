@@ -107,4 +107,10 @@ Nov 11, 2017
 Nov 12, 2017
 	Yesterday : Worked on design patterns.
 	Today 	  : Finish Strategy pattern.
-	Obstacles : Alot of strategy to modify,
+	Obstacles : Alot of strategy to modify.
+
+Nov 12, 2017
+	Yesterday : Finished Strategy design pattern
+	Today 	  : Fix UI, merge finished userstories, add keybindings
+	Obstacles : Minor errors.
+	
