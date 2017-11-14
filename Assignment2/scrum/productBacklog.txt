@@ -4,7 +4,16 @@
 # 1 Color chooser UI (which could be a USER STORY)
 # 2 Implementation of selected color into the drawing stream.
 
-
+--------------------------------------------------------------------------
+TYPE     : USER STORY 25
+NAME     : Fill different opacity levels
+OWNER    : Mateen Qureshi 
+PRIORITY : 1 
+ESTIMATE : 1 hour.
+AS A     : user
+I WANT   : As a user I want to have a semi-transparent shape.
+SO THAT  : I can draw shapes of different opacity levels
+--------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 24
 NAME     : Airbrush / Spraycan
