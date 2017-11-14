@@ -23,6 +23,7 @@ public class LineThicknessChooser implements ChangeListener, ActionListener {
 	private View view; // So we can talk to our parent or other components of the view
 	private int t = 0;
 	private String choice = "plain";
+	private StrokeFactory s = new StrokeFactory();
 
 	/**
 	 * Initialize the view by connecting the view and LineThicknessChooser.
@@ -46,9 +47,9 @@ public class LineThicknessChooser implements ChangeListener, ActionListener {
 		JMenu line = new JMenu("Line Modifiers");
 
 		JMenu lt = new JMenu("Line Thickness");
-		JSlider thickness = new JSlider(0, 10, 0);
+		JSlider thickness = new JSlider(0, 20, 0);
 		thickness.setPaintLabels(true);
-		thickness.setMajorTickSpacing(2);
+		thickness.setMajorTickSpacing(5);
 		thickness.setMinorTickSpacing(1);
 		thickness.setPaintTicks(true);
 		thickness.addChangeListener(this);
@@ -122,14 +123,16 @@ public class LineThicknessChooser implements ChangeListener, ActionListener {
 	public void stateChanged(ChangeEvent e) {
 		JSlider x = (JSlider) e.getSource();
 		this.t = x.getValue();
-		this.view.getPaintPanel().setStroke(this.choice, this.t);
+		BasicStroke s = this.s.strokeManipulator(choice, t);
+		this.view.getPaintPanel().setStroke(s, t);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JCheckBoxMenuItem x = (JCheckBoxMenuItem) e.getSource();
 		this.choice = x.getToolTipText();
-		this.view.getPaintPanel().setStroke(this.choice, this.t);
+		BasicStroke s = this.s.strokeManipulator(choice, t);
+		this.view.getPaintPanel().setStroke(s, t);
 	}
 
 }
