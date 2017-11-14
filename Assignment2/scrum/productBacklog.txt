@@ -5,6 +5,14 @@
 # 2 Implementation of selected color into the drawing stream.
 
 --------------------------------------------------------------------------
+TYPE     : BUG 12 lakhtak1
+NAME     : Stroke Design to implement Factory Design Pattern
+OWNER    : Radhika Lakhtakia
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : The current design for stroke can be implemented better
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : USER STORY 24
 NAME     : Airbrush / Spraycan
 OWNER    : Mateen Qureshi 
@@ -14,7 +22,8 @@ AS A     : user
 I WANT   : As a user I want to have an airbrush.
 SO THAT  : I can pretend I am a graffiti artist and live in the mean streets
 		   of Lyari
-=======
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 2.2 : UTORID
 NAME     : Architecture for handling shape modifiers can be improved 
 OWNER    : 
@@ -543,50 +552,6 @@ DrawingCommands appear on PaintPanel's list right along side
 the Shape type DrawingCommands.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 2.3 : lakhtak1
-NAME     : Architecture behind choosing drawing mode is poor
-OWNER    : Radhika L
-PRIORITY : 1
-ESTIMATE : 2 hours
-ISSUE    : A better architecture behind selecting a drawing mode can be created 
-by implementing the Factory Design Pattern as follows:
-
-The factory design pattern should be used by the paint buttons. 
-The factory is responsible for creating different ShapeManipulatorStrategy 
-instances (see BUG 2.4). That is, when a button is pressed, the appropriate 
-ShapeManipulatorStrategy is created and installed in the PaintPanel. 
-Note that you can associate text with a button, even if you 
-display an ImageIcon. The string attached to the button causes the right choice 
-of object creation.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : USER STORY 16
-NAME     : Draw Text
-OWNER    : lakhtak1
-PRIORITY : 2
-ESTIMATE : 8 hours.
-AS A     : user
-I WANT   : To click and write text on the canvas.
-SO THAT  : I can add text to my canvas
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 2.3 : UTORID
-NAME     : Architecture behind choosing drawing mode is poor
-OWNER    : lakhtak1
-PRIORITY : 1
-ESTIMATE : 1 hour
-ISSUE    : A better architecture behind selecting a drawing mode can be created 
-by implementing the Factory Design Pattern as follows:
-
-The factory design pattern should be used by the paint buttons. 
-The factory is responsible for creating different ShapeManipulatorStrategy 
-instances (see BUG 2.4). That is, when a button is pressed, the appropriate 
-ShapeManipulatorStrategy is created and installed in the PaintPanel. 
-Note that you can associate text with a button, even if you 
-display an ImageIcon. The string attached to the button causes the right choice 
-of object creation.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : BUG 2.4 : UTORID
 NAME     : Architecture behind creating shape instances is poor
 OWNER    : hannage6
@@ -613,43 +578,6 @@ The concrete ShapeManipulatorStrategies are responsible for
 This strategy can be put in place either by having PaintPanel's mouse 
 events forwarded through PaintPanel into the current strategy, or by 
 simply switching the PaintPanel's listeners as appropriate.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 9
-NAME     : Squiggle is broken
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 5 hours
-ISSUE    : Squiggles representation in the Model is not ideal. Fix the
-		   implementation of squiggle.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 10
-NAME     : Fix ArrayList shape
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 
-ISSUE    : Multiple elements of the same shape being added as you draw,
-		   potential issue might be, because we have model.add inside the drag
-		   mouse listener
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 10
-NAME     : Design squiggle to fit with current design pattern
-OWNER    : Mateen Qureshi
-PRIORITY : 1
-ESTIMATE : 3 hours
-ISSUE    : The current design for squiggle does not fit with the design pattern
-in place for other shapes.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 11
-NAME     : Design eraser to fit with current design pattern
-OWNER    : Mateen Qureshi
-PRIORITY : 1
-ESTIMATE : 3 hours
-ISSUE    : The current design for eraser does not fit with the design pattern
-in place for other shapes.
 --------------------------------------------------------------------------
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 --------------------------------------------------------------------------
