@@ -26,6 +26,16 @@ AS A     : user
 I WANT   : As a user I want to have a polygon drawer.
 SO THAT  : I can pretend I'm Picasso and do some Cubism.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 29 lakhtak1
+NAME     : Text Rotator
+OWNER    : Radhika Lakhtakia 
+PRIORITY : 1 
+ESTIMATE : 1 hour.
+AS A     : user
+I WANT   : As a user I want to be able to write text in different directions.
+SO THAT  : I can draw text in different directions.
+--------------------------------------------------------------------------
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
 TYPE     : USER STORY 1
