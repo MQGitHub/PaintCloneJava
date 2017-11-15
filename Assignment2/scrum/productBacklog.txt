@@ -5,17 +5,7 @@
 # 2 Implementation of selected color into the drawing stream.
 
 
---------------------------------------------------------------------------
-TYPE     : USER STORY 24
-NAME     : Airbrush / Spraycan
-OWNER    : Mateen Qureshi 
-PRIORITY : 1 
-ESTIMATE : 1 hour.
-AS A     : user
-I WANT   : As a user I want to have an airbrush.
-SO THAT  : I can pretend I am a graffiti artist and live in the mean streets
-		   of Lyari
---------------------------------------------------------------------------
+
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
 TYPE     : USER STORY 1
@@ -679,4 +669,15 @@ AS A     : user
 I WANT   : As a user I want to click on the canvas and get the colour 
 		at that point
 SO THAT  : I can get the colour from any shape or background
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 24
+NAME     : Airbrush / Spraycan
+OWNER    : Mateen Qureshi 
+PRIORITY : 1 
+ESTIMATE : 1 hour.
+AS A     : user
+I WANT   : As a user I want to have an airbrush.
+SO THAT  : I can pretend I am a graffiti artist and live in the mean streets
+		   of Lyari
 --------------------------------------------------------------------------

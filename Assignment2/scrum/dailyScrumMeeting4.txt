@@ -110,4 +110,9 @@ Nov 13, 2017
 	Yesterday : Fixed undo redo clear
 	Today     : Fix polyline to work after merge
 	Obstacles : Fix polyline more
+	
+Nov 14, 2017
+	Yesterday : Fixed polying to work after merge
+	Today     : Fix polyline to match spec and added polygon
+	Obstacles : Sleep
 
