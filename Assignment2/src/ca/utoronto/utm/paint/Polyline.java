@@ -186,13 +186,8 @@ public class Polyline extends Shape {
 			int arrXPoints [] = xPoints.stream().mapToInt(Integer::intValue).toArray();
 			int arrYPoints [] = yPoints.stream().mapToInt(Integer::intValue).toArray();
 			g2d.drawPolyline(arrXPoints, arrYPoints, numPoints);
-			if(this.fillAmt() > 0 && inRadius(p2)) { 
-				g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, this.fillAmt()* 0.1f));
-				g2d.fillPolygon(arrXPoints,arrYPoints, numPoints);
-			}
-			
-	
 		}
+			
 	}
 
 }

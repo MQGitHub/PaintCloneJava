@@ -20,7 +20,6 @@ public class PolylineManipulator extends ShapeManipulator{
 		fill = pp.getOpacity();
 		stroke = pp.getStroke();
 		if (e.getButton() == MouseEvent.BUTTON3 && this.polyline != null) {
-            this.polyline.Complete();
             this.model.addShape(this.polyline);
             this.polyline = null;
             return;
