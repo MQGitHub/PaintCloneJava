@@ -4,18 +4,23 @@ package ca.utoronto.utm.paint;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+
 public class SelectManipulator extends ShapeManipulator{
 	
 	private Select select;
 	private View view;
 	private String type;
-
+	/**
+	 * Gets the view and string type.
+	 * @param view
+	 * @param type
+	 */
 	public SelectManipulator(View view, String type) {
 		super(view);
 		this.view = view;
 		this.type = type;
 	}
-
+	
 	@Override
 	public void operationPressed(MouseEvent e) {
 		// TODO Auto-generated method stub
