@@ -76,11 +76,11 @@ public class TextPanel extends JTextArea implements ActionListener, ChangeListen
 		JSlider r = new JSlider(SwingConstants.HORIZONTAL,0, 360, 0);
 		r.setName("Degrees");
 		Hashtable<Integer, JLabel> table = new Hashtable<Integer, JLabel>();
-	    table.put (0, new JLabel("0º"));
-	    table.put (90, new JLabel("90º"));
-	    table.put (180, new JLabel("180º"));
-	    table.put (270, new JLabel("270º"));
-	    table.put (360, new JLabel("360º"));
+	    table.put (0, new JLabel("0" + "\u00b0"));
+	    table.put (90, new JLabel("90" + "\u00b0"));
+	    table.put (180, new JLabel("180" + "\u00b0"));
+	    table.put (270, new JLabel("270" + "\u00b0"));
+	    table.put (360, new JLabel("360"+ "\u00b0"));
 	    r.setLabelTable(table);
 	    r.setMinorTickSpacing(15);
 	    r.setMajorTickSpacing(90);
