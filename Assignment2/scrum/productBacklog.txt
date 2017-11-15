@@ -681,3 +681,17 @@ I WANT   : As a user I want to have an airbrush.
 SO THAT  : I can pretend I am a graffiti artist and live in the mean streets
 		   of Lyari
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 14 khanha46
+NAME     : Selected shapes are moved too far.
+OWNER    : khanha46
+PRIORITY : 1
+ESTIMATE : 2 hours
+AS A     : user
+ISSUE    : When shapes are pasted, they are pasted further to the bottom
+		   right then the current location of the mouse. 
+		   *note: Shapes have a much smaller gape when pasting then they used to
+		   however there still is a noticeable gap. Some shapes are not being 
+		   selected. This was not able to be completed due to lack of time. 
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
