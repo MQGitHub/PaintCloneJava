@@ -161,6 +161,32 @@ public class View extends JFrame implements ActionListener {
 		menu.add(menuItem);
 
 		menuBar.add(menu);
+		
+		menu = new JMenu("Help");
+
+		// a group of JMenuItems
+		menuItem = new JMenuItem("Draw");
+		menuItem.addActionListener(this);
+		menu.add(menuItem);
+
+		menuItem = new JMenuItem("Polygon");
+		menuItem.addActionListener(this);
+		menu.add(menuItem);
+
+		menuItem = new JMenuItem("Polyline");
+		menuItem.addActionListener(this);
+		menu.add(menuItem);
+		
+		menuBar.add(menu);
+		
+		menu = new JMenu("About");
+
+		// a group of JMenuItems
+		menuItem = new JMenuItem("Credits");
+		menuItem.addActionListener(this);
+		menu.add(menuItem);
+		
+		menuBar.add(menu);
 
 		return menuBar;
 	}
@@ -191,6 +217,23 @@ public class View extends JFrame implements ActionListener {
 			if (pane == JOptionPane.YES_OPTION) {
 				this.model.clearAll();
 			}
+		}else if (e.getActionCommand() == "Draw") {
+			Object[] options = { "OK"};
+			int pane = JOptionPane.showOptionDialog(null, "Click on shape buttons to select wanted shape.?", "How to select shape",
+					JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+		}else if (e.getActionCommand() == "Polygon") {
+			Object[] options = { "OK"};
+			int pane = JOptionPane.showOptionDialog(null, "Right-click or change shape to close the polygon", "How to use Polygon",
+					JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+		} else if (e.getActionCommand() == "Polyline") {
+			Object[] options = { "OK"};
+			int pane = JOptionPane.showOptionDialog(null, "Changing shape or right-clicking will save the polyline", "How to use Polyline",
+					JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+		}else if (e.getActionCommand() == "Credits") {
+			Object[] options = { "OK"};
+			int pane = JOptionPane.showOptionDialog(null, "This project was completed by: \n \t Radhika Lakhtakia \n \t Georges Hanna "
+					+ "\n \t Hassan Khan \n \t Mateen Khan", "Credits",
+					JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 		}
 
 	}
