@@ -1,11 +1,17 @@
 package ca.utoronto.utm.paint;
 
+import java.util.ArrayList;
+
 public class ShapeFactory {
+
+private String type = "select";
 
 	public ShapeManipulator getShape(View view, String shapeType) {
 		if (shapeType == null) {
 			return null;
 		}
+		
+
 		switch (shapeType.toLowerCase()) {
 		
 		case "circle":
@@ -40,8 +46,12 @@ public class ShapeFactory {
 		
 		case "text":
 			return new TextBoxManipulator(view);
-
+		
+		case "select":
+			return new SelectManipulator(view,type);
+			
 		}
+		
 		return null;
 	}
 }

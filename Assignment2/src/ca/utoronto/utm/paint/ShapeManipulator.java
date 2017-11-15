@@ -17,6 +17,7 @@ public abstract class ShapeManipulator {
 		model = pp.getModel();
 		
 	}
+	
 	public abstract void operationPressed(MouseEvent e);
 	
 	public abstract void operationDragged(MouseEvent e);

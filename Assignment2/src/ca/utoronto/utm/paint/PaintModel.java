@@ -16,7 +16,24 @@ public class PaintModel extends Observable {
 	private ArrayList<Shape> removedShapes = new ArrayList<Shape>();
 	private Shape current;
 	private boolean undoAll;
-
+	private ArrayList<Shape> Copied_shapes = new ArrayList<Shape>();
+	private ArrayList<Point> corners = new ArrayList<Point>();
+	
+	
+	public ArrayList<Shape> getCopied_shapes(){
+		return Copied_shapes;
+	}
+	public void setCopied_shapes(Shape s) {
+		Copied_shapes.add(s);
+	}
+	public ArrayList<Point> getcorners(){
+		return corners;
+	}
+	public void setcorners(Point p) {
+		corners.add(p);
+	}
+	
+	
 	/**
 	 * if there are no shapes in the ArrayList shapes, then add a circle with
 	 * co-ordinates outside of our panel. else add given shape to the shapes 
@@ -25,6 +42,9 @@ public class PaintModel extends Observable {
 	 * @param p a shape that will be drawn onto our Panel. 
 	 * @see     Observable 
 	 */
+	
+	
+	
 	public void addShape(Shape p) {
 		if(p != null) {
 			this.shapes.add(p);

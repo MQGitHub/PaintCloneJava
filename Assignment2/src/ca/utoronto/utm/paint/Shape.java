@@ -15,6 +15,7 @@ public abstract class Shape {
 	private int fill = 0;
 	private int thickness;
 	private BasicStroke stroke;
+	
 
 	
 	/**
@@ -85,6 +86,7 @@ public abstract class Shape {
 	public BasicStroke getStroke() {
 		return stroke;
 	}
+	
 	
 	public abstract void draw(Graphics2D g2d);
 }
