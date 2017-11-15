@@ -72,4 +72,5 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 			this.view.getPaintPanel().setShape(s.getShape(this.view, y.getToolTipText())); 
 		}
 	}
+
 }
