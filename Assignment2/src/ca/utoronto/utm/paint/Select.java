@@ -19,42 +19,31 @@ public class Select {
 	
 	
 	public void save(Shape shape) {
-
-		
 			int x = shape.getCorner().getX();
-				if ( (x > corner.getX() && x < Second_Corner.getX()) || (x < corner.getX() && x > Second_Corner.getX())) {
+			int y = shape.getCorner().getY();
+			if ((x >= corner.getX() && x <= Second_Corner.getX()) || (x <= corner.getX() && x >= Second_Corner.getX())) {
 	
-						view.getPaintPanel().getModel().setCopied_shapes(shape);
-						view.getPaintPanel().getModel().setcorners(new Point(shape.getCorner().getX() - corner.getX(),
-																			shape.getCorner().getY() - corner.getY()));
-						
-				}
-			
-		
-				}
-	
+					view.getPaintPanel().getModel().setCopied_shapes(shape);
+					view.getPaintPanel().getModel().setcorners(new Point(shape.getCorner().getX() - corner.getX(),
+																		shape.getCorner().getY() - corner.getY()));
+			}	
+	}
 	
 	public void setSecondCorner(Point Corner) {
 		Second_Corner = Corner;
 	}
-
 	
 	public void update(int X, int Y) {
 		int index = 0;
-		
 		for(Shape S: Copied_shapes) {
-
-			int x2 = X + (corners.get(index).getX());
-			int y2 = Y + (corners.get(index).getY());
+			int x = corners.get(index).getX();
+			int y = corners.get(index).getY();
+			int x2 = X + (x- x/5);
+			int y2 = Y + (y - y/5);
 			S.setCorner(new Point(x2,y2));
 			index++;
-			
 			}
 		}
 	
-
 	}
 	
-	
-
-
