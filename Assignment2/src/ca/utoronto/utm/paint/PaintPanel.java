@@ -21,6 +21,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private View view; // So we can talk to our parent or other components of the view
 
 
+	private boolean filled;
 	private Color colour;// keeps track of the current color
 	private Color background; // keeps track of background color
 	private int thickness; // sets the thickness of the line
@@ -61,13 +62,11 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 		// setBackground (Color.blue);
 		// Origin is at the top left of the window 50 over, 75 down
 		g2d.setColor(Color.black);
-
 		// Draw the shapes
 		ArrayList<Shape> shapes = this.model.getShapes();
 		for (Shape s : shapes) {
 			s.draw(g2d);
 		}
-			
 		
 		if (this.model.getDraw() != null) {
 			this.toDraw = this.model.getDraw();
@@ -86,6 +85,26 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	 */
 	public void setShape(ShapeManipulator mode) {
 		this.shapeManipulator = mode;
+	}
+
+	/**
+	 * Set shape opacity
+	 * 
+	 * @param fill
+	 */
+	public void setOpacity(int value) {
+		this.opacity = value;
+		
+	}
+	
+	/**
+	 * Get shape opacity
+	 * 
+	 * @param fill
+	 */
+	public int getOpacity() {
+		return this.opacity;
+		
 	}
 
 	/**
@@ -115,14 +134,6 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	public void setColour(Color colour) {
 		this.colour = colour;
 	}
-	/**
-	 * Set opacity of shape.
-	 * 
-	 * @param colour
-	 */
-	public void setOpacity(int value) {
-		this.opacity = value;
-	}
 	
 	/**
 	 * Set thickness and stroke style of shape border.
@@ -147,18 +158,18 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	
 	/**
 	 * 
-	 * @return chosen opacity
-	 */
-	public int getOpacity() {
-		return this.opacity;
-	}
-	
-	/**
-	 * 
 	 * @return chosen thickness
 	 */
 	public int getThickness() {
 		return this.thickness;
+	}
+	
+	/**
+	 * 
+	 * @return if shape should be filled
+	 */
+	public boolean getFilled() {
+		return this.filled;
 	}
 
 
@@ -207,9 +218,9 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	}
 
 	@Override
-
 	public void mouseReleased(MouseEvent e) {
 		this.shapeManipulator.operationReleased(e);
+
 	}
 
 	@Override
@@ -220,11 +231,12 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	public void mouseExited(MouseEvent e) {
 	}
 
-	public void setRotate(int value) {
-		this.rotate = value;	
-	}
-	
 	public int getRotate() {
 		return this.rotate;
 	}
+	
+	public void setRotate(int value) {
+		this.rotate = value;
+	}
+
 }
