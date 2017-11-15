@@ -150,12 +150,23 @@ public class Polygon extends Shape {
 		return this.endPoint;
 	}
 	
+	/**
+	 * Completes the polyline, connecting last point to the first point
+	 *
+	 */
 	public void Complete() {
 		if (this.points.size() > 2) {
 			this.addPoint(this.points.get(0));
 		}
 	}
 	
+	/**
+	 * Check if the point is in a certain radius from the first point
+	 * 
+	 * @param p
+	 *            Point to check distance.
+	 * 
+	 */
 	public boolean inRadius(Point p) {
 		double distance = Math.abs(Math.sqrt(Math.pow((this.points.get(0).getX() - p.getX()), 2) 
 				+ Math.pow((this.points.get(0).getY() - p.getY()), 2)));

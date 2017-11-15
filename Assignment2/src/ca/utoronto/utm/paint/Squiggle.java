@@ -47,6 +47,10 @@ public class Squiggle extends Shape {
 		path.lineTo(p.getX(), p.getY());
 	}
 	
+	/**
+	 * 
+	 * @return the path of the squiggle.
+	 */
 	public Path2D getPath() {
 		return this.path;
 	}
