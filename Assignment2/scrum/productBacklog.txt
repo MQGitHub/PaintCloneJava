@@ -305,7 +305,7 @@ SO THAT  : I can undo what I did if I don't want it.
 TYPE     : USER STORY 19
 NAME     : Select and Paste.
 OWNER    : khanha46
-PRIORITY : 1
+PRIORITY : 3
 ESTIMATE : 1 hours
 AS A     : user
 I WANT   : to select shapes
@@ -318,7 +318,7 @@ dailyScrumMeeting3.
 TYPE     : USER STORY 19.1
 NAME     : Select and Paste.
 OWNER    : khanha46
-PRIORITY : 1
+PRIORITY : 3
 ESTIMATE : 1 hours
 AS A     : user
 I WANT   : See what I am selecting with a rectangle.
@@ -328,7 +328,7 @@ SO THAT  : I can know what shapes are and are not selected.
 TYPE     : USER STORY 19.2
 NAME     : Select and Paste.
 OWNER    : khanha46
-PRIORITY : 1
+PRIORITY : 2
 ESTIMATE : 1 hours
 AS A     : user
 I WANT   : paste or move the selected shapes 

@@ -113,12 +113,13 @@ Nov 12, 2017
 	
 Nov 13, 2017
 	Yesterday : Started working on select and move 
-	Today     : Finish UserStory 19.1, UserStory 19.2  
-	Obstacles :
+	Today     : Finish UserStory 19.1, UserStory 19.2 and 19.3
+	Obstacles : Entire design pattern was changed, I had to re write the code for userstory 19 to fit the design pattern.
+				This took a very long time.
 			  *Note that the late commit of User Story 19 was caused by the change of it's purpose two times.
 Nov 14, 2017
-	Yesterday : Finished UserStory19.1, 19.2, 19.3
-	Today     : Do Bug 14 
-	Obstacles : None.	
+	Yesterday : Finished UserStory 19.1, 19.2, 19.3
+	Today     : Still adjusting code due to change in design pattern. Once finished do Bug 14. 
+	Obstacles : None. Bug 14 is a small fix.
 
 	
