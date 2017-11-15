@@ -57,6 +57,7 @@ public class SelectManipulator extends ShapeManipulator{
 			type = "paste";
 		} else {
 			type = "select";
+			this.view.getPaintPanel().getModel().resetcopies();
 		}
 		
 	}

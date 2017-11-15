@@ -32,6 +32,10 @@ public class PaintModel extends Observable {
 	public void setcorners(Point p) {
 		corners.add(p);
 	}
+	public void resetcopies() {
+		Copied_shapes.clear();
+		corners.clear();
+	}
 	
 	
 	/**

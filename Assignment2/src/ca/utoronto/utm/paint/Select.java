@@ -1,7 +1,6 @@
 package ca.utoronto.utm.paint;
 
-import java.awt.AlphaComposite;
-import java.awt.Graphics2D;
+
 import java.util.ArrayList;
 
 public class Select {
@@ -20,23 +19,20 @@ public class Select {
 	
 	
 	public void save(Shape shape) {
-		System.out.println("In Save Method");
+
 		
 			int x = shape.getCorner().getX();
-			//int y = S.getCorner().getY();
-			//if  (corner.getX() < Second_Corner.getX()) {
-				if ( x > corner.getX() && x < Second_Corner.getX()) {
-					System.out.println("50 percent");
-					//if(y < corner.getY() && y > Second_Corner.getY()){  
-						System.out.println("100 percent");
+				if ( (x > corner.getX() && x < Second_Corner.getX()) || (x < corner.getX() && x > Second_Corner.getX())) {
+	
 						view.getPaintPanel().getModel().setCopied_shapes(shape);
-						view.getPaintPanel().getModel().setcorners(shape.getCorner());
+						view.getPaintPanel().getModel().setcorners(new Point(shape.getCorner().getX() - corner.getX(),
+																			shape.getCorner().getY() - corner.getY()));
 						
-			//	}
-			
-		//}
 				}
-	}
+			
+		
+				}
+	
 	
 	public void setSecondCorner(Point Corner) {
 		Second_Corner = Corner;
@@ -47,9 +43,9 @@ public class Select {
 		int index = 0;
 		
 		for(Shape S: Copied_shapes) {
-			System.out.println("in here");
-			int x2 = X + corners.get(index).getX();
-			int y2 = Y + corners.get(index).getY();
+
+			int x2 = X + (corners.get(index).getX());
+			int y2 = Y + (corners.get(index).getY());
 			S.setCorner(new Point(x2,y2));
 			index++;
 			
