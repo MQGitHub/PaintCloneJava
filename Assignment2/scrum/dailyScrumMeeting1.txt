@@ -113,7 +113,7 @@ Nov 13, 2017
 	
 Nov 14, 2017
 	Yesterday : Finished UserStory21 and organized productBacklog and SprintBacklog
-	Today     : Clean up code, fix any last minute errors, work on UserStory 25 and hand in assignment
+	Today     : Clean up code, fix any last minute errors, work on UserStory 27/29 and hand in assignment
 	Obstacles : None.	
 
 	
