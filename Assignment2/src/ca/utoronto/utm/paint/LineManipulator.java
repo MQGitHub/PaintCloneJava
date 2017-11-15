@@ -4,13 +4,30 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 
+/**
+ * 
+ * Create Lines on the console by listenening to the mouse.
+ * LineManipulator is a ShapeManipulator and has a View where we draw the
+ * Line.
+ *
+ */
 public class LineManipulator extends ShapeManipulator {
 
 	private Line line;
 	
+	/**
+	 * Initialize the view by connecting the view and LineManipulator.
+	 * 
+	 * @param view
+	 *            The view of Paint model.
+	 */
 	public LineManipulator(View view) {
 		super(view);
 	}
+	
+	/**
+	 * Control aspect of this
+	 */
 	@Override
 	public void operationPressed(MouseEvent e) {
 		color = pp.getColor();
