@@ -5,15 +5,32 @@ import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+/**
+ * 
+ * Create the Eraser Lines on the console by listenening to the mouse.
+ * EraserManipulator is a ShapeManipulator and has a View where we draw the
+ * Eraser.
+ *
+ */
 public class EraserManipulator extends ShapeManipulator{
+	
 	
 	private Eraser eraser;
 	private Color c = pp.getBackground();
 	
+	/**
+	 * Initialize the view by connecting the view and EraserManipulator.
+	 * 
+	 * @param view
+	 *            The view of Paint model.
+	 */
 	public EraserManipulator(View view) {
 		super(view);
 	}
 
+	/**
+	 * Control aspect of this
+	 */
 	@Override
 	public void operationPressed(MouseEvent e) {
 		color = pp.getBackground();
