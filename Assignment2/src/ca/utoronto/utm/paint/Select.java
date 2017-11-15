@@ -38,11 +38,12 @@ public class Select {
 			int x = shape.getCorner().getX();
 			int y = shape.getCorner().getY();
 			if ((x >= corner.getX() && x <= Second_Corner.getX()) || (x <= corner.getX() && x >= Second_Corner.getX())) {
-	
 					view.getPaintPanel().getModel().setCopied_shapes(shape);
 					view.getPaintPanel().getModel().setcorners(new Point(shape.getCorner().getX() - corner.getX(),
 																		shape.getCorner().getY() - corner.getY()));
+							
 			}	
+			
 	}
 	
 	

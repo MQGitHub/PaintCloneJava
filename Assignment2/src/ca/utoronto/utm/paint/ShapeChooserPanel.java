@@ -30,7 +30,7 @@ class ShapeChooserPanel extends JPanel implements ActionListener {
 		this.view = view;
 
 		String[] buttonLabels = { "squiggle", "line", "circle", "oval", "rectangle", "square", "triangle",
-				"rightAngleTriangle", "polyline", "polygon", "eraser", "text" };
+				"rightAngleTriangle", "polyline", "polygon", "Select" ,"eraser", "text" };
 
 		ButtonGroup group = new ButtonGroup();
 		this.setLayout(new FlowLayout());

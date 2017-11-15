@@ -10,6 +10,8 @@ public class SelectManipulator extends ShapeManipulator{
 	private Select select;
 	private View view;
 	private String type;
+	private Rectangle rectangle;
+	//private Point corner;
 	/**
 	 * Gets the view and string type.
 	 * @param view
@@ -24,6 +26,8 @@ public class SelectManipulator extends ShapeManipulator{
 	@Override
 	public void operationPressed(MouseEvent e) {
 		// TODO Auto-generated method stub
+		//this.corner = new Point(e.getX(), e.getY());
+		//this.rectangle.setCorner(new Point(e.getX(), e.getY()));
 		this.select = new Select(new Point(e.getX(), e.getY()), view);
 		
 		
@@ -34,9 +38,12 @@ public class SelectManipulator extends ShapeManipulator{
 		// TODO Auto-generated method stub
 		if(type == "paste") {
 			System.out.println(type);
-			select.update(e.getX(), e.getY());
-			
-			
+			select.update(e.getX(), e.getY());	
+		}else {
+		//	rectangle.setColor(color.black);
+		//	rectangle.setHeight(Math.abs(e.getY() - corner.getY()));
+		//	rectangle.setWidth(Math.abs(e.getX() - corner.getX()));
+			view.getPaintPanel().getModel().setDraw(this.rectangle);
 		}
 		
 	}
