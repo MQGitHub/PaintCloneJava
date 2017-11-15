@@ -2,8 +2,22 @@ package ca.utoronto.utm.paint;
 
 import java.awt.BasicStroke;
 
+/**
+ * 
+ * BasicStroke factory creates the stroke pattern used in the application. It has a thickness and stroke name.
+ *
+ */
 public class StrokeFactory {
 
+	/**
+	 * Create and return the stroke used in the application
+	 * @param stroke
+	 * 			Stroke name
+	 * @param thickness
+	 * 			Thickness of stroke
+	 * @return
+	 * 		The corresponding stroke
+	 */	
 	public BasicStroke strokeManipulator(String stroke, int thickness) {
 
 		BasicStroke b = new BasicStroke();

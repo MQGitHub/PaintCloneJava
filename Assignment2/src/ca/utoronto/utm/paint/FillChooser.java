@@ -6,14 +6,31 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+/**
+ * 
+ * A FillChooser has a fillSelector from which the user can set
+ * the fill level.
+ *
+ */
 public class FillChooser implements ChangeListener{
 
 	private View view;
 	
+	/**
+	 * Initialize the view by connecting the view and FillChooser.
+	 * 
+	 * @param view
+	 *            The view of Paint model.
+	 */
 	public FillChooser(View view) {
 		this.view = view;
 	}
 	
+	/**
+	 * Construct a JMenuBar with a JSlider to choose the fill
+	 * 
+	 * @return JMenuBar with a JSlider
+	 */
 	public JMenuBar fillSelector() {
 		JMenuBar b = new JMenuBar();
 		JMenu f = new JMenu("Fill");
@@ -33,6 +50,9 @@ public class FillChooser implements ChangeListener{
 		return b;
 	}
 
+	/**
+	 * Controller aspect of this
+	 */
 	@Override
 	public void stateChanged(ChangeEvent e) {
 		JSlider x = (JSlider) e.getSource();
