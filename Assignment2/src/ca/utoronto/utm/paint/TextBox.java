@@ -1,5 +1,6 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -59,6 +60,7 @@ public class TextBox extends Shape {
 		}
 		g2d.setFont(new Font(this.font, Font.PLAIN, this.fontSize));
 		g2d.setColor(this.getColor());
+		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
 		g2d.drawString(input, x, y);
 		g2d.setTransform(o);
 	}
