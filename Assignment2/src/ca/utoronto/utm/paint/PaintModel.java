@@ -16,7 +16,52 @@ public class PaintModel extends Observable {
 	private ArrayList<Shape> removedShapes = new ArrayList<Shape>();
 	private Shape current;
 	private boolean undoAll;
-
+	private ArrayList<Shape> Copied_shapes = new ArrayList<Shape>();
+	private ArrayList<Point> corners = new ArrayList<Point>();
+	
+	/**
+	 * Returns current array list of copied shapes.
+	 * @return ArrayList<shape> Copied_shapes
+	 */
+	public ArrayList<Shape> getCopied_shapes(){
+		return Copied_shapes;
+	}
+	/**
+	 * Adds given shape to an array list of copied shapes. 
+	 * @param s
+	 */
+	public void setCopied_shapes(Shape s) {
+		Copied_shapes.add(s);
+	}
+	/**
+	 * Returns an array list of points which are corresponding
+	 * with the copied shapes by index. These are the shapes 
+	 * corners. Their current point.
+	 * @return ArrayList<Point> corners
+	 */
+	public ArrayList<Point> getcorners(){
+		return corners;
+	}
+	/**
+	 * Adds given Point also known as corner to an array list
+	 * that keeps track of all of the copied shapes array list.
+	 * @param p
+	 */
+	public void setcorners(Point p) {
+		corners.add(p);
+	}
+	/**
+	 * 
+	 */
+	public void resetcopies() {
+		Copied_shapes.clear();
+		corners.clear();
+	}
+	
+	
+	
+	
+	
 	/**
 	 * if there are no shapes in the ArrayList shapes, then add a circle with
 	 * co-ordinates outside of our panel. else add given shape to the shapes 
