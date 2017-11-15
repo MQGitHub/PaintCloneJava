@@ -42,9 +42,7 @@ public class Polyline extends Shape {
 		this.xPoints = new ArrayList<Integer>();
 		this.yPoints = new ArrayList<Integer>();
 		this.numPoints = 0;
-		this.startPoint = start;
-		this.radius = Math.sqrt(18) + (stroke.getLineWidth()/2); // increasing the radius to make it easier to finish the polyline.
-		this.numPoints = 0;
+		this.radius = Math.sqrt(18) + (stroke.getLineWidth()/2);
 	}
 
 	/**
@@ -92,14 +90,11 @@ public class Polyline extends Shape {
 				&& this.points.get(0).getY() == this.points.get(this.points.size() - 1).getY()) {
 			return true;
 		} else if (this.points.size() > 2 && this.inRadius(this.points.get(this.points.size() - 1))) {
-			this.points.set(this.points.size()-1, this.points.get(0));
-		} else if (this.points.size() > 2 && this.inRadius(this.points.get(this.points.size() - 1))) {
 			this.Complete();
 			return true;
 		} else {
 			return false;
 		}
-		return false;
 	}
 
 	/**

@@ -1,6 +1,7 @@
 package ca.utoronto.utm.paint;
 
 
+import java.awt.BasicStroke;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
@@ -11,7 +12,7 @@ public class SelectManipulator extends ShapeManipulator{
 	private View view;
 	private String type;
 	private Rectangle rectangle;
-	//private Point corner;
+	private Point corner;
 	/**
 	 * Gets the view and string type.
 	 * @param view
@@ -26,9 +27,21 @@ public class SelectManipulator extends ShapeManipulator{
 	@Override
 	public void operationPressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		//this.corner = new Point(e.getX(), e.getY());
-		//this.rectangle.setCorner(new Point(e.getX(), e.getY()));
+		BasicStroke b = new BasicStroke();
+		float dash1 [] = new float[] { 10.0f, 10.0f };
+		b = new BasicStroke(1, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0f, dash1, 1);
+		this.corner = new Point(e.getX(), e.getY());
+		this.rectangle = new Rectangle(color.black, 1, 0, this.corner, 0, 0, b);
+		this.rectangle.setCorner(new Point(e.getX(), e.getY()));
 		this.select = new Select(new Point(e.getX(), e.getY()), view);
+		int min_X = Math.min(corner.getX(), e.getX());
+		int min_Y = Math.min(corner.getY(), e.getY());
+		int max_X = Math.max(corner.getX(), e.getX());
+		int max_Y = Math.max(corner.getY(), e.getY());
+		this.rectangle.setCorner(new Point(min_X, min_Y));
+		this.rectangle.setWidth(max_X - min_X);
+		this.rectangle.setHeight(max_Y - min_Y);
+		view.getPaintPanel().getModel().setDraw(this.rectangle);
 		
 		
 	}
@@ -37,12 +50,11 @@ public class SelectManipulator extends ShapeManipulator{
 	public void operationDragged(MouseEvent e) {
 		// TODO Auto-generated method stub
 		if(type == "paste") {
-			System.out.println(type);
 			select.update(e.getX(), e.getY());	
 		}else {
-		//	rectangle.setColor(color.black);
-		//	rectangle.setHeight(Math.abs(e.getY() - corner.getY()));
-		//	rectangle.setWidth(Math.abs(e.getX() - corner.getX()));
+			rectangle.setColor(color.black);
+			rectangle.setHeight(Math.abs(e.getY() - this.rectangle.getCorner().getY()));
+			rectangle.setWidth(Math.abs(e.getX() - this.rectangle.getCorner().getX()));
 			view.getPaintPanel().getModel().setDraw(this.rectangle);
 		}
 		
@@ -71,7 +83,7 @@ public class SelectManipulator extends ShapeManipulator{
 			type = "select";
 			this.view.getPaintPanel().getModel().resetcopies();
 		}
-		
+		view.getPaintPanel().getModel().setDraw(null);
 	}
 
 	@Override
