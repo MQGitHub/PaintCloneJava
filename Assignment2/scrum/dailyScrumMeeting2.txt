@@ -109,8 +109,13 @@ Nov 12, 2017
 	Today 	  : Finish Strategy pattern.
 	Obstacles : Alot of strategy to modify.
 
-Nov 12, 2017
+Nov 13, 2017
 	Yesterday : Finished Strategy design pattern
 	Today 	  : Fix UI, merge finished userstories, add keybindings
 	Obstacles : Minor errors.
+	
+Nov 14, 2017
+	Yesterday : Fixed UI, merged userStories i completed, added keybindings for Jmenu Items
+	Today 	  : JavaDoc, Minor error fixes.
+	Obstacles : None.
 	
