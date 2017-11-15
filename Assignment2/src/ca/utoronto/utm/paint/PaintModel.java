@@ -58,10 +58,6 @@ public class PaintModel extends Observable {
 		corners.clear();
 	}
 	
-	
-	
-	
-	
 	/**
 	 * if there are no shapes in the ArrayList shapes, then add a circle with
 	 * co-ordinates outside of our panel. else add given shape to the shapes 
@@ -82,6 +78,11 @@ public class PaintModel extends Observable {
 		this.notifyObservers();
 	}
 	
+	/**
+	 * If there are shapes to remove it will remove the most
+	 * current shape. Otherwise if undoAll is true then it will
+	 * remove all the shapes created.
+	 */
 	public void Undo() {
 		
 		if (shapes.size() > 0) {
@@ -100,6 +101,7 @@ public class PaintModel extends Observable {
 		this.notifyObservers();
 	}
 	
+
 	public void Redo() {
 		if (this.removedShapes.size() > 0) {
 			this.shapes.add(this.removedShapes.get(this.removedShapes.size()-1));
@@ -109,6 +111,9 @@ public class PaintModel extends Observable {
 		this.notifyObservers();
 	}
 	
+	/**
+	 * 
+	 */
 	public void Clear() {
 		while (this.shapes.size() > 0) {
 			this.removedShapes.add(this.shapes.get(this.shapes.size()-1));
