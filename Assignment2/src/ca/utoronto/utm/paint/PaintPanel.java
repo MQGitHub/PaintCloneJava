@@ -31,6 +31,7 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	private BasicStroke stroke;
 	private ShapeManipulator shapeManipulator;
 	private int opacity;
+	private int rotate;
 
 	
 	public PaintPanel(PaintModel model, View view) {
@@ -218,5 +219,12 @@ class PaintPanel extends JPanel implements Observer, MouseMotionListener, MouseL
 	@Override
 	public void mouseExited(MouseEvent e) {
 	}
+
+	public void setRotate(int value) {
+		this.rotate = value;	
+	}
 	
+	public int getRotate() {
+		return this.rotate;
+	}
 }

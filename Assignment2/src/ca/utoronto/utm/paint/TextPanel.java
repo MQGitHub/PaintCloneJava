@@ -7,6 +7,7 @@ import java.awt.GraphicsEnvironment;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Hashtable;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -69,6 +70,26 @@ public class TextPanel extends JTextArea implements ActionListener, ChangeListen
 		s.addChangeListener(this);
 		size.add(s);
 		b.add(size);
+		
+		JMenu m = new JMenu("Orientation");
+		
+		JSlider r = new JSlider(SwingConstants.HORIZONTAL,0, 360, 0);
+		r.setName("Degrees");
+		Hashtable<Integer, JLabel> table = new Hashtable<Integer, JLabel>();
+	    table.put (0, new JLabel("0" + "\u00b0"));
+	    table.put (90, new JLabel("90" + "\u00b0"));
+	    table.put (180, new JLabel("180" + "\u00b0"));
+	    table.put (270, new JLabel("270" + "\u00b0"));
+	    table.put (360, new JLabel("360"+ "\u00b0"));
+	    r.setLabelTable(table);
+	    r.setMinorTickSpacing(15);
+	    r.setMajorTickSpacing(90);
+	    r.setPaintTicks(true);
+		r.setPaintLabels(true);
+		r.setSnapToTicks(true);
+		r.addChangeListener(this);
+		m.add(r);
+		b.add(m);
 
 		menuBar.add(b);
 
@@ -86,7 +107,11 @@ public class TextPanel extends JTextArea implements ActionListener, ChangeListen
 	
 	public void stateChanged(ChangeEvent e) {
 		JSlider x = (JSlider) e.getSource();
-		this.view.getPaintPanel().setFontSize(x.getValue());
+		if (x.getName() == "Font Size") {
+			this.view.getPaintPanel().setFontSize(x.getValue());
+		}else if (x.getName() == "Degrees"){
+			this.view.getPaintPanel().setRotate(x.getValue());
+		}
 	}
 
 }

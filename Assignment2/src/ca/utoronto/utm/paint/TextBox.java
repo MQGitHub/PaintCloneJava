@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.geom.AffineTransform;
 import java.util.Map;
 
 import javax.swing.JLabel;
@@ -20,6 +21,7 @@ public class TextBox extends Shape {
 	private String font;
 	private int fontSize;
 	private String input;
+	private int rotate;
 
 	/**
 	 * Constructs a shape of type TextBox with a specific color, fontSize, font,
@@ -36,21 +38,29 @@ public class TextBox extends Shape {
 	 * @param input
 	 *            The string being painted
 	 */
-	public TextBox(Color colour, ca.utoronto.utm.paint.Point corner, int fontSize, String font, String input) {
+	public TextBox(Color colour, ca.utoronto.utm.paint.Point corner, int fontSize, String font, String input,
+			int rotate) {
 		super(colour, 1, 0, corner, new BasicStroke());
 		this.font = font;
 		this.fontSize = fontSize;
 		this.input = input;
+		this.rotate = rotate;
 	}
 
 	@Override
 	public void draw(Graphics2D g2d) {
 		int x = this.getCorner().getX();
 		int y = this.getCorner().getY();
+		AffineTransform o = 	g2d.getTransform();
+		if (rotate > 0) {
+			AffineTransform at = new AffineTransform();
+	        at.setToRotation(Math.toRadians(360 - rotate), x, y);
+	        g2d.setTransform(at);
+		}
 		g2d.setFont(new Font(this.font, Font.PLAIN, this.fontSize));
 		g2d.setColor(this.getColor());
 		g2d.drawString(input, x, y);
-
+		g2d.setTransform(o);
 	}
 
 }

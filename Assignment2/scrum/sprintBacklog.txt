@@ -475,6 +475,24 @@ ESTIMATE : 3 hours
 ISSUE    : The current design for stroke can be implemented better
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : BUG 13 qures304
+NAME     : Polyline does not work well with new strategy
+OWNER    : Mateen Qureshi
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : The current polyline does not close or work with new design pattern
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 14 khanha46
+NAME     : Selected shapes are moved too far.
+OWNER    : khanha46
+PRIORITY : 1
+ESTIMATE : 2 hours
+AS A     : user
+ISSUE    : When shapes are pasted, they are pasted further to the bottom
+		   right then the current location of the mouse. 
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 2.1 : UTORID
 NAME     : Architecture for drawing shapes can be improved
 OWNER    : Hannage6
@@ -593,4 +611,25 @@ AS A     : user
 I WANT   : As a user i want to be able to press specific keys to activate commands 
 		   from the JMenu
 SO THAT  : I can run commands without scrolling to the JMenu and clicking the action i want.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 28
+NAME     : Polygon / Polyline 
+OWNER    : Mateen Qureshi 
+PRIORITY : 1 
+ESTIMATE : 1 hour.
+AS A     : user
+I WANT   : As a user I want to have a polygon drawer and want polyline to be a polyline.
+SO THAT  : I can pretend I'm Picasso and do some Cubism and 
+have a polyline that does not close automatically.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 29 lakhtak1
+NAME     : Text Rotator
+OWNER    : Radhika Lakhtakia 
+PRIORITY : 1 
+ESTIMATE : 1 hour.
+AS A     : user
+I WANT   : As a user I want to be able to write text in different directions.
+SO THAT  : I can draw text in different directions.
 --------------------------------------------------------------------------
