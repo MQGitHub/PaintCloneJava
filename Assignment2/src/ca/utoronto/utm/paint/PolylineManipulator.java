@@ -2,6 +2,7 @@ package ca.utoronto.utm.paint;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 
 public class PolylineManipulator extends ShapeManipulator{
@@ -18,6 +19,12 @@ public class PolylineManipulator extends ShapeManipulator{
 		begin = new Point(color, thick, e.getX(), e.getY());
 		fill = pp.getOpacity();
 		stroke = pp.getStroke();
+		if (e.getButton() == MouseEvent.BUTTON3 && this.polyline != null) {
+            this.polyline.Complete();
+            this.model.addShape(this.polyline);
+            this.polyline = null;
+            return;
+        }
 		if (this.polyline == null) {
 			if (this.polyline == null) {
 				this.polyline = new Polyline(this.color, thick, fill, begin, stroke);
@@ -33,19 +40,19 @@ public class PolylineManipulator extends ShapeManipulator{
 	@Override
 	public void operationDragged(MouseEvent e) {
 		Point newP = new Point(color, thick, e.getX(), e.getY());
-		this.polyline.setEndPoint(newP);
-		
+		if (this.polyline != null) {
+			this.polyline.setEndPoint(newP);
+		}
+
 	}
 
 	@Override
 	public void operationClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void operationReleased(MouseEvent e) {
-		if (this.polyline.getStartPoint() != this.polyline.getEndPoint()) {
+		if (this.polyline != null && !this.polyline.completedPolyline()) {
 			Point newP = new Point(color, thick, e.getX(), e.getY());
 			this.polyline.setEndPoint(newP);
 			this.polyline.addPoint(this.polyline.getStartPoint());
@@ -55,17 +62,19 @@ public class PolylineManipulator extends ShapeManipulator{
 				this.model.setDraw(this.polyline);
 			} else if (this.polyline.completedPolyline() && this.polyline.getNumPoints() > 2) {
 				this.model.addShape(this.polyline);
-				//this.polyline = null;
+				this.polyline = null;
 			} else {
-				//this.polyline = null;
+				this.polyline = null;
 			}
 
 		} else {
-			//this.polyline = null;
+			this.polyline = null;
 		}
 	}
 
 	@Override
 	public void operationMoved(MouseEvent e) {
 	}
+	
+
 }
