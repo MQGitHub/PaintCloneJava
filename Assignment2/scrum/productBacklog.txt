@@ -648,18 +648,6 @@ SO THAT  : I can draw text in different directions.
 --------------------------------------------------------------------------
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 --------------------------------------------------------------------------
-TYPE     : BUG 3
-NAME     : Architecture behind choosing selection mode is poor
-OWNER    : 
-PRIORITY :
-ESTIMATE : 
-ISSUE    : Code is not modular and is difficult to expand. Need a better
-           architecture behind selecting a drawing mode, and handling
-           the drawing events. Consider some design patterns here.
-           Refactor ShapeChooserPanel and PaintPanel to get rid of the
-           'if' blocks in the PaintPanel mouse event code.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : USER STORY 14
 NAME     : BackGround Picker
 OWNER    : 
