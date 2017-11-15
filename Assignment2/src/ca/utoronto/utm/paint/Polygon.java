@@ -1,5 +1,6 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -172,6 +173,9 @@ public class Polygon extends Shape {
 			g2d.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
 		}
 		if (this.points.size() > 0) {
+			int i = this.fillAmt();
+			g2d.setColor(this.getColor());
+			g2d.setStroke(this.getStroke());
 			g2d.setColor(this.points.get(this.points.size() - 1).getColor());
 			g2d.setStroke(this.getStroke());
 			//Taken from https://stackoverflow.com/questions/960431/how-to-convert-listinteger-to-int-in-java
@@ -179,6 +183,13 @@ public class Polygon extends Shape {
 			int arrXPoints [] = xPoints.stream().mapToInt(Integer::intValue).toArray();
 			int arrYPoints [] = yPoints.stream().mapToInt(Integer::intValue).toArray();
 			g2d.drawPolyline(arrXPoints, arrYPoints, numPoints);
+			if(i > 0) { 
+				g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, this.fillAmt()* 0.1f));
+				g2d.drawPolyline(arrXPoints,arrYPoints, numPoints);
+				if(this.completedPolygon()) {
+					g2d.fillPolygon(arrXPoints,arrYPoints, numPoints);
+				}
+			}
 		}
 	}
 
