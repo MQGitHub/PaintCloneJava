@@ -1,0 +1,125 @@
+# Fill in, commit and push each day.
+# Group Member: Hassan Khan
+
+Oct 23, 2017
+	Yesterday : Break.
+	Today     : Break.
+	Obstacles : Break.
+
+Oct 24, 2017
+	Yesterday : Break.
+	Today     : Break.
+	Obstacles : Break.
+
+Oct 25, 2017
+	Yesterday : Break.
+	Today     : Read the assignment.
+	Obstacles : No obstacles. 
+
+Oct 26, 2017
+	Yesterday : Break.
+	Today     : Break.
+	Obstacles : Break.
+
+Oct 27, 2017
+	Yesterday : Break.
+	Today     : Break.
+	Obstacles : Break.
+
+Oct 28, 2017
+	Yesterday : Break.
+	Today     : Break.
+	Obstacles : Break.
+
+Oct 29, 2017
+	Yesterday : Break.
+	Today     : Break.
+	Obstacles : Break.
+
+Oct 30, 2017
+	Yesterday : Break.
+	Today     : Break.
+	Obstacles : Break.
+
+Oct 31, 2017
+	Yesterday : Break.
+	Today     : Worked on bug5 scribble.
+	Obstacles : Understanding how scribble works.
+
+Nov 1, 2017
+	Yesterday : Figured out how to fix scribble, allowing it to draw separate scribbles and Added a color panel. 
+	Today     : Working on how to actively change color. User story5
+	Obstacles : all previous drawings change color as we change the current color.
+	
+Nov 2, 2017
+	Yesterday : Colors all previous drawings.
+	Today     : Attempt to update colors as drawing is happening.
+	Obstacles : Scribble and shapes are on a different arraylist.
+	
+Nov 3, 2017
+	Yesterday : Color is still buggy but  
+	Today     : Fix color, not updating correctly.
+	Obstacles : For loop draws the scribbles over and over, so redrawing causes every moment causes problems.
+
+Nov 4, 2017
+	Yesterday : fixed the problem where the old color carried on to the next scribble for some of that scribble.
+	Today     : Start the work for polyline with mateen.
+	Obstacles : Having a polyline be created as the user is dragging.
+
+Nov 5, 2017
+	Yesterday : Polyline was completed with the help of George.
+	Today     : Working on javadocs
+	Obstacles :
+	
+Nov 6, 2017
+	Yesterday : Break.  
+	Today     : Break.
+	Obstacles : Break.
+	
+Nov 7 , 2017
+	Yesterday : Break. 
+	Today     : Break. Stats test.
+	Obstacles : Break.	
+	
+Nov 8, 2017
+	Yesterday : Break.
+	Today     : Worked on user story 15. If filled shape is true and a polyline closes then the 
+				polyline will be filled in with the current color.
+	Obstacles : Figuring out how to use the fill tool for polyline.
+
+Nov 9, 2017
+	Yesterday : Break.  
+	Today     : Break.
+	Obstacles : Break.
+
+Nov 10, 2017
+	Yesterday : Break.  
+	Today     : Break.
+	Obstacles : Break.
+
+Nov 11, 2017
+	Yesterday : Break.
+	Today     : Working on user story 19. Zooming in and out. (Userstory 19 was renamed later.)
+	Obstacles : Zooming could be completed. Attempt (1) used scale method which zoomed in to the top left corner. Instead of location of mouse
+				Attempt (2) Tried to redraw the shapes bigger or smaller depending on the amount scrolled in or out.
+				This did not work because some shape could not be drawn to scale easily. A method is given in swing to draw shapes to a specific 
+				scale but that did not work because out shapes have their own class unrelated to the shape class used in swing.
+	
+Nov 12, 2017
+	Yesterday : Stopped working on UserStory19 Zooming in and out.
+	Today     : Working on user story 19. (Currently named Copy and Paste.)
+	Obstacles : Copying the shapes was not possible. Any attempt at copying created a pointer to the original shape. Full copies could not be created
+				because all attributes of said shape can not be obtained from an abstract shape.
+	
+Nov 13, 2017
+	Yesterday : Started working on select and move 
+	Today     : Finish UserStory 19.1, UserStory 19.2 and 19.3
+	Obstacles : Entire design pattern was changed, I had to re write the code for userstory 19 to fit the design pattern.
+				This took a very long time.
+			  *Note that the late commit of User Story 19 was caused by the change of it's purpose two times.
+Nov 14, 2017
+	Yesterday : Finished UserStory 19.1, 19.2, 19.3
+	Today     : Still adjusting code due to change in design pattern. Once finished do Bug 14. 
+	Obstacles : None. Bug 14 is a small fix.
+
+	

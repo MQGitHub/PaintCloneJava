@@ -1,0 +1,119 @@
+# Fill in, commit and push each day.
+# Group Member: Radhika Lakhtakia
+
+Oct 23, 2017
+	Yesterday : N/A
+	Today     : Read assignment.
+	Obstacles : Planning with group.
+
+Oct 24, 2017
+	Yesterday : Assignment was read over.
+	Today     : Day off.
+	Obstacles : No obstacles.
+
+Oct 25, 2017
+	Yesterday : Day off.
+	Today     : Day off.
+	Obstacles : N/A
+
+Oct 26, 2017
+	Yesterday : Day off.
+	Today     : Day off.
+	Obstacles : N/A
+
+Oct 27, 2017
+	Yesterday : Day off.
+	Today     : Day off.
+	Obstacles : N/A
+
+Oct 28, 2017
+	Yesterday : Day off.
+	Today     : Day off.
+	Obstacles : N/A
+
+Oct 29, 2017
+	Yesterday : Day off.
+	Today     : Day off.
+	Obstacles : N/A
+
+Oct 30, 2017
+	Yesterday : Day off.
+	Today     : Day off.
+	Obstacles : N/A
+
+Oct 31, 2017
+	Yesterday : Day off.
+	Today     : Work on buttons for colors and shapes.
+	Obstacles : None.
+
+Nov 1, 2017
+	Yesterday : Worked on buttons for colors and shapes.
+	Today     : Day off due to STA256 midterm.
+	Obstacles : None.
+	
+Nov 2, 2017
+	Yesterday : Day off.
+	Today     : Work on user story 6, and 11, as well as Bug 1.
+	Obstacles : None.
+	
+Nov 3, 2017
+	Yesterday : Worked on user story 6/ 11 and Bug 1.
+	Today     : Continued working on user story 11 and 7, as well as Bug 1.
+	Obstacles : Getting eraser to work over shapes, as well as not switching all drawn shapes to current thickness.
+
+Nov 4, 2017
+	Yesterday : Finished Bug 1 and majority of user story 11 and 7.
+	Today     : Finish user story 11
+	Obstacles : Clearing shapes from canvas
+
+Nov 5, 2017
+	Yesterday : Finished user story 11 as well as fixed bug 3.
+	Today     : Finish Triangle and submit assignment.
+	Obstacles : Making a triangle from polyline.
+	
+Nov 6, 2017
+	Yesterday : Finished Triangle and submitted assignment.
+	Today     : Read over A2P2 and discuss user stories.
+	Obstacles : Icons do not show up on school computers, needs to be fixed for this sprint.
+	
+Nov7 , 2017
+	Yesterday : Read over A2P2.
+	Today     : Work on Bug 6 - fixing squiggle.
+	Obstacles : None.
+	
+Nov 8, 2017
+	Yesterday : Unsuccessful attempt at fixing squiggle.
+	Today     : Work on squiggle and UserStory16.
+	Obstacles : Fixing squiggle without a for loop.
+
+Nov 9, 2017
+	Yesterday : Unsuccessful work on squiggle. Created branch for UserStory16.
+	Today     : Work on squiggle and UserStory16.
+	Obstacles : Fixing squiggle without a for loop.
+
+Nov 10, 2017
+	Yesterday : Unsuccessful work on squiggle. Added buttons for text in UserStory16
+	Today     : Day off.
+	Obstacles : None.
+
+Nov 11, 2017
+	Yesterday : Day off.
+	Today     : Finish UserStory16 and 17
+	Obstacles : none.
+	
+Nov 12, 2017
+	Yesterday : Finished UserStory16 and 17 and Bug2.3
+	Today     : Work on more shapes.
+	Obstacles : None.
+	
+Nov 13, 2017
+	Yesterday : Finished UserStory and 20 and started UserStory21
+	Today     : Finish UserStory21, fix code and merge user stories.
+	Obstacles : None.
+	
+Nov 14, 2017
+	Yesterday : Finished UserStory21 and organized productBacklog and SprintBacklog
+	Today     : Clean up code, fix any last minute errors, work on UserStory 27/29 and hand in assignment
+	Obstacles : None.	
+
+	

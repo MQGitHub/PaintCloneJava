@@ -1,0 +1,118 @@
+# Fill in, commit and push each day.
+# Group Member: Mateen Qureshi, note I commited under the names "user" and "MQ's Virual World".
+
+Oct 23, 2017
+	Yesterday : N/A
+	Today     : Read the assignment.
+	Obstacles : Figure out new Git Options
+
+Oct 24, 2017
+	Yesterday : Read assignment.
+	Today     : Figured out Git options.
+	Obstacles : Organize the branches
+
+Oct 25, 2017
+	Yesterday : Figured out Git options.
+	Today     : Created and organized Branches.
+	Obstacles : Plan the assignment.
+
+Oct 26, 2017
+	Yesterday : Off.
+	Today     : Off.
+	Obstacles : Off.
+
+Oct 27, 2017
+	Yesterday : Off.
+	Today     : Off.
+	Obstacles : Off.
+
+Oct 28, 2017
+	Yesterday : Off.
+	Today     : Off.
+	Obstacles : Off.
+
+Oct 29, 2017
+	Yesterday : Off.
+	Today     : Off.
+	Obstacles : Off.
+	
+Oct 30, 2017
+	Yesterday : Off.
+	Today     : Planned the assignment.
+	Obstacles : Start working on assignment.
+
+Oct 31, 2017
+	Yesterday : Planned the assignment.
+	Today     : Addressed and completed Bug 5
+	Obstacles : Make the Color panel functioning
+
+Nov 1, 2017
+	Yesterday : Completed Bug 5
+	Today     : Create a non-functioning colour choosing panel
+	Obstacles : Properly implement Colour Panel.
+	
+Nov 2, 2017
+	Yesterday : Colour panel now Colours but colours everything.
+	Today     :	Colour panel now Colours but colours everything. 
+	Obstacles : Properly implement Colour choosing
+	
+Nov 3, 2017
+	Yesterday : Addressed and completed Bug 5
+	Today     : Fixed Colour choosing, colours correctly but several bugs to fix
+	Obstacles : Fix Colour Choosing
+
+Nov 4, 2017
+	Yesterday : Fixed Colour choosing
+	Today     : Finished polyline 
+	Obstacles : Work on Color GUI
+
+Nov 5, 2017
+	Yesterday : Finished polyline
+	Today     : Finished Color GUI
+	Obstacles : Get my sleep
+
+Nov 6, 2017
+	Yesterday : Finished Color GUI
+	Today     : Slept
+	Obstacles : Fix polyline design
+	
+Nov 7, 2017
+	Yesterday : Slept
+	Today     : Fixed polyline design, set color of previously made shape
+	Obstacles : Design Patterns and consistent use of "color" or "colour"
+	
+Nov 8, 2017
+	Yesterday : Fixed polyline design
+	Today     : Attempted to create a color picker 
+	Obstacles : Get color picker working
+
+Nov 9, 2017
+	Yesterday : Attempted to create a color picker
+	Today     : Abandoned color picker
+	Obstacles : Fix squiggle and eraser
+	
+Nov 10, 2017
+	Yesterday : Abandoned color picker
+	Today     : Fixed squiggle and eraser design
+	Obstacles : Merge with master and fix the design of shapes array
+
+Nov 11, 2017
+	Yesterday : Fixed squiggle and eraser design
+	Today     : Break
+	Obstacles : Finish undo, redo, clear
+	
+Nov 12, 2017
+	Yesterday : Break
+	Today     : Fixed undo redo clear
+	Obstacles : Make ui nicer 
+	
+Nov 13, 2017
+	Yesterday : Fixed undo redo clear
+	Today     : Fix polyline to work after merge
+	Obstacles : Fix polyline more
+	
+Nov 14, 2017
+	Yesterday : Fixed polying to work after merge
+	Today     : Fix polyline to match spec and added polygon
+	Obstacles : Sleep
+

@@ -1,0 +1,121 @@
+
+# Fill in, commit and push each day.
+# Group Member: Georges Hanna
+
+Oct 23, 2017
+	Yesterday : N/A
+	Today     : read the assignment.
+	Obstacles : figure out how to setup branches correctly
+	
+Oct 24, 2017
+	Yesterday : read assignment
+	Today     : break.
+	Obstacles : break.
+
+Oct 25, 2017
+	Yesterday : break.
+	Today     : break.
+	Obstacles : break.
+
+Oct 26, 2017
+	Yesterday : break.
+	Today     : Start working on sprint backlog.
+	Obstacles : Understand how dragging and creating an image works.
+
+Oct 27, 2017
+	Yesterday : Read graphics2d API.
+	Today     : Work on fixing circle.
+	Obstacles : Something wrong with circle, I can't understand.
+
+Oct 28, 2017
+	Yesterday : Issue with circle.
+	Today     : More working on circle.
+	Obstacles : how to lock the center of circle in place.
+
+Oct 29, 2017
+	Yesterday : Work on circle.
+	Today     : Break.
+	Obstacles : Break.
+
+Oct 30, 2017
+	Yesterday : Break
+	Today     : Fix circle and start working on rectangle.
+	Obstacles : How to drag backwards with rectangles.
+
+Oct 31, 2017
+	Yesterday : Fix circle, got rectangle working and started working on square.
+	Today     : Got square to work properly.
+	Obstacles : Use same method as circle to get square from the center
+				in order to maintain equal width and height
+
+Nov 1, 2017
+	Yesterday : Finished square shape
+	Today     : Finish triangle, add eraser, implement new
+				design pattern to shapes.
+	Obstacles : Ended up doing different task, added new shapes, fixed bug2
+	
+Nov 2, 2017
+	Yesterday : Finished bug2, added line, worked on design patterns
+	Today     : work on design patterns.
+	Obstacles : which pattern to use?
+	
+Nov 3, 2017
+	Yesterday :helped fixed colour.
+	Today     : Modify code, fix color, thickness, fill problem
+	Obstacles : what is causing the problem
+
+Nov 4, 2017
+	Yesterday : Issue fixed.
+	Today     : Add extra features
+	Obstacles : How to implement the features
+
+Nov 5, 2017
+	Yesterday : cleaned code
+	Today     : JavaDoc, and review all the content
+	Obstacles : Last minute fixing.
+
+Nov 6, 2017
+	Yesterday : cleaned code
+	Today 	  : implemented factory design pattern
+	Obstacles : None
+
+Nov 7, 2017
+	Yesterday : implement factory design pattern
+	Today     : Break.
+	Obstacles : Break.
+	
+Nov 8, 2017
+	Yesterday : Break
+	Today     : Fix icons issue on linux.
+	Obstacles : What is causing the issue.
+	
+Nov 9, 2017
+	Yesterday : fixed icons.
+	Today     : Break, 236 problem set
+	Obstacles : Break
+	
+Nov 10, 2017
+	Yesterday : Break
+	Today     : see how to implement map how to draw shapes to the buttons.
+	Obstacles : How do u implement strategy and factory design patterns to do that.
+
+Nov 11, 2017
+	Yesterday : Tried to implement Strategy design pattern
+	Today     : Implement Factory/Strategy design pattern
+	Obstacles : How to get the info into the strategy classes
+
+Nov 12, 2017
+	Yesterday : Worked on design patterns.
+	Today 	  : Finish Strategy pattern.
+	Obstacles : Alot of strategy to modify.
+
+Nov 13, 2017
+	Yesterday : Finished Strategy design pattern
+	Today 	  : Fix UI, merge finished userstories, add keybindings
+	Obstacles : Minor errors.
+	
+Nov 14, 2017
+	Yesterday : Fixed UI, merged userStories i completed, added keybindings for Jmenu Items
+	Today 	  : JavaDoc, Minor error fixes.
+	Obstacles : None.
+	
